@@ -138,7 +138,7 @@
 <meta name="keywords" content="donghengyi, Hexo, NexT">
 <meta property="og:type" content="website">
 <meta property="og:title" content="H.Y&#39;s BLOG">
-<meta property="og:url" content="http://blog.dhengyi.name/tags/源码剖析-HashMap/index.html">
+<meta property="og:url" content="http://blog.dhengyi.name/tags/HashMap/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="忍耐力较诸脑力，尤胜一筹。">
 <meta property="og:locale" content="zh-CN">
@@ -153,7 +153,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/tags/源码剖析-HashMap/"/>
+  <link rel="canonical" href="http://blog.dhengyi.name/tags/HashMap/"/>
 
 
 
@@ -163,7 +163,7 @@
   };
 </script>
 
-  <title>标签: 源码剖析 HashMap | H.Y's BLOG</title>
+  <title>标签: HashMap | H.Y's BLOG</title>
   
 
 
@@ -356,7 +356,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>源码剖析 HashMap<small>标签</small>
+        <h1>HashMap<small>标签</small>
         </h1>
       </div>
 
@@ -475,7 +475,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -836,9 +838,25 @@
             });
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
             
           }
         },

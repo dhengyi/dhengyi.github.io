@@ -135,7 +135,7 @@
 
 
   <meta name="description" content="注：感谢 美团点评技术团队 的分享~~，博客部分内容摘抄自其中。侵删！ 今天我们来探究一下 HashMap 的内部实现机制。  明确 JDK 1.8 中的 HashMap 使用数组 + 链表 + 红黑树的结构进行实现。  HashMap 的底层思想主要是哈希表，我们来看看 Java 的设计者们是怎么使用数组 + 链表 + 红黑树设计出 HashMap 的。  HashMap的基本属性既然是用哈希表">
-<meta name="keywords" content="源码剖析 HashMap">
+<meta name="keywords" content="源码剖析,HashMap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java源码--JDK 1.8 HashMap重点源码部分剖析">
 <meta property="og:url" content="http://blog.dhengyi.name/2018/04/27/Java源码-JDK-1-8-HashMap重点源码部分剖析/index.html">
@@ -152,7 +152,7 @@
 <meta property="og:image" content="https://tech.meituan.com/img/java-hashmap/jdk1.7%20hashMap%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%BE%8B%E5%9B%BE2.png">
 <meta property="og:image" content="https://tech.meituan.com/img/java-hashmap/jdk1.7%20hashMap%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%BE%8B%E5%9B%BE3.png">
 <meta property="og:image" content="https://tech.meituan.com/img/java-hashmap/jdk1.7%20hashMap%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%BE%8B%E5%9B%BE4.png">
-<meta property="og:updated_time" content="2018-11-14T13:02:24.923Z">
+<meta property="og:updated_time" content="2018-11-14T13:15:39.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java源码--JDK 1.8 HashMap重点源码部分剖析">
 <meta name="twitter:description" content="注：感谢 美团点评技术团队 的分享~~，博客部分内容摘抄自其中。侵删！ 今天我们来探究一下 HashMap 的内部实现机制。  明确 JDK 1.8 中的 HashMap 使用数组 + 链表 + 红黑树的结构进行实现。  HashMap 的底层思想主要是哈希表，我们来看看 Java 的设计者们是怎么使用数组 + 链表 + 红黑树设计出 HashMap 的。  HashMap的基本属性既然是用哈希表">
@@ -411,7 +411,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-14 21:02:24" itemprop="dateModified" datetime="2018-11-14T21:02:24+08:00">2018-11-14</time>
+                <time title="修改时间：2018-11-14 21:15:39" itemprop="dateModified" datetime="2018-11-14T21:15:39+08:00">2018-11-14</time>
               
             
           </span>
@@ -729,7 +729,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/源码剖析-HashMap/" rel="tag"><i class="fa fa-tag"></i> 源码剖析 HashMap</a>
+            <a href="/tags/源码剖析/" rel="tag"><i class="fa fa-tag"></i> 源码剖析</a>
+          
+            <a href="/tags/HashMap/" rel="tag"><i class="fa fa-tag"></i> HashMap</a>
           
         </div>
       
@@ -873,7 +875,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1265,9 +1269,25 @@
             });
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
             
           }
         },
