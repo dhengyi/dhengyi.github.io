@@ -148,6 +148,8 @@
 <meta name="twitter:description" content="每个人都等待过，我甚至等待了很久，但我一直都有信心。——周星驰  大学就读于Xi’an University of Posts &amp;amp; Telecommunications~作为一名Xiyou Linuxer，喜爱动漫，喜爱音乐，喜爱旅行~ 为什么要开设一个自己的博客呢？原因主要有以下几点：  自从CSDN改版之后，我觉得是越来越难用。UI的确比之前好看多了，但是后台却越来越不稳定，常常有许多">
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="H.Y's BLOG" type="application/atom+xml" />
 
@@ -393,7 +395,7 @@
 <p>最后，欢迎光临我的小站，希望你能喜欢这里~</p>
 <p>下面贴上我最喜欢的歌曲~</p>
 
-    <div id="aplayer-AKLDqrKF" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1770692728" data-server="xiami" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
+    <div id="aplayer-QtSAsyma" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1770692728" data-server="xiami" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
 
         
       </div>
@@ -854,25 +856,9 @@
             });
           } else {
             
-              var newcounter = new Counter();
-              /* Set ACL */
-              var acl = new AV.ACL();
-              acl.setPublicReadAccess(true);
-              acl.setPublicWriteAccess(true);
-              newcounter.setACL(acl);
-              /* End Set ACL */
-              newcounter.set("title", title);
-              newcounter.set("url", url);
-              newcounter.set("time", 1);
-              newcounter.save(null, {
-                success: function(newcounter) {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-                },
-                error: function(newcounter, error) {
-                  console.log('Failed to create');
-                }
-              });
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
             
           }
         },
