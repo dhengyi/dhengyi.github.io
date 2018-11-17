@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="先说点题外话吧，在我刚开始学习爬虫的时候，有一次一个学长给了我一个需求，让我把京东图书的相关信息抓取下来。恩，因为真的是刚开始学习爬虫，并且是用豆瓣练得手，抓取了大概500篇左右的影评吧，然后存放到了mysql中，当时觉得自己厉害的不行，于是轻松的接下了这个需求。。。 然后信心满满的开始干活。。首先查看网页源代码。。。？？？我需要的东西源代码里面没有！！！然后去问了学长。学长给我说，这是AJAX产">
+<meta name="keywords" content="网络爬虫,PhantomJs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java网络爬虫--PhantomJs的使用及性能优化">
+<meta property="og:url" content="http://blog.dhengyi.name/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/index.html">
+<meta property="og:site_name" content="H.Y&#39;s BLOG">
+<meta property="og:description" content="先说点题外话吧，在我刚开始学习爬虫的时候，有一次一个学长给了我一个需求，让我把京东图书的相关信息抓取下来。恩，因为真的是刚开始学习爬虫，并且是用豆瓣练得手，抓取了大概500篇左右的影评吧，然后存放到了mysql中，当时觉得自己厉害的不行，于是轻松的接下了这个需求。。。 然后信心满满的开始干活。。首先查看网页源代码。。。？？？我需要的东西源代码里面没有！！！然后去问了学长。学长给我说，这是AJAX产">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-17T08:19:51.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java网络爬虫--PhantomJs的使用及性能优化">
+<meta name="twitter:description" content="先说点题外话吧，在我刚开始学习爬虫的时候，有一次一个学长给了我一个需求，让我把京东图书的相关信息抓取下来。恩，因为真的是刚开始学习爬虫，并且是用豆瓣练得手，抓取了大概500篇左右的影评吧，然后存放到了mysql中，当时觉得自己厉害的不行，于是轻松的接下了这个需求。。。 然后信心满满的开始干活。。首先查看网页源代码。。。？？？我需要的东西源代码里面没有！！！然后去问了学长。学长给我说，这是AJAX产">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H.Y's BLOG" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://blog.dhengyi.name/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java网络爬虫--PhantomJs的使用及性能优化 | H.Y's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H.Y's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-music">
+    <a href="/music/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-music"></i> <br />音乐</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dhengyi">
+      <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H.Y's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java网络爬虫--PhantomJs的使用及性能优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-10 22:29:57" itemprop="dateCreated datePublished" datetime="2017-10-10T22:29:57+08:00">2017-10-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-17 16:19:51" itemprop="dateModified" datetime="2018-11-17T16:19:51+08:00">2018-11-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java网络爬虫/" itemprop="url" rel="index"><span itemprop="name">Java网络爬虫</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/" class="leancloud_visitors" data-flag-title="Java网络爬虫--PhantomJs的使用及性能优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先说点题外话吧，在我刚开始学习爬虫的时候，有一次一个学长给了我一个需求，让我把京东图书的相关信息抓取下来。恩，因为真的是刚开始学习爬虫，并且是用豆瓣练得手，抓取了大概500篇左右的影评吧，然后存放到了mysql中，当时觉得自己厉害的不行，于是轻松的接下了这个需求。。。</p>
+<p>然后信心满满的开始干活。。首先查看网页源代码。。。？？？我需要的东西源代码里面没有！！！然后去问了学长。学长给我说，这是AJAX产生的数据，大概听完之后我就去查了资料。发现网上大片的资料都在阐述一个道理，对于动态页面，使用PhantomJs进行抓取，但是这样效率很低。作为一个优秀的程序员，当时看见效率很低这四个字，那在我心里是绝对不能被允许的，所以我就采用了抓包的方式，查看AJAX数据所在的URL，对于这个模拟浏览器的方法也就一直搁置到现在。</p>
+<p>但是既然知道了这个东西，哪有不去学习的道理。所以我抽出了一点时间看了一下关于Java方面使用PhantomJs的资料，现在分享给大家。</p>
+<p>对了，其实做网络爬虫，页面上90%的数据都可以使用抓包进行获取。所以我还是鼓励大家直接请求自己所需数据所在的URL。毕竟这种方式虽然方便，但是效率低下。</p>
+<hr>
+<p>###<strong>JS渲染与AJAX</strong><br>在学习这个东西之前我们首先得了解什么是JS渲染、什么是AJAX以及为何这两种数据我们在网页源码里面获取不到。</p>
+<p><strong>依照我的理解</strong>，JS渲染与AJAX是一种相辅相成的关系，AJAX负责异步从服务器端获取数据，拿到数据后再使用JS进行渲染，最后呈现给用户。由于在Java中，HttpClient只能请求简单的静态页面，并不能请求到页面完全加载好后由JS调用相关代码产生的异步数据，所以我们不能直接通过HttpClient获取AJAX与JS渲染产生的数据。此时按上面所说的推荐大家直接进行网络抓包拿到AJAX数据所在的URL，或者使用本文所说的PhantomJs渲染引擎。</p>
+<hr>
+<p>###<strong>三大JS渲染引擎的比较</strong><br>在网上进行资料查阅的时候，我们经常会因为五花八门的答案而不知所措，这时候一是要保持一颗平静的心情，二就要考虑搜索问题的相关姿势，必要的时候还需要科学上网。</p>
+<p>先不说本文所说的JS渲染引擎，单说在Java爬虫中HTTP请求的库简直就可以用五花八门来形容，Java的原生HttpURLConnection类，HttpClient第三方库等等… …当然网络上提供了这么多方法，我们必须要进行选择，那么我们肯定想选择功能强大的，使用简单的类库。此时我们就应该在网上搜索对两个类库做相关比较的问题，来进行更好的选择，而不是随便挑一个学习就完事了，这样很有可能投入的学习成本与回报不成正比。</p>
+<p>那么相信大家在准备使用JS引擎模拟浏览器的时候，在网上看过不仅有PhantomJs，还听说过Selenium，HtmlUnit这两个具有相同功能的东西。那么我们该如何选择呢？下图截选自其他网友的博客：</p>
+<table>
+<thead>
+<tr>
+<th>HtmlUnit</th>
+<th>Selenium</th>
+<th>PhantomJs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内置Rhinojs浏览器引擎，没有哪一款浏览器使用该内核，解析速度一般，解析JS/CSS差，无浏览器界面。</td>
+<td>Seleninum + WebDriver = Selenium基于本地安装的浏览器，需打开浏览器，需要引用相应的WebDriver，正确配置webdriver的路径参数，在爬取大量js渲染页面时明显不合适。</td>
+<td>神器，短小精悍，可本地化运行，也可作为服务端运行，基于webkit内核，性能及表现良好，完美解析绝大部分页面。</td>
+</tr>
+</tbody>
+</table>
+<p>这也是我选择讲述PhantomJs的原因。</p>
+<p>网上PhantomJs和Selenium还经常成对出现，原因是Selenium封装了PhantomJs的一部分功能，Selenium又提供了Python的接口模块，在Python语言中可以很好地去使用Selenium，间接地就可以使用PhantomJs。然而，是时候抛弃Selenium+PhantomJs了，原因之一此封装的接口很久没有更新了（没人维护了），原因之二Selenium只实现了一部分PhantomJs功能，且很不完善。</p>
+<hr>
+<p>###<strong>PhantomJs的使用</strong><br>我使用的Ubuntu16.04的开发环境，至于PhantomJs + Selenium的环境部署，网络上有大篇资料，我就在这里给大家引入一个链接，也不详细说明了：<a href="http://blog.csdn.net/u010843612/article/details/54702518" target="_blank" rel="noopener">ubuntu安装phantomjs</a></p>
+<p>关于PhantomJs和Selenium的介绍我也就不再详说，大家直接百度就可以了。我们直接来看一下在Java中应该怎么使用PhantomJs～</p>
+<p>如果你没有使用Maven的话，就在网上下载第三方jar包。我们所需要的Maven依赖如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.seleniumhq.selenium<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>selenium-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.53.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.github.detro.ghostdriver/phantomjsdriver --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.detro.ghostdriver<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>phantomjsdriver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接下来我们来看一下程序到底应该怎么写：</p>
+<p>####<strong>1.设置请求头</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置必要参数</span></span><br><span class="line">DesiredCapabilities dcaps = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line"><span class="comment">//ssl证书支持</span></span><br><span class="line">dcaps.setCapability(<span class="string">"acceptSslCerts"</span>, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//截屏支持</span></span><br><span class="line">dcaps.setCapability(<span class="string">"takesScreenshot"</span>, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//css搜索支持</span></span><br><span class="line">dcaps.setCapability(<span class="string">"cssSelectorsEnabled"</span>, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//js支持</span></span><br><span class="line">dcaps.setJavascriptEnabled(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//驱动支持（第二参数表明的是你的phantomjs引擎所在的路径，使用whereis phantomjs可以查看）</span></span><br><span class="line">dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, <span class="string">"/usr/local/bin/phantomjs"</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<p>####2.<strong>创建phantomjs浏览器对象</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建无界面浏览器对象</span></span><br><span class="line">PhantomJSDriver driver = <span class="keyword">new</span> PhantomJSDriver(dcaps);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>####<strong>3.设置隐性等待</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置隐性等待</span></span><br><span class="line">driver.manage().timeouts().implicitlyWait(<span class="number">1</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure></p>
+<p>因为Load页面需要一段时间，如果页面还没加载完就查找元素，必然是查找不到的。最好的方式，就是设置一个默认等待时间，在查找页面元素的时候如果找不到就等待一段时间再找，直到超时。</p>
+<p>以上三点是使用PhantomJs时需要注意的地方，大家可以看一下大致的整体程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.openqa.selenium.By;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.WebDriver;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.WebElement;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.phantomjs.PhantomJSDriver;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.phantomjs.PhantomJSDriverService;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.remote.DesiredCapabilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by hg_yi on 17-10-11.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">phantomjs</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//设置必要参数</span></span><br><span class="line">        DesiredCapabilities dcaps = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line">        <span class="comment">//ssl证书支持</span></span><br><span class="line">        dcaps.setCapability(<span class="string">"acceptSslCerts"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//截屏支持</span></span><br><span class="line">        dcaps.setCapability(<span class="string">"takesScreenshot"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//css搜索支持</span></span><br><span class="line">        dcaps.setCapability(<span class="string">"cssSelectorsEnabled"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//js支持</span></span><br><span class="line">        dcaps.setJavascriptEnabled(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//驱动支持（第二参数表明的是你的phantomjs引擎所在的路径）</span></span><br><span class="line">        dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,</span><br><span class="line">                <span class="string">"/usr/bin/phantomjs-2.1.1-linux-x86_64/bin/phantomjs"</span>);</span><br><span class="line">        <span class="comment">//创建无界面浏览器对象</span></span><br><span class="line">        PhantomJSDriver driver = <span class="keyword">new</span> PhantomJSDriver(dcaps);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置隐性等待（作用于全局）</span></span><br><span class="line">        driver.manage().timeouts().implicitlyWait(<span class="number">1</span>, TimeUnit.SECONDS);</span><br><span class="line">        <span class="comment">//打开页面</span></span><br><span class="line">        driver.get(<span class="string">"--------------------------------"</span>);</span><br><span class="line">        <span class="comment">//查找元素</span></span><br><span class="line">        WebElement element = driver.findElement(By.id(<span class="string">"img_valiCode"</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(element.getAttribute(<span class="string">"src"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我成功的抓取到了网页源码里面没有的数据～</p>
+<p>关于上面使用到的PhantomJSDriver类的相关API，大家直接看这篇资料即可，应该可以满足你的日常需求了：<a href="http://www.360doc.com/content/17/1011/17/48302374_694109515.shtml" target="_blank" rel="noopener">webdriver API中文版</a>（WebDriver的API同样适用于PhantomJSDriver）。</p>
+<hr>
+<p>###<strong>PhantomJs的性能优化</strong><br>我们都知道使用PhantomJs这种无头浏览器进行网页源码的抓取是非常费时的，所以当我们决定使用这个工具并且对抓取速度还有一定要求的时候，就需要掌握对PhantomJs进行性能优化的能力。</p>
+<p>####<strong>1.设置参数</strong><br>Google，Baidu半天，还看了一点官方文档，还是找不到PhantomJs相关的Java调用API文档，好吧，先扔一篇Python的，以后找到这方面的内容再进行补充吧～～～</p>
+<p><a href="https://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">【phantomjs系列】Selenium+Phantomjs性能优化</a></p>
+<p>题外话：其实对于Java网络爬虫。。。真想吐槽，建议刚开始准备学爬虫的人还是转战Python爬虫吧～～对于Java爬虫，只说一句话：学习难度大，学习周期长，投出与收入不成正比！！！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="dhengyi 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="dhengyi 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>dhengyi</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.dhengyi.name/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/" title="Java网络爬虫--PhantomJs的使用及性能优化">http://blog.dhengyi.name/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络爬虫/" rel="tag"><i class="fa fa-tag"></i> 网络爬虫</a>
+          
+            <a href="/tags/PhantomJs/" rel="tag"><i class="fa fa-tag"></i> PhantomJs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/29/Java并发-DCL双检查锁机制中的volatile/" rel="next" title="Java并发--DCL双检查锁机制中的volatile">
+                <i class="fa fa-chevron-left"></i> Java并发--DCL双检查锁机制中的volatile
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/01/计算机网络-Web缓存机制/" rel="prev" title="计算机网络--Web缓存机制">
+                计算机网络--Web缓存机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b1b84e5da5a0290" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzUwNy8xNDAzOQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="dhengyi" />
+            
+              <p class="site-author-name" itemprop="name">dhengyi</p>
+              <p class="site-description motion-element" itemprop="description">忍耐力较诸脑力，尤胜一筹。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/dhengyi" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:spider_hgyi@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/_dniklaus" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weixin.sogou.com/weixin?query=%E8%A5%BF%E9%82%AElinux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84" target="_blank" title="WeChat"><i class="fa fa-fw fa-wechat"></i>WeChat</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/spider_hgyi" target="_blank" title="Zhihu"><i class="fa fa-fw fa-star"></i>Zhihu</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5256701201/profile" target="_blank" title="weibo"><i class="fa fa-fw fa-weibo"></i>weibo</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.xiyoulinux.org/" title="XiyouLinux Group群博" target="_blank">XiyouLinux Group群博</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://0xffffff.org/" title="浅墨的部落格" target="_blank">浅墨的部落格</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lindayi.me/" title="Dayi Lin" target="_blank">Dayi Lin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://saili.science/" title="Alex LEE" target="_blank">Alex LEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.shiyicode.com/" title="ShiYi" target="_blank">ShiYi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://evil-crow.github.io/" title="Crow" target="_blank">Crow</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dhengyi</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">269k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">5:false</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("HS3DTHXOjBy0kWIxNDE5jyQX-gzGzoHsz", "q7Sh0VO8bVHpqINfpENkVyPn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>

@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="###MySQL实用语句操作1.清空数据库表的同时将id的增长顺序重新设为从0开始：1TRUNCATE TABLE 数据库表名 2.在知道数据库原密码的时候进行修改密码：1mysqladmin -u root -p password &quot;new password&quot; 3.将选定数据库导出至sql脚本：（只导出表结构）1mysqldump -u root -p -d &quot;数据库名&quot; &amp;gt; &quot;sql脚本">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据库--MySQL数据库语句、坑点总结">
+<meta property="og:url" content="http://blog.dhengyi.name/2017/04/14/MySQL数据库-MySQL数据库语句、坑点总结/index.html">
+<meta property="og:site_name" content="H.Y&#39;s BLOG">
+<meta property="og:description" content="###MySQL实用语句操作1.清空数据库表的同时将id的增长顺序重新设为从0开始：1TRUNCATE TABLE 数据库表名 2.在知道数据库原密码的时候进行修改密码：1mysqladmin -u root -p password &quot;new password&quot; 3.将选定数据库导出至sql脚本：（只导出表结构）1mysqldump -u root -p -d &quot;数据库名&quot; &amp;gt; &quot;sql脚本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-17T08:54:33.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL数据库--MySQL数据库语句、坑点总结">
+<meta name="twitter:description" content="###MySQL实用语句操作1.清空数据库表的同时将id的增长顺序重新设为从0开始：1TRUNCATE TABLE 数据库表名 2.在知道数据库原密码的时候进行修改密码：1mysqladmin -u root -p password &quot;new password&quot; 3.将选定数据库导出至sql脚本：（只导出表结构）1mysqldump -u root -p -d &quot;数据库名&quot; &amp;gt; &quot;sql脚本">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="H.Y's BLOG" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://blog.dhengyi.name/2017/04/14/MySQL数据库-MySQL数据库语句、坑点总结/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MySQL数据库--MySQL数据库语句、坑点总结 | H.Y's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H.Y's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-music">
+    <a href="/music/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-music"></i> <br />音乐</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/04/14/MySQL数据库-MySQL数据库语句、坑点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dhengyi">
+      <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H.Y's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL数据库--MySQL数据库语句、坑点总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-04-14 18:04:23" itemprop="dateCreated datePublished" datetime="2017-04-14T18:04:23+08:00">2017-04-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-17 16:54:33" itemprop="dateModified" datetime="2018-11-17T16:54:33+08:00">2018-11-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MySQL数据库/" itemprop="url" rel="index"><span itemprop="name">MySQL数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/14/MySQL数据库-MySQL数据库语句、坑点总结/" class="leancloud_visitors" data-flag-title="MySQL数据库--MySQL数据库语句、坑点总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###<strong>MySQL实用语句操作</strong><br>1.清空数据库表的同时将id的增长顺序重新设为从0开始：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> 数据库表名</span><br></pre></td></tr></table></figure></p>
+<p>2.在知道数据库原密码的时候进行修改密码：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password "new password"</span><br></pre></td></tr></table></figure></p>
+<p>3.将选定数据库导出至sql脚本：（只导出表结构）<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p -d "数据库名" &gt; "sql脚本"</span><br></pre></td></tr></table></figure></p>
+<p>4.将选定数据库导出至sql脚本（表结构和数据全部导出）：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p "数据库名" &gt; "sql脚本"</span><br></pre></td></tr></table></figure></p>
+<p>5.将mysql脚本导入至数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p "数据库名" &lt; "sql脚本"</span><br></pre></td></tr></table></figure></p>
+<p>6.查看字段编码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">FULL</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> &lt;表名&gt;</span><br></pre></td></tr></table></figure>
+<p>7.查看表编码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;表名&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>解决中文乱码</strong><br>原文链接：<a href="http://blog.csdn.net/springsunss/article/details/70337915" target="_blank" rel="noopener">整理 ： 查看和修改 mysql库、表、字段编码</a></p>
+<p>文中好像有些许错误… …</p>
+<hr>
+<p>###<strong>忘记数据库密码，我们应该怎么办？</strong><br>此方法在Centos7下进行了有效测试：</p>
+<p>1.编辑/etc/my.cnf实现免密登录，确保你的数据库不会被其他人进行恶意修改。<br>找到 <strong>[mysqld]</strong> 段，并给段中任意地方加上一句：<strong>skip-grant-tables</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip-<span class="keyword">grant</span>-<span class="keyword">tables</span></span><br></pre></td></tr></table></figure></p>
+<p>2.重启mysql服务：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysql.service</span><br></pre></td></tr></table></figure></p>
+<p>3.在数据库中修改密码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">Password</span> = <span class="keyword">password</span>(<span class="string">'new password'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span> = <span class="string">'root'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<p>4.最后将免密功能再去掉，就可以了。</p>
+<hr>
+<p>###<strong>Unknown column ‘xxx’ in ‘where clause’</strong><br>列名不存在的结论，但是，很多时候起始并不是由于列名出错造成的。而是由于拼凑sql语句时对字符类型数据没有用引号引起来造成的。</p>
+<p>这个错误我改了三个小时，做了无数测试，一度以为是玄学，来一看一下正确的写法吧，还有这个错误在要拼接的SQL语句是int型的时候，一般是不会出现的… ….</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">statement = connection.prepareStatement(</span><br><span class="line">				"<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> book_class <span class="keyword">WHERE</span> <span class="keyword">name</span> = <span class="string">'" + labelName + "'</span><span class="string">");</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>避免使用IN或者OR</strong><br>(OR会导致扫表)，使用UNION ALL：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> * <span class="keyword">from</span> article <span class="keyword">where</span> article_category=<span class="number">2</span>) <span class="keyword">UNION</span> ALL (<span class="keyword">select</span> * <span class="keyword">from</span> article <span class="keyword">where</span> article_category=<span class="number">3</span>) <span class="keyword">ORDER</span> <span class="keyword">BY</span> article_id <span class="keyword">desc</span> <span class="keyword">limit</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><strong>注:UNION 和UNION ALL 的区别：</strong><br>在数据库中，UNION和UNION ALL关键字都是将两个结果集合并为一个，但这两者从使用和效率上来说都有所不同。<br>UNION在进行表链接后会筛选掉重复的记录，所以在表链接后会对所产生的结果集进行排序运算，删除重复的记录再返回结果。</p>
+<p>从效率上说，UNION ALL 要比UNION快很多，所以，如果可以确认合并的两个结果集中不包含重复的数据的话，那么就使用UNION ALL。</p>
+<hr>
+<p>###<strong>创建索引</strong><br>执行一个很普通的查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`article`</span> <span class="keyword">WHERE</span> article_category=<span class="number">11</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> article_id <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>执行时间大约要5秒左右。</p>
+<p>建一个索引（组合索引）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_u <span class="keyword">ON</span> article(article_category, article_id);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`article`</span> <span class="keyword">WHERE</span> article_category=<span class="number">11</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> article_id <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>减少到0.0027秒。</p>
+<hr>
+<p>###<strong>排序数据</strong><br>排序：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//升序（默认）</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> 表名 <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段 <span class="keyword">ASC</span>;</span><br><span class="line"></span><br><span class="line">//降序</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> 表名 <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段 <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line">//多个列排序</span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，字段<span class="number">2</span>，字段<span class="number">3</span> <span class="keyword">FROM</span> 表名 <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段<span class="number">1</span> <span class="keyword">DESC</span>，字段<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>注意：用非检索的列排数据是完全合法的。首先按字段1进行排序。</p>
+<hr>
+<p>###<strong>过滤数据</strong><br>不匹配检查：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//不返回字段1的值为1003的行（一般使用!=）</span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，字段<span class="number">2</span> <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> 字段<span class="number">1</span> &lt;&gt; <span class="number">1003</span>;</span><br></pre></td></tr></table></figure>
+<p>范围值检查：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> 字段 <span class="keyword">BETWEEN</span> <span class="number">5</span> <span class="keyword">AND</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>注意：SQL在处理OR操作符前，优先处理AND操作符。解决方式像其他语言一样使用括号。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//IN的功能和OR的完全一样，推荐使用IN，执行更快，更直观，可包含其他<span class="keyword">SELECT</span>语句</span><br><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> 字段 <span class="keyword">IN</span> (<span class="number">1002</span>，<span class="number">1003</span>) <span class="keyword">ORDER</span> <span class="keyword">BY</span> 字段;</span><br></pre></td></tr></table></figure>
+<p>通配符：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//%表示任何字符出现任意次数（包括0）（所有以jet开头的单词）</span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，字段<span class="number">2</span> <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> 字段 <span class="keyword">LIKE</span> <span class="string">'jet%'</span>;</span><br></pre></td></tr></table></figure>
+<p>注意：使用通配符需要在意尾空格。还有一个通配符_只匹配单个字符而不是多个字符。（不要过度使用通配符，时间代价比其它操作符更高，但它的确很有用）</p>
+<p>注意：</p>
+<blockquote>
+<p>1.其中like要求整个数据都要匹配，而REGEXP只需要部分匹配即可。<br>2.匹配特殊字符使用\\为前导<br>3.如果需要匹配反斜杠（\）字符本身，需要使用\\\</p>
+</blockquote>
+<hr>
+<p>###<strong>计算字段</strong><br>拼接（Concat函数）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Concat</span>(字段<span class="number">1</span>，字段<span class="number">2</span>，... ...) <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<p>删除右侧多余空格（RTrim函数）（LTrim，Trim）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Concat</span>(<span class="keyword">RTrim</span>(字段<span class="number">1</span>)，<span class="keyword">RTrim</span>(字段<span class="number">2</span>)) <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<p>使用别名：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Concat</span>(<span class="keyword">RTrim</span>(字段<span class="number">1</span>), <span class="keyword">RTrim</span>(字段<span class="number">2</span>)) <span class="keyword">AS</span> 别名 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<p>执行算术计算：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，字段<span class="number">2</span>，字段<span class="number">1</span>*字段<span class="number">2</span> <span class="keyword">AS</span> 字段名 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>数据处理函数</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段，<span class="keyword">Upper</span>(字段) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<p>文本处理函数：<br>函数 | 说明<br>—|—<br>Length() | 返回串左边长度<br>Lower() | 将串转换为小写<br>Soundex() | 返回串的SOUNDEX值（建议百度）<br>Upper() | 将串转换为大写</p>
+<hr>
+<p>日期时间处理函数：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//只比较日期</span><br><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> <span class="built_in">Date</span>(字段) = <span class="string">'YYYY-MM-DD'</span>;</span><br><span class="line"></span><br><span class="line">//只比较时间</span><br><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> <span class="keyword">Time</span>(字段) = <span class="string">'hh-mm-ss'</span>;</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CurDate()</td>
+<td>返回当前日期</td>
+</tr>
+<tr>
+<td>CurTime()</td>
+<td>返回当前时间</td>
+</tr>
+<tr>
+<td>Date()</td>
+<td>返回日期时间的日期部分（推荐使用）</td>
+</tr>
+<tr>
+<td>DateDiff()</td>
+<td>计算两个日期之差</td>
+</tr>
+<tr>
+<td>Date_Format()</td>
+<td>返回一个格式化的日期或时间串</td>
+</tr>
+<tr>
+<td>Now()</td>
+<td>返回当前日期和时间</td>
+</tr>
+<tr>
+<td>Time()</td>
+<td>返回一个日期时间的时间部分（推荐使用）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>###<strong>汇总数据</strong><br>聚集函数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(字段) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名;</span><br><span class="line"></span><br><span class="line">//DISTINCT用来聚集不同的值（MySQL 4.x不能使用）</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(<span class="keyword">DISTINCT</span> 字段) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> 字段，<span class="keyword">MIN</span>(字段) <span class="keyword">AS</span> 字段，<span class="keyword">MAX</span>(字段) <span class="keyword">AS</span> 字段，<span class="keyword">AVG</span>(字段) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVG()</td>
+<td>返回某列平均值</td>
+</tr>
+<tr>
+<td>COUNT()</td>
+<td>返回某列行数（注意COUNT(*)与COUNT(column)）</td>
+</tr>
+<tr>
+<td>MAX()</td>
+<td>返回某列最大值 (可应用于日期与文本数据)</td>
+</tr>
+<tr>
+<td>MIN()</td>
+<td>返回某列最小值</td>
+</tr>
+<tr>
+<td>SUM()</td>
+<td>返回某列之和</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>###<strong>分组数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>过滤分组：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段<span class="number">1</span> <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt;= <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">//HAVING与WHERE</span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>，<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> 字段 &gt;= <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> 字段<span class="number">1</span> <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt;= <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>SELECT 子句顺序：</p>
+<table>
+<thead>
+<tr>
+<th>子句</th>
+<th>是否必须使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>是</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>否</td>
+</tr>
+<tr>
+<td>WHERE</td>
+<td>否</td>
+</tr>
+<tr>
+<td>GROUP BY</td>
+<td>否</td>
+</tr>
+<tr>
+<td>HAVING</td>
+<td>否</td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>否</td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>###<strong>子查询</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span> <span class="keyword">FROM</span> 表名<span class="number">1</span> <span class="keyword">WHERE</span> 字段<span class="number">2</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> 字段<span class="number">3</span> </span><br><span class="line">									  <span class="keyword">FROM</span> 表名<span class="number">2</span> <span class="keyword">WHERE</span> </span><br><span class="line">									  字段<span class="number">4</span> = 字符串);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span>, (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> 表名<span class="number">1</span> <span class="keyword">WHERE</span> 字段<span class="number">2</span> = 字段<span class="number">3</span>) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>联结</strong><br>创建联结：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> vend_name, prod_name, prod_price(指定列) <span class="keyword">from</span> vendors, products(关系表) <span class="keyword">where</span> vendors.vend_id = products.vend_id <span class="keyword">order</span> <span class="keyword">by</span> vend_name, pro_prod_name;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> vend_name, prod_name, prod_price(指定列) <span class="keyword">from</span> vendors <span class="keyword">inner</span> <span class="keyword">join</span> products <span class="keyword">on</span> vendors.vend_id = products.vend_id;</span><br></pre></td></tr></table></figure>
+<p>建议使用第二个语法。</p>
+<p>笛卡尔积（叉联结）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> vend_name, prod_name, prod_price(指定列) <span class="keyword">from</span> vendors, products(关系表) <span class="keyword">order</span> <span class="keyword">by</span> vend_name, pro_prod_name;</span><br></pre></td></tr></table></figure>
+<p>由没有联结条件的表关系返回的结果为笛卡尔积。<strong>检索出的行的数目将是第一个表的行数乘以第二个表中的行数。</strong></p>
+<p>联结多个表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prod_name, vend_name, prod_price, quantity <span class="keyword">FROM</span> orderitems, products, vendors <span class="keyword">WHERE</span> prodicts.vend_id = vendors.vend_id <span class="keyword">AND</span> orderitems.prod_id = products.prod_id <span class="keyword">AND</span> order_num = <span class="number">20005</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>高级联结</strong><br>表别名：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> cust_name, cust_contact <span class="keyword">FROM</span> customers <span class="keyword">AS</span> c, orders <span class="keyword">AS</span> o, orderitems <span class="keyword">AS</span> oi <span class="keyword">WHERE</span> c.cust_id = o.cust_id <span class="keyword">AND</span> oi.order_num = o.order_num <span class="keyword">AND</span> prod_id = <span class="string">'TNT2'</span>;</span><br></pre></td></tr></table></figure>
+<p>自联结：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//我觉得使用<span class="keyword">SELECT</span>子查询也许更简单</span><br><span class="line"><span class="keyword">SELECT</span> p1.prod_id, p1.prod_name <span class="keyword">FROM</span> products <span class="keyword">AS</span> p1, products <span class="keyword">AS</span> p2 <span class="keyword">WHERE</span> p1.vend_id = p2.vend_id <span class="keyword">AND</span> <span class="keyword">WHERE</span> p2.prod_id = <span class="string">'DTNTR'</span>;</span><br></pre></td></tr></table></figure>
+<p>自然联结：（常用，重点，基本上每个内部联结都是自然联结）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.*, o.order_num, o.order_date, oi.prod_id, o.quantity, oi.item_price <span class="keyword">FROM</span> customers <span class="keyword">AS</span> c, orders <span class="keyword">AS</span> o, orderitems <span class="keyword">AS</span> oi <span class="keyword">WHERE</span> c.cust_id = o.cust_id <span class="keyword">AND</span> oi.order_num = o.order_num <span class="keyword">AND</span> prod_id = <span class="string">'FB'</span>;</span><br></pre></td></tr></table></figure>
+<p>外部联结：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> customers.cust_id, orders.order_num <span class="keyword">from</span> customers <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> oders <span class="keyword">on</span> customers.cust_id = orders.cust_id;</span><br></pre></td></tr></table></figure>
+<p>带聚集的联结：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.cust_name, customers.cust_id, <span class="keyword">COUNT</span>(orders.order_num) <span class="keyword">AS</span> num_ord <span class="keyword">FROM</span> customers <span class="keyword">INNER</span> <span class="keyword">JOIN</span> orders <span class="keyword">ON</span> customers.cust_id = orders.cust_id <span class="keyword">GROUP</span> <span class="keyword">BY</span> customers.cust_id;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>插入检索出的数据</strong><br>INSERT SELECT 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名<span class="number">1</span>(cust_id, cust_concact, cust_email, cust_name) <span class="keyword">SELECT</span> cust_id, cust_concact, cust_email, cust_name <span class="keyword">FROM</span> 表名<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>全文本搜索</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> <span class="keyword">Match</span>(字段) Against(搜索文本);</span><br></pre></td></tr></table></figure>
+<p>布尔文本搜索：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> <span class="keyword">Match</span>(字段) Against(<span class="string">'+rabbit +fat'</span> <span class="keyword">IN</span> <span class="built_in">BOOLEAN</span> <span class="keyword">MODE</span>);</span><br></pre></td></tr></table></figure>
+<p>说明：返回的行必须同时包含关键字 rabbit 和 fat。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名  <span class="keyword">WHERE</span> <span class="keyword">Match</span>(字段) Against(<span class="string">'rabbit good'</span> <span class="keyword">IN</span> <span class="built_in">BOOLEAN</span> <span class="keyword">MODE</span>);</span><br></pre></td></tr></table></figure>
+<p>说明：没有指定操作符，搜索包含rabbit或good的行（其中的一个或两个）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段 <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> <span class="keyword">Match</span>(字段) Against(<span class="string">'+fat +(&gt;rabbit)'</span> <span class="keyword">IN</span> <span class="built_in">BOOLEAN</span> <span class="keyword">MODE</span>);</span><br></pre></td></tr></table></figure>
+<p>说明：文本包含fat和rabbit的行，且增加后者的优先级值。</p>
+<table>
+<thead>
+<tr>
+<th>布尔操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>包含指定值 </td>
+</tr>
+<tr>
+<td>-</td>
+<td>排除指定值 </td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>包含指定值,并且增加优先级值 </td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>包含指定值,并且减少优先级值 </td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>###<strong>存储过程</strong><br>执行存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> 存储过程名(@参数<span class="number">1</span>，@参数<span class="number">2</span>，@参数<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>创建存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> 存储过程名()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(字段) <span class="keyword">AS</span> 字段 <span class="keyword">FROM</span> 表名;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+<p>删除存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> 存储过程名;</span><br></pre></td></tr></table></figure>
+<p>使用参数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> ordertotal(<span class="keyword">IN</span> onumber <span class="built_in">INT</span>, <span class="keyword">OUT</span> ototal <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(字段<span class="number">1</span>*字段<span class="number">2</span>) <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> order_num = onumber <span class="keyword">INTO</span> ototal;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> ordertotal(<span class="number">20005</span>, @total);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> @total;</span><br></pre></td></tr></table></figure>
+<p>说明：创建存储过程PROCEDURE，传入onumber，存储变量为ototal，WHERE子句中使用onumber，将查询结果存储在ototal。</p>
+<hr>
+<p>###<strong>触发器</strong></p>
+<p>建立触发器：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> 触发器名 <span class="keyword">AFTER</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> 表名 <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">SELECT</span> <span class="string">'字符串'</span>;</span><br></pre></td></tr></table></figure>
+<p>说明：FOR EACH ROW 表明代码对每个插入行执行。</p>
+<p>删除触发器：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TRIGGER</span> 触发器名;</span><br></pre></td></tr></table></figure>
+<p>INSERT触发器：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> 触发器名 <span class="keyword">AFTER</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> 表名 <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">SELECT</span> NEW.字段;</span><br></pre></td></tr></table></figure></p>
+<p>说明：每向表中插入一条数据之后，就返回最新插入数据中的字段值。</p>
+<p>DELETE 触发器：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> 触发器名 <span class="keyword">BEFORE</span> <span class="keyword">DELETE</span> <span class="keyword">ON</span> 表名 <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">BEGIN</span> </span><br><span class="line">			<span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名(字段<span class="number">1</span>， 字段<span class="number">2</span>) <span class="keyword">VALUES</span> (字段值<span class="number">1</span>， 字段值<span class="number">2</span>); <span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+<p>UPDATE触发器：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> 触发器名 BRFORE <span class="keyword">UPDATE</span> <span class="keyword">ON</span> 表名 <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">SET</span> NEW.字段 = <span class="keyword">Upper</span>(NEW.字段);</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>事务处理</strong><br>事务开始：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ordertotals;</span><br><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> ordertotals;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ordertotals;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ordertotals;</span><br></pre></td></tr></table></figure>
+<p>说明：ROLLBACK 回退START TRANSACTION 之后的所有语句。CREATE和DROP操作不能回退。</p>
+<p>使用COMMIT：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> orderitems <span class="keyword">WHERE</span> order_num = <span class="number">20010</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> orders <span class="keyword">WHERE</span> order_num = <span class="number">20010</span>;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+<p>使用保留点：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SAVEPOINT</span> 保留点名称<span class="number">1</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> 保留点名称<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>管理用户</strong><br>创建用户帐号：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> 用户名 <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'密码'</span>;</span><br></pre></td></tr></table></figure>
+<p>删除用户帐号：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> 用户名;</span><br></pre></td></tr></table></figure>
+<p>授予权限：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> crashcourse.* <span class="keyword">TO</span> 用户名;</span><br></pre></td></tr></table></figure>
+<p>说明：此GRANT 允许用户在crashcourse数据库的所有表上使用SELECT权限。</p>
+<p>查看用户权限：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GRANTS</span> <span class="keyword">FOR</span> 用户名;</span><br></pre></td></tr></table></figure>
+<p>撤销用户权限：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> crashcourse.* <span class="keyword">FROM</span> 用户名;</span><br></pre></td></tr></table></figure>
+<p>说明：撤销用户在crashcourse数据库所有表上的读权限。</p>
+<p>更改口令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> 用户 = <span class="keyword">PASSWORD</span>(<span class="string">'new password'</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="dhengyi 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="dhengyi 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>dhengyi</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.dhengyi.name/2017/04/14/MySQL数据库-MySQL数据库语句、坑点总结/" title="MySQL数据库--MySQL数据库语句、坑点总结">http://blog.dhengyi.name/2017/04/14/MySQL数据库-MySQL数据库语句、坑点总结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/02/Java网络爬虫-JSON数据的解析/" rel="next" title="Java网络爬虫--JSON数据的解析">
+                <i class="fa fa-chevron-left"></i> Java网络爬虫--JSON数据的解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/28/Java网络爬虫-正则表达式之详解贪婪、逐步、独吐量词/" rel="prev" title="Java网络爬虫--正则表达式之详解贪婪、逐步、独吐量词">
+                Java网络爬虫--正则表达式之详解贪婪、逐步、独吐量词 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b1b84e5da5a0290" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzUwNy8xNDAzOQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="dhengyi" />
+            
+              <p class="site-author-name" itemprop="name">dhengyi</p>
+              <p class="site-description motion-element" itemprop="description">忍耐力较诸脑力，尤胜一筹。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/dhengyi" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:spider_hgyi@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/_dniklaus" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weixin.sogou.com/weixin?query=%E8%A5%BF%E9%82%AElinux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84" target="_blank" title="WeChat"><i class="fa fa-fw fa-wechat"></i>WeChat</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/spider_hgyi" target="_blank" title="Zhihu"><i class="fa fa-fw fa-star"></i>Zhihu</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5256701201/profile" target="_blank" title="weibo"><i class="fa fa-fw fa-weibo"></i>weibo</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.xiyoulinux.org/" title="XiyouLinux Group群博" target="_blank">XiyouLinux Group群博</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://0xffffff.org/" title="浅墨的部落格" target="_blank">浅墨的部落格</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lindayi.me/" title="Dayi Lin" target="_blank">Dayi Lin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://saili.science/" title="Alex LEE" target="_blank">Alex LEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.shiyicode.com/" title="ShiYi" target="_blank">ShiYi</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://evil-crow.github.io/" title="Crow" target="_blank">Crow</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dhengyi</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">269k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">5:false</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("HS3DTHXOjBy0kWIxNDE5jyQX-gzGzoHsz", "q7Sh0VO8bVHpqINfpENkVyPn");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
