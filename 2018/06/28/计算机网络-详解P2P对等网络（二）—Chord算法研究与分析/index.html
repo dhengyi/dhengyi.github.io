@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="结构化与非结构化网络非结构化的P2P网络是指网络节点之间不存在组织关系，节点之间完全是对等的，比如第一代P2P网络Napster。 结构化的P2P网络与非结构化恰好相反，我们认为网络在逻辑上存在一个人为设计的结构，比如Chord假定网络是一个环，Kadelima则假定为一颗二叉树。有了这些逻辑结构，就给我们资源查找引入了更多的算法和思路。  引言我们在 计算机网络–详解P2P对等网络（一）—Bit">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20171014091255258?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVucnVpdGlhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:image" content="https://img-blog.csdn.net/20180628212943465?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-11-17T06:27:53.527Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord环.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord节点的加入.png">
+<meta property="og:updated_time" content="2019-07-13T16:02:24.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解P2P对等网络（二）—Chord算法研究与分析">
 <meta name="twitter:description" content="结构化与非结构化网络非结构化的P2P网络是指网络节点之间不存在组织关系，节点之间完全是对等的，比如第一代P2P网络Napster。 结构化的P2P网络与非结构化恰好相反，我们认为网络在逻辑上存在一个人为设计的结构，比如Chord假定网络是一个环，Kadelima则假定为一颗二叉树。有了这些逻辑结构，就给我们资源查找引入了更多的算法和思路。  引言我们在 计算机网络–详解P2P对等网络（一）—Bit">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20171014091255258?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVucnVpdGlhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord环.png">
 
 
 
@@ -448,7 +448,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 14:27:53" itemprop="dateModified" datetime="2018-11-17T14:27:53+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-14 00:02:24" itemprop="dateModified" datetime="2019-07-14T00:02:24+08:00">2019-07-14</time>
               
             
           </span>
@@ -538,10 +538,10 @@
       
 
       
-        <h3 id="结构化与非结构化网络"><a href="#结构化与非结构化网络" class="headerlink" title="结构化与非结构化网络"></a><strong>结构化与非结构化网络</strong></h3><p>非结构化的P2P网络是指网络节点之间不存在组织关系，节点之间完全是对等的，比如第一代P2P网络Napster。</p>
+        <h2 id="结构化与非结构化网络"><a href="#结构化与非结构化网络" class="headerlink" title="结构化与非结构化网络"></a><strong>结构化与非结构化网络</strong></h2><p>非结构化的P2P网络是指网络节点之间不存在组织关系，节点之间完全是对等的，比如第一代P2P网络Napster。</p>
 <p>结构化的P2P网络与非结构化恰好相反，我们认为网络在逻辑上存在一个人为设计的结构，比如Chord假定网络是一个环，Kadelima则假定为一颗二叉树。有了这些逻辑结构，就给我们资源查找引入了更多的算法和思路。</p>
 <hr>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h3><p>我们在 <strong>计算机网络–详解P2P对等网络（一）—BitTorrent协议</strong> 这一篇博客中讲述了BT下载的过程：在对等用户拿到种子文件的时候，首先会联系tracker服务器，然后加入用户集群，并在用户集群中寻找自己所需的内容，最后与拥有内容的对等用户进行联系。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>我们在 <strong>计算机网络–详解P2P对等网络（一）—BitTorrent协议</strong> 这一篇博客中讲述了BT下载的过程：在对等用户拿到种子文件的时候，首先会联系tracker服务器，然后加入用户集群，并在用户集群中寻找自己所需的内容，最后与拥有内容的对等用户进行联系。</p>
 <p>从BT下载的过程中引出本节所要讨论的问题：<strong>如何高效的从用户集群中找出哪些对等用户拥有你正在寻求的具体内容？</strong></p>
 <p>在历史中有三种比较典型的模型来解决这个问题：</p>
 <ul>
@@ -556,24 +556,24 @@
 <p>现在的研究结果中，Chord、Pastry、CAN和Tapestry等常用于构建结构化P2P的分布式哈希表系统。</p>
 <p>Chord算法是麻省理工学院（MIT）提出的一种基于DHT技术的结构化P2P路由协议，具有完全分布式、负载均衡、可用性及可扩展性好、命名方式灵活等特点。本文主要对Chord算法展开分析。</p>
 <hr>
-<h3 id="分布式哈希表（DHT）"><a href="#分布式哈希表（DHT）" class="headerlink" title="分布式哈希表（DHT）"></a><strong>分布式哈希表（DHT）</strong></h3><p>对于本节问题的思考，我们可以给出一种基本的解决方案：每个对等节点维护了一张路由表（索引），这张路由表只保存了少量有关其他节点的信息，这个特点意味着它保持最新索引的代价不会很昂贵。其次，每个节点可以快速的查看索引中的表项，否则，它就不是个有效的索引。最后，每个节点可以同时使用索引，即使其他节点来来去去，这个属性意味着索引的性能随着节点数量的增长反而越来越好~</p>
+<h2 id="分布式哈希表（DHT）"><a href="#分布式哈希表（DHT）" class="headerlink" title="分布式哈希表（DHT）"></a><strong>分布式哈希表（DHT）</strong></h2><p>对于本节问题的思考，我们可以给出一种基本的解决方案：每个对等节点维护了一张路由表（索引），这张路由表只保存了少量有关其他节点的信息，这个特点意味着它保持最新索引的代价不会很昂贵。其次，每个节点可以快速的查看索引中的表项，否则，它就不是个有效的索引。最后，每个节点可以同时使用索引，即使其他节点来来去去，这个属性意味着索引的性能随着节点数量的增长反而越来越好~</p>
 <p>该解决方案就被称为分布式哈希表，因为对等节点所维护的路由表就是一张索引表，而索引的基本功能就是将一个关键字映射到一个值。这简直就是一张哈希表，但是我们的解决方案是分布式版本。我们可以再看一下维基对于DHT的定义：</p>
 <blockquote>
 <p>分布式哈希表（distributed hash table，缩写DHT）：分布式计算系统中的一类，用来将一个关键值（key）的集合分散到所有在分布式系统中的节点，并且可以有效地将消息转送到唯一一个拥有查询者提供的关键值的节点（Peers）。这里的节点类似散列表中的存储位置。<strong>分布式散列表通常是为了拥有极大节点数量的系统，而且在系统的节点常常会加入或离开（例如网络断线）而设计的。在一个结构性的<a href="https://zh.wikipedia.org/wiki/%E8%A6%86%E7%9B%96%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">覆盖网络（overlay network）</a>中，参加的节点需要与系统中一小部分的节点沟通，这也需要使用分布式散列表。</strong></p>
 </blockquote>
 <p>上述我特意加粗的语句，正是对P2P网络架构的描述。</p>
 <p>如果对于DHT的概念还抱有一定的疑惑，可以在网上搜寻更白话的说明，博主不再进行贴出。</p>
-<h4 id="DHT与一致性哈希"><a href="#DHT与一致性哈希" class="headerlink" title="DHT与一致性哈希"></a><strong>DHT与一致性哈希</strong></h4><p>如上所述，<strong>DHT的主要想法是把网络上资源的存取像哈希表一样，可以简单而快速地进行put、get</strong>。与一致性哈希相比，DHT更强调的是资源的存取，而不管添加删除节点时产生的资源震荡的问题。与一致性哈希相同的是，DHT也只是一个概念，具体细节留给各实现。</p>
+<h3 id="DHT与一致性哈希"><a href="#DHT与一致性哈希" class="headerlink" title="DHT与一致性哈希"></a><strong>DHT与一致性哈希</strong></h3><p>如上所述，<strong>DHT的主要想法是把网络上资源的存取像哈希表一样，可以简单而快速地进行put、get</strong>。与一致性哈希相比，DHT更强调的是资源的存取，而不管添加删除节点时产生的资源震荡的问题。与一致性哈希相同的是，DHT也只是一个概念，具体细节留给各实现。</p>
 <p>当前这些P2P实现可以被作为DHT的具体实现，再次列举一些有代表性的实现：</p>
 <blockquote>
 <p>Chord、CAN、Tapestry、Pastry、Apache Cassandra、Kadelima、P-Grid、BitTorrent DHT</p>
 </blockquote>
 <hr>
-<h3 id="Chord算法"><a href="#Chord算法" class="headerlink" title="Chord算法"></a><strong>Chord算法</strong></h3><h4 id="Chord是什么？"><a href="#Chord是什么？" class="headerlink" title="Chord是什么？"></a><strong>Chord是什么？</strong></h4><p>Chord是一个算法，也是一个协议。作为一个算法，Chord可以从数学的角度严格证明其正确性和收敛性；作为一个协议，Chord详细定义了每个环节的消息类型。当然，Chord之所以受追捧，还有一个主要原因就是Chord足够简单，3000行的代码就足以实现一个完整的Chord。</p>
-<h4 id="Chord概述"><a href="#Chord概述" class="headerlink" title="Chord概述"></a><strong>Chord概述</strong></h4><p>Chord的实现方式如下：给定一个关键字Key，将其映射到某个节点。为此，采用相同哈希函数（SHA-1）为每个节点和关键字产生一个m bit的ID，并按照ID大小构成环形拓扑。节点所产生的ID被称为<strong>节点标识符</strong>，关键字所产生的ID我们称它为<strong>关键字ID</strong>。运行Chord的主机相互连接构成Chord网络，这是一个建立在IP网络之上的覆盖（overlay）网络。每个节点N有2个邻居：以顺时针为正方向排列在N之前的第1个节点称为N的前继（predecessor），在N之后的第1个节点称为N的后继（successor）。如下图（蓝色节点为节点ID，白色节点为关键字ID）：</p>
-<p><img src="https://img-blog.csdn.net/20171014091255258?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVucnVpdGlhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="此处输入图片的描述"></p>
+<h2 id="Chord算法"><a href="#Chord算法" class="headerlink" title="Chord算法"></a><strong>Chord算法</strong></h2><h3 id="Chord是什么？"><a href="#Chord是什么？" class="headerlink" title="Chord是什么？"></a><strong>Chord是什么？</strong></h3><p>Chord是一个算法，也是一个协议。作为一个算法，Chord可以从数学的角度严格证明其正确性和收敛性；作为一个协议，Chord详细定义了每个环节的消息类型。当然，Chord之所以受追捧，还有一个主要原因就是Chord足够简单，3000行的代码就足以实现一个完整的Chord。</p>
+<h3 id="Chord概述"><a href="#Chord概述" class="headerlink" title="Chord概述"></a><strong>Chord概述</strong></h3><p>Chord的实现方式如下：给定一个关键字Key，将其映射到某个节点。为此，采用相同哈希函数（SHA-1）为每个节点和关键字产生一个m bit的ID，并按照ID大小构成环形拓扑。节点所产生的ID被称为<strong>节点标识符</strong>，关键字所产生的ID我们称它为<strong>关键字ID</strong>。运行Chord的主机相互连接构成Chord网络，这是一个建立在IP网络之上的覆盖（overlay）网络。每个节点N有2个邻居：以顺时针为正方向排列在N之前的第1个节点称为N的前继（predecessor），在N之后的第1个节点称为N的后继（successor）。如下图（蓝色节点为节点ID，白色节点为关键字ID）：</p>
+<p><img src="Chord环.png" alt="此处输入图片的描述"></p>
 <p>同一致性哈希一样，资源放置在关键字ID的后继节点上，如上图，资源2被放置在节点3中。</p>
-<h4 id="Finger表"><a href="#Finger表" class="headerlink" title="Finger表"></a><strong>Finger表</strong></h4><p>我们在本篇博客 <strong>分布式哈希表（DHT）</strong> 一节中已经讲过，每个对等节点都会维护一张路由表，以便在用户集群中寻找拥有所需资源的其他对等节点。这张路由表就被称为Finger表，Finger表的表项大小为m，由两列数据项组成，如下：</p>
+<h3 id="Finger表"><a href="#Finger表" class="headerlink" title="Finger表"></a><strong>Finger表</strong></h3><p>我们在本篇博客<strong><a href="#分布式哈希表（dht）">分布式哈希表（DHT）</a></strong>一节中已经讲过，每个对等节点都会维护一张路由表，以便在用户集群中寻找拥有所需资源的其他对等节点。这张路由表就被称为Finger表，Finger表的表项大小为m，由两列数据项组成，如下：</p>
 <table>
 <thead>
 <tr>
@@ -619,7 +619,7 @@
 <p>对于上表的解释，由一致性哈希可知：</p>
 <p>机器1本地存储着关键字ID为1的数据，机器2本地存储着关键字ID为2的数据，机器6本地存储着关键字ID为3，4，5，6的数据，机器0本地存储着关键字ID为7，0 的数据。</p>
 <p>与此同时，如上表，机器1上，还存储着关键字ID为2，3，5的数据所在的机器地址。比如，机器1知道，关键字ID为5的数据存储在机器6上面。</p>
-<h4 id="Chord的查找"><a href="#Chord的查找" class="headerlink" title="Chord的查找"></a><strong>Chord的查找</strong></h4><p>Chord采取幂次逼近查询法。任何一个节点收到查询关键字ID为“K”的请求时，首先检查K是否落在该节点标识和它的后继节点标识之间，如果是的话，这个后继节点就是存储目标(K, V)对的节点。否则，节点将查找它的Finger表，找到表中<strong>节点标识符最大但不超过K</strong>的节点，并将这个查询请求转发给该节点。通过重复这个过程，最终可以定位到K的后继节点，即存储有目标(K, V)对的节点。</p>
+<h3 id="Chord的查找"><a href="#Chord的查找" class="headerlink" title="Chord的查找"></a><strong>Chord的查找</strong></h3><p>Chord采取幂次逼近查询法。任何一个节点收到查询关键字ID为“K”的请求时，首先检查K是否落在该节点标识和它的后继节点标识之间，如果是的话，这个后继节点就是存储目标(K, V)对的节点。否则，节点将查找它的Finger表，找到表中<strong>节点标识符最大但不超过K</strong>的节点，并将这个查询请求转发给该节点。通过重复这个过程，最终可以定位到K的后继节点，即存储有目标(K, V)对的节点。</p>
 <p>比如，当机器1接收到查询关键字ID为7的数据在哪台机器上时，它发现关键字ID“7”并不在该节点标识符和它的后继节点标识符之间，因此它查找节点标识符最大但没有超过7的节点，为6，于是将查询请求转发到机器6上。</p>
 <p>机器6的路由表按照上述规则进行生成，如下（环形拓扑）：</p>
 <table>
@@ -650,8 +650,8 @@
 </table>
 <p>机器6上的路由表指出：关键字ID为7的数据在机器0上… …重复这个过程，最终可找到保存关键字ID为7的资源的节点。</p>
 <p>通过在每台机器上保存m项的路由信息，上面的方式可以做到O(logN)的查询时间复杂度。另外，比如Amazon Dynamo在论文中所说：通过在每台机子上保存足够多的路由信息，理论上可以做到O(1)时间的查询（相应的，节点间冗余信息也会更多）。</p>
-<h4 id="节点的加入"><a href="#节点的加入" class="headerlink" title="节点的加入"></a><strong>节点的加入</strong></h4><p>新节点的加入需要一个称为向导的已知节点（n0）进行协助，任何一个运行在Chord网络中的节点都可以充当这个角色。加入过程包括新节点本身的Join操作和被其他节点发现2个阶段。如下图所示，假设np和ns是Chord网络中相邻两节点，n为新节点，它加入网络后应该位于np和ns节点之间。</p>
-<p><img src="https://img-blog.csdn.net/20180628212943465?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h3 id="节点的加入"><a href="#节点的加入" class="headerlink" title="节点的加入"></a><strong>节点的加入</strong></h3><p>新节点的加入需要一个称为向导的已知节点（n0）进行协助，任何一个运行在Chord网络中的节点都可以充当这个角色。加入过程包括新节点本身的Join操作和被其他节点发现2个阶段。如下图所示，假设np和ns是Chord网络中相邻两节点，n为新节点，它加入网络后应该位于np和ns节点之间。</p>
+<p><img src="Chord节点的加入.png" alt="这里写图片描述"></p>
 <p>新节点的加入有三个操作：</p>
 <blockquote>
 <ul>
@@ -669,17 +669,17 @@
 </ol>
 <p>在这里有一个问题：<strong>向导节点如何帮助新加入的节点寻找它的后继节点以及新加入的节点如何初始化其Finger表？</strong></p>
 <p>第一点：对于新节点n，通过向向导节点提交查找n自身节点标识符的请求，向导节点检索其后继；<br>第二点：新节点通过向向导节点请求<code>ID + 2的m次方</code>从而构建Finger表。</p>
-<h4 id="节点的失效"><a href="#节点的失效" class="headerlink" title="节点的失效"></a><strong>节点的失效</strong></h4><p>节点的失效是节点没有通知其他节点而突然离开网络，这通常由主机崩溃或IP网络断开等意外原因造成，此时失效节点的前继保存的后继信息变得不可用，从而造成Chord环的断裂。为了处理这个问题，需要周期性的对节点的前序和后继进行探测。如果节点n发现其后继或前序已经失效，则从Finger表中顺序查找第1个可用节点进行替换，并重建Finger表。对前序节点失效的处理仍需要借助于Notify消息。考虑上图中的例子，ns虽然能够感知n的失效却无法进行修复。由于上述对后继失效的处理过程能够保证Chord环后继链的正确性，因此np通过在Stabilize中向新后继ns发送Notify，把ns的前继改成np。值得注意的是，其他节点也可能在Finger表项中保存有失效节点的记录，因此需要多次Stabilize，把失效信息扩散到Chord网络中。虽然这种方法最终能够保证Chord网络的完整性，但在节点频繁进出的情况下，其效率仍须更深入地研究。</p>
-<h4 id="节点的退出"><a href="#节点的退出" class="headerlink" title="节点的退出"></a><strong>节点的退出</strong></h4><p>由于节点失效处理方法是稳定的，因此节点的退出可看作为失效而不采取其他附加措施。但基于效率的考虑，节点n退出时进行如下操作：1. 把n后继节点的前继改成n的前继；2. 把n前继节点的后继改成n的后继；3. 从n前继的Finger表中删除n。</p>
+<h3 id="节点的失效"><a href="#节点的失效" class="headerlink" title="节点的失效"></a><strong>节点的失效</strong></h3><p>节点的失效是节点没有通知其他节点而突然离开网络，这通常由主机崩溃或IP网络断开等意外原因造成，此时失效节点的前继保存的后继信息变得不可用，从而造成Chord环的断裂。为了处理这个问题，需要周期性的对节点的前序和后继进行探测。如果节点n发现其后继或前序已经失效，则从Finger表中顺序查找第1个可用节点进行替换，并重建Finger表。对前序节点失效的处理仍需要借助于Notify消息。考虑上图中的例子，ns虽然能够感知n的失效却无法进行修复。由于上述对后继失效的处理过程能够保证Chord环后继链的正确性，因此np通过在Stabilize中向新后继ns发送Notify，把ns的前继改成np。值得注意的是，其他节点也可能在Finger表项中保存有失效节点的记录，因此需要多次Stabilize，把失效信息扩散到Chord网络中。虽然这种方法最终能够保证Chord网络的完整性，但在节点频繁进出的情况下，其效率仍须更深入地研究。</p>
+<h3 id="节点的退出"><a href="#节点的退出" class="headerlink" title="节点的退出"></a><strong>节点的退出</strong></h3><p>由于节点失效处理方法是稳定的，因此节点的退出可看作为失效而不采取其他附加措施。但基于效率的考虑，节点n退出时进行如下操作：1. 把n后继节点的前继改成n的前继；2. 把n前继节点的后继改成n的后继；3. 从n前继的Finger表中删除n。</p>
 <hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
 <li>熟悉DHT、一致性哈希、Chord算法之间的概念及联系；</li>
 <li>熟悉Chord算法的思想（Finger表的构建、Chord查询、节点的加入等）；</li>
 <li>了解P2P网络的一些其它拓扑结构。</li>
 </ol>
 <p>PS：关于Chord算法数学角度上的证明与分析，有兴趣的同学可以自行查阅相关资料~</p>
 <hr>
-<h3 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h3><p>计算机网络（第五版） — Andrew S. TanenBaum/David J. Wetherall</p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>计算机网络（第五版） — Andrew S. TanenBaum/David J. Wetherall</p>
 <p><a href="http://www.yeolar.com/note/2010/04/06/p2p-chord/#id18" target="_blank" rel="noopener">结构化P2P网络chord算法研究与分析</a></p>
 <p><a href="https://www.cnblogs.com/hapjin/p/5760463.html" target="_blank" rel="noopener">分布式哈希算法</a></p>
 <p><a href="https://www.cnblogs.com/gnuhpc/archive/2012/01/13/2321476.html" target="_blank" rel="noopener">【学术之门之P2P算法研读】P2P中的Chord算法</a></p>
@@ -1126,7 +1126,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构化与非结构化网络"><span class="nav-number">1.</span> <span class="nav-text">结构化与非结构化网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式哈希表（DHT）"><span class="nav-number">3.</span> <span class="nav-text">分布式哈希表（DHT）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DHT与一致性哈希"><span class="nav-number">3.1.</span> <span class="nav-text">DHT与一致性哈希</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord算法"><span class="nav-number">4.</span> <span class="nav-text">Chord算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Chord是什么？"><span class="nav-number">4.1.</span> <span class="nav-text">Chord是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chord概述"><span class="nav-number">4.2.</span> <span class="nav-text">Chord概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Finger表"><span class="nav-number">4.3.</span> <span class="nav-text">Finger表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chord的查找"><span class="nav-number">4.4.</span> <span class="nav-text">Chord的查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点的加入"><span class="nav-number">4.5.</span> <span class="nav-text">节点的加入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点的失效"><span class="nav-number">4.6.</span> <span class="nav-text">节点的失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点的退出"><span class="nav-number">4.7.</span> <span class="nav-text">节点的退出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考阅读"><span class="nav-number">6.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构化与非结构化网络"><span class="nav-number">1.</span> <span class="nav-text">结构化与非结构化网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式哈希表（DHT）"><span class="nav-number">3.</span> <span class="nav-text">分布式哈希表（DHT）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DHT与一致性哈希"><span class="nav-number">3.1.</span> <span class="nav-text">DHT与一致性哈希</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chord算法"><span class="nav-number">4.</span> <span class="nav-text">Chord算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord是什么？"><span class="nav-number">4.1.</span> <span class="nav-text">Chord是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord概述"><span class="nav-number">4.2.</span> <span class="nav-text">Chord概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finger表"><span class="nav-number">4.3.</span> <span class="nav-text">Finger表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord的查找"><span class="nav-number">4.4.</span> <span class="nav-text">Chord的查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点的加入"><span class="nav-number">4.5.</span> <span class="nav-text">节点的加入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点的失效"><span class="nav-number">4.6.</span> <span class="nav-text">节点的失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点的退出"><span class="nav-number">4.7.</span> <span class="nav-text">节点的退出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">6.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
             
 
           </div>

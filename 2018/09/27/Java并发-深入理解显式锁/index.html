@@ -148,7 +148,7 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本篇博客部分内容引用自：Java并发编程：Lock 引言在Java 5.0之前，协调对共享对象的访问可以使用到的机制只有synchronized和volatile。在Java 5.0之后，增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种替代内置锁的方法，而是在内置锁不再适用的情况下，作为一种可选择的高级功能。  既生synchronized，何生Locksy">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T06:19:56.328Z">
+<meta property="og:updated_time" content="2019-07-13T15:39:15.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发--深入理解显式锁">
 <meta name="twitter:description" content="注：本篇博客部分内容引用自：Java并发编程：Lock 引言在Java 5.0之前，协调对共享对象的访问可以使用到的机制只有synchronized和volatile。在Java 5.0之后，增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种替代内置锁的方法，而是在内置锁不再适用的情况下，作为一种可选择的高级功能。  既生synchronized，何生Locksy">
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 14:19:56" itemprop="dateModified" datetime="2018-11-17T14:19:56+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-13 23:39:15" itemprop="dateModified" datetime="2019-07-13T23:39:15+08:00">2019-07-13</time>
               
             
           </span>
@@ -536,9 +536,9 @@
 
       
         <p><strong>注</strong>：本篇博客部分内容引用自：<a href="http://www.cnblogs.com/dolphin0520/p/3923167.html" target="_blank" rel="noopener">Java并发编程：Lock</a></p>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h3><p>在Java 5.0之前，协调对共享对象的访问可以使用到的机制只有synchronized和volatile。在Java 5.0之后，增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种替代内置锁的方法，而是在内置锁不再适用的情况下，作为一种可选择的高级功能。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>在Java 5.0之前，协调对共享对象的访问可以使用到的机制只有synchronized和volatile。在Java 5.0之后，增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种替代内置锁的方法，而是在内置锁不再适用的情况下，作为一种可选择的高级功能。</p>
 <hr>
-<h3 id="既生synchronized，何生Lock"><a href="#既生synchronized，何生Lock" class="headerlink" title="既生synchronized，何生Lock"></a><strong>既生synchronized，何生Lock</strong></h3><p>synchronized主要在功能上存在一些局限性。</p>
+<h2 id="既生synchronized，何生Lock"><a href="#既生synchronized，何生Lock" class="headerlink" title="既生synchronized，何生Lock"></a><strong>既生synchronized，何生Lock</strong></h2><p>synchronized主要在功能上存在一些局限性。</p>
 <p>如果获取锁的线程由于要等待IO或者其他原因（比如调用sleep方法）被阻塞了，但是又没有释放锁，其他线程便只能干巴巴地等待，试想一下，这多么影响程序执行效率。因此就需要有一种机制可以不让等待的线程一直无期限地等待下去（比如只等待一定的时间或者能够响应中断），通过Lock就可以办到。</p>
 <p>再举个例子：当有多个线程读写文件时，读操作和写操作会发生冲突现象，写操作和写操作会发生冲突现象，但是读操作和读操作不会发生冲突现象。</p>
 <p>如果采用synchronized关键字来实现同步的话，就会导致一个问题：如果多个线程都只是进行读操作，那么当一个线程在进行读操作时，其他线程只能等待无法进行读操作。因此就需要一种机制来使得多个线程都只是进行读操作时，线程之间不会发生冲突，通过Lock就可以办到。</p>
@@ -547,10 +547,10 @@
 <p>如果在被保护的代码块中抛出了异常，那么这个锁永远都无法被释放。如果没有使用finally来释放锁，当出现问题时，将很难追踪到最初发生错误的位置，因为我们没有记录应该释放锁的位置与时间。</p>
 <p><strong>这就是ReentrantLock不能完全替代synchronized的原因：它更加危险，因为当程序的执行控制离开被保护的代码块时，不会自动清除锁。</strong></p>
 <p><strong>注</strong>：FindBugs可以帮助你找到未释放的锁。</p>
-<h3 id="Lock接口"><a href="#Lock接口" class="headerlink" title="Lock接口"></a><strong>Lock接口</strong></h3><h4 id="认识Lock"><a href="#认识Lock" class="headerlink" title="认识Lock"></a><strong>认识Lock</strong></h4><p>我们先来看一下Lock接口的实现：</p>
+<h2 id="Lock接口"><a href="#Lock接口" class="headerlink" title="Lock接口"></a><strong>Lock接口</strong></h2><h3 id="认识Lock"><a href="#认识Lock" class="headerlink" title="认识Lock"></a><strong>认识Lock</strong></h3><p>我们先来看一下Lock接口的实现：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Lock</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 加锁</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">// 可中断的锁</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lockInterruptibly</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="comment">// 轮询锁与定时锁</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="comment">// 解锁</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">// 本节并不需要关注</span></span><br><span class="line">    <span class="function">Condition <span class="title">newCondition</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>ReentrantLock是唯一实现了Lock接口的类</strong>。在获取（释放）ReentrantLock时，有着与进入（退出）同步代码块相同的内存语义，与synchronized一样，ReentrantLock还提供了<strong>可重入</strong>的加锁语义。</p>
-<h4 id="tryLock方法"><a href="#tryLock方法" class="headerlink" title="tryLock方法"></a><strong>tryLock方法</strong></h4><p>tryLock只有在成功获取了锁的情况下才会返回true，如果别的线程当前正持有锁，则会立即返回false！如果为这个方法加上timeout参数，则会等待timeout的时间才会返回false或者在获取到锁的时候返回true。</p>
+<h3 id="tryLock方法"><a href="#tryLock方法" class="headerlink" title="tryLock方法"></a><strong>tryLock方法</strong></h3><p>tryLock只有在成功获取了锁的情况下才会返回true，如果别的线程当前正持有锁，则会立即返回false！如果为这个方法加上timeout参数，则会等待timeout的时间才会返回false或者在获取到锁的时候返回true。</p>
 <p>在内置锁中，死锁是一个严重的问题，恢复程序的唯一方法是重启程序，而防止死锁的唯一方法就是在构造程序时避免出现不一致的锁顺序。可定时与可轮询的锁提供了另一种方式：避免死锁的发生。</p>
 <p>如果不能获取所有需要的锁，那么可以使用可定时或可轮询的锁获取方式，从而使你重新获得控制权，它会释放已经获得的锁，然后重新尝试获取所有锁。无参数的tryLock一般用作轮询锁，而带有TimeUnit参数的一般用作定时锁。</p>
 <p>考虑如下程序，它将资金从一个账户转入另一个账户。在开始转账之前，首先要获得这两个Account对象的锁，以确保通过原子方式来更新两个账户中的余额，同时又不破坏一些不变性条件，如：“账户的余额不能为负数”。</p>
@@ -563,14 +563,14 @@
 <p>tryLock用作定时锁的程序如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">trySendOnSharedLine</span><span class="params">(String message, <span class="keyword">long</span> timeout, TimeUnit unit)</span> </span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> nanosToLock = unit.toNanos(timeout) - estimatedNanosToSend(message);</span><br><span class="line">    <span class="keyword">if</span> (!lock.tryLock(nanosToLock, NANOSECONDS)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> trySendOnSharedLine(message);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述程序试图在Lock保护的共享通信线路上发送一条消息，如果不能在指定的时间内完成，代码就会失败。定时的tryLock能够在这种带有时间限制的操作中实现独占加锁的行为。</p>
-<h4 id="lockInterruptibly方法"><a href="#lockInterruptibly方法" class="headerlink" title="lockInterruptibly方法"></a><strong>lockInterruptibly方法</strong></h4><p>lockInterruptibly方法比较特殊，当通过这个方法去获取锁时，如果线程正在等待获取锁，则这个线程能够响应中断，即中断线程的等待状态。也就使说，当两个线程同时通过lock.lockInterruptibly()想获取某个锁时，假若此时线程A获取到了锁，而线程B只有在等待，那么对线程B调用threadB.interrupt()方法能够中断线程B的等待过程。</p>
+<h3 id="lockInterruptibly方法"><a href="#lockInterruptibly方法" class="headerlink" title="lockInterruptibly方法"></a><strong>lockInterruptibly方法</strong></h3><p>lockInterruptibly方法比较特殊，当通过这个方法去获取锁时，如果线程正在等待获取锁，则这个线程能够响应中断，即中断线程的等待状态。也就使说，当两个线程同时通过lock.lockInterruptibly()想获取某个锁时，假若此时线程A获取到了锁，而线程B只有在等待，那么对线程B调用threadB.interrupt()方法能够中断线程B的等待过程。</p>
 <p>由于在lockInterruptibly方法的声明中抛出了异常，所以lock.lockInterruptibly()必须放在try块中或者在调用lockInterruptibly的方法外声明抛出InterruptedException。</p>
 <p>因此lockInterruptibly一般的使用形式如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    <span class="keyword">try</span> &#123;  </span><br><span class="line">     <span class="comment">// .....</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意，当一个线程获取了锁之后，是不会被interrupt方法中断的。因为单独调用interrupt方法不能中断正在运行过程中的线程，只能中断阻塞过程中的线程。因此当通过lockInterruptibly方法获取某个锁时，如果不能获取到，只有在进行等待的情况下，是可以响应中断的。</p>
 <p>定时的tryLock同样能够响应中断，因此当需要实现一个定时的和可中断的锁获取操作时，可以使用tryLock方法。</p>
 <hr>
-<h3 id="公平锁"><a href="#公平锁" class="headerlink" title="公平锁"></a><strong>公平锁</strong></h3><p>公平锁即尽量以请求锁的顺序来获取锁。比如同是有多个线程在等待一个锁，当这个锁被释放时，等待时间最久的线程（最先请求的线程）会获得该锁，这种就是公平锁。</p>
+<h2 id="公平锁"><a href="#公平锁" class="headerlink" title="公平锁"></a><strong>公平锁</strong></h2><p>公平锁即尽量以请求锁的顺序来获取锁。比如同是有多个线程在等待一个锁，当这个锁被释放时，等待时间最久的线程（最先请求的线程）会获得该锁，这种就是公平锁。</p>
 <p>非公平锁即无法保证锁的获取是按照请求锁的顺序进行的。这样就可能导致某个或者一些线程永远获取不到锁。</p>
 <p>在Java中，synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序。而对于ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。</p>
 <p>在ReentrantLock中定义了2个静态内部类，一个是NotFairSync，一个是FairSync，分别用来实现非公平锁和公平锁。我们可以在创建ReentrantLock对象时，通过以下方式来设置锁的公平性：</p>
@@ -580,18 +580,18 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">isFair()            <span class="comment">//判断锁是否是公平锁</span></span><br><span class="line"></span><br><span class="line">isLocked()          <span class="comment">//判断锁是否被任何线程获取了</span></span><br><span class="line"></span><br><span class="line">isHeldByCurrentThread()     <span class="comment">//判断锁是否被当前线程获取了</span></span><br><span class="line"></span><br><span class="line">hasQueuedThreads()          <span class="comment">//判断是否有线程在等待该锁</span></span><br></pre></td></tr></table></figure>
 <p>在ReentrantReadWriteLock中也有类似的方法，同样也可以设置为公平锁和非公平锁。不过要记住，ReentrantReadWriteLock并未实现Lock接口，它实现的是ReadWriteLock接口。</p>
 <hr>
-<h3 id="在synchronized与ReentrantLock之间进行抉择"><a href="#在synchronized与ReentrantLock之间进行抉择" class="headerlink" title="在synchronized与ReentrantLock之间进行抉择"></a><strong>在synchronized与ReentrantLock之间进行抉择</strong></h3><p>在性能上，Java 5.0中ReentrantLock远远优于内置锁，而在Java 6.0中则是略有胜出。</p>
+<h2 id="在synchronized与ReentrantLock之间进行抉择"><a href="#在synchronized与ReentrantLock之间进行抉择" class="headerlink" title="在synchronized与ReentrantLock之间进行抉择"></a><strong>在synchronized与ReentrantLock之间进行抉择</strong></h2><p>在性能上，Java 5.0中ReentrantLock远远优于内置锁，而在Java 6.0中则是略有胜出。</p>
 <p>我们建议，仅当内置锁不能满足需求时，才可以考虑使用ReentrantLock。</p>
 <p>在Java 8.0中，内置锁的性能已经不压于ReentrantLock，并且未来更可能会继续提升synchronized的性能，毕竟synchronized是JVM的内置属性。</p>
 <hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
 <li>清楚为什么有Lock接口；</li>
 <li>清楚使用ReentrantLock有什么优缺点；</li>
 <li>掌握如何使用ReentrantLock（定时锁，轮询锁，中断锁以及一些其他功能）；</li>
 <li>能够在synchronized与Lock中做出选择。</li>
 </ol>
 <hr>
-<h3 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h3><p>Java并发编程实战</p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>Java并发编程实战</p>
 <p><a href="http://www.cnblogs.com/dolphin0520/p/3923167.html" target="_blank" rel="noopener">Java并发编程：Lock</a></p>
 
       
@@ -1037,7 +1037,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#既生synchronized，何生Lock"><span class="nav-number">2.</span> <span class="nav-text">既生synchronized，何生Lock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lock接口"><span class="nav-number">3.</span> <span class="nav-text">Lock接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#认识Lock"><span class="nav-number">3.1.</span> <span class="nav-text">认识Lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tryLock方法"><span class="nav-number">3.2.</span> <span class="nav-text">tryLock方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lockInterruptibly方法"><span class="nav-number">3.3.</span> <span class="nav-text">lockInterruptibly方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公平锁"><span class="nav-number">4.</span> <span class="nav-text">公平锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在synchronized与ReentrantLock之间进行抉择"><span class="nav-number">5.</span> <span class="nav-text">在synchronized与ReentrantLock之间进行抉择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考阅读"><span class="nav-number">7.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#既生synchronized，何生Lock"><span class="nav-number">2.</span> <span class="nav-text">既生synchronized，何生Lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lock接口"><span class="nav-number">3.</span> <span class="nav-text">Lock接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#认识Lock"><span class="nav-number">3.1.</span> <span class="nav-text">认识Lock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tryLock方法"><span class="nav-number">3.2.</span> <span class="nav-text">tryLock方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lockInterruptibly方法"><span class="nav-number">3.3.</span> <span class="nav-text">lockInterruptibly方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公平锁"><span class="nav-number">4.</span> <span class="nav-text">公平锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在synchronized与ReentrantLock之间进行抉择"><span class="nav-number">5.</span> <span class="nav-text">在synchronized与ReentrantLock之间进行抉择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">7.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
             
 
           </div>
