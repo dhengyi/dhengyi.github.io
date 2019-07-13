@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.dhengyi.name/2018/10/03/Java%E5%B9%B6%E5%8F%91-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-07-13T15:02:03.827Z</lastmod>
+  </url>  <url>
+    <loc>http://blog.dhengyi.name/2019/01/13/%E4%B9%90%E7%90%86-%E9%9F%B3%E4%B9%90%E7%9A%84%E8%8A%82%E5%A5%8F/</loc>
+    <lastmod>2019-01-13T10:28:46.314Z</lastmod>
+  </url>  <url>
     <loc>http://blog.dhengyi.name/2018/11/26/%E6%84%9F%E6%82%9F-%E5%8F%AA%E6%98%AF%E9%81%87%E8%A7%81%E4%BD%A0%E5%B0%B1%E5%B7%B2%E7%BB%8F%E5%BE%88%E5%B9%B8%E8%BF%90%E4%BA%86%EF%BC%81/</loc>
     <lastmod>2018-12-14T12:52:42.514Z</lastmod>
   </url>  <url>
@@ -120,9 +126,6 @@
   </url>  <url>
     <loc>http://blog.dhengyi.name/2018/09/27/Java%E5%B9%B6%E5%8F%91-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%98%BE%E5%BC%8F%E9%94%81/</loc>
     <lastmod>2018-11-17T06:19:56.328Z</lastmod>
-  </url>  <url>
-    <loc>http://blog.dhengyi.name/2018/10/03/Java%E5%B9%B6%E5%8F%91-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2018-11-17T05:52:46.737Z</lastmod>
   </url>  <url>
     <loc>http://blog.dhengyi.name/2017/08/16/JVM-%E4%BB%8Evolatile%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2018-11-15T09:26:01.276Z</lastmod>
