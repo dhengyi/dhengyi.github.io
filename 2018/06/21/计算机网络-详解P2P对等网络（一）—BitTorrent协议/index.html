@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本篇文章内容借鉴自：浅入浅出BitTorrent协议，其中加入了博主的部分原创，感谢，侵删~ 对等网络的概念以下定义主要摘抄自维基百科与中科院计算技术研究所：  对等式网络（peer-to-peer，简称P2P），又称点对点技术，是无中心服务器、依靠用户群（peers）交换信息的互联网体系。它的作用在于，网络的参与者共享他们所拥有的一部分硬件资源（处理能力、存储能力、网络连接能力、打印机等），">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shuwoom.com/wp-content/uploads/2018/03/20180320073439_49336.png">
-<meta property="og:image" content="https://img-blog.csdn.net/20160710110034840">
-<meta property="og:updated_time" content="2018-11-17T06:32:35.654Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/21/计算机网络-详解P2P对等网络（一）—BitTorrent协议/P2P网络简易模型.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/21/计算机网络-详解P2P对等网络（一）—BitTorrent协议/BT下载架构模型图.png">
+<meta property="og:updated_time" content="2019-07-14T10:18:21.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解P2P对等网络（一）—BitTorrent协议">
 <meta name="twitter:description" content="注：本篇文章内容借鉴自：浅入浅出BitTorrent协议，其中加入了博主的部分原创，感谢，侵删~ 对等网络的概念以下定义主要摘抄自维基百科与中科院计算技术研究所：  对等式网络（peer-to-peer，简称P2P），又称点对点技术，是无中心服务器、依靠用户群（peers）交换信息的互联网体系。它的作用在于，网络的参与者共享他们所拥有的一部分硬件资源（处理能力、存储能力、网络连接能力、打印机等），">
-<meta name="twitter:image" content="https://shuwoom.com/wp-content/uploads/2018/03/20180320073439_49336.png">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2018/06/21/计算机网络-详解P2P对等网络（一）—BitTorrent协议/P2P网络简易模型.png">
 
 
 
@@ -448,7 +448,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 14:32:35" itemprop="dateModified" datetime="2018-11-17T14:32:35+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-14 18:18:21" itemprop="dateModified" datetime="2019-07-14T18:18:21+08:00">2019-07-14</time>
               
             
           </span>
@@ -539,13 +539,13 @@
 
       
         <p><strong>注：本篇文章内容借鉴自：<a href="http://azard.me/blog/2015/10/24/introduction-to-bittorrent/" target="_blank" rel="noopener">浅入浅出BitTorrent协议</a>，其中加入了博主的部分原创，感谢，侵删~</strong></p>
-<h3 id="对等网络的概念"><a href="#对等网络的概念" class="headerlink" title="对等网络的概念"></a><strong>对等网络的概念</strong></h3><p>以下定义主要摘抄自维基百科与中科院计算技术研究所：</p>
+<h2 id="对等网络的概念"><a href="#对等网络的概念" class="headerlink" title="对等网络的概念"></a><strong>对等网络的概念</strong></h2><p>以下定义主要摘抄自维基百科与中科院计算技术研究所：</p>
 <blockquote>
 <p>对等式网络（peer-to-peer，简称P2P），又称点对点技术，是<strong>无中心服务器、依靠用户群（peers）交换信息的互联网体系</strong>。它的作用在于，网络的参与者共享他们所拥有的一部分硬件资源（处理能力、存储能力、网络连接能力、打印机等），这些共享资源通过网络提供服务和内容，能被其它对等节点(Peer)直接访问而无需经过中间实体，减低以往网路传输中的节点，以降低资料遗失的风险。与有中心服务器的中央网络系统不同，对等网络中的每个用户端既是资源（服务和内容）提供者（Server），又是资源获取者（Client），任何一个节点无法直接找到其他节点，必须依靠其用户群进行信息交流。</p>
 </blockquote>
 <hr>
-<h3 id="对等网络的模型"><a href="#对等网络的模型" class="headerlink" title="对等网络的模型"></a><strong>对等网络的模型</strong></h3><p>P2P网络的简易模型图如下：</p>
-<p><img src="https://shuwoom.com/wp-content/uploads/2018/03/20180320073439_49336.png" alt="此处输入图片的描述"></p>
+<h2 id="对等网络的模型"><a href="#对等网络的模型" class="headerlink" title="对等网络的模型"></a><strong>对等网络的模型</strong></h2><p>P2P网络的简易模型图如下：</p>
+<p><img src="P2P网络简易模型.png" alt="此处输入图片的描述"></p>
 <p>如图，我们可以总结出P2P网络的一些特征：</p>
 <ol>
 <li><strong>非中心化</strong>：P2P是全分布式系统，网络中的资源和服务分散在所有的节点上，信息的传输和服务的实现都直接在节点之间进行，可以无需中间环节和服务器介入。</li>
@@ -556,14 +556,14 @@
 <li><strong>负载均衡</strong>：由于每个节点既是服务器又是客户端，减少了传统C/S模型中对服务器计算能力、存储的要求，同时因为资源分布在多个节点，更好的实现了整个网络的负载均衡。</li>
 </ol>
 <hr>
-<h3 id="BitTorrent协议"><a href="#BitTorrent协议" class="headerlink" title="BitTorrent协议"></a><strong>BitTorrent协议</strong></h3><p>BitTorrent协议，简称BT协议，是一种互联网上新兴的P2P传输协议（即BT是一种特殊的P2P）。</p>
-<h4 id="出现的历史原因"><a href="#出现的历史原因" class="headerlink" title="出现的历史原因"></a><strong>出现的历史原因</strong></h4><p>随着全球接入互联网人数的增长，对互联网应用的服务端要求越来越高，吞吐量和并发量逐步加大。像国外的Google、Amazon，国内的阿里、百度等大型互联网企业十分关注如何使用集群、负载均衡等技术来提高网站的并发和吞吐量。但对于保存大文件给用户下载的中小型网站，在互联网爆发式增长下，用户数量越来越多，传输的文件越来越大，使用一台或几台服务器和传统的FTP、HTTP协议难以满足用户对下载速度的需求（受限于庞大的用户请求量、硬盘读取速度、带宽等）。BitTorrent协议解决了这些问题。</p>
-<h4 id="BT下载流程"><a href="#BT下载流程" class="headerlink" title="BT下载流程"></a><strong>BT下载流程</strong></h4><blockquote>
+<h2 id="BitTorrent协议"><a href="#BitTorrent协议" class="headerlink" title="BitTorrent协议"></a><strong>BitTorrent协议</strong></h2><p>BitTorrent协议，简称BT协议，是一种互联网上新兴的P2P传输协议（即BT是一种特殊的P2P）。</p>
+<h3 id="出现的历史原因"><a href="#出现的历史原因" class="headerlink" title="出现的历史原因"></a><strong>出现的历史原因</strong></h3><p>随着全球接入互联网人数的增长，对互联网应用的服务端要求越来越高，吞吐量和并发量逐步加大。像国外的Google、Amazon，国内的阿里、百度等大型互联网企业十分关注如何使用集群、负载均衡等技术来提高网站的并发和吞吐量。但对于保存大文件给用户下载的中小型网站，在互联网爆发式增长下，用户数量越来越多，传输的文件越来越大，使用一台或几台服务器和传统的FTP、HTTP协议难以满足用户对下载速度的需求（受限于庞大的用户请求量、硬盘读取速度、带宽等）。BitTorrent协议解决了这些问题。</p>
+<h3 id="BT下载流程"><a href="#BT下载流程" class="headerlink" title="BT下载流程"></a><strong>BT下载流程</strong></h3><blockquote>
 <p>无论是BT还是PT，还是FTP，都是一种下载方式，或者学术点的讲法，叫文件传输。</p>
 </blockquote>
 <p>BT下载通过一个P2P下载软件（点对点下载软件）来实现，克服了传统下载方式的局限性，具有下载的人越多，文件下载速度就越快的特点。其好处是不需要资源发布者拥有高性能服务器就能迅速有效地把发布的资源传向其他的BT客户软件使用者，而且大多数的BT软件都是免费的。</p>
 <p>BT下载架构模型图：</p>
-<p><img src="https://img-blog.csdn.net/20160710110034840" alt="此处输入图片的描述"></p>
+<p><img src="BT下载架构模型图.png" alt="此处输入图片的描述"></p>
 <p>现在，我们已经清楚了BT下载的架构模型，对于BT下载流程的讨论，我们跟随BT协议所引出的三个问题来进行：</p>
 <blockquote>
 <ol>
@@ -572,8 +572,7 @@
 <li>对等用户们如何相互鼓励上传内容给他人同时为自己下载内容？</li>
 </ol>
 </blockquote>
-<p><strong>1. B encode</strong></p>
-<p>在解决这三个问题之前，先简单介绍下B encode，因为在BitTorrent协议中的数据几乎都是用B encode进行编码的。它是一种作用类似于XML和JSON的数据组织格式，可以表达字符串、整数两种基本类型，列表、字典两种数据结构，它的语法规则十分简单。</p>
+<h4 id="B-encode"><a href="#B-encode" class="headerlink" title="B encode"></a><strong>B encode</strong></h4><p>在解决这三个问题之前，先简单介绍下B encode，因为在BitTorrent协议中的数据几乎都是用B encode进行编码的。它是一种作用类似于XML和JSON的数据组织格式，可以表达字符串、整数两种基本类型，列表、字典两种数据结构，它的语法规则十分简单。</p>
 <ul>
 <li>字节串按如下方式编码：</li>
 </ul>
@@ -598,8 +597,7 @@
 <blockquote>
 <p>d&lt;内容&gt;e<br>开始的“d”与结尾的“e”分别是开始和结束分隔符。注意键（key）必须被B编码为串。值可以是任何B编码的类型，包括整数、串、lists和其他的dictionaries。键（key）必须是串，并且以排序的顺序出现（以原始串排列，而不是以字母数字顺序）。<br>例：d3:cow3:moo4:spam4:eggse表示dictionary { “cow” =&gt; “moo”, “spam” =&gt; “eggs” }</p>
 </blockquote>
-<p><strong>2. torrent文件与tracker服务器</strong></p>
-<p>现在，我们考虑上述中的第一个问题：<strong>一个对等用户如何找到具有自己想下载内容的其他对等用户？</strong></p>
+<h4 id="torrent文件与tracker服务器"><a href="#torrent文件与tracker服务器" class="headerlink" title="torrent文件与tracker服务器"></a><strong>torrent文件与tracker服务器</strong></h4><p>现在，我们考虑上述中的第一个问题：<strong>一个对等用户如何找到具有自己想下载内容的其他对等用户？</strong></p>
 <p>在P2P网络系统的最初阶段，并不是所有的用户都拥有所有的内容，首先需要一个内容的发布者。作为内容的发布者，BitTorrent可以为每个发布者（内容提供商）创建一个内容描述文件，即.torrent文件，也就是我们平常所说的<strong>种子文件</strong>。</p>
 <p>种子文件是一种指定格式的文件，包含了两类关键信息，<strong>一类信息是tracker服务器的URL，一类信息是一个大小相等的块的清单</strong>。tracker服务器可以将用户引导至种子文件的内容，也就是将用户引导至拥有当前用户所需下载内容的其他对等节点处，块清单则组成了内容。</p>
 <p>关于种子文件具体的组成结构，它使用B encode表示，<strong>整个是一个字典数据结构</strong>，它有多个key值，包括一些是可选的，这里介绍最关键的上述两类信息的键值对：</p>
@@ -645,8 +643,7 @@
 </ul>
 </blockquote>
 <p>这些信息在每个客户端连接tracker服务器的时候都发送过，并且被Tracker服务器保存了下来。新来的客户端自然要获取到这些下载中或者已下载完的客户端的ip，port等信息，有了这些信息，客户端就不需要像FTP或者HTTP协议一样持续找服务器获取资源，可以从这些其他客户端上请求获取资源。</p>
-<p><strong>3. peer to peer</strong></p>
-<p>如上所述，如果对第一个问题进行简单的总结，那么自己想要下载的内容就交由种子文件进行确定，而如何寻找拥有这些资源的其他对等用户，则需要tracker服务器的帮助。</p>
+<h4 id="peer-to-peer"><a href="#peer-to-peer" class="headerlink" title="peer to peer"></a><strong>peer to peer</strong></h4><p>如上所述，如果对第一个问题进行简单的总结，那么自己想要下载的内容就交由种子文件进行确定，而如何寻找拥有这些资源的其他对等用户，则需要tracker服务器的帮助。</p>
 <p>那么，我们现在思考第二个问题：<strong>对等用户们如何复制内容以便为大家提供高速下载？</strong></p>
 <p>客户端从tracker服务器获取到若干其他下载者(peer)的ip和port信息，会进行请求并维持跟每一个peer的连接状态。一个客户端和每一个peer的状态主要有下列状态信息：</p>
 <blockquote>
@@ -686,15 +683,14 @@
 </ul>
 </blockquote>
 <p>经过这些报文在<strong>本地客户端和若干个远程客户端</strong>之间的来回传递，就能够获取到资源文件。</p>
-<p><strong>4. PT下载</strong></p>
-<p>在解决了前两个问题之后，我们来考虑第三个问题：<strong>对等用户们如何相互鼓励上传内容给他人同时为自己下载内容？</strong></p>
+<h4 id="PT下载"><a href="#PT下载" class="headerlink" title="PT下载"></a><strong>PT下载</strong></h4><p>在解决了前两个问题之后，我们来考虑第三个问题：<strong>对等用户们如何相互鼓励上传内容给他人同时为自己下载内容？</strong></p>
 <p>我们也可以看到，在P2P网络中，起初必须有一个内容的提供者，并且在健康的P2P网络中，每个peer都应当同时扮演客户端与服务器两个角色，那些只想从系统中获取资源而没有实物贡献的节点我们称之为“搭便车”或“吸血鬼”，如果这样的用户太多，那系统将无法正常工作。</p>
 <p><strong>PT</strong>全称Private Tracker，与BT最大的不同点分别为可进行私密范围下载，及可统计每个用户的上传及下载量。从技术上可以简单的看作有一个tracker服务器会对用户的下载上传进行统计，分享率不够就禁止用户下载，在一定程度上可以防止只下载而不上传的用户存在。关于PT下载更详细的内容，博主不在这里进行讨论，有兴趣的同学可以自行查阅相关资料。</p>
 <hr>
-<h3 id="一个有趣的小问题"><a href="#一个有趣的小问题" class="headerlink" title="一个有趣的小问题"></a><strong>一个有趣的小问题</strong></h3><p>迅雷作为国内首屈一指的BT下载工具，为什么有时在下载接近完成的最后，一些数据总是传输的非常慢呢？</p>
+<h2 id="一个有趣的小问题"><a href="#一个有趣的小问题" class="headerlink" title="一个有趣的小问题"></a><strong>一个有趣的小问题</strong></h2><p>迅雷作为国内首屈一指的BT下载工具，为什么有时在下载接近完成的最后，一些数据总是传输的非常慢呢？</p>
 <p>基于现实情况分析，有些人下载完成后关掉下载任务，提供较少量数据给其他用户，为尽量避免这种行为，在非官方BitTorrent协议中存在超级种子的算法。这种算法允许文件发布者分几步发布文件，发布者不需要一次提供文件所有内容，而是慢慢开放下载内容的比例，延长下载时间。此时，速度快的人由于未下载完必须提供给他人数据，速度慢的人有更多机会得到数据。由此往往造成用户卡在任务的99%，下载1G的任务要上传3G之多的数据。</p>
 <hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
 <li>熟悉P2P网络的特点及优势；</li>
 <li>熟悉BitTorrent协议的基本内容；</li>
 <li>熟悉BT下载的过程（种子文件以及tracker服务器）；</li>
@@ -704,7 +700,7 @@
 <li>能独立回答出关于BitTorrent协议的三个问题。</li>
 </ol>
 <hr>
-<h3 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h3><p>计算机网络（第五版） — Andrew S. TanenBaum/David J. Wetherall</p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>计算机网络（第五版） — Andrew S. TanenBaum/David J. Wetherall</p>
 <p><a href="http://azard.me/blog/2015/10/24/introduction-to-bittorrent/" target="_blank" rel="noopener">浅入浅出BitTorrent协议</a></p>
 <p><a href="https://blog.csdn.net/lanchunhui/article/details/51870418#t2" target="_blank" rel="noopener">P2P（对等网络）、PT下载与BT下载</a></p>
 
@@ -1151,7 +1147,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对等网络的概念"><span class="nav-number">1.</span> <span class="nav-text">对等网络的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对等网络的模型"><span class="nav-number">2.</span> <span class="nav-text">对等网络的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent协议"><span class="nav-number">3.</span> <span class="nav-text">BitTorrent协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#出现的历史原因"><span class="nav-number">3.1.</span> <span class="nav-text">出现的历史原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BT下载流程"><span class="nav-number">3.2.</span> <span class="nav-text">BT下载流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个有趣的小问题"><span class="nav-number">4.</span> <span class="nav-text">一个有趣的小问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考阅读"><span class="nav-number">6.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对等网络的概念"><span class="nav-number">1.</span> <span class="nav-text">对等网络的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对等网络的模型"><span class="nav-number">2.</span> <span class="nav-text">对等网络的模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BitTorrent协议"><span class="nav-number">3.</span> <span class="nav-text">BitTorrent协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#出现的历史原因"><span class="nav-number">3.1.</span> <span class="nav-text">出现的历史原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BT下载流程"><span class="nav-number">3.2.</span> <span class="nav-text">BT下载流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B-encode"><span class="nav-number">3.2.1.</span> <span class="nav-text">B encode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torrent文件与tracker服务器"><span class="nav-number">3.2.2.</span> <span class="nav-text">torrent文件与tracker服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#peer-to-peer"><span class="nav-number">3.2.3.</span> <span class="nav-text">peer to peer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PT下载"><span class="nav-number">3.2.4.</span> <span class="nav-text">PT下载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个有趣的小问题"><span class="nav-number">4.</span> <span class="nav-text">一个有趣的小问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">6.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
             
 
           </div>

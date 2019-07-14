@@ -148,14 +148,14 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本篇博客只是讲述了一致性哈希的思想，我们会在之后讲述分布式哈希表以及一致性哈希的一种实现（Chord算法）。 什么是一致性哈希算法？引用自维基百科：  一致性哈希是一种特殊的哈希算法。在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n个关键字重新映射，其中K是关键字的数量，n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位几乎需要对所有关键字进行重新映射。  总结：一致性">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/2018062611110754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180626210911231?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://cloud.githubusercontent.com/assets/1736354/16341445/a0e32fde-3a5f-11e6-969d-085f64220e63.png">
-<meta property="og:updated_time" content="2018-11-17T06:30:58.230Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希环结构.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希数据的分布.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希虚拟节点.png">
+<meta property="og:updated_time" content="2019-07-14T10:12:51.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查找--深入理解一致性哈希算法">
 <meta name="twitter:description" content="注：本篇博客只是讲述了一致性哈希的思想，我们会在之后讲述分布式哈希表以及一致性哈希的一种实现（Chord算法）。 什么是一致性哈希算法？引用自维基百科：  一致性哈希是一种特殊的哈希算法。在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n个关键字重新映射，其中K是关键字的数量，n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位几乎需要对所有关键字进行重新映射。  总结：一致性">
-<meta name="twitter:image" content="https://img-blog.csdn.net/2018062611110754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希环结构.png">
 
 
 
@@ -449,7 +449,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 14:30:58" itemprop="dateModified" datetime="2018-11-17T14:30:58+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-14 18:12:51" itemprop="dateModified" datetime="2019-07-14T18:12:51+08:00">2019-07-14</time>
               
             
           </span>
@@ -540,16 +540,16 @@
 
       
         <p><strong>注：本篇博客只是讲述了一致性哈希的思想，我们会在之后讲述分布式哈希表以及一致性哈希的一种实现（Chord算法）。</strong></p>
-<h3 id="什么是一致性哈希算法？"><a href="#什么是一致性哈希算法？" class="headerlink" title="什么是一致性哈希算法？"></a><strong>什么是一致性哈希算法？</strong></h3><p>引用自维基百科：</p>
+<h2 id="什么是一致性哈希算法？"><a href="#什么是一致性哈希算法？" class="headerlink" title="什么是一致性哈希算法？"></a><strong>什么是一致性哈希算法？</strong></h2><p>引用自维基百科：</p>
 <blockquote>
 <p>一致性哈希是一种特殊的哈希算法。在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n个关键字重新映射，其中K是关键字的数量，n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位几乎需要对所有关键字进行重新映射。</p>
 </blockquote>
 <p><strong>总结</strong>：一致性哈希算法主要关注的是在分布式架构中，当节点数目发生变化的时候（增加/删除），怎样使再哈希的数据量最少。</p>
 <hr>
-<h3 id="一致性哈希的引出"><a href="#一致性哈希的引出" class="headerlink" title="一致性哈希的引出"></a><strong>一致性哈希的引出</strong></h3><p>在分布式系统中，节点的宕机、某个节点加入或者移出集群是常事。对于分布式存储而言，假设存储集群中有10台机器（node），如果采用传统Hash方式对数据分片（item）(即数据根据哈希函数映射到某台机器上存储)，哈希函数应该是这样的：hash(item) % 10。根据上面的介绍，当node数发生变化（增加、移除）后，数据会被重新“打散”，导致大部分数据不能落到原来的节点上，从而导致大量数据需要迁移，而这种移动会造成网络的负载。</p>
+<h2 id="一致性哈希的引出"><a href="#一致性哈希的引出" class="headerlink" title="一致性哈希的引出"></a><strong>一致性哈希的引出</strong></h2><p>在分布式系统中，节点的宕机、某个节点加入或者移出集群是常事。对于分布式存储而言，假设存储集群中有10台机器（node），如果采用传统Hash方式对数据分片（item）(即数据根据哈希函数映射到某台机器上存储)，哈希函数应该是这样的：hash(item) % 10。根据上面的介绍，当node数发生变化（增加、移除）后，数据会被重新“打散”，导致大部分数据不能落到原来的节点上，从而导致大量数据需要迁移，而这种移动会造成网络的负载。</p>
 <p>那么，一个亟待解决的问题就变成了：当node数发生变化时，如何保证尽量少引起迁移呢？即当增加或者删除节点时，对于大多数item，保证原来分配到的某个node，现在仍然应该分配到那个node，将数据迁移量降到最低。</p>
 <hr>
-<h3 id="一致性哈希的原理及优劣"><a href="#一致性哈希的原理及优劣" class="headerlink" title="一致性哈希的原理及优劣"></a><strong>一致性哈希的原理及优劣</strong></h3><p><img src="https://img-blog.csdn.net/2018062611110754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="此处输入图片的描述"></p>
+<h2 id="一致性哈希的原理及优劣"><a href="#一致性哈希的原理及优劣" class="headerlink" title="一致性哈希的原理及优劣"></a><strong>一致性哈希的原理及优劣</strong></h2><p><img src="一致性哈希环结构.png" alt="此处输入图片的描述"></p>
 <p>传统的Hash算法将对应的key哈希到一个具有2^32次方（int）个桶的空间中，即0~(2^32)-1的数字空间中。现在我们可以将这些数字头尾相连，想象成一个闭合的环形。也就是将传统的线性哈希表构造成环形哈希表。</p>
 <p>我们来看一下如何将数据映射到环形哈希表上：</p>
 <p>如上图，有三台机器（node），四个数据项（item），每台机器对应着一个n位的ID（采用机器的IP或者机器唯一的别名作为哈希函数的输入值），并且映射到环中，每个查询键，也是一个n位的ID，节点的ID和查询键对应着相同的映射空间。三台机器将整个环分割成了三部分，分别是(1,3)，(3,2)，(2,1)。</p>
@@ -561,22 +561,22 @@
 <p>比如，机器1被移除了，那落在(2,1)范围内的数据全部需要由机器3来存储，也就只影响到落在(2,1)这个范围内的数据。同时，扩容也很方便，比如在(1,3)这段环上再添加一台机器4，只需要将3上的一部分数据拷贝到机器4上即可。</p>
 </blockquote>
 <p>虽然一致性Hash算法解决了节点变化导致的数据迁移问题，但是，我们回过头来再看看数据分布的均匀性：</p>
-<p><img src="https://img-blog.csdn.net/20180626210911231?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW1waW9uaGVuZ3lp/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="此处输入图片的描述"></p>
+<p><img src="一致性哈希数据的分布.png" alt="此处输入图片的描述"></p>
 <p>数据被传统的哈希算法“打散”后，是可以比较均匀分布的。但是引入一致性哈希算法后，为什么就不均匀呢？数据本身的哈希值并未发生变化，变化的是判断数据哈希后应该落到哪个节点的算法变了。</p>
 <p>这三个节点Hash后，在环上分布不均匀，导致了每个节点实际占据环上的区间大小不一，数据随机映射到每个节点的概率就有较大差别，换个说法，也就是不能实现较好的负载均衡。</p>
 <p>举个例子：机器1的配置很高，性能很好，而机器3的配置很低。但是，如上图，大部分数据由于某些特征都哈希到(1,3)这段环上，直接就导致了机器3的存储压力很大。</p>
 <hr>
-<h3 id="虚拟节点的引入"><a href="#虚拟节点的引入" class="headerlink" title="虚拟节点的引入"></a><strong>虚拟节点的引入</strong></h3><p>当我们将node进行哈希后，这些值并没有均匀地落在环上，因此，最终会导致，这些节点所管辖的范围并不均匀，最终导致了数据分布的不均匀。</p>
+<h2 id="虚拟节点的引入"><a href="#虚拟节点的引入" class="headerlink" title="虚拟节点的引入"></a><strong>虚拟节点的引入</strong></h2><p>当我们将node进行哈希后，这些值并没有均匀地落在环上，因此，最终会导致，这些节点所管辖的范围并不均匀，最终导致了数据分布的不均匀。</p>
 <p>为了解决一致性哈希的不足，从而引入了虚拟节点的概念。</p>
 <p>引入虚拟节点，可以有效地防止物理节点（机器）映射到哈希环中出现不均匀的情况。比如上图中的机器1、2、3都映射在环的左半边上。</p>
 <p>一般，虚拟节点会比物理节点多很多，并可均衡分布在环上，从而提高负载均衡的能力。</p>
-<p><img src="https://cloud.githubusercontent.com/assets/1736354/16341445/a0e32fde-3a5f-11e6-969d-085f64220e63.png" alt="此处输入图片的描述"></p>
+<p><img src="一致性哈希虚拟节点.png" alt="此处输入图片的描述"></p>
 <ol>
 <li>如果虚拟节点与物理机器映射得好，某一台物理机器宕机后，其上的数据可由其他若干台物理机器共同分担；</li>
 <li>如果新添加一台机器，它可以对应多个不相邻环段上的虚拟节点，从而使得Hash的数据存储得更分散。</li>
 </ol>
 <hr>
-<h3 id="如何判定一致性哈希算法的好坏？"><a href="#如何判定一致性哈希算法的好坏？" class="headerlink" title="如何判定一致性哈希算法的好坏？"></a><strong>如何判定一致性哈希算法的好坏？</strong></h3><ol>
+<h2 id="如何判定一致性哈希算法的好坏？"><a href="#如何判定一致性哈希算法的好坏？" class="headerlink" title="如何判定一致性哈希算法的好坏？"></a><strong>如何判定一致性哈希算法的好坏？</strong></h2><ol>
 <li><strong>平衡性(Balance)</strong>：平衡性是指哈希的结果能够尽可能分布到所有的缓冲（服务器节点）中去，这样可以使得所有的缓冲空间都得到利用，很多哈希算法都能够满足这一条件；</li>
 <li><strong>单调性(Monotonicity)</strong>：单调性是指如果已经有一些内容通过哈希分派到了相应的缓冲中，又有新的缓冲加入到系统中，哈希的结果应能够保证原有已分配的内容可以被映射到原有的或者新的缓冲中去，而不会被映射到旧的缓冲集合中的其他缓冲区；</li>
 <li><strong>分散性(Spread)</strong>：在分布式环境中，终端有可能看不到所有的缓冲，而是只能看到其中的一部分。当终端希望通过哈希过程将内容映射到缓冲上时，由于不同终端所见的缓冲范围有可能不同，从而导致哈希的结果不一致，最终的结果是相同的内容被不同的终端映射到不同的缓冲区中。这种情况显然是应该避免的，因为它导致相同内容被存储到不同缓冲中去，降低了系统存储的效率。分散性的定义就是上述情况发生的严重程度。好的哈希算法应能够尽量避免不一致的情况发生，也就是尽量降低分散性；</li>
@@ -584,17 +584,17 @@
 </ol>
 <p><strong>注</strong>：对于第四点来说，好的一致性哈希算法，应该将同一用户的请求映射到相同的机器上，因为一个缓冲区始终处理同一个用户的请求是比较容易实现的（Cookie），如果将不同用户的不同请求映射到相同的缓冲区中，既有可能增大机器的负载，而且不容易实现。</p>
 <hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
 <li>熟悉一致性哈希算法的特点及原理；</li>
 <li>熟悉一致性哈希算法的优劣与改进（虚拟节点）；</li>
 <li>掌握为什么会出现一致性哈希算法；</li>
 <li>了解一致性哈希算法的另一种改进（线性空间的引入）—详见<a href="https://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/" target="_blank" rel="noopener">一致性哈希算法的理解与实践</a>。</li>
 </ol>
 <hr>
-<h3 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h3><p><a href="https://www.cnblogs.com/hapjin/p/5760463.html" target="_blank" rel="noopener">分布式哈希算法</a></p>
-<p><a href="https://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/" target="_blank" rel="noopener">一致性哈希算法的理解与实践</a></p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="https://yikun.github.io/2016/06/09/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E8%B7%B5/" target="_blank" rel="noopener">一致性哈希算法的理解与实践</a></p>
 <p><a href="http://www.cnblogs.com/hapjin/p/4737207.html" target="_blank" rel="noopener">一致性哈希算法学习及JAVA代码实现分析</a></p>
 <p><a href="https://blog.csdn.net/cywosp/article/details/23397179" target="_blank" rel="noopener">每天进步一点点—五分钟理解一致性哈希算法(consistent hashing)</a></p>
+<p><a href="https://www.cnblogs.com/hapjin/p/5760463.html" target="_blank" rel="noopener">分布式哈希算法</a></p>
 
       
     </div>
@@ -1037,7 +1037,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是一致性哈希算法？"><span class="nav-number">1.</span> <span class="nav-text">什么是一致性哈希算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性哈希的引出"><span class="nav-number">2.</span> <span class="nav-text">一致性哈希的引出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性哈希的原理及优劣"><span class="nav-number">3.</span> <span class="nav-text">一致性哈希的原理及优劣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟节点的引入"><span class="nav-number">4.</span> <span class="nav-text">虚拟节点的引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判定一致性哈希算法的好坏？"><span class="nav-number">5.</span> <span class="nav-text">如何判定一致性哈希算法的好坏？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考阅读"><span class="nav-number">7.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是一致性哈希算法？"><span class="nav-number">1.</span> <span class="nav-text">什么是一致性哈希算法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性哈希的引出"><span class="nav-number">2.</span> <span class="nav-text">一致性哈希的引出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性哈希的原理及优劣"><span class="nav-number">3.</span> <span class="nav-text">一致性哈希的原理及优劣</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟节点的引入"><span class="nav-number">4.</span> <span class="nav-text">虚拟节点的引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判定一致性哈希算法的好坏？"><span class="nav-number">5.</span> <span class="nav-text">如何判定一致性哈希算法的好坏？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">7.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
             
 
           </div>

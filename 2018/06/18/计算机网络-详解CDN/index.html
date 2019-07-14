@@ -148,7 +148,7 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本文内容摘抄自CDN详解 — 不挑食的程序员，博主在其基础上进行了少量修改并加入了部分原创，感谢，侵删~ 之前我们已经学习过缓存机制以及Web代理，但对于大型网站的构建，这些还远远不够。要想真正的构建一个流行的网站，内容分发网络（Content Delivery Network）简称CDN，是一项不可或缺的技术。  什么是CDN？以下内容摘自维基百科：  内容分发网络（CDN）是指一种通过互联">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T06:36:17.617Z">
+<meta property="og:updated_time" content="2019-07-14T10:20:25.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解CDN">
 <meta name="twitter:description" content="注：本文内容摘抄自CDN详解 — 不挑食的程序员，博主在其基础上进行了少量修改并加入了部分原创，感谢，侵删~ 之前我们已经学习过缓存机制以及Web代理，但对于大型网站的构建，这些还远远不够。要想真正的构建一个流行的网站，内容分发网络（Content Delivery Network）简称CDN，是一项不可或缺的技术。  什么是CDN？以下内容摘自维基百科：  内容分发网络（CDN）是指一种通过互联">
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 14:36:17" itemprop="dateModified" datetime="2018-11-17T14:36:17+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-14 18:20:25" itemprop="dateModified" datetime="2019-07-14T18:20:25+08:00">2019-07-14</time>
               
             
           </span>
@@ -538,7 +538,7 @@
         <p><strong>注：本文内容摘抄自<a href="https://segmentfault.com/a/1190000010631404#articleHeader3" target="_blank" rel="noopener">CDN详解 — 不挑食的程序员</a>，博主在其基础上进行了少量修改并加入了部分原创，感谢，侵删~</strong></p>
 <p>之前我们已经学习过缓存机制以及Web代理，但对于大型网站的构建，这些还远远不够。要想真正的构建一个流行的网站，内容分发网络（Content Delivery Network）简称CDN，是一项不可或缺的技术。</p>
 <hr>
-<h3 id="什么是CDN？"><a href="#什么是CDN？" class="headerlink" title="什么是CDN？"></a><strong>什么是CDN？</strong></h3><p>以下内容摘自维基百科：</p>
+<h2 id="什么是CDN？"><a href="#什么是CDN？" class="headerlink" title="什么是CDN？"></a><strong>什么是CDN？</strong></h2><p>以下内容摘自维基百科：</p>
 <blockquote>
 <p>内容分发网络（CDN）是指一种通过互联网互相连接的计算机网络系统，利用最靠近每位用户的服务器，<strong>更快、更可靠</strong>地将音乐、图片、视频、应用程序及其他文件发送给用户。</p>
 </blockquote>
@@ -547,7 +547,7 @@
 <p>CDN系统主要由4大部分组成，每部分都由集群所构成。这4部分分别由CDN专属DNS服务器、全局负载均衡设备、区域负载均衡设备、CDN缓存服务器（边缘节点）构成。除过CDN专属DNS服务器，其他3部分集群都有源服务器上对应资源的全部或部分副本。CDN系统通过各部分的负载均衡算法，最终指示客户端使用附近最优的边缘节点中的一台缓存服务器作为服务端，从而提高Web应用的性能。</p>
 </blockquote>
 <hr>
-<h3 id="CDN的基本工作过程"><a href="#CDN的基本工作过程" class="headerlink" title="CDN的基本工作过程"></a><strong>CDN的基本工作过程</strong></h3><p>在传统的Web模型中，发出请求后一般要经过如下几个步骤：</p>
+<h2 id="CDN的基本工作过程"><a href="#CDN的基本工作过程" class="headerlink" title="CDN的基本工作过程"></a><strong>CDN的基本工作过程</strong></h2><p>在传统的Web模型中，发出请求后一般要经过如下几个步骤：</p>
 <ol>
 <li>用户在自己的浏览器中输入要访问的网站域名。</li>
 <li>浏览器向<strong>本地DNS服务器</strong>请求对该域名的解析。</li>
@@ -579,7 +579,7 @@
 <p>CDN全局负载均衡设备与CDN区域负载均衡设备根据用户IP地址，将域名解析成相应节点中缓存服务器的IP地址，实现用户就近访问，从而提高服务端响应内容的速度。</p>
 <p>理论上，最简单的CDN网络只有一个CDN专用DNS服务器，一个全局负载均衡设备，然后各节点一台缓存服务器，即可运行。</p>
 <hr>
-<h3 id="CDN的部署架构"><a href="#CDN的部署架构" class="headerlink" title="CDN的部署架构"></a><strong>CDN的部署架构</strong></h3><p><strong>CDN系统设计的首要目标是尽量减少用户的访问响应时间</strong>，为达到这一目标，CDN系统应该尽量将用户所需要的内容存放在距离用户最近的位置。也就是说，负责为用户提供内容服务的缓存设备应部署在物理上的网络边缘位置，我们称这一层为CDN边缘层。CDN系统中负责全局性管理和控制的设备组成中心层，中心层同时保存着基本上最完善的内容副本，当边缘层设备未命中时，会向中心层请求，如果在中心层仍未命中，则需要中心层向源站回源。</p>
+<h2 id="CDN的部署架构"><a href="#CDN的部署架构" class="headerlink" title="CDN的部署架构"></a><strong>CDN的部署架构</strong></h2><p><strong>CDN系统设计的首要目标是尽量减少用户的访问响应时间</strong>，为达到这一目标，CDN系统应该尽量将用户所需要的内容存放在距离用户最近的位置。也就是说，负责为用户提供内容服务的缓存设备应部署在物理上的网络边缘位置，我们称这一层为CDN边缘层。CDN系统中负责全局性管理和控制的设备组成中心层，中心层同时保存着基本上最完善的内容副本，当边缘层设备未命中时，会向中心层请求，如果在中心层仍未命中，则需要中心层向源站回源。</p>
 <p>不同CDN系统设计之间存在差异，中心层可能具备用户服务能力，也可能不直接提供服务，只向下级节点提供内容。如果CDN网络规模较大，边缘层设备直接向中心层请求内容或服务会造成中心层设备压力过大，就要考虑在边缘层和中心层之间部署一个区域层，负责一个区域的管理和控制，也保存部分内容副本供边缘层访问。</p>
 <p>实际上，边缘层、区域层、中心层分别对应于边缘节点、区域负载均衡设备、全局负载均衡设备。</p>
 <p>节点是CDN系统中最基本的部署单元，<strong>每个节点都是由服务器集群组成</strong>。一个CDN系统由大量的、地理位置上分散的POP（point-of-presence）节点组成，为用户提供就近的内容访问服务。</p>
@@ -591,7 +591,7 @@
 <p>在穿越方式下，SLB（Server Load Balancer）本地负载均衡一般由L4-7交换机实现，SLB向外提供可访问的公网IP地址，我们可以将其称之为VIP。每台缓存服务器仅分配私网IP地址，该台SLB下的所有缓存服务器构成一个服务组。所有用户请求和媒体流都经过该SLB设备，再由SLB设备进行向上向下转发。SLB实际上承担了NAT（Network Address Translation，网络地址转换）功能，向用户屏蔽了单台缓存服务器设备的IP地址。</p>
 <p>也就是说，我们所访问的全局负载均衡设备，区域负载均衡设备，CDN边缘节点服务器的IP地址，实际上都是VIP。这种方式是CDN系统中应用较多的方式，优点是具有较高的安全性和可靠性。</p>
 <hr>
-<h3 id="CDN的功能架构"><a href="#CDN的功能架构" class="headerlink" title="CDN的功能架构"></a><strong>CDN的功能架构</strong></h3><p>CDN基于这样的原理：</p>
+<h2 id="CDN的功能架构"><a href="#CDN的功能架构" class="headerlink" title="CDN的功能架构"></a><strong>CDN的功能架构</strong></h2><p>CDN基于这样的原理：</p>
 <ol>
 <li>挑选最优设备为用户提供服务；</li>
 <li>如果某个内容被很多用户所需要，它就被缓存到距离用户最近的节点中。</li>
@@ -601,21 +601,21 @@
 <p>至于IDC，请戳：<a href="https://www.zhihu.com/question/40534161/answer/95912666" target="_blank" rel="noopener">云、CDN、IDC 三个概念的区别是什么？有什么相互包含和影响 - DADAman的回答 - 知乎 </a></p>
 <p>从功能上划分，典型的CDN系统架构由<strong>分发服务系统、负载均衡系统和运营管理系统</strong>三大部分组成。</p>
 <hr>
-<h4 id="分发服务系统"><a href="#分发服务系统" class="headerlink" title="分发服务系统"></a><strong>分发服务系统</strong></h4><p>该系统的主要作用是实现<strong>将内容从内容源中心向边缘的推送和存储，承担实际的内容数据流的全网分发工作和面向最终用户的数据请求服务</strong>。分发服务系统最基本的工作单元就是许许多多的缓存服务器，缓存服务器负责直接响应最终用户的访问请求，把缓存在本地的内容快速地提供给用户。同时缓存服务器还负责与源站点进行内容同步，把更新的内容以及本地没有的内容从源站点获取并保存在本地。</p>
+<h3 id="分发服务系统"><a href="#分发服务系统" class="headerlink" title="分发服务系统"></a><strong>分发服务系统</strong></h3><p>该系统的主要作用是实现<strong>将内容从内容源中心向边缘的推送和存储，承担实际的内容数据流的全网分发工作和面向最终用户的数据请求服务</strong>。分发服务系统最基本的工作单元就是许许多多的缓存服务器，缓存服务器负责直接响应最终用户的访问请求，把缓存在本地的内容快速地提供给用户。同时缓存服务器还负责与源站点进行内容同步，把更新的内容以及本地没有的内容从源站点获取并保存在本地。</p>
 <p>一般来说，<strong>根据承载内容类型和服务种类的不同，分发服务系统会分为多个子服务系统</strong>，如网页加速子系统、流媒体加速子系统、应用加速子系统等。每个子服务系统都是一个分布式服务集群，由一群功能近似的、在地理位置上分布部署的缓存服务器或缓存服务器集群组成，彼此间相互独立。每个子服务系统设备集群的数量根据业务发展和市场需要的不同，少则几十台，多则可达上万台，对外形成一个整体，共同承担分发服务工作。缓存服务器设备的数量、规模、总服务能力是衡量一个CDN系统服务能力的最基本的指标。</p>
 <p>分发服务系统在承担内容的更新、同步和响应用户需求的同时，还需要向上层的调度控制系统提供每个缓存服务器的健康状况信息、响应情况，有时还需要提供内容分布信息，以便调度控制系统根据设定的策略决定由哪个缓存服务器（组）来响应用户的请求最优。</p>
 <hr>
-<h4 id="负载均衡系统"><a href="#负载均衡系统" class="headerlink" title="负载均衡系统"></a><strong>负载均衡系统</strong></h4><p>负载均衡系统是一个CDN系统的神经中枢，主要功能是<strong>负责对所有发起服务请求的用户进行访问调度，确定提供给用户的最终实际访问地址</strong>。大多数CDN系统的负载均衡系统是分级实现的，这里以最基本的两级调度体系进行简要说明。一般而言，两级调度体系分为<strong>全局负载均衡（GSLB）和本地负载均衡（SLB）</strong>。</p>
+<h3 id="负载均衡系统"><a href="#负载均衡系统" class="headerlink" title="负载均衡系统"></a><strong>负载均衡系统</strong></h3><p>负载均衡系统是一个CDN系统的神经中枢，主要功能是<strong>负责对所有发起服务请求的用户进行访问调度，确定提供给用户的最终实际访问地址</strong>。大多数CDN系统的负载均衡系统是分级实现的，这里以最基本的两级调度体系进行简要说明。一般而言，两级调度体系分为<strong>全局负载均衡（GSLB）和本地负载均衡（SLB）</strong>。</p>
 <p>我们刚说的全局负载均衡设备及区域负载均衡设备都属于全局负载均衡，本地负载均衡设备则属于本地负载均衡。</p>
 <p>其中，全局负载均衡（GSLB）主要根据用户就近性原则，通过对每个服务节点进行”最优”判断，确定向用户提供服务的缓存服务器集群的物理位置。<strong>最通用的GSLB实现方法是基于DNS解析的方式实现</strong>，也有一些系统采用了应用层重定向等方式来解决。<strong>本地负载均衡（SLB）主要负责节点内部的设备负载均衡</strong>，当用户请求从 GSLB调度到SLB时，SLB会根据节点内各缓存服务器设备的实际能力或内容分布等因素对用户进行重定向，常用的本地负载均衡方法有基于4层调度、基于7层调度、链路负载调度等。</p>
 <hr>
-<h4 id="运营管理系统"><a href="#运营管理系统" class="headerlink" title="运营管理系统"></a><strong>运营管理系统</strong></h4><p>CDN的运营管理系统与一般的电信运营管理系统类似，分为运营管理和网络管理两个子系统。</p>
+<h3 id="运营管理系统"><a href="#运营管理系统" class="headerlink" title="运营管理系统"></a><strong>运营管理系统</strong></h3><p>CDN的运营管理系统与一般的电信运营管理系统类似，分为运营管理和网络管理两个子系统。</p>
 <p>运营管理子系统是CDN系统的业务管理功能实体，负责处理业务层面的与外界系统交互所必需的一些收集、整理、交付工作，包含客户管理、产品管理、计费管理、统计分析等功能。</p>
 <p>网络管理子系统实现对CDN系统的网络设备管理、拓扑管理、链路监控和故障管理，为管理员提供对全网资源进行集中化管理操作的界面，通常是基于Web方式实现的。</p>
 <p>在CDN系统中，不仅分发服务系统和调度控制系统是分布式部署的，运营管理系统也是分布式部署的，每个节点都是运营管理数据的生成点和采集点，通过日志和网管代理等方式上报数据。可以说，CDN本身就是一个大型的具有中央控制能力的分布式服务系统。</p>
 <p>试着使用一下腾讯云提供的CDN服务吧，或许会对你理解运营管理系统有帮助。</p>
 <hr>
-<h3 id="为什么需要CDN？"><a href="#为什么需要CDN？" class="headerlink" title="为什么需要CDN？"></a><strong>为什么需要CDN？</strong></h3><p>当下的互联网应用都包含大量的静态内容，但静态内容以及一些准动态内容又是最耗费带宽的，特别是针对全国甚至全世界的大型网站，如果这些请求都指向主站的服务器的话，不仅是主站服务器受不了，单端口500M左右的带宽也扛不住，所以大多数网站都需要CDN服务。</p>
+<h2 id="为什么需要CDN？"><a href="#为什么需要CDN？" class="headerlink" title="为什么需要CDN？"></a><strong>为什么需要CDN？</strong></h2><p>当下的互联网应用都包含大量的静态内容，但静态内容以及一些准动态内容又是最耗费带宽的，特别是针对全国甚至全世界的大型网站，如果这些请求都指向主站的服务器的话，不仅是主站服务器受不了，单端口500M左右的带宽也扛不住，所以大多数网站都需要CDN服务。</p>
 <p>根本上的原因是，访问速度对互联网应用的用户体验、口碑、甚至说直接的营收都有巨大的影响，任何的企业都渴望自己站点有更快的访问速度。而HTTP传输时延对web的访问速度的影响很大，在绝大多数情况下是起决定性作用的，这是由TCP/IP协议的一些特点决定的。物理层上的原因是光速有限、信道有限，协议上的原因有丢包、慢启动、拥塞控制等。</p>
 <p>这就是你使用CDN的第一个也是最重要的原因：为了加速网站的访问。</p>
 <p>除了加速网站的访问之外，CDN还有一些作用：</p>
@@ -630,7 +630,7 @@
 <p><strong>5. 让你更专注业务本身</strong></p>
 <p>CDN加速厂商一般都会提供一站式服务，业务不仅限于CDN，还有配套的云存储、大数据服务、视频云服务等，而且一般会提供7x24运维监控支持，保证网络随时畅通，你可以放心使用。并且将更多的精力投入到发展自身的核心业务之上。</p>
 <hr>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a><strong>其它</strong></h3><h4 id="流量劫持"><a href="#流量劫持" class="headerlink" title="流量劫持"></a><strong>流量劫持</strong></h4><p>其实，CDN本身就是一种DNS劫持，只不过是良性的。不同于黑客强制DNS把域名解析到自己的钓鱼IP上，CDN则是让DNS主动配合，把域名解析到临近的服务器上。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a><strong>其它</strong></h2><h3 id="流量劫持"><a href="#流量劫持" class="headerlink" title="流量劫持"></a><strong>流量劫持</strong></h3><p>其实，CDN本身就是一种DNS劫持，只不过是良性的。不同于黑客强制DNS把域名解析到自己的钓鱼IP上，CDN则是让DNS主动配合，把域名解析到临近的服务器上。</p>
 <p>劫持通常分为两类：</p>
 <ol>
 <li><p><strong>域名劫持</strong>，又称<strong>DNS劫持</strong>，通常是指域名指向到非正常IP（恶意IP），该恶意IP通过反向代理的方式，在能返回网页正常内容的情况，可能插入恶意代码、监听网民访问、劫持敏感信息等操作。通常验证一个域名是否被劫持的方法是PING一个域名，如果发现PING出来的IP不是您的服务器真实IP，则可以确定被劫持了。</p>
@@ -639,14 +639,13 @@
 </li>
 </ol>
 <p>如果使用CDN服务，当源站向CDN返回被劫持的内容时，此时CDN将获取不到正确的网页内容（而是经运营商篡改强制植入广告的页面），此时可能导致该内容在CDN中长时间缓存，发现这种问题，可以清理CDN缓存，一般即可恢复正常。</p>
-<hr>
-<h4 id="CDN缓存"><a href="#CDN缓存" class="headerlink" title="CDN缓存"></a><strong>CDN缓存</strong></h4><p>CDN边缘节点缓存策略因服务商不同而不同，但一般都会遵循HTTP标准协议，通过HTTP缓存机制来设置CDN边缘节点数据缓存时间。</p>
+<h3 id="CDN缓存"><a href="#CDN缓存" class="headerlink" title="CDN缓存"></a><strong>CDN缓存</strong></h3><p>CDN边缘节点缓存策略因服务商不同而不同，但一般都会遵循HTTP标准协议，通过HTTP缓存机制来设置CDN边缘节点数据缓存时间。</p>
 <p>当客户端向CDN节点请求数据时，CDN节点会判断缓存数据是否过期，若缓存数据并没有过期，则直接将缓存数据返回给客户端；否则，CDN节点就会向源站发出回源请求（back to the source request），从源站拉取最新数据，更新本地缓存，并将最新数据返回给客户端。</p>
 <p>CDN服务商一般会提供基于文件后缀、目录多个维度来指定CDN缓存时间，为用户提供更精细化的缓存管理。</p>
 <p>CDN缓存时间会对回源率产生直接的影响。若CDN缓存时间较短，CDN边缘节点上的数据会经常失效，导致频繁回源，增加了源站的负载，同时也增大了访问延时；若CDN缓存时间太长，会带来数据更新慢的问题。开发者需要增对特定的业务，来做特定的数据缓存时间管理。</p>
 <p>CDN边缘节点对开发者是透明的，相比于浏览器Ctrl+F5的强制刷新来使浏览器本地缓存失效，开发者可以通过CDN服务商提供的“刷新缓存”接口来达到清理CDN边缘节点缓存的目的。这样开发者在更新数据后，可以使用刷新缓存功能来强制CDN节点上的缓存过期，保证客户端在访问时，拉取到最新的数据。</p>
 <hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
 <li>熟悉CDN系统的请求与响应流程；</li>
 <li>熟悉CDN系统的部署架构及功能架构；</li>
 <li>掌握CDN系统中全局负载均衡与本地负载均衡的相关概念；</li>
@@ -655,7 +654,7 @@
 <li>了解流量劫持与CDN缓存。</li>
 </ol>
 <hr>
-<h3 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h3><p><a href="https://www.zhihu.com/question/21771529/answer/190036779" target="_blank" rel="noopener">如何自己架设部署CDN — 视界云</a></p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="https://www.zhihu.com/question/21771529/answer/190036779" target="_blank" rel="noopener">如何自己架设部署CDN — 视界云</a></p>
 
       
     </div>
@@ -1098,7 +1097,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是CDN？"><span class="nav-number">1.</span> <span class="nav-text">什么是CDN？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN的基本工作过程"><span class="nav-number">2.</span> <span class="nav-text">CDN的基本工作过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN的部署架构"><span class="nav-number">3.</span> <span class="nav-text">CDN的部署架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN的功能架构"><span class="nav-number">4.</span> <span class="nav-text">CDN的功能架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分发服务系统"><span class="nav-number">4.1.</span> <span class="nav-text">分发服务系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡系统"><span class="nav-number">4.2.</span> <span class="nav-text">负载均衡系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运营管理系统"><span class="nav-number">4.3.</span> <span class="nav-text">运营管理系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要CDN？"><span class="nav-number">5.</span> <span class="nav-text">为什么需要CDN？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它"><span class="nav-number">6.</span> <span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流量劫持"><span class="nav-number">6.1.</span> <span class="nav-text">流量劫持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CDN缓存"><span class="nav-number">6.2.</span> <span class="nav-text">CDN缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考阅读"><span class="nav-number">8.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是CDN？"><span class="nav-number">1.</span> <span class="nav-text">什么是CDN？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN的基本工作过程"><span class="nav-number">2.</span> <span class="nav-text">CDN的基本工作过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN的部署架构"><span class="nav-number">3.</span> <span class="nav-text">CDN的部署架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN的功能架构"><span class="nav-number">4.</span> <span class="nav-text">CDN的功能架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分发服务系统"><span class="nav-number">4.1.</span> <span class="nav-text">分发服务系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡系统"><span class="nav-number">4.2.</span> <span class="nav-text">负载均衡系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运营管理系统"><span class="nav-number">4.3.</span> <span class="nav-text">运营管理系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要CDN？"><span class="nav-number">5.</span> <span class="nav-text">为什么需要CDN？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">6.</span> <span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流量劫持"><span class="nav-number">6.1.</span> <span class="nav-text">流量劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN缓存"><span class="nav-number">6.2.</span> <span class="nav-text">CDN缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">8.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
             
 
           </div>
