@@ -151,7 +151,14 @@
 <meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-table数组.jpg">
 <meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-hash值的异或.jpg">
 <meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-put方法过程.png">
-<meta property="og:updated_time" content="2019-07-16T09:31:27.099Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-JDK1.7-rehash.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-扩容对索引位置的影响.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-扩容后确定index的值.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全1.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全2.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全3.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全4.png">
+<meta property="og:updated_time" content="2019-07-16T12:18:09.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java源码--JDK 1.8 HashMap重点源码部分剖析">
 <meta name="twitter:description" content="注：感谢 美团点评技术团队 的分享~~，博客部分内容摘抄自其中。侵删！ 今天我们来探究一下 HashMap 的内部实现机制。  明确 JDK 1.8 中的 HashMap 使用数组 + 链表 + 红黑树的结构进行实现。  HashMap 的底层思想主要是哈希表，我们来看看 Java 的设计者们是怎么使用数组 + 链表 + 红黑树设计出 HashMap 的。  HashMap的基本属性既然是用哈希表">
@@ -449,7 +456,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-16 17:31:27" itemprop="dateModified" datetime="2019-07-16T17:31:27+08:00">2019-07-16</time>
+                <time title="修改时间：2019-07-16 20:18:09" itemprop="dateModified" datetime="2019-07-16T20:18:09+08:00">2019-07-16</time>
               
             
           </span>
@@ -505,7 +512,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">18k</span>
+                <span title="本文字数">17k</span>
               
 
               
@@ -655,14 +662,14 @@
 <blockquote>
 <p>假设我们的 hash 算法就是简单的用 key mod 一下表的大小。其中的哈希桶数组 table 的 size = 2，key = 3、7、5，put 顺序依次为 5、7、3（JDK 1.7 头插法）。在 mod 2 以后都冲突在 <code>table[1]</code> 这里了。这里假设负载因子 loadFactor=1，即当键值对的实际大小 size 大于 table 的负载（threshold）时进行扩容。接下来的步骤是哈希桶数组 resize 成 4，然后所有的 Node 重新 rehash 的过程。</p>
 </blockquote>
-<p>![此处输入图片的描述][8]</p>
+<p><img src="HashMap-JDK1.7-rehash.png" alt="此处输入图片的描述"></p>
 <h3 id="JDK-1-8中的rehash"><a href="#JDK-1-8中的rehash" class="headerlink" title="JDK 1.8中的rehash"></a><strong>JDK 1.8中的rehash</strong></h3><p>JDK 1.8 中的 rehash 过程与 JDK 1.7 大同小异，相比 JDK 1.7， 它主要对重新定位元素在哈希表中的位置做了优化：</p>
 <blockquote>
 <p>经过观测可以发现，我们使用的是2次幂的扩展(指长度扩为原来2倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置。看下图可以明白这句话的意思，n 为 table 的长度，图（a）表示扩容前的 key1 和 key2 两种 key 确定索引位置的示例，图（b）表示扩容后 key1 和 key2 两种 key 确定索引位置的示例，其中hash1是key1对应的哈希与高位运算结果。</p>
 </blockquote>
-<p>![此处输入图片的描述][9]</p>
+<p><img src="HashMap-扩容对索引位置的影响.png" alt="此处输入图片的描述"></p>
 <p>table 在扩容之后，因为 n 变为 2 倍，那么 n-1 的 mask 范围在高位多 1bit(红色)，因此新的 index 就会发生这样的变化：</p>
-<p>![此处输入图片的描述][10]</p>
+<p><img src="HashMap-扩容后确定index的值.png" alt="此处输入图片的描述"></p>
 <p>因此，我们在扩充 HashMap 的时候，不需要像 JDK1.7 的实现那样重新计算 hash，只需要看看原来的 hash 值新增的那个 bit 是 1 还是 0 就好了，是 0 的话索引没变，是 1 的话索引变成“原索引 + oldCap”。</p>
 <p>了解了 JDK 1.8 相比 JDK 1.7 所做的优化之后，我们再看一下 JDK 1.8 中的 rehash 过程：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">    ... ...</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// rehash 的过程</span></span><br><span class="line">    <span class="keyword">if</span> (oldTab != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; oldCap; ++j) &#123;</span><br><span class="line">            Node&lt;K,V&gt; e;</span><br><span class="line">            <span class="keyword">if</span> ((e = oldTab[j]) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 释放旧 Node 数组的对象引用（for循环后，旧的 Node 数组不再引用任何对象）</span></span><br><span class="line">                oldTab[j] = <span class="keyword">null</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// oldTab[j] 只有一个元素，直接进行 rehash</span></span><br><span class="line">                <span class="keyword">if</span> (e.next == <span class="keyword">null</span>)</span><br><span class="line">                    newTab[e.hash &amp; (newCap - <span class="number">1</span>)] = e;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                    ((TreeNode&lt;K,V&gt;)e).split(<span class="keyword">this</span>, newTab, j, oldCap);</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 原索引（头指针与尾指针）</span></span><br><span class="line">                    Node&lt;K,V&gt; loHead = <span class="keyword">null</span>, loTail = <span class="keyword">null</span>;</span><br><span class="line">                    <span class="comment">// 原索引 + oldCap（头指针与尾指针）</span></span><br><span class="line">                    Node&lt;K,V&gt; hiHead = <span class="keyword">null</span>, hiTail = <span class="keyword">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; next;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 对元素进行 rehash 的过程</span></span><br><span class="line">                    <span class="keyword">do</span> &#123;</span><br><span class="line">                        next = e.next;</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">// 原索引（尾插法）</span></span><br><span class="line">                        <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (loTail == <span class="keyword">null</span>)</span><br><span class="line">                                loHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                loTail.next = e;</span><br><span class="line">                            loTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">// 原索引 + oldCap（尾插法）</span></span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (hiTail == <span class="keyword">null</span>)</span><br><span class="line">                                hiHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                hiTail.next = e;</span><br><span class="line">                            hiTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">while</span> ((e = next) != <span class="keyword">null</span>);</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 将建立的链表放到新 table 数组合适的位置上</span></span><br><span class="line">                    <span class="keyword">if</span> (loTail != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        loTail.next = <span class="keyword">null</span>;</span><br><span class="line">                        newTab[j] = loHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (hiTail != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        hiTail.next = <span class="keyword">null</span>;</span><br><span class="line">                        newTab[j + oldCap] = hiHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newTab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -671,17 +678,17 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapInfiniteLoop</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HashMap&lt;Integer,String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer,String&gt;(<span class="number">2</span>，<span class="number">0.75f</span>);  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        map.put(<span class="number">5</span>， <span class="string">"C"</span>);  </span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="string">"Thread1"</span>) &#123;  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                map.put(<span class="number">7</span>, <span class="string">"B"</span>);  </span><br><span class="line">                System.out.println(map);  </span><br><span class="line">            &#125;;  </span><br><span class="line">        &#125;.start();  </span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="string">"Thread2"</span>) &#123;  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                map.put(<span class="number">3</span>, <span class="string">"A);  </span></span><br><span class="line"><span class="string">                System.out.println(map);  </span></span><br><span class="line"><span class="string">            &#125;;  </span></span><br><span class="line"><span class="string">        &#125;.start();        </span></span><br><span class="line"><span class="string">    &#125;  </span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>其中，map 初始化为一个长度为 2 的数组，loadFactor = 0.75，threshold = 2 * 0.75 = 1，也就是说当 put 第二个 key 的时候，map 就需要进行 resize。</p>
 <p>通过设置断点让线程1和线程2同时 debug 到 transfer 方法的首行。注意此时两个线程已经成功添加数据。放开 thread1 的断点至 transfer 方法的<code>Entry next = e.next</code> 这一行；然后放开线程2的的断点，让线程2进行 resize。结果如下图。</p>
-<p>![此处输入图片的描述][11]</p>
+<p><img src="HashMap-线程安全1.png" alt="此处输入图片的描述"></p>
 <p>newTable 是局部变量，所以两个线程都有自己扩容后开辟的新的 table 数组。（对应图中橙色与紫色方块）</p>
 <p>注意，由于 Thread1 执行到了<code>Entry next = e.next</code>这一行，因此 e 指向了 key(3)，而 next 指向了 key(7)，其在线程二 rehash 后，指向了线程二重组后的链表（rehash 之后，会将 newtable 赋值给 HashMap 的成员变量 table）。</p>
 <p>接着下一部分：</p>
 <p>线程一被调度回来执行，先是执行 newTalbe[i] = e（对应图中 thread1 的索引 3 处指向了 thread2 中 索引 3 处的 key = 3 的节点（thread2 中的 table 此时已经是成员变量了，因此共享））， 然后是 e = next，导致了 e 指向了 key(7)，而下一次循环的 next = e.next 导致了 next 指向了 key(3)。</p>
-<p>![此处输入图片的描述][12]</p>
+<p><img src="HashMap-线程安全2.png" alt="此处输入图片的描述"></p>
 <p>当 next 指向 key(3) 的时候，e 为 key(7)，又经过一次循环后，结果如下图：</p>
-<p>![此处输入图片的描述][13]</p>
+<p><img src="HashMap-线程安全3.png" alt="此处输入图片的描述"></p>
 <p>虚线也表示有引用指向 key(7)，只不过是想将 thread1 所拥有的 table 与 成员变量 table 区分开。</p>
 <p>此时再更新 e 与 next 的值，e 为 key(3)，next 为 null，因此下一次循环就是最后一次循环。经过下一次循环之后，由于 e.next = newTable[i] 导致 key(3).next 指向了 key(7)，而此时的 key(7).next 已经指向了 key(3)，环形链表就此形成。结果如下图：</p>
-<p>![此处输入图片的描述][14]</p>
+<p><img src="HashMap-线程安全4.png" alt="此处输入图片的描述"></p>
 <p>于是，当我们用线程一调用 map.get(11) 时，悲剧就出现了——无限循环。</p>
 <p>博主将这块内容看了好几遍，确实不好理解，如果大家对这部分内容还有任何疑惑的话，欢迎在评论区进行提问~~</p>
 <hr>
@@ -698,8 +705,7 @@
 <p>在 <a href="https://tech.meituan.com/2016/06/24/java-hashmap.html" target="_blank" rel="noopener">Java 8系列之重新认识HashMap</a> 这篇文章中，美团点评技术团队还对 JDK 1.8 与 JDK 1.7 做了性能上的比较，有兴趣的同学可以自行查阅！</p>
 <hr>
 <h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="https://tech.meituan.com/2016/06/24/java-hashmap.html" target="_blank" rel="noopener">Java 8系列之重新认识HashMap—美团点评技术团队</a></p>
-<p>[Java HashMap工作原理及实现(二)][15]</p>
-<p>  [8]: HashMap-JDK1.7 rehash.png<br>  [9]: HashMap-扩容对索引位置的影响.png<br>  [10]: HashMap-扩容后确定index的值.png<br>  [11]: HashMap-线程安全1.png<br>  [12]: HashMap-线程安全2.png<br>  [13]: HashMap-线程安全3.png<br>  [14]: HashMap-线程安全4.png<br>  [15]: <a href="https://blog.csdn.net/pfnie/article/details/51362287" target="_blank" rel="noopener">https://blog.csdn.net/pfnie/article/details/51362287</a></p>
+<p><a href="https://blog.csdn.net/pfnie/article/details/51362287" target="_blank" rel="noopener">Java HashMap工作原理及实现(二)</a></p>
 
       
     </div>
@@ -881,7 +887,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1186,7 +1192,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">274k</span>
   
 
   
@@ -1197,7 +1203,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">5:33</span>
+    <span title="站点阅读时长">5:32</span>
   
 </div>
 

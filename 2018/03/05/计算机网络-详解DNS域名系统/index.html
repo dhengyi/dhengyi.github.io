@@ -140,13 +140,13 @@
 
 
 
-  <meta name="description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 ###什么是DNS 我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.">
+  <meta name="description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 什么是DNS我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.baid">
 <meta name="keywords" content="DNS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络--详解DNS域名系统">
 <meta property="og:url" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 ###什么是DNS 我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.">
+<meta property="og:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 什么是DNS我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.baid">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061501.png">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061502.png">
@@ -163,10 +163,10 @@
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061512.png">
 <meta property="og:image" content="http://blog.chinaunix.net/attachment/201309/16/10659021_1379292178QkLq.jpg">
 <meta property="og:image" content="http://blog.chinaunix.net/attachment/201309/16/10659021_1379292200BKjO.jpg">
-<meta property="og:updated_time" content="2018-11-17T07:05:54.747Z">
+<meta property="og:updated_time" content="2019-07-16T10:05:32.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解DNS域名系统">
-<meta name="twitter:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 ###什么是DNS 我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.">
+<meta name="twitter:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 什么是DNS我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.baid">
 <meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061501.png">
 
 
@@ -461,7 +461,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 15:05:54" itemprop="dateModified" datetime="2018-11-17T15:05:54+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-16 18:05:32" itemprop="dateModified" datetime="2019-07-16T18:05:32+08:00">2019-07-16</time>
               
             
           </span>
@@ -552,14 +552,12 @@
 
       
         <p><strong>注：本篇博客大部分内容截选自阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2016/06/dns.html" target="_blank" rel="noopener">DNS 原理入门</a>一文。</strong>其中少部分内容是博主自己的理解。</p>
-<p>###<strong>什么是DNS</strong></p>
-<p>我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于<code>www.baidu.com</code>这样的域名。而要将域名转换为对应的IP地址，就需要<strong>DNS服务器（Domain Name System）</strong>。</p>
+<h2 id="什么是DNS"><a href="#什么是DNS" class="headerlink" title="什么是DNS"></a><strong>什么是DNS</strong></h2><p>我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于<code>www.baidu.com</code>这样的域名。而要将域名转换为对应的IP地址，就需要<strong>DNS服务器（Domain Name System）</strong>。</p>
 <p>在早期的ARPANET时代，只有一个简单的hosts.txt文件，它列出了所有的计算机名字和其对应的IP地址。每天晚上，所有的主机都从一个维护此文件的站点将该文件取回，然后在本地进行更新。对于一个拥有几百台大型分时机器的网络而言，这种方法工作的相当好。</p>
 <p>然而当几百万台PC连接到互联网以后，问题就出现了。首先这个文件会变的非常大，并且主机名冲突的现象将会频繁发生。为了解决这些问题，DNS服务器应运而生。</p>
 <p><strong>注：DNS服务器和域名服务器同义。</strong></p>
 <hr>
-<p>###<strong>查询过程</strong></p>
-<p>虽然只需要返回一个IP地址，但是DNS的查询过程非常复杂，分成多个步骤。</p>
+<h2 id="查询过程"><a href="#查询过程" class="headerlink" title="查询过程"></a><strong>查询过程</strong></h2><p>虽然只需要返回一个IP地址，但是DNS的查询过程非常复杂，分成多个步骤。</p>
 <p>工具软件dig可以显示整个查询过程。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig math.stackexchange.com</span><br></pre></td></tr></table></figure>
 <p>上面的命令会输出六段信息：</p>
@@ -600,16 +598,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dig +short math.stackexchange.com</span><br><span class="line"></span><br><span class="line">151.101.129.69</span><br><span class="line">151.101.65.69</span><br><span class="line">151.101.193.69</span><br><span class="line">151.101.1.69</span><br></pre></td></tr></table></figure>
 <p>上面命令只返回<code>math.stackexchange.com</code>对应的4个IP地址（即A记录）。</p>
 <hr>
-<p>###<strong>DNS服务器</strong></p>
-<p>下面我们根据前面这个例子，一步步还原，本机到底怎么得到域名math.stackexchange.com的IP地址。</p>
+<h2 id="DNS服务器"><a href="#DNS服务器" class="headerlink" title="DNS服务器"></a><strong>DNS服务器</strong></h2><p>下面我们根据前面这个例子，一步步还原，本机到底怎么得到域名math.stackexchange.com的IP地址。</p>
 <p>首先，本机一定要知道DNS服务器的IP地址，否则上不了网。通过DNS服务器，才能知道某个域名的IP地址到底是什么。</p>
 <p>除了本地DNS服务器。有一些公网的DNS服务器，也可以使用，其中最有名的就是Google的<code>8.8.8.8</code>和Level 3的<code>4.2.2.2</code>。</p>
 <p>本机只向自己的DNS服务器查询，dig命令有一个@参数，显示向其他DNS服务器查询的结果。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig @4.2.2.2 math.stackexchange.com</span><br></pre></td></tr></table></figure>
 <p>上面命令指定向DNS服务器4.2.2.2查询。</p>
 <hr>
-<p>###<strong>域名层级</strong></p>
-<p>DNS服务器怎么会知道每个域名的IP地址呢？答案是分级查询。</p>
+<h2 id="域名层级"><a href="#域名层级" class="headerlink" title="域名层级"></a><strong>域名层级</strong></h2><p>DNS服务器怎么会知道每个域名的IP地址呢？答案是分级查询。</p>
 <p>请仔细看前面的例子，每个域名的尾部都多了一个点。</p>
 <p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061503.png" alt="这里写图片描述"></p>
 <p>比如，域名<code>math.stackexchange.com</code>显示为<code>math.stackexchange.com.</code>。这不是疏忽，而是所有域名的尾部，实际上都有一个根域名。</p>
@@ -618,8 +614,7 @@
 <p>总结一下，域名的层级结构如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主机名.次级域名.顶级域名.根域名</span><br><span class="line"></span><br><span class="line"># 即</span><br><span class="line"></span><br><span class="line">host.sld.tld.root</span><br></pre></td></tr></table></figure>
 <hr>
-<p>###<strong>根域名服务器</strong></p>
-<p>DNS服务器<strong>根据域名的层级，进行分级查询</strong>。</p>
+<h2 id="根域名服务器"><a href="#根域名服务器" class="headerlink" title="根域名服务器"></a><strong>根域名服务器</strong></h2><p>DNS服务器<strong>根据域名的层级，进行分级查询</strong>。</p>
 <p>需要明确的是，<strong>每一级域名都有自己的NS记录</strong>，NS记录指向<strong>该级域名</strong>的域名服务器。<strong>这些服务器知道下一级域名的各种记录。</strong></p>
 <p>所谓<strong>“分级查询”，就是从根域名开始，依次查询每一级域名的NS记录，直到查到最终的IP地址</strong>，过程大致如下：</p>
 <blockquote>
@@ -636,7 +631,7 @@
 <p>另外，可以看到所有记录的TTL值是3600000秒，相当于1000小时。也就是说，每1000小时才查询一次根域名服务器的列表。</p>
 <p>目前，世界上一共有十三组根域名服务器，从<code>A.ROOT-SERVERS.NET</code>一直到<code>M.ROOT-SERVERS.NET</code>。</p>
 <hr>
-<p>###<strong>分级查询实例</strong><br>dig命令的+trace参数可以显示DNS的整个分级查询过程。</p>
+<h2 id="分级查询实例"><a href="#分级查询实例" class="headerlink" title="分级查询实例"></a><strong>分级查询实例</strong></h2><p>dig命令的+trace参数可以显示DNS的整个分级查询过程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig +trace math.stackexchange.com</span><br></pre></td></tr></table></figure>
 <p>上面命令的第一段列出根域名.的所有NS记录，即所有根域名服务器：</p>
 <p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061509.png" alt="这里写图片描述"></p>
@@ -651,9 +646,7 @@
 <p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061512.png" alt="这里写图片描述"></p>
 <p>上面结果显示，<code>math.stackexchange.com</code>有4条A记录，即这四个IP地址都可以访问到网站。并且还显示，最先返回结果的NS服务器是<code>ns-463.awsdns-57.com</code>，IP地址为<code>205.251.193.207</code>。</p>
 <p>在分级查询的过程中，还有2个技术要点值得讨论。</p>
-<hr>
-<p>####<strong>递归查询与迭代查询</strong></p>
-<p>我们再来补充一些概念：</p>
+<h3 id="递归查询与迭代查询"><a href="#递归查询与迭代查询" class="headerlink" title="递归查询与迭代查询"></a><strong>递归查询与迭代查询</strong></h3><p>我们再来补充一些概念：</p>
 <blockquote>
 <ul>
 <li>域名解析：查询一个域名和找出其对应地址的过程</li>
@@ -699,8 +692,7 @@
 </ul>
 </blockquote>
 <hr>
-<p>###<strong>DNS的记录类型</strong></p>
-<p>域名与IP之间的对应关系，称为”记录”（record）。根据使用场景，“记录”可以分成不同的类型（type），前面已经看到了有A记录和NS记录。</p>
+<h2 id="DNS的记录类型"><a href="#DNS的记录类型" class="headerlink" title="DNS的记录类型"></a><strong>DNS的记录类型</strong></h2><p>域名与IP之间的对应关系，称为”记录”（record）。根据使用场景，“记录”可以分成不同的类型（type），前面已经看到了有A记录和NS记录。</p>
 <p>常见的DNS记录类型如下：</p>
 <blockquote>
 <ol>
@@ -723,8 +715,7 @@
 <p>dig命令可以查看指定的记录类型：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig a github.com</span><br><span class="line">dig ns github.com</span><br><span class="line">dig mx github.com</span><br></pre></td></tr></table></figure>
 <hr>
-<p>###<strong>总结</strong></p>
-<ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
 <li>熟悉DNS的查询过程：<strong>分级查询</strong>；</li>
 <li>熟悉分级查询中，递归查询与迭代查询的概念及使用场景；</li>
 <li>熟悉本地DNS服务器的作用，了解DNS缓存机制；</li>
@@ -733,8 +724,7 @@
 <li>了解DNS的记录类型。</li>
 </ol>
 <hr>
-<p>###<strong>参考阅读</strong></p>
-<p>计算机网络（第五版）— Andrew S.Tanenbaum、David J.Wetherall</p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>计算机网络（第五版）— Andrew S.Tanenbaum、David J.Wetherall</p>
 <p><a href="http://www.ruanyifeng.com/blog/2016/06/dns.html" target="_blank" rel="noopener">DNS原理入门 — 阮一峰</a></p>
 <p><a href="https://www.cnblogs.com/qingdaofu/p/7399670.html" target="_blank" rel="noopener">DNS递归查询与迭代查询 — 皈依之路</a></p>
 <p><a href="https://www.jianshu.com/p/e84ccddd45b5" target="_blank" rel="noopener">本地DNS服务器的作用 — ALEXIRC</a></p>
@@ -890,8 +880,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -910,7 +909,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1172,6 +1171,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是DNS"><span class="nav-number">1.</span> <span class="nav-text">什么是DNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询过程"><span class="nav-number">2.</span> <span class="nav-text">查询过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS服务器"><span class="nav-number">3.</span> <span class="nav-text">DNS服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名层级"><span class="nav-number">4.</span> <span class="nav-text">域名层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根域名服务器"><span class="nav-number">5.</span> <span class="nav-text">根域名服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分级查询实例"><span class="nav-number">6.</span> <span class="nav-text">分级查询实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归查询与迭代查询"><span class="nav-number">6.1.</span> <span class="nav-text">递归查询与迭代查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS的记录类型"><span class="nav-number">7.</span> <span class="nav-text">DNS的记录类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">9.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1199,7 +1214,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">274k</span>
   
 
   
@@ -1210,7 +1225,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">5:33</span>
+    <span title="站点阅读时长">5:32</span>
   
 </div>
 
