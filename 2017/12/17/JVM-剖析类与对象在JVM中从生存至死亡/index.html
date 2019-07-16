@@ -148,7 +148,7 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="前面学习了Class文件结构、类的加载机制、字节码执行引擎、对象的创建与销毁，所以我准备从一个Java代码进行切入，详细剖析它的生命历程，将所学的知识真正的用起来，也算是对前面所学的知识进行一个系统的总结。  我们以这份Java代码为例，来剖析一个Java程序的生命历程： 1234567891011121314151617181920212223242526272829interface Clas">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T07:52:37.621Z">
+<meta property="og:updated_time" content="2019-07-16T12:58:58.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--剖析类与对象在JVM中从生存至死亡">
 <meta name="twitter:description" content="前面学习了Class文件结构、类的加载机制、字节码执行引擎、对象的创建与销毁，所以我准备从一个Java代码进行切入，详细剖析它的生命历程，将所学的知识真正的用起来，也算是对前面所学的知识进行一个系统的总结。  我们以这份Java代码为例，来剖析一个Java程序的生命历程： 1234567891011121314151617181920212223242526272829interface Clas">
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 15:52:37" itemprop="dateModified" datetime="2018-11-17T15:52:37+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-16 20:58:58" itemprop="dateModified" datetime="2019-07-16T20:58:58+08:00">2019-07-16</time>
               
             
           </span>
@@ -542,7 +542,7 @@
 <p>可以看到，这份代码涉及到了接口，继承，对象的实例化，main方法，值得我们花费一些功夫去从JVM层面上了解这个程序从编译、运行到结束都发生了哪些事情。</p>
 <p>所以，别急，让我们按顺序慢慢来分析。</p>
 <hr>
-<p>###<strong>编译阶段</strong><br>首先你要运行一个java程序，肯定要对其进行编译，生成我们前面说的Class文件，这段代码会生成3个Class文件。</p>
+<h2 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a><strong>编译阶段</strong></h2><p>首先你要运行一个java程序，肯定要对其进行编译，生成我们前面说的Class文件，这段代码会生成3个Class文件。</p>
 <p>Class文件中保存了<strong>魔数、版本符号、常量池、方法标志、类索引、父类索引、接口索引、字段表（有可能含有属性表）、方法表（有可能含有属性表）</strong>等信息。这些信息具体的组成结构，我在这里不再赘述。</p>
 <p>我们可以通过字节码文件，清晰的描述出Java源码中有关类的所有信息。</p>
 <p>在这里只以Main类为例，使用javap命令看一下生成的Class文件。</p>
@@ -557,14 +557,14 @@
 <p>常量池下面的代码块，可以看到，一个Main类的默认构造函数，一个就是main方法了。关于这两个东西，我们等一下在字节码的执行阶段再说。</p>
 <p>可以看到，Class文件中，包含着详细的信息，有大量的信息都是你无法从源码中直接得到的。</p>
 <hr>
-<p>###<strong>类加载阶段</strong><br>javac对源文件编译完成，我们使用java命令开始运行这个Main类。<strong>java命令只能运行包含main方法的类</strong>。</p>
+<h2 id="类加载阶段"><a href="#类加载阶段" class="headerlink" title="类加载阶段"></a><strong>类加载阶段</strong></h2><p>javac对源文件编译完成，我们使用java命令开始运行这个Main类。<strong>java命令只能运行包含main方法的类</strong>。</p>
 <p>java命令一开始运行，JVM开始对Main类进行<strong>加载</strong>。</p>
 <p>这时候就对应了我们学习类加载机制的每个阶段：加载（从.class文件中读取字节码）、验证（对字节码文件进行一系列的验证保证格式无误并且对JVM不会产生危害）、准备（为类变量分配内存并进行系统初始化）、解析（分为静态链接与动态链接，非虚方法的符号引用会在这一阶段被解析为直接引用）、初始化（执行类构造器）。</p>
 <p>我再对其过程进行一点点补充，如果想要更加详细的说明，请移步至我的博客专栏。</p>
 <p>JVM在加载这个Main类的时候，使用<strong>类加载器（双亲委派模型）</strong>对其进行加载，经历了加载、验证（在这个时候又会<strong>触发Object类的加载</strong>）阶段，由于在Main类中并没有类变量，也就相当于跳过了准备这一阶段，然后对字节码进行解析，由于main方法是静态方法，也就是非虚方法，开始<strong>静态链接</strong>，在字节码中直接将main方法的符号引用解析为直接引用（别忘了Main类反编译之后的默认构造器～），由于没有静态变量与静态语句块，所以初始化这一阶段也相当于是直接跳过，最后整个加载过程完毕，并在方法区中生成Main类所对应的<strong>Class对象</strong>。</p>
 <p>由于我这个例子中不涉及多态，也就不涉及<strong>分派</strong>，但这部分知识请务必掌握。</p>
 <hr>
-<p>###<strong>方法执行阶段</strong><br>类中所有的信息已经在内存中加载完毕，JVM开始进行<strong>方法调用</strong>… …</p>
+<h2 id="方法执行阶段"><a href="#方法执行阶段" class="headerlink" title="方法执行阶段"></a><strong>方法执行阶段</strong></h2><p>类中所有的信息已经在内存中加载完毕，JVM开始进行<strong>方法调用</strong>… …</p>
 <p><strong>方法调用</strong>：JVM开始执行main方法，这部分工作是由虚拟机中字节码执行引擎完成的。main方法会由一个线程进行调用。此线程会在虚拟机栈上为自己开辟一部分的栈空间，此后只要这个线程调用新的方法，这个方法便会被当作<strong>栈帧</strong>压入虚拟机栈的栈顶（<strong>作为当前栈帧</strong>）。这个方法中定义的局部变量会被存储进局部变量表，在JVM中，并不存储局部变量的名称，他们都是以局部变量表的<strong>相对偏移量</strong>来标识每个不同的局部变量。</p>
 <p>我以main方法的Code属性再说明一下栈帧中的局部变量表以及操作数栈。（Class文件中方法表的Code属性保存的是Java方法体中的字节码）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Code:</span><br><span class="line">      stack=3, locals=4, args_size=1</span><br></pre></td></tr></table></figure></p>
 <p>可以看到，main方法在调用之前（实际上在编译阶段，它的局部变量表，操作数栈的大小都已确定），locals为4，也就是局部变量表的大小为4：this，className，scanner，company；stack为3，也就是操作数栈的大小3：className，scanner，company。</p>
@@ -576,7 +576,7 @@
 <p>那么如何实现参数的传递呢，相信大家应该是有印象的，它是在实例化Company类的过程中，执行了Company的构造方法，而构造方法本身又是一个方法，因此可以理解为实参先进入被调用方法的操作数栈中，然后将操作数栈中的引用出栈赋值给被调用方法的局部变量表。</p>
 <p>最后，代码执行完毕，程序退出。</p>
 <hr>
-<p>###<strong>参考阅读</strong><br><a href="http://www.cnblogs.com/richaaaard/p/6214929.html" target="_blank" rel="noopener">JVM 内部原理（六）— Java 字节码基础之一</a></p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="http://www.cnblogs.com/richaaaard/p/6214929.html" target="_blank" rel="noopener">JVM 内部原理（六）— Java 字节码基础之一</a></p>
 
       
     </div>
@@ -727,8 +727,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1008,6 +1017,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译阶段"><span class="nav-number">1.</span> <span class="nav-text">编译阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载阶段"><span class="nav-number">2.</span> <span class="nav-text">类加载阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法执行阶段"><span class="nav-number">3.</span> <span class="nav-text">方法执行阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">4.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
