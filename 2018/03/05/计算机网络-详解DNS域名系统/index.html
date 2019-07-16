@@ -163,7 +163,7 @@
 <meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/主机名所在服务器.png">
 <meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/分级查询.jpg">
 <meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/迭代查询.jpg">
-<meta property="og:updated_time" content="2019-07-16T18:07:15.992Z">
+<meta property="og:updated_time" content="2019-07-16T18:13:27.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解DNS域名系统">
 <meta name="twitter:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 什么是DNS我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.baid">
@@ -461,7 +461,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-17 02:07:15" itemprop="dateModified" datetime="2019-07-17T02:07:15+08:00">2019-07-17</time>
+                <time title="修改时间：2019-07-17 02:13:27" itemprop="dateModified" datetime="2019-07-17T02:13:27+08:00">2019-07-17</time>
               
             
           </span>
@@ -610,9 +610,9 @@
 <p><img src="DNS查询过程2.png" alt="这里写图片描述"></p>
 <p>比如，域名<code>math.stackexchange.com</code>显示为<code>math.stackexchange.com.</code>。这不是疏忽，而是所有域名的尾部，实际上都有一个根域名。</p>
 <p>举例来说，<code>www.example.com</code>真正的域名是<code>www.example.com.root</code>，简写为<code>www.example.com.</code>。因为，根域名<code>.root</code>对于所有域名都是一样的，所以平时是省略的。</p>
-<p>根域名的下一级，叫做”顶级域名”（top-level domain，缩写为TLD），比如.com、.net；再下一级叫做”次级域名”（second-level domain，缩写为SLD），比如<a href="http://www.example.com里面的.example，这一级域名是用户可以注册的（可以了解一下**域名抢注**问题）；再下一级是主机名（host），比如www.example.com里面的www，又称为&quot;三级域名&quot;，这是用户在自己的域里面为服务器分配的名称，是用户可以任意分配的。" target="_blank" rel="noopener">www.example.com里面的.example，这一级域名是用户可以注册的（可以了解一下**域名抢注**问题）；再下一级是主机名（host），比如www.example.com里面的www，又称为&quot;三级域名&quot;，这是用户在自己的域里面为服务器分配的名称，是用户可以任意分配的。</a></p>
+<p>根域名的下一级，叫做”顶级域名”（top-level domain，缩写为TLD），比如.com、.net；再下一级叫做”次级域名”（second-level domain，缩写为SLD），比如<a href="http://www.example.com里面的.example，这一级域名是用户可以注册的（可以了解一下域名抢注问题）；再下一级是主机名（host），比如www.example.com里面的www，又称为&quot;三级域名&quot;，这是用户在自己的域里面为服务器分配的名称，是用户可以任意分配的。" target="_blank" rel="noopener">www.example.com里面的.example，这一级域名是用户可以注册的（可以了解一下域名抢注问题）；再下一级是主机名（host），比如www.example.com里面的www，又称为&quot;三级域名&quot;，这是用户在自己的域里面为服务器分配的名称，是用户可以任意分配的。</a></p>
 <p>总结一下，域名的层级结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主机名.次级域名.顶级域名.根域名</span><br><span class="line"></span><br><span class="line"># 即</span><br><span class="line"></span><br><span class="line">host.sld.tld.root</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">主机名.次级域名.顶级域名.根域名</span><br><span class="line"></span><br><span class="line">host.sld.tld.root</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="根域名服务器"><a href="#根域名服务器" class="headerlink" title="根域名服务器"></a><strong>根域名服务器</strong></h2><p>DNS服务器<strong>根据域名的层级，进行分级查询</strong>。</p>
 <p>需要明确的是，<strong>每一级域名都有自己的NS记录</strong>，NS记录指向<strong>该级域名</strong>的域名服务器。<strong>这些服务器知道下一级域名的各种记录。</strong></p>
