@@ -148,26 +148,26 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 什么是DNS我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.baid">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061501.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061502.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061503.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061504.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061505.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061506.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061514.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061503.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061508.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061509.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061510.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061511.png">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061512.png">
-<meta property="og:image" content="http://blog.chinaunix.net/attachment/201309/16/10659021_1379292178QkLq.jpg">
-<meta property="og:image" content="http://blog.chinaunix.net/attachment/201309/16/10659021_1379292200BKjO.jpg">
-<meta property="og:updated_time" content="2019-07-16T10:05:32.835Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程1.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程2.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程3.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程4.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程5.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程6.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程2.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/根域名服务器IP地址.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/根域名服务器.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/一级域名服务器.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/二级域名服务器.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/主机名所在服务器.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/分级查询.jpg">
+<meta property="og:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/迭代查询.jpg">
+<meta property="og:updated_time" content="2019-07-16T18:07:15.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解DNS域名系统">
 <meta name="twitter:description" content="注：本篇博客大部分内容截选自阮一峰老师的DNS 原理入门一文。其中少部分内容是博主自己的理解。 什么是DNS我们知道，网络本身只能理解数字形式的地址，也就是IP地址。但是直观的IP地址毫无规律，很难让人记住，并且如果使用IP地址浏览一个公司的主页，意味着这家公司一旦将主页移动到了另一台机器上，且该机器具有不同的IP地址，那么必须将该机器的IP地址通知给每一个人。因此人们引入了类似于www.baid">
-<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061501.png">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/DNS查询过程.png">
 
 
 
@@ -461,7 +461,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-16 18:05:32" itemprop="dateModified" datetime="2019-07-16T18:05:32+08:00">2019-07-16</time>
+                <time title="修改时间：2019-07-17 02:07:15" itemprop="dateModified" datetime="2019-07-17T02:07:15+08:00">2019-07-17</time>
               
             
           </span>
@@ -561,15 +561,15 @@
 <p>工具软件dig可以显示整个查询过程。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig math.stackexchange.com</span><br></pre></td></tr></table></figure>
 <p>上面的命令会输出六段信息：</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061501.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程.png" alt="这里写图片描述"></p>
 <p><code>;;</code>开头的表示这一行是注释。</p>
 <p><strong>1. 第一段是查询参数和统计。可以看到dig命令的一些基本信息，如版本和参数说明。还有一些对查询结果的简单统计：</strong></p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061502.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程1.png" alt="这里写图片描述"></p>
 <p><strong>2. 第二段是查询内容：</strong></p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061503.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程2.png" alt="这里写图片描述"></p>
 <p>上面结果表示，查询域名math.stackexchange.com的A记录，A是address的缩写，也就是查询域名的IP地址。</p>
 <p><strong>3. 第三段是DNS服务器的答复：</strong></p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061504.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程3.png" alt="这里写图片描述"></p>
 <p>我们将上述图片中的每一行记录称为<strong>域名资源记录</strong>，DNS数据库就是由这些记录所构成。最常见的资源记录就是它的IP地址，但除此之外还有许多其他种类的资源记录。当解析器把一个域名传给DNS时，它能获得的DNS返回结果就是与该域名相关联的资源记录。</p>
 <p>因此，<strong>DNS的基本功能是将域名映射至资源记录</strong>。</p>
 <p>我们来看一下资源记录的格式：<strong>五元组</strong>。</p>
@@ -585,14 +585,14 @@
 </blockquote>
 <p>那么上面结果就显示，math.stackexchange.com有四个A记录，即四个IP地址。600是TTL值，表示缓存时间，即600秒之内不用重新查询。</p>
 <p><strong>4. 第四段显示stackexchange.com的NS记录（Name Server的缩写），即哪些服务器负责管理stackexchange.com的DNS记录：</strong></p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061505.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程4.png" alt="这里写图片描述"></p>
 <p>上面结果显示stackexchange.com共有四条NS记录，即四个域名服务器，向其中任一台查询就能知道math.stackexchange.com的IP地址是什么。</p>
 <p>这里有一些分级查询的内容，我们稍后在讲。我们此时应该注意为什么<code>stackexchange.com</code>有四台域名服务器？</p>
 <p>在理论上，一台域名服务器就足以。但实际上，这台服务器有可能会因负载过重而变得毫无用处。而且，一旦它停机，则域名必然会解析失败。这就是单个信息源所带来的问题。</p>
 <p><strong>5. 第五段是上面四个域名服务器的IP地址，这是随着前一段一起返回的：</strong></p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061506.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程5.png" alt="这里写图片描述"></p>
 <p><strong>6. 第六段是DNS服务器的一些传输信息：</strong></p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061514.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程6.png" alt="这里写图片描述"></p>
 <p>上面结果显示，本机的DNS服务器是192.168.1.253，查询端口是53（DNS服务器的默认端口），以及回应长度是305字节。</p>
 <p>如果不想看到这么多内容，可以使用+short参数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dig +short math.stackexchange.com</span><br><span class="line"></span><br><span class="line">151.101.129.69</span><br><span class="line">151.101.65.69</span><br><span class="line">151.101.193.69</span><br><span class="line">151.101.1.69</span><br></pre></td></tr></table></figure>
@@ -607,7 +607,7 @@
 <hr>
 <h2 id="域名层级"><a href="#域名层级" class="headerlink" title="域名层级"></a><strong>域名层级</strong></h2><p>DNS服务器怎么会知道每个域名的IP地址呢？答案是分级查询。</p>
 <p>请仔细看前面的例子，每个域名的尾部都多了一个点。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061503.png" alt="这里写图片描述"></p>
+<p><img src="DNS查询过程2.png" alt="这里写图片描述"></p>
 <p>比如，域名<code>math.stackexchange.com</code>显示为<code>math.stackexchange.com.</code>。这不是疏忽，而是所有域名的尾部，实际上都有一个根域名。</p>
 <p>举例来说，<code>www.example.com</code>真正的域名是<code>www.example.com.root</code>，简写为<code>www.example.com.</code>。因为，根域名<code>.root</code>对于所有域名都是一样的，所以平时是省略的。</p>
 <p>根域名的下一级，叫做”顶级域名”（top-level domain，缩写为TLD），比如.com、.net；再下一级叫做”次级域名”（second-level domain，缩写为SLD），比如<a href="http://www.example.com里面的.example，这一级域名是用户可以注册的（可以了解一下**域名抢注**问题）；再下一级是主机名（host），比如www.example.com里面的www，又称为&quot;三级域名&quot;，这是用户在自己的域里面为服务器分配的名称，是用户可以任意分配的。" target="_blank" rel="noopener">www.example.com里面的.example，这一级域名是用户可以注册的（可以了解一下**域名抢注**问题）；再下一级是主机名（host），比如www.example.com里面的www，又称为&quot;三级域名&quot;，这是用户在自己的域里面为服务器分配的名称，是用户可以任意分配的。</a></p>
@@ -626,7 +626,7 @@
 </blockquote>
 <p>仔细看上面的过程，你可能发现了，没有提到DNS服务器怎么知道根域名服务器的IP地址。回答是<strong>根域名服务器的NS记录和IP地址一般是不会变化的，所以内置在本地DNS服务器里面</strong>。</p>
 <p>下面是内置的根域名服务器IP地址的一个例子：</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061508.png" alt="这里写图片描述"></p>
+<p><img src="根域名服务器IP地址.png" alt="这里写图片描述"></p>
 <p>上面列表中，列出了根域名（.root）的三条NS记录<code>A.ROOT-SERVERS.NET</code>、<code>B.ROOT-SERVERS.NET</code>和<code>C.ROOT-SERVERS.NET</code>，以及它们的IP地址（即A记录）<code>198.41.0.4</code>、<code>192.228.79.201</code>、<code>192.33.4.12</code>。</p>
 <p>另外，可以看到所有记录的TTL值是3600000秒，相当于1000小时。也就是说，每1000小时才查询一次根域名服务器的列表。</p>
 <p>目前，世界上一共有十三组根域名服务器，从<code>A.ROOT-SERVERS.NET</code>一直到<code>M.ROOT-SERVERS.NET</code>。</p>
@@ -634,16 +634,16 @@
 <h2 id="分级查询实例"><a href="#分级查询实例" class="headerlink" title="分级查询实例"></a><strong>分级查询实例</strong></h2><p>dig命令的+trace参数可以显示DNS的整个分级查询过程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig +trace math.stackexchange.com</span><br></pre></td></tr></table></figure>
 <p>上面命令的第一段列出根域名.的所有NS记录，即所有根域名服务器：</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061509.png" alt="这里写图片描述"></p>
+<p><img src="根域名服务器.png" alt="这里写图片描述"></p>
 <p>根据内置的根域名服务器IP地址，DNS服务器向所有这些IP地址发出查询请求，询问<code>math.stackexchange.com</code>的顶级域名服务器com.的NS记录。最先回复的根域名服务器将被缓存（缓存到本地DNS服务器上），以后只向这台服务器发请求。</p>
 <p>接着是第二段：</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061510.png" alt="这里写图片描述"></p>
+<p><img src="一级域名服务器.png" alt="这里写图片描述"></p>
 <p>上面结果显示.com域名的13条NS记录，同时返回的还有每一条记录对应的IP地址。</p>
 <p>然后，DNS服务器向这些顶级域名服务器发出查询请求，询问<code>math.stackexchange.com</code>的次级域名<code>stackexchange.com</code>的NS记录：</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061511.png" alt="这里写图片描述"></p>
+<p><img src="二级域名服务器.png" alt="这里写图片描述"></p>
 <p>上面结果显示<code>stackexchange.com</code>有四条NS记录，同时返回的还有每一条NS记录对应的IP地址。</p>
 <p>然后，DNS服务器向上面这四台NS服务器查询<code>math.stackexchange.com</code>的主机名：</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016061512.png" alt="这里写图片描述"></p>
+<p><img src="主机名所在服务器.png" alt="这里写图片描述"></p>
 <p>上面结果显示，<code>math.stackexchange.com</code>有4条A记录，即这四个IP地址都可以访问到网站。并且还显示，最先返回结果的NS服务器是<code>ns-463.awsdns-57.com</code>，IP地址为<code>205.251.193.207</code>。</p>
 <p>在分级查询的过程中，还有2个技术要点值得讨论。</p>
 <h3 id="递归查询与迭代查询"><a href="#递归查询与迭代查询" class="headerlink" title="递归查询与迭代查询"></a><strong>递归查询与迭代查询</strong></h3><p>我们再来补充一些概念：</p>
@@ -655,7 +655,7 @@
 </blockquote>
 <p>先抛开分级查询不说，DNS的使用方法大致如下：为了将一个域名映射成IP地址，应用程序调用一个名为解析器的库程序，并将域名作为参数传递给此程序。然后解析器向本地DNS服务器发送一个包含该名字的请求报文；本地DNS服务器查询该名字，并且返回一个包含该名字对应IP地址的响应报文给解析器，然后解析器再将IP地址返回给调用方。</p>
 <p>但是如果我们要查询的域名在远端，即本地DNS服务器没有相关域名的缓存信息，那么域名服务器就会进行一次远程查询，而远程查询的过程，则对应我们上面所说的分级查询。图表形式如下：</p>
-<p><img src="http://blog.chinaunix.net/attachment/201309/16/10659021_1379292178QkLq.jpg" alt="这里写图片描述"></p>
+<p><img src="分级查询.jpg" alt="这里写图片描述"></p>
 <ul>
 <li><strong>递归查询</strong></li>
 </ul>
@@ -674,7 +674,7 @@
 </ul>
 </blockquote>
 <p>由上图可知，DNS域名系统同时涉及了两种机制。如果采用单一的迭代查询方式，则查询过程如下：</p>
-<p><img src="http://blog.chinaunix.net/attachment/201309/16/10659021_1379292200BKjO.jpg" alt="此处输入图片的描述"></p>
+<p><img src="迭代查询.jpg" alt="此处输入图片的描述"></p>
 <p>可以看到，如果使用单一的迭代查询，DNS客户端将变的异常繁忙，CPU资源被抢占，用户体验将会下降。</p>
 <p>通过结合使用递归查询与迭代查询，将DNS查询的重担交给本地DNS服务器，客户端就可以在DNS查询的过程中干自己想干的事情。</p>
 <p><strong>总结：</strong></p>
