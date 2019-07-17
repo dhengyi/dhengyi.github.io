@@ -140,22 +140,22 @@
 
 
 
-  <meta name="description" content="本篇博客信息量依旧庞大！  ###前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及">
+  <meta name="description" content="本篇博客信息量依旧庞大！  前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及其组成">
 <meta name="keywords" content="虚拟机,栈帧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--详解虚拟机字节码执行引擎之栈帧结构">
 <meta property="og:url" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="本篇博客信息量依旧庞大！  ###前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及">
+<meta property="og:description" content="本篇博客信息量依旧庞大！  前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及其组成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/658141/201707/658141-20170702015031368-326038264.png">
-<meta property="og:image" content="http://img.blog.csdn.net/20161012211858311">
-<meta property="og:image" content="http://img.blog.csdn.net/20141121105929904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTY3NDc0NTA2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2018-11-17T07:59:28.868Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/栈帧结构.png">
+<meta property="og:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/局部变量区.jpg">
+<meta property="og:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/操作数栈.png">
+<meta property="og:updated_time" content="2019-07-17T14:39:13.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--详解虚拟机字节码执行引擎之栈帧结构">
-<meta name="twitter:description" content="本篇博客信息量依旧庞大！  ###前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/658141/201707/658141-20170702015031368-326038264.png">
+<meta name="twitter:description" content="本篇博客信息量依旧庞大！  前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及其组成">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/栈帧结构.png">
 
 
 
@@ -449,7 +449,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 15:59:28" itemprop="dateModified" datetime="2018-11-17T15:59:28+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-17 22:39:13" itemprop="dateModified" datetime="2019-07-17T22:39:13+08:00">2019-07-17</time>
               
             
           </span>
@@ -541,11 +541,11 @@
       
         <p>本篇博客信息量依旧庞大！</p>
 <hr>
-<p>###<strong>前言</strong><br>在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？</p>
 <p>在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。</p>
 <p>当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在<a href="http://blog.csdn.net/championhengyi/article/details/78300611" target="_blank" rel="noopener">JVM–解析Class类文件结构</a>一文中详细分析了class文件中字节码的存储格式及其组成。然后我们紧接着说明了<a href="http://blog.csdn.net/championhengyi/article/details/78300611" target="_blank" rel="noopener">JVM–详解类加载机制</a>，你应该了解到—类加载机制就是将class文件中的字节码加载进JVM的方法区并生成这个类的class对象的过程（再次强调不是生成这个类的实例化对象的过程）。</p>
 <hr>
-<p>###<strong>虚拟机字节码执行引擎</strong><br>那么，现在我们言归正传，解决上面的两个问题：</p>
+<h2 id="虚拟机字节码执行引擎"><a href="#虚拟机字节码执行引擎" class="headerlink" title="虚拟机字节码执行引擎"></a><strong>虚拟机字节码执行引擎</strong></h2><p>那么，现在我们言归正传，解决上面的两个问题：</p>
 <p>假设我们现在有这样一个类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"hello world"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在这个Java类写好之后并在虚拟机运行它之前，首先要将它加载进JVM中，而加载的就是class文件中的字节码，具体的加载过程我不在强调。</p>
@@ -555,22 +555,22 @@
 <p>这一部分难点、重点比较多，但是也不要怕～我将这部分知识分解为三部分，绝对让你们轻松吸收～</p>
 <p>这篇博客我们主要探究何为<strong>栈帧</strong>～～～</p>
 <hr>
-<p>###<strong>运行时栈帧结构</strong><br>要了解JVM对方法进行调用的过程，我们首先要掌握一个概念：<strong>栈帧</strong>。</p>
+<h2 id="运行时栈帧结构"><a href="#运行时栈帧结构" class="headerlink" title="运行时栈帧结构"></a><strong>运行时栈帧结构</strong></h2><p>要了解JVM对方法进行调用的过程，我们首先要掌握一个概念：<strong>栈帧</strong>。</p>
 <p>它的概念很好理解，只是名字比较高大上而已。栈帧是一种数据结构，栈帧中包括了<strong>局部变量表、操作数栈、动态连接、返回地址</strong>等信息。</p>
 <p>关于栈帧中所包括的信息，我等下再进行详细的说明。</p>
 <p>我们先来看一下栈帧的概念结构图：</p>
-<p><img src="http://images2015.cnblogs.com/blog/658141/201707/658141-20170702015031368-326038264.png" alt="这里写图片描述"></p>
+<p><img src="栈帧结构.png" alt="这里写图片描述"></p>
 <p>这个图已经描述的很清晰了，我将其中的重点再罗列出来：</p>
 <blockquote>
 <ul>
-<li>栈帧存在于虚拟机栈中，并且是虚拟机栈中的单位元素</li>
-<li>每个线程中的不同栈帧对应这个线程调用的不同方法，可以看到栈帧很多，也就是调用的方法链也会很多</li>
-<li>在活动线程中，只有当前栈帧有效，与之对应的也就是当前正在执行的方法，此方法被成为当前方法</li>
-<li>每调用一个新的方法，此方法对应的栈帧就会被放到栈顶（入栈），也就是成为新的当前栈帧；当一个方法退出的时候，此方法对应的栈帧也相应销毁（出栈）</li>
+<li>栈帧存在于虚拟机栈中，并且是虚拟机栈中的单位元素。</li>
+<li>每个线程中的不同栈帧对应这个线程调用的不同方法，可以看到栈帧很多，也就是调用的方法链会很多。</li>
+<li>在活动线程中，只有当前栈帧有效，与之对应的也就是当前正在执行的方法，此方法被成为当前方法。</li>
+<li>每调用一个新的方法，此方法对应的栈帧就会被放到栈顶（入栈），也就是成为新的当前栈帧；当一个方法退出的时候，此方法对应的栈帧也相应销毁（出栈）。</li>
 </ul>
 </blockquote>
 <p>这就是栈帧。概念不多，而且栈帧中的出栈入栈对应数据结构中的栈操作（先入后出）。</p>
-<p>额外需要补充的是，栈帧中需要多大的局部变量表，多深的操作数栈在<strong>编译成class文件</strong>的时候都是已经确定好的，这些信息都存储在<strong>方法表中的code属性</strong>中，因此每个栈帧需要分配多少内存，不会受到程序运行期变量数据的影响。</p>
+<p>额外需要补充的是，栈帧中需要多大的局部变量表，多深的操作数栈在 <strong>编译成class文件</strong> 的时候都是已经确定好的，这些信息都存储在 <strong>方法表中的code属性</strong> 中，因此每个栈帧需要分配多少内存，不会受到程序运行期变量数据的影响。</p>
 <p>好吧，有可能你们对方法表中的code属性有点懵逼，那么我们先来回顾一下方法表是什么东西（知识本身就是一个不断回顾的过程，不要着急～）：</p>
 <p><strong>方法表的定义</strong>：</p>
 <blockquote>
@@ -582,7 +582,7 @@
 </blockquote>
 <p>所以我们之前说方法表中不一定需要属性表，是因为如果这是一个抽象方法，那么这个方法生成的方法表中就不需要存在属性表（这个Java方法没有被定义，属性表中的其他属性也无法被生成）。</p>
 <hr>
-<p>###<strong>局部变量表</strong><br>既然每个栈帧对应了每个调用过的方法，那么栈帧中存储的理应是我们平常方法体中所写的Java代码。</p>
+<h2 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a><strong>局部变量表</strong></h2><p>既然每个栈帧对应了每个调用过的方法，那么栈帧中存储的理应是我们平常方法体中所写的Java代码。</p>
 <p>那么局部变量表作为组成栈帧的一份子：</p>
 <blockquote>
 <p>用于存储方法参数和方法内部定义的局部变量，在Java程序编译成class文件的时候，就在code属性中的max_locals数据项中确定了该方法所要分配的局部变量表的最大容量。</p>
@@ -594,7 +594,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">runClassMethod</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">long</span> l,<span class="keyword">float</span> f,<span class="keyword">double</span> d,Object o,<span class="keyword">byte</span> b &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">	return <span class="number">0</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span></span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">runInstanceMethod</span><span class="params">(<span class="keyword">char</span> c,<span class="keyword">double</span> d,<span class="keyword">short</span> s,<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们再来看一个图（可以对应上面我所说的）：</p>
-<p><img src="http://img.blog.csdn.net/20161012211858311" alt="这里写图片描述"></p>
+<p><img src="局部变量区.jpg" alt="这里写图片描述"></p>
 <p>首先，可以看到虚拟机是使用局部变量表完成参数值到参数变量列表的传递过程的。并且runInstanceMethod（实例方法）的局部变量区第一项是个reference（引用），它指定的就是对象本身的引用，也就是我们常用的this，但是在RunClassMethod方法中，没这个引用，那是因为runClassMethod是个静态方法。</p>
 <p>关于reference类型，代表的是一个对象实例的引用，这个引用应当可以做到两点：</p>
 <blockquote>
@@ -603,23 +603,23 @@
 <li>从此引用中直接（对象头）或间接（句柄池）的查找到对象所属类型在方法区中存储的类型信息。</li>
 </ol>
 </blockquote>
-<p>关于局部变量表的知识还有一个<strong>“slot的复用”</strong>，但是我在这里并不打算再进行讲解，原因就是它只能算是对GC收集的一种奇淫技巧，如果大家有兴趣的话可以参考《深入理解Java虚拟机》–周志明一书中的239页。</p>
+<p>关于局部变量表的知识还有一个“<strong>slot的复用</strong>”，但是我在这里并不打算再进行讲解，原因就是它只能算是对GC收集的一种奇淫技巧，如果大家有兴趣的话可以参考《深入理解Java虚拟机》–周志明一书中的239页。</p>
 <hr>
-<p>###<strong>操作数栈</strong><br>同样，操作数栈也是一个先入后出的栈结构。同局部变量表一样，操作数栈的最大深度也在编译的时候写入到了code属性的max_stacks数据项中，运行期并不会改变。</p>
+<h2 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a><strong>操作数栈</strong></h2><p>同样，操作数栈也是一个先入后出的栈结构。同局部变量表一样，操作数栈的最大深度也在编译的时候写入到了code属性的max_stacks数据项中，运行期并不会改变。</p>
 <p>操作数栈和局部变量区一样，也被组织成一个数组，操作数栈中的每个元素可以是任意的Java数据类型，32位数据类型所占栈容量为1，64位数据类型所占栈容量为2。但和前者不同的是，它不是通过索引来访问的，而是通过入栈和出栈来访问的。可把操作数栈理解为存储计算时，临时数据的存储区域。</p>
 <p>下面我们通过一幅图片来了解下操作数栈的作用：</p>
-<p><img src="http://img.blog.csdn.net/20141121105929904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTY3NDc0NTA2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="这里写图片描述"></p>
+<p><img src="操作数栈.png" alt="这里写图片描述"></p>
 <p>从图中可以得出：操作数栈其实就是个临时数据存储区域，它是通过入栈和出栈来进行操作的。</p>
 <p>如果上图中的指令你们无法理解的话，也不要着急，更详细的内容会在之后的第三部分讲解～～</p>
 <hr>
-<p>###<strong>动态连接</strong><br>这部分的内容会在之后的第二部分专门介绍，现在也先不讲。</p>
+<h2 id="动态连接"><a href="#动态连接" class="headerlink" title="动态连接"></a><strong>动态连接</strong></h2><p>这部分的内容会在之后的第二部分专门介绍，现在先不讲。</p>
 <hr>
-<p>###<strong>方法返回地址</strong><br>在一个方法开始执行之后，将来这个方法肯定是会退出的。方法的退出分为正常结束和异常终止。如果是通过return正常结束，则当前栈帧从Java栈中弹出，恢复发起调用的方法的栈。如果方法有返回值，JVM会<strong>把返回值压入到发起调用方法的操作数栈</strong>。</p>
+<h2 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a><strong>方法返回地址</strong></h2><p>在一个方法开始执行之后，将来这个方法肯定是会退出的。方法的退出分为正常结束和异常终止。如果是通过return正常结束，则当前栈帧从Java栈中弹出，恢复发起调用的方法的栈。如果方法有返回值，JVM会 <strong>把返回值压入到发起调用方法的操作数栈</strong>。</p>
 <p>为了处理Java方法中的异常情况，栈帧中还必须保存一个对此方法异常引用表的引用。当异常抛出时，JVM给catch块中的代码。如果没发现，方法立即终止，然后JVM用帧区数据的信息恢复发起调用的方法的帧，然后再发起调用方法的上下文重新抛出同样的异常。</p>
 <hr>
-<p>###<strong>虚拟机栈的整个结构</strong><br><strong>来做个总结吧</strong>：栈是由栈帧组成，每当线程调用一个Java方法时，JVM就会在该线程对应的栈中压入一个帧，而帧是由局部变量区、操作数栈和<strong>栈帧信息</strong>（一般会把动态链接、方法返回地址和其它附加信息归为一类，称为栈帧信息）组成。</p>
+<h2 id="虚拟机栈的整个结构"><a href="#虚拟机栈的整个结构" class="headerlink" title="虚拟机栈的整个结构"></a><strong>虚拟机栈的整个结构</strong></h2><p><strong>来做个总结吧</strong>：栈是由栈帧组成，每当线程调用一个Java方法时，JVM就会在该线程对应的栈中压入一个帧，而帧是由局部变量区、操作数栈和 <strong>栈帧信息</strong>（一般会把动态链接、方法返回地址和其它附加信息归为一类，称为栈帧信息）组成。</p>
 <hr>
-<p>###<strong>参考阅读</strong><br>《深入理解Java虚拟机》—周志明</p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>《深入理解Java虚拟机》—周志明</p>
 <p><a href="http://xtu-tja-163-com.iteye.com/blog/775987" target="_blank" rel="noopener">深入JVM——栈和局部变量</a></p>
 
       
@@ -773,8 +773,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1054,6 +1063,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机字节码执行引擎"><span class="nav-number">2.</span> <span class="nav-text">虚拟机字节码执行引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时栈帧结构"><span class="nav-number">3.</span> <span class="nav-text">运行时栈帧结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部变量表"><span class="nav-number">4.</span> <span class="nav-text">局部变量表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作数栈"><span class="nav-number">5.</span> <span class="nav-text">操作数栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态连接"><span class="nav-number">6.</span> <span class="nav-text">动态连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法返回地址"><span class="nav-number">7.</span> <span class="nav-text">方法返回地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机栈的整个结构"><span class="nav-number">8.</span> <span class="nav-text">虚拟机栈的整个结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">9.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
