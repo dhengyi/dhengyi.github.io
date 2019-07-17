@@ -140,20 +140,20 @@
 
 
 
-  <meta name="description" content="###什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。 比如：  学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键   课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键    成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的">
+  <meta name="description" content="什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。 比如：  学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键   课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键    成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的组合才">
 <meta name="keywords" content="数据库,外键">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL数据库--外键约束及外键使用">
 <meta property="og:url" content="http://blog.dhengyi.name/2017/11/18/MySQL数据库-外键约束及外键使用/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="###什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。 比如：  学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键   课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键    成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的">
+<meta property="og:description" content="什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。 比如：  学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键   课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键    成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的组合才">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.blog.csdn.net/20171117160250305?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-11-17T08:07:18.000Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2017/11/18/MySQL数据库-外键约束及外键使用/IDEA创建外键.png">
+<meta property="og:updated_time" content="2019-07-17T15:39:42.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库--外键约束及外键使用">
-<meta name="twitter:description" content="###什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。 比如：  学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键   课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键    成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20171117160250305?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:description" content="什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。 比如：  学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键   课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键    成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的组合才">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2017/11/18/MySQL数据库-外键约束及外键使用/IDEA创建外键.png">
 
 
 
@@ -447,7 +447,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 16:07:18" itemprop="dateModified" datetime="2018-11-17T16:07:18+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-17 23:39:42" itemprop="dateModified" datetime="2019-07-17T23:39:42+08:00">2019-07-17</time>
               
             
           </span>
@@ -503,7 +503,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.7k</span>
+                <span title="本文字数">4.6k</span>
               
 
               
@@ -537,7 +537,7 @@
       
 
       
-        <p>###<strong>什么是主键、外键</strong><br>关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。</p>
+        <h2 id="什么是主键、外键"><a href="#什么是主键、外键" class="headerlink" title="什么是主键、外键"></a><strong>什么是主键、外键</strong></h2><p>关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。</p>
 <p>比如：</p>
 <blockquote>
 <p>学生表(学号，姓名，性别，班级)<br>其中每个学生的学号是唯一的，学号就是一个主键</p>
@@ -552,40 +552,79 @@
 <p>同理：成绩表中的课程号是课程表的外键。</p>
 <p>定义主键和外键主要是为了维护关系数据库的完整性，总结一下：</p>
 <blockquote>
-<p>1.主键是能确定一条记录的唯一标识，比如，一条记录包括身份正号，姓名，年龄。身份证号是唯一能确定你这个人的，其他都可能有重复，所以，身份证号是主键。 </p>
+<ol>
+<li>主键是能确定一条记录的唯一标识，比如，一条记录包括身份正号，姓名，年龄。身份证号是唯一能确定你这个人的，其他都可能有重复，所以，身份证号是主键。 </li>
+</ol>
 </blockquote>
 <blockquote>
-<p>2.外键用于与另一张表的关联。是能确定另一张表记录的字段，用于保持数据的一致性。比如，A表中的一个字段，是B表的主键，那他就可以是A表的外键。</p>
+<ol start="2">
+<li>外键用于与另一张表的关联。是能确定另一张表记录的字段，用于保持数据的一致性。比如，A表中的一个字段，是B表的主键，那他就可以是A表的外键。</li>
+</ol>
 </blockquote>
 <hr>
-<p>###<strong>主键、外键和索引的区别 </strong><br>|  | 主键 | 外键 | 索引<br>—|—|—|—<br>定义 | 唯一标识一条记录，不能有重复的，不允许为NULL | 表的外键是另一表的主键, 外键可以有重复的, 可以是NULL | 没有重复值，可以为NULL(会使索引无效)<br>作用 | 用来保证数据完整性 | 用来和其他表建立联系用的| 提高查询排序的速度<br>个数 | 主键只能有一个 | 一个表可以有多个外键 | 一个表可以有多个惟一索引</p>
+<h2 id="主键、外键和索引的区别"><a href="#主键、外键和索引的区别" class="headerlink" title="主键、外键和索引的区别"></a><strong>主键、外键和索引的区别</strong></h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>主键</th>
+<th>外键</th>
+<th>索引</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定义</td>
+<td>唯一标识一条记录，不能有重复的，不允许为NULL</td>
+<td>表的外键是另一表的主键, 外键可以有重复的, 可以是NULL</td>
+<td>没有重复值，可以为NULL(会使索引无效)</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>用来保证数据完整性</td>
+<td>用来和其他表建立联系用的</td>
+<td>提高查询排序的速度</td>
+</tr>
+<tr>
+<td>个数</td>
+<td>主键只能有一个</td>
+<td>一个表可以有多个外键</td>
+<td>一个表可以有多个惟一索引</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p>###<strong>外键约束</strong><br>在上面“什么是主键、外键” 一小节中，我给大家灌输的思维是，学生表使用学号作为主键，课程表使用课程ID作为主键，成绩表使用学号、课程ID作为联合主键（联合主键（使用组合索引进行替代）以后压根就别用，主键的设计原则就是字段数目越少越好），这样就产成了一个问题，<strong>外键的参考键必须是另一个表的主键吗？</strong></p>
+<h2 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a><strong>外键约束</strong></h2><p>在上面“什么是主键、外键” 一小节中，我给大家灌输的思维是，学生表使用学号作为主键，课程表使用课程ID作为主键，成绩表使用学号、课程ID作为联合主键（联合主键（使用组合索引进行替代）以后压根就别用，主键的设计原则就是字段数目越少越好），这样就产成了一个问题，<strong>外键的参考键必须是另一个表的主键吗？</strong></p>
 <p>答案当然不是，但是<strong>参考键必须是唯一性索引</strong>。主键约束和唯一性约束都是唯一性索引。</p>
 <hr>
-<p>###<strong>错误的设计方式—[1215] Cannot add foreign key constraint</strong><br>出现这种问题的原因一般有两个：</p>
-<p>1.两张表里要设主键和外键的字段的数据类型或者数据长度不一样。<br>2.某个表里已经有记录了。</p>
+<h2 id="错误的设计方式—-1215-Cannot-add-foreign-key-constraint"><a href="#错误的设计方式—-1215-Cannot-add-foreign-key-constraint" class="headerlink" title="错误的设计方式—[1215] Cannot add foreign key constraint"></a><strong>错误的设计方式—[1215] Cannot add foreign key constraint</strong></h2><p>出现这种问题的原因一般有两个：</p>
+<ol>
+<li>两张表里要设主键和外键的字段的数据类型或者数据长度不一样。</li>
+<li>某个表里已经有记录了。</li>
+</ol>
 <p>我当时属于第一个。</p>
 <hr>
-<p>###<strong>如何设计良好的数据库主键</strong><br>摘抄一位知乎用户的回答：<a href="https://www.zhihu.com/question/30888980/answer/49826242" target="_blank" rel="noopener">知乎链接—纪路</a></p>
+<h2 id="如何设计良好的数据库主键"><a href="#如何设计良好的数据库主键" class="headerlink" title="如何设计良好的数据库主键"></a><strong>如何设计良好的数据库主键</strong></h2><p>摘抄一位知乎用户的回答：<a href="https://www.zhihu.com/question/30888980/answer/49826242" target="_blank" rel="noopener">知乎链接—纪路</a></p>
 <p><strong>主键的话我的建议是自增整形，不要使用与业务相关的名字，仅用id即可，而效率问题都可以用索引来解决。</strong>因为主键的<strong>不可变的特性</strong>，如果选择不慎，会在未来产生难以预期的问题。比如你用int型做文章的id，但是如果在未来某一天文章数超过了无符号整形的最大值，你将没法将主键修改成bigint。或者为了给用户起一个唯一id用了自增主键，但是如果未来有其他的项目用户要合并进来，他也是这么做的。这时候为了区分不同的项目可能要在这个用户id前加一个前缀，这时候也没法修改主键的值。主键之所以叫做<strong>主键就是到什么时候都不能改</strong>，所以最好的方案就是使用自增数字id做主键，并且不要给这个主键赋予一个业务相关的意义。</p>
 <p><strong>总结</strong>上面前辈的一句话就是，不要将表中与业务相关的字段设置为主键，即使它可以唯一标识这一行，比如身份证号，学号等等，<strong>主键越没有意义，说明主键设置的越好</strong>。</p>
 <hr>
-<p>###<strong>主键、外键的使用</strong></p>
-<p>####<strong>创建表</strong><br>就按照我们上面的例子来建立三张表吧：student、course、score表。</p>
+<h2 id="主键、外键的使用"><a href="#主键、外键的使用" class="headerlink" title="主键、外键的使用"></a><strong>主键、外键的使用</strong></h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a><strong>创建表</strong></h3><p>就按照我们上面的例子来建立三张表吧：student、course、score表。</p>
 <p>创建student表：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	uk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">60</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	sex <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">class</span> <span class="built_in">char</span>(<span class="number">60</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> uk_sno <span class="keyword">unique</span> (sno)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span> = utf8</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	uk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">60</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	sex <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">class</span> <span class="built_in">char</span>(<span class="number">60</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> uk_sno <span class="keyword">unique</span> (sno)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span> = utf8;</span><br></pre></td></tr></table></figure>
 <p>创建course表：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	uk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	course_name <span class="built_in">char</span>(<span class="number">30</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	credit <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> uk_course_id <span class="keyword">unique</span> (course_id)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	uk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	course_name <span class="built_in">char</span>(<span class="number">30</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	credit <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> uk_course_id <span class="keyword">unique</span> (course_id)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
 <p>创建score表：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	fk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	fk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">result</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_sno foreign <span class="keyword">key</span> (fk_sno) <span class="keyword">references</span> &lt;databasename&gt;.student (sno),</span><br><span class="line">	<span class="keyword">constraint</span> fk_course_id foreign <span class="keyword">key</span> (fk_course_id) <span class="keyword">references</span> &lt;databasename&gt;.course (course_id)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	fk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	fk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">result</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_sno foreign <span class="keyword">key</span> (fk_sno) <span class="keyword">references</span> &lt;databasename&gt;.student (sno),</span><br><span class="line">	<span class="keyword">constraint</span> fk_course_id foreign <span class="keyword">key</span> (fk_course_id) <span class="keyword">references</span> &lt;databasename&gt;.course (course_id)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
 <p>值得一说的是，创建外键的时候也会自动创建普通索引，所以fk_sno、fk_course_id其实是两个普通索引的名称。</p>
 <p>对于使用IDEA的同学，我们会发现在设置外键的时候还有Update rule 和 Delete rule规则，对于这两个选项的解释，我们下面再说。</p>
-<p><img src="http://img.blog.csdn.net/20171117160250305?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<hr>
-<p>####<strong>外键的使用–更新与删除</strong><br>表已经建立成功，现在我们插入数据：<br>student表：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> student(uk_sno, <span class="keyword">name</span>, sex, <span class="keyword">class</span>) <span class="keyword">VALUES</span>(<span class="number">123456</span>, <span class="string">"spider_hgyi"</span>, <span class="string">"male"</span>, <span class="string">"cs"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>crouse表：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> course(uk_course_id, course_name, credit) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"csapp"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
-<p>score表：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> score(fk_sno, fk_course_id, <span class="keyword">result</span>) <span class="keyword">VALUES</span>(<span class="number">123456</span>, <span class="number">1</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="IDEA创建外键.png" alt="这里写图片描述"></p>
+<h3 id="外键的使用–更新与删除"><a href="#外键的使用–更新与删除" class="headerlink" title="外键的使用–更新与删除"></a><strong>外键的使用–更新与删除</strong></h3><p>表已经建立成功，现在我们插入数据：</p>
+<p>student表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> student(uk_sno, <span class="keyword">name</span>, sex, <span class="keyword">class</span>) <span class="keyword">VALUES</span>(<span class="number">123456</span>, <span class="string">"spider_hgyi"</span>, <span class="string">"male"</span>, <span class="string">"cs"</span>);</span><br></pre></td></tr></table></figure>
+<p>crouse表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> course(uk_course_id, course_name, credit) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"csapp"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>score表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> score(fk_sno, fk_course_id, <span class="keyword">result</span>) <span class="keyword">VALUES</span>(<span class="number">123456</span>, <span class="number">1</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
 <p>好了，现在三个表里都已经有了数据，现在我们尝试更新学生表中学号的信息：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> student <span class="keyword">SET</span> uk_sno=<span class="number">12345678</span> <span class="keyword">WHERE</span> uk_sno=<span class="number">123456</span>;</span><br></pre></td></tr></table></figure>
 <p>MySQL报错：</p>
@@ -593,27 +632,31 @@
 <p>看看错误告诉我们什么：不能删除或更新这一行，存在外键约束，score表中的fk_sno列是当前要更新的uk_sno的外键，也就是说，你要更新学生表中的学号，但是成绩表中的学号是你的外键，你不能不管它呀，删除也是同理。</p>
 <p>要怎么解决？</p>
 <p>还记得刚才我贴的那张IDEA的图片吗？那两个规则就可以帮助我们解决这个问题。</p>
-<hr>
-<p>####<strong>级联删除与更新</strong><br>我们在更新与删除时遇到的外键约束解决方案分别对应设置Update rule与Delete rule。有如下四个选项：</p>
+<h3 id="级联删除与更新"><a href="#级联删除与更新" class="headerlink" title="级联删除与更新"></a><strong>级联删除与更新</strong></h3><p>我们在更新与删除时遇到的外键约束解决方案分别对应设置Update rule与Delete rule。有如下四个选项：</p>
 <blockquote>
-<p>1.CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行。<br>2.SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL。<br>3.RESTRICT：拒绝对父表的删除或更新操作。<br>4.NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</p>
+<ol>
+<li>CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行。</li>
+<li>SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL。</li>
+<li>RESTRICT：拒绝对父表的删除或更新操作。</li>
+<li>NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</li>
+</ol>
 </blockquote>
 <p>可以看到我在创建外键的时候选择的是<code>NO ACTION</code>，也就是第四个选项。我们只需要选择CASCADE就可以啦。具体效果就不进行演示了。</p>
 <p>如果你不用IDEA也没关系，接下来我给出SQL语句的实现（重新创建score表）：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	fk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	fk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">result</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_sno foreign <span class="keyword">key</span> (fk_sno) <span class="keyword">references</span> &lt;databasename&gt;.student (sno) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_course_id foreign <span class="keyword">key</span> (fk_course_id) <span class="keyword">references</span> &lt;databasename&gt;.course (course_id) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span></span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	fk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	fk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">result</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_sno foreign <span class="keyword">key</span> (fk_sno) <span class="keyword">references</span> &lt;databasename&gt;.student (sno) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_course_id foreign <span class="keyword">key</span> (fk_course_id) <span class="keyword">references</span> &lt;databasename&gt;.course (course_id) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span></span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>###<strong>补充</strong><br>博主在学习阿里的Java开发手册时，他们对于外键与级联是这样描述的：</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h2><p>博主在学习阿里的Java开发手册时，他们对于外键与级联是这样描述的：</p>
 <blockquote>
 <p>【强制】不得使用外键与级联,一切外键概念必须在应用层解决。</p>
 </blockquote>
 <blockquote>
-<p>说明:以学生和成绩的关系为例,学生表中的 student _ id 是主键,那么成绩表中的 student _ id则为外键。如果更新学生表中的 student _ id ,同时触发成绩表中的 student _ id 更新,即为级联更新。外键与级联更新适用于单机低并发,不适合分布式、高并发集群 ; 级联更新是强阻塞,存在数据库更新风暴的风险;外键影响数据库的插入速度。</p>
+<p>说明：以学生和成绩的关系为例,学生表中的 student _ id 是主键,那么成绩表中的 student _ id则为外键。如果更新学生表中的 student _ id ,同时触发成绩表中的 student _ id 更新,即为级联更新。外键与级联更新适用于单机低并发,不适合分布式、高并发集群 ; 级联更新是强阻塞,存在数据库更新风暴的风险;外键影响数据库的插入速度。</p>
 </blockquote>
 <p>本来我是打算以后在脑海中抛弃外键与级联这部分知识的，但经过学长的敲打，不得不说我对阿里的盲目崇拜。</p>
 <p>外键约束、级联更新与删除对于开发者是非常有用的，它确保了数据删除与更新的完整性。至于阿里所说的影响性能，学长反问我：“<strong>你的应用有多少人在用？阿里的应用有多少人在用？</strong>”。</p>
 <p>说这这些话的原因也是这次提醒我在软件开发的过程中应想好受众的大小，灵活运用所学的知识，不能盲目追求课本以及参考资料。</p>
 <hr>
-<p>###<strong>参考资料</strong><br><a href="http://blog.csdn.net/haiross/article/details/50435374" target="_blank" rel="noopener">外键必须是另一个表的主键吗</a></p>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="http://blog.csdn.net/haiross/article/details/50435374" target="_blank" rel="noopener">外键必须是另一个表的主键吗</a></p>
 <p><a href="http://blog.csdn.net/bingqingsuimeng/article/details/51595560" target="_blank" rel="noopener">关于数据库主键和外键（终于弄懂啦）</a></p>
 <p><a href="http://www.jb51.net/article/75085.htm" target="_blank" rel="noopener">快速理解MySQL中主键与外键的实例教程</a></p>
 <p><a href="http://www.jb51.net/article/88148.htm" target="_blank" rel="noopener">MySQL使用外键实现级联删除与更新的方法</a></p>
@@ -770,8 +813,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1051,6 +1103,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是主键、外键"><span class="nav-number">1.</span> <span class="nav-text">什么是主键、外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主键、外键和索引的区别"><span class="nav-number">2.</span> <span class="nav-text">主键、外键和索引的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外键约束"><span class="nav-number">3.</span> <span class="nav-text">外键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误的设计方式—-1215-Cannot-add-foreign-key-constraint"><span class="nav-number">4.</span> <span class="nav-text">错误的设计方式—[1215] Cannot add foreign key constraint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设计良好的数据库主键"><span class="nav-number">5.</span> <span class="nav-text">如何设计良好的数据库主键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主键、外键的使用"><span class="nav-number">6.</span> <span class="nav-text">主键、外键的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">6.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键的使用–更新与删除"><span class="nav-number">6.2.</span> <span class="nav-text">外键的使用–更新与删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#级联删除与更新"><span class="nav-number">6.3.</span> <span class="nav-text">级联删除与更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">7.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-number">8.</span> <span class="nav-text">参考阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
