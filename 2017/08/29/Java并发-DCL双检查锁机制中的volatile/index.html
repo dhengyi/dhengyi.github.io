@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。 注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。  ###何为单例模式首先我们先大概了解一下单例模式的定义：   单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。   单例">
+  <meta name="description" content="作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。 注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。  何为单例模式首先我们先大概了解一下单例模式的定义：   单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。   单例模式的">
 <meta name="keywords" content="并发,单例模式,DCL双检查,volatile关键字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发--DCL双检查锁机制中的volatile">
 <meta property="og:url" content="http://blog.dhengyi.name/2017/08/29/Java并发-DCL双检查锁机制中的volatile/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。 注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。  ###何为单例模式首先我们先大概了解一下单例模式的定义：   单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。   单例">
+<meta property="og:description" content="作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。 注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。  何为单例模式首先我们先大概了解一下单例模式的定义：   单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。   单例模式的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T08:40:38.645Z">
+<meta property="og:updated_time" content="2019-07-17T16:53:23.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发--DCL双检查锁机制中的volatile">
-<meta name="twitter:description" content="作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。 注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。  ###何为单例模式首先我们先大概了解一下单例模式的定义：   单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。   单例">
+<meta name="twitter:description" content="作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。 注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。  何为单例模式首先我们先大概了解一下单例模式的定义：   单例类只能有一个实例。 单例类必须自己创建自己的唯一实例。 单例类必须给所有其他对象提供这一实例。   单例模式的">
 
 
 
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 16:40:38" itemprop="dateModified" datetime="2018-11-17T16:40:38+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-18 00:53:23" itemprop="dateModified" datetime="2019-07-18T00:53:23+08:00">2019-07-18</time>
               
             
           </span>
@@ -538,7 +538,7 @@
         <p>作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。</p>
 <p>注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。</p>
 <hr>
-<p>###<strong>何为单例模式</strong><br>首先我们先大概了解一下单例模式的定义：</p>
+<h2 id="何为单例模式"><a href="#何为单例模式" class="headerlink" title="何为单例模式"></a><strong>何为单例模式</strong></h2><p>首先我们先大概了解一下单例模式的定义：</p>
 <blockquote>
 <ul>
 <li>单例类只能有一个实例。</li>
@@ -550,11 +550,10 @@
 <p>单例模式的实现有三种方式：饿汉式（天生线程安全），懒汉式，登记式（可忽略）。</p>
 <p>对于上面单例模式的实现方式我在这里不做过多介绍，我们着重来看一下懒汉式在多线程环境下出现的问题以及它的解决策略。</p>
 <hr>
-<p>###<strong>设计线程安全的单例模式</strong></p>
-<p>####<strong>DCL双检查锁机制</strong><br>其实我觉得能看这篇文章的伙伴们对设计线程安全的单例模式都是有一定的了解，所以对于解决非线程安全的单例模式的3种方式也应该有些了解。我们再来总结一下这三种方式：声明synchronized关键字（同步代码块），DCL双检查锁机制，静态内置类的实现。</p>
+<h2 id="设计线程安全的单例模式"><a href="#设计线程安全的单例模式" class="headerlink" title="设计线程安全的单例模式"></a><strong>设计线程安全的单例模式</strong></h2><h3 id="DCL双检查锁机制"><a href="#DCL双检查锁机制" class="headerlink" title="DCL双检查锁机制"></a><strong>DCL双检查锁机制</strong></h3><p>其实我觉得能看这篇文章的伙伴们对设计线程安全的单例模式都是有一定的了解，所以对于解决非线程安全的单例模式的3种方式也应该有些了解。我们再来总结一下这三种方式：声明synchronized关键字（同步代码块），DCL双检查锁机制，静态内置类的实现。</p>
 <p>关于第一种方式，我觉得大家应该没有什么疑惑，所以我在这里也就不再讲述了，咱们来看一下我在学习双检查锁机制过程中遇到的问题，是否和你一样。</p>
 <p>这是单例类，注意<code>private volatile static MyObject myObject</code>这句话。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> MyObject myObject;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyObject</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MyObject <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (myObject != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//模拟在创建对象之前做的一些准备工作</span></span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (MyObject.class) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (myObject == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        myObject = <span class="keyword">new</span> MyObject();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> myObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> MyObject myObject;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyObject</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MyObject <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (myObject != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 模拟在创建对象之前做的一些准备工作</span></span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (MyObject.class) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (myObject == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        myObject = <span class="keyword">new</span> MyObject();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> myObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>线程类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        out.println(MyObject.getInstance().hashCode());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试类：</p>
@@ -562,7 +561,8 @@
 <p>最终结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">773715418</span><br><span class="line">773715418</span><br><span class="line">773715418</span><br></pre></td></tr></table></figure>
 <p>我们可以看到，使用了Double-Check，使得在多线程环境下，也只能取得类的唯一实例。但是不知道你有没有和我一样的疑惑，看我上面着重提出来的那句话，我们为什么在声明MyObject对象的时候还要给它加上volatile关键字？我们在Double-Check下已经加入了synchronized关键字，既然synchronized已经起到了多线程下原子性、有序性、可见性的作用，为什么还要加volatile呢？要解决这个问题，我们需要深入了解volatile关键字的特性，它不仅可以使变量在多个线程之间可见，而且它还具有禁止JVM进行指令重排序的功能，具体请参见<a href="http://blog.csdn.net/championhengyi/article/details/77151002" target="_blank" rel="noopener">JVM–从volatile深入理解Java内存模型</a>这篇文章。</p>
-<p>首先，我们需要明白的是：创建一个对象可以分解为如下的3行伪代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">memory=allocate();      <span class="comment">//1.分配对象的内存空间</span></span><br><span class="line">ctorInstance(memory);   <span class="comment">//2.初始化对象</span></span><br><span class="line">instance=memory;        <span class="comment">//3.设置instance指向刚分配的内存地址。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//上面3行代码中的2和3之间，可能会被重排序导致先3后2</span></span><br></pre></td></tr></table></figure></p>
+<p>首先，我们需要明白的是：创建一个对象可以分解为如下的3行伪代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">memory=allocate();      <span class="comment">// 1.分配对象的内存空间</span></span><br><span class="line">ctorInstance(memory);   <span class="comment">// 2.初始化对象</span></span><br><span class="line">instance=memory;        <span class="comment">// 3.设置instance指向刚分配的内存地址。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面3行代码中的2和3之间，可能会被重排序导致先3后2</span></span><br></pre></td></tr></table></figure>
 <p>也就是说，<code>myObject = new MyObject()</code>这句话并不是一个原子性操作，在多线程环境下有可能出现非线程安全的情况。</p>
 <p>现在我们先假设一下，如果此时不设置volatile关键字会发生什么。</p>
 <p>假设两个线程A、B，都是第一次调用该单例方法，线程A先执行<code>myObject = new MyObject()</code>，该构造方法是一个非原子操作，编译后生成多条字节码指令，由于JAVA的指令重排序，可能会先执行myObject的赋值操作，该操作实际只是在内存中开辟一片存储对象的区域后直接返回内存的引用，之后myObject便不为空了，但是实际的初始化操作却还没有执行，如果就在此时线程B进入，就会看到一个不为空的但是不完整（没有完成初始化）的MyObject对象，所以需要加入volatile关键字，禁止指令重排序优化，从而安全的实现单例。</p>
@@ -723,8 +723,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1005,6 +1014,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#何为单例模式"><span class="nav-number">1.</span> <span class="nav-text">何为单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计线程安全的单例模式"><span class="nav-number">2.</span> <span class="nav-text">设计线程安全的单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DCL双检查锁机制"><span class="nav-number">2.1.</span> <span class="nav-text">DCL双检查锁机制</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1043,7 +1068,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">5:32</span>
+    <span title="站点阅读时长">5:31</span>
   
 </div>
 
