@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中量词的使用法则，今天我们就来谈谈贪婪、逐步、独吐这三种量词的使用。  ###贪婪量词我们先来看一下经常使用的贪婪量词都有哪些：   X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。 X*: X项目出现0次或多次。 X+: X项目至少出现1次。 X{">
+  <meta name="description" content="除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中量词的使用法则，今天我们就来谈谈贪婪、逐步、独吐这三种量词的使用。  贪婪量词我们先来看一下经常使用的贪婪量词都有哪些：   X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。 X*: X项目出现0次或多次。 X+: X项目至少出现1次。 X{n}:">
 <meta name="keywords" content="正则表达式,字符串匹配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java网络爬虫--正则表达式之详解贪婪、逐步、独吐量词">
 <meta property="og:url" content="http://blog.dhengyi.name/2017/05/28/Java网络爬虫-正则表达式之详解贪婪、逐步、独吐量词/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中量词的使用法则，今天我们就来谈谈贪婪、逐步、独吐这三种量词的使用。  ###贪婪量词我们先来看一下经常使用的贪婪量词都有哪些：   X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。 X*: X项目出现0次或多次。 X+: X项目至少出现1次。 X{">
+<meta property="og:description" content="除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中量词的使用法则，今天我们就来谈谈贪婪、逐步、独吐这三种量词的使用。  贪婪量词我们先来看一下经常使用的贪婪量词都有哪些：   X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。 X*: X项目出现0次或多次。 X+: X项目至少出现1次。 X{n}:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T08:50:35.166Z">
+<meta property="og:updated_time" content="2019-07-19T07:26:14.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java网络爬虫--正则表达式之详解贪婪、逐步、独吐量词">
-<meta name="twitter:description" content="除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中量词的使用法则，今天我们就来谈谈贪婪、逐步、独吐这三种量词的使用。  ###贪婪量词我们先来看一下经常使用的贪婪量词都有哪些：   X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。 X*: X项目出现0次或多次。 X+: X项目至少出现1次。 X{">
+<meta name="twitter:description" content="除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中量词的使用法则，今天我们就来谈谈贪婪、逐步、独吐这三种量词的使用。  贪婪量词我们先来看一下经常使用的贪婪量词都有哪些：   X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。 X*: X项目出现0次或多次。 X+: X项目至少出现1次。 X{n}:">
 
 
 
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 16:50:35" itemprop="dateModified" datetime="2018-11-17T16:50:35+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-19 15:26:14" itemprop="dateModified" datetime="2019-07-19T15:26:14+08:00">2019-07-19</time>
               
             
           </span>
@@ -537,7 +537,7 @@
       
         <p>除过正则表达式的基本概念与特性还有使用方法之外，我们在解析html的时候，如果要进行字符串的匹配，必须还要熟悉正则表达式之中<strong>量词</strong>的使用法则，今天我们就来谈谈<strong>贪婪、逐步、独吐</strong>这三种量词的使用。</p>
 <hr>
-<p>###<strong>贪婪量词</strong><br>我们先来看一下经常使用的贪婪量词都有哪些：</p>
+<h2 id="贪婪量词"><a href="#贪婪量词" class="headerlink" title="贪婪量词"></a><strong>贪婪量词</strong></h2><p>我们先来看一下经常使用的贪婪量词都有哪些：</p>
 <blockquote>
 <ul>
 <li>X?: X项目（项目也可以理解为X代表的变量，项目比较准确）出现一次或没有。</li>
@@ -549,13 +549,16 @@
 </ul>
 </blockquote>
 <p>下来我们解释贪婪量词为何贪婪。当我们使用贪婪量词进行字符串匹配的时候，如果比较器（Matcher）看到贪婪量词，会将剩下的字符串全部吃掉，然后从字符串的末尾一个个再吐出来，在这个过程中，它还会将吐出来的字符与<strong>规则表达式</strong>进行比较，如果吐出来的字符串符合规则表达式，而吃下的字符串也符合贪婪量词那么就比较成功，我们可以预想到，贪婪量词之所以贪婪，就是因为它会尽可能的找出长度最长的符合文字。</p>
-<p>举个例子：<br>文字：<strong>xfooxxxxxxfoo</strong>，使用规则表达式 “<strong>.*foo</strong>“比较，当碰见贪婪量词 “ <strong>.×</strong>“ (*da不出来～～)，比较器会吃掉剩下的字符串，在这个例子中也就是整个字符串，然后比较器再从后向前一个个将字符吐出来，当吐出foo的时候，foo符合贪婪量词之后的规则表达式，而剩下没吐的字符串也符合贪婪量词的部分，所以就匹配到了整个字符串，所以它尽可能的找出长度最长的符合文字。（<strong>“.”</strong>代表任一字符）</p>
+<p>举个例子：</p>
+<p>文字：<strong>xfooxxxxxxfoo</strong>，使用规则表达式 “<strong>.*foo</strong>“比较，当碰见贪婪量词 “ <strong>.×</strong>“ (*da不出来～～)，比较器会吃掉剩下的字符串，在这个例子中也就是整个字符串，然后比较器再从后向前一个个将字符吐出来，当吐出foo的时候，foo符合贪婪量词之后的规则表达式，而剩下没吐的字符串也符合贪婪量词的部分，所以就匹配到了整个字符串，所以它尽可能的找出长度最长的符合文字。（<strong>“.”</strong>代表任一字符）</p>
 <hr>
-<p>###<strong>逐步量词</strong><br>逐步量词也称非贪婪量词或懒惰量词，顾名思义，它和贪婪量词是相对的，它的形式是在贪婪量词之后加上“<strong>?</strong>”，形如：“<strong>.*?</strong>”，在使用逐步量词时，比较器会一边吃掉剩余文字，一边看吃下的文字是否符规则表达式，结果就是逐步量词会找出长度最短的符合文字。</p>
-<p>还是上面的例子：<br>文字：<strong>xfooxxxxxxfoo</strong>，使用规则表达式 “<strong>.×?foo</strong>”比较，当碰见逐步量词 “ <strong>.×?</strong>” (*da不出来～～)，比较器会边吃文字边比较而不会一下将剩余的文字全部吃掉，所以第一个匹配到的字符串就是“<strong>xfoo</strong>”，第二个匹配到的字符串就是“<strong>xxxxxxfoo</strong>”，所以它尽可能的找出长度最短的符合文字。</p>
+<h2 id="逐步量词"><a href="#逐步量词" class="headerlink" title="逐步量词"></a><strong>逐步量词</strong></h2><p>逐步量词也称非贪婪量词或懒惰量词，顾名思义，它和贪婪量词是相对的，它的形式是在贪婪量词之后加上“<strong>?</strong>”，形如：“<strong>.*?</strong>”，在使用逐步量词时，比较器会一边吃掉剩余文字，一边看吃下的文字是否符规则表达式，结果就是逐步量词会找出长度最短的符合文字。</p>
+<p>还是上面的例子：</p>
+<p>文字：<strong>xfooxxxxxxfoo</strong>，使用规则表达式 “<strong>.×?foo</strong>”比较，当碰见逐步量词 “ <strong>.×?</strong>” (*da不出来～～)，比较器会边吃文字边比较而不会一下将剩余的文字全部吃掉，所以第一个匹配到的字符串就是“<strong>xfoo</strong>”，第二个匹配到的字符串就是“<strong>xxxxxxfoo</strong>”，所以它尽可能的找出长度最短的符合文字。</p>
 <hr>
-<p>###<strong>独吐量词</strong><br>在贪婪量词之后加上“<strong>+</strong>”，形如：“<strong>.*+</strong>”就是一种独吐量词，在使用独吐量词的时候，如果比较器看到独吐量词，它会将剩下的字符串全部吃掉，然后和贪婪量词相反，它不会吐出文字和剩下的规则表达式比较，而是会将吃下的文字和独吐量词进行比较，如果吃下的字符串符合独吐量词，那么它将不会将吃下的字符串吐出。</p>
-<p>依然是上面的例子：<br>文字：<strong>xfooxxxxxxfoo</strong>，使用规则表达式 “<strong>.*+foo</strong>”比较，当碰见独吐量词 “ <strong>.×+</strong>” (*da不出来～～)，比较器会吃掉剩下的字符串，在这个例子中也是整个字符串，然后它发现吃下的整个字符串已经满足独吐量词“<strong>.×+</strong>”，所以它就不会将字符串再吐出，然后会因为没有剩余的字符串符合剩下的规则表达式“<strong>foo</strong>”而产生没有找到相匹配的字符串的情况，最后的结果就是没有任何文字符合。</p>
+<h2 id="独吐量词"><a href="#独吐量词" class="headerlink" title="独吐量词"></a><strong>独吐量词</strong></h2><p>在贪婪量词之后加上“<strong>+</strong>”，形如：“<strong>.*+</strong>”就是一种独吐量词，在使用独吐量词的时候，如果比较器看到独吐量词，它会将剩下的字符串全部吃掉，然后和贪婪量词相反，它不会吐出文字和剩下的规则表达式比较，而是会将吃下的文字和独吐量词进行比较，如果吃下的字符串符合独吐量词，那么它将不会将吃下的字符串吐出。</p>
+<p>依然是上面的例子：</p>
+<p>文字：<strong>xfooxxxxxxfoo</strong>，使用规则表达式 “<strong>.*+foo</strong>”比较，当碰见独吐量词 “ <strong>.×+</strong>” (*da不出来～～)，比较器会吃掉剩下的字符串，在这个例子中也是整个字符串，然后它发现吃下的整个字符串已经满足独吐量词“<strong>.×+</strong>”，所以它就不会将字符串再吐出，然后会因为没有剩余的字符串符合剩下的规则表达式“<strong>foo</strong>”而产生没有找到相匹配的字符串的情况，最后的结果就是没有任何文字符合。</p>
 
       
     </div>
@@ -708,8 +711,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -993,6 +1005,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#贪婪量词"><span class="nav-number">1.</span> <span class="nav-text">贪婪量词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逐步量词"><span class="nav-number">2.</span> <span class="nav-text">逐步量词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#独吐量词"><span class="nav-number">3.</span> <span class="nav-text">独吐量词</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
