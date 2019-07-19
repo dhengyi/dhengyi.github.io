@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="快速排序实现代码：快速排序  可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。 快速排序（错误版分析）12345678910111213141516int Quick :: process(int array[], int l, int r) &amp;#123;    int temp = array[l];    while(l != r) &amp;#12">
+  <meta name="description" content="快速排序实现代码：快速排序 可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。  快速排序（错误版分析）12345678910111213141516int Quick :: process(int array[], int l, int r) &amp;#123;    int temp = array[l];    while(l != r) &amp;#12">
 <meta name="keywords" content="快速排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序--快速排序分析">
 <meta property="og:url" content="http://blog.dhengyi.name/2017/07/22/排序-快速排序分析/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="快速排序实现代码：快速排序  可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。 快速排序（错误版分析）12345678910111213141516int Quick :: process(int array[], int l, int r) &amp;#123;    int temp = array[l];    while(l != r) &amp;#12">
+<meta property="og:description" content="快速排序实现代码：快速排序 可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。  快速排序（错误版分析）12345678910111213141516int Quick :: process(int array[], int l, int r) &amp;#123;    int temp = array[l];    while(l != r) &amp;#12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T08:37:21.201Z">
+<meta property="og:updated_time" content="2019-07-19T06:35:20.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序--快速排序分析">
-<meta name="twitter:description" content="快速排序实现代码：快速排序  可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。 快速排序（错误版分析）12345678910111213141516int Quick :: process(int array[], int l, int r) &amp;#123;    int temp = array[l];    while(l != r) &amp;#12">
+<meta name="twitter:description" content="快速排序实现代码：快速排序 可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。  快速排序（错误版分析）12345678910111213141516int Quick :: process(int array[], int l, int r) &amp;#123;    int temp = array[l];    while(l != r) &amp;#12">
 
 
 
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 16:37:21" itemprop="dateModified" datetime="2018-11-17T16:37:21+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-19 14:35:20" itemprop="dateModified" datetime="2019-07-19T14:35:20+08:00">2019-07-19</time>
               
             
           </span>
@@ -536,12 +536,12 @@
 
       
         <p>快速排序实现代码：<a href="https://github.com/championheng/Datastruct-Algorithm/tree/master/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">快速排序</a></p>
-<hr>
 <p>可以看到我的代码有一个错误版，我在这里给大家分析一下为什么会出现错误，并且将之记录以便今后进行查阅。</p>
-<h3 id="快速排序（错误版分析）"><a href="#快速排序（错误版分析）" class="headerlink" title="快速排序（错误版分析）"></a><strong>快速排序（错误版分析）</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Quick :: process(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="built_in">array</span>[l];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(l != r) &#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">array</span>[r] &gt;= temp) r--;</span><br><span class="line">        <span class="built_in">array</span>[l] = <span class="built_in">array</span>[r];</span><br><span class="line">        l++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">array</span>[l] &lt;= temp) l++;</span><br><span class="line">        <span class="built_in">array</span>[r] = <span class="built_in">array</span>[l];</span><br><span class="line">        r--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">array</span>[l] = temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="快速排序（错误版分析）"><a href="#快速排序（错误版分析）" class="headerlink" title="快速排序（错误版分析）"></a><strong>快速排序（错误版分析）</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Quick :: process(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="built_in">array</span>[l];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(l != r) &#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">array</span>[r] &gt;= temp) r--;</span><br><span class="line">        <span class="built_in">array</span>[l] = <span class="built_in">array</span>[r];</span><br><span class="line">        l++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">array</span>[l] &lt;= temp) l++;</span><br><span class="line">        <span class="built_in">array</span>[r] = <span class="built_in">array</span>[l];</span><br><span class="line">        r--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">array</span>[l] = temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如上是我自己实现的单趟快速排序。</p>
 <hr>
-<h3 id="快排的算法思想"><a href="#快排的算法思想" class="headerlink" title="快排的算法思想"></a><strong>快排的算法思想</strong></h3><p>从待排序列中任意选择一个记录，以该记录为关键字，凡数组中元素小于该关键字的都移动至该关键字前面，反之移动到后面。致使一趟快速排序之后，以关键字为中点将数组分割成左右两个序列。然后分别对两个子序列递归进行快速排序，直至每个子序列中只含有一个元素为止。</p>
+<h2 id="快排的算法思想"><a href="#快排的算法思想" class="headerlink" title="快排的算法思想"></a><strong>快排的算法思想</strong></h2><p>从待排序列中任意选择一个记录，以该记录为关键字，凡数组中元素小于该关键字的都移动至该关键字前面，反之移动到后面。致使一趟快速排序之后，以关键字为中点将数组分割成左右两个序列。然后分别对两个子序列递归进行快速排序，直至每个子序列中只含有一个元素为止。</p>
 <p>为什么上面这个代码会出现段错误，首先我们来看：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="built_in">array</span>[r] &gt;= temp) r--;</span><br></pre></td></tr></table></figure>
 <p>我在上面的while循环里面设定了l != r，也就是说一趟快速排序结束的标志就是当l == r的时候，然后在进行元素和关键字记录比较的时候，并没有重新写上l &lt; r,考虑这种情况：</p>
@@ -555,10 +555,10 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l != r)</span><br></pre></td></tr></table></figure>
 <p>就会失效，然后也就发生了段错误，改正之后，运行正确。</p>
 <hr>
-<h3 id="效率分析"><a href="#效率分析" class="headerlink" title="效率分析"></a><strong>效率分析</strong></h3><p>快速排序的时间代价取决与关键字的选择，最简单的方法就是选择第一个记录或最后一个记录，但这样的弊端已然很明显，在每次进行递归分割的时候，如果是正序，那么就会将剩余记录全部分到一个序列当中而另一个序列为空。假如有10个数，第一趟经过9次比较，左半序列为空，第二趟经过8次比较，左半序列为空… …以次类推共需要n-1趟排序，比较次数为O(n2)，等同于冒泡排序。</p>
+<h2 id="效率分析"><a href="#效率分析" class="headerlink" title="效率分析"></a><strong>效率分析</strong></h2><p>快速排序的时间代价取决与关键字的选择，最简单的方法就是选择第一个记录或最后一个记录，但这样的弊端已然很明显，在每次进行递归分割的时候，如果是正序，那么就会将剩余记录全部分到一个序列当中而另一个序列为空。假如有10个数，第一趟经过9次比较，左半序列为空，第二趟经过8次比较，左半序列为空… …以次类推共需要n-1趟排序，比较次数为O(n2)，等同于冒泡排序。</p>
 <p>为避免这种情况，我们可以选取中间位置对应记录的关键字。</p>
 <p>最好的情况下，每次分割都将序列分为两个长度相等的子序列，则总共就需要分割log2N次，因此算法的时间代价在最好情况下就是O(N*log2N)，比较幸运的是，快速排序的平均时间复杂度就是这个值，所以快速排序仍然是一种非常高效的排序方法。</p>
-<p>空间复杂度：快排需要分割log2N次，每次都需要一个辅助空间，因此快速排序的空间复杂度为O(log2N)</p>
+<p>空间复杂度：快排需要分割log2N次，每次都需要一个辅助空间，因此快速排序的空间复杂度为O(log2N)。</p>
 <p>最后，快速排序并不稳定。</p>
 
       
@@ -1014,7 +1014,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序（错误版分析）"><span class="nav-number">1.</span> <span class="nav-text">快速排序（错误版分析）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快排的算法思想"><span class="nav-number">2.</span> <span class="nav-text">快排的算法思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效率分析"><span class="nav-number">3.</span> <span class="nav-text">效率分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序（错误版分析）"><span class="nav-number">1.</span> <span class="nav-text">快速排序（错误版分析）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快排的算法思想"><span class="nav-number">2.</span> <span class="nav-text">快排的算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效率分析"><span class="nav-number">3.</span> <span class="nav-text">效率分析</span></a></li></ol></div>
             
 
           </div>
