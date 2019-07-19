@@ -148,7 +148,7 @@
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本系列博客参考《Java多线程编程核心技术》，主要是对书上的知识点进行总结，并记录学习过程。 一直对并发这块比较感兴趣，也到了系统学习Java多线程的时间。目前所学习的书籍是《Java多线程编程核心技术》，买回来之后听说这本书不怎么样，豆瓣评分也就7点几，目前读完了第一章，感觉确实不是很好，但是也不算太坑，总的来说还是可以入手的。好了，废话不多说，开始正题。  首先我们来看一份代码： 1234">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T08:30:36.664Z">
+<meta property="og:updated_time" content="2019-07-19T05:58:29.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发--详解this与Thread.currentThread()的区别">
 <meta name="twitter:description" content="注：本系列博客参考《Java多线程编程核心技术》，主要是对书上的知识点进行总结，并记录学习过程。 一直对并发这块比较感兴趣，也到了系统学习Java多线程的时间。目前所学习的书籍是《Java多线程编程核心技术》，买回来之后听说这本书不怎么样，豆瓣评分也就7点几，目前读完了第一章，感觉确实不是很好，但是也不算太坑，总的来说还是可以入手的。好了，废话不多说，开始正题。  首先我们来看一份代码： 1234">
@@ -445,7 +445,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 16:30:36" itemprop="dateModified" datetime="2018-11-17T16:30:36+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-19 13:58:29" itemprop="dateModified" datetime="2019-07-19T13:58:29+08:00">2019-07-19</time>
               
             
           </span>
@@ -545,7 +545,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CountOperate---begin</span><br><span class="line">Thread.currentThread.getName()=main</span><br><span class="line">this.name()=Thread-0</span><br><span class="line">Thread.currentThread()==this :false</span><br><span class="line">CountOperate---end</span><br><span class="line"></span><br><span class="line">run begin</span><br><span class="line">Thread.currentThread().getName()=A</span><br><span class="line">this.getName()=Thread-0</span><br><span class="line">Thread.currentThread()==this :false</span><br><span class="line">run---end</span><br></pre></td></tr></table></figure>
 <p>在还没有启动CountOperate线程的时候，调用这段代码的是main线程，所以：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.currentThread.getName()=main</span><br></pre></td></tr></table></figure>
-<p>这是正常的，但是<code>this.name()=Thread-0</code> 这是个什么东西？看一下Thread源码吧：</p>
+<p>这是正常的，但是 <code>this.name()=Thread-0</code> 这是个什么东西？看一下Thread源码吧：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	init(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="string">"Thread-"</span> + nextThreadNum(), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参数的含义不明确？好，我们再来看一下init方法的声明：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ThreadGroup g, Runnable target, String name, <span class="keyword">long</span> stackSize)</span></span>;</span><br></pre></td></tr></table></figure>
@@ -559,10 +559,10 @@
 </ul>
 </blockquote>
 <p>这下，我们知道Thread-0是怎么来的了，String name生成名称的规则是：“Thread-”加上创建的线程的个数（第几个）。默认从0开始，main线程是默认就有的，所以并不计数。</p>
-<p>然后<code>Thread.currentThread()==this :false</code> 这个也好理解，this代表的是CountOperate对象实例，而<code>Thread.currentThread()</code> 得到的是main，所以为false。</p>
+<p>然后 <code>Thread.currentThread()==this :false</code> 这个也好理解，this代表的是CountOperate对象实例，而<code>Thread.currentThread()</code> 得到的是main，所以为false。</p>
 <p>代码继续向下执行… …</p>
 <p>重点来了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Thread.currentThread().getName()=A</span><br><span class="line">this.getName()=Thread-0</span><br><span class="line">Thread.currentThread()==this :false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Thread.currentThread().getName()=A</span><br><span class="line">this.getName()=Thread-0</span><br><span class="line">Thread.currentThread()==this : false</span><br></pre></td></tr></table></figure>
 <p><code>Thread.currentThread().getName()</code> 得到的是执行这段代码的线程名，我们已经设置为了A，没问题。但是这里的<code>this.getName()=Thread-0</code>为什么没变？this代表的实例是什么？别着急，我们再来看一看源码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target)</span> </span>&#123;</span><br><span class="line">	init(<span class="keyword">null</span>, target, <span class="string">"Thread-"</span> + nextThreadNum(), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后我们结合上面源码中target的注释再来看一看run方法的源码：</p>
