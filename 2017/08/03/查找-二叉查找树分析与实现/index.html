@@ -140,21 +140,21 @@
 
 
 
-  <meta name="description" content="###为什么我们需要掌握这些“高端”的树型结构事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。  ###二叉">
+  <meta name="description" content="为什么我们需要掌握这些“高端”的树型结构事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。  二叉查找树（BS">
 <meta name="keywords" content="BST">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查找--二叉查找树分析与实现">
 <meta property="og:url" content="http://blog.dhengyi.name/2017/08/03/查找-二叉查找树分析与实现/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
-<meta property="og:description" content="###为什么我们需要掌握这些“高端”的树型结构事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。  ###二叉">
+<meta property="og:description" content="为什么我们需要掌握这些“高端”的树型结构事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。  二叉查找树（BS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.blog.csdn.net/20170802111105789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170803100818132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-11-17T08:33:25.530Z">
+<meta property="og:image" content="http://blog.dhengyi.name/2017/08/03/查找-二叉查找树分析与实现/待删节点既有左子树也有右子树.jpg">
+<meta property="og:image" content="http://blog.dhengyi.name/2017/08/03/查找-二叉查找树分析与实现/BST性能分析.jpg">
+<meta property="og:updated_time" content="2019-07-19T06:07:43.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查找--二叉查找树分析与实现">
-<meta name="twitter:description" content="###为什么我们需要掌握这些“高端”的树型结构事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。  ###二叉">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170802111105789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:description" content="为什么我们需要掌握这些“高端”的树型结构事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。  二叉查找树（BS">
+<meta name="twitter:image" content="http://blog.dhengyi.name/2017/08/03/查找-二叉查找树分析与实现/待删节点既有左子树也有右子树.jpg">
 
 
 
@@ -448,7 +448,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 16:33:25" itemprop="dateModified" datetime="2018-11-17T16:33:25+08:00">2018-11-17</time>
+                <time title="修改时间：2019-07-19 14:07:43" itemprop="dateModified" datetime="2019-07-19T14:07:43+08:00">2019-07-19</time>
               
             
           </span>
@@ -538,37 +538,39 @@
       
 
       
-        <p>###<strong>为什么我们需要掌握这些“高端”的树型结构</strong><br>事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。</p>
+        <h2 id="为什么我们需要掌握这些“高端”的树型结构"><a href="#为什么我们需要掌握这些“高端”的树型结构" class="headerlink" title="为什么我们需要掌握这些“高端”的树型结构"></a><strong>为什么我们需要掌握这些“高端”的树型结构</strong></h2><p>事实上，大型数据库的组织结构一般采用树型结构，我们必须要解决频繁更新数据的能力，要求支持高效的动态查找能力，包括记录的插入，删除，精确匹配查询，范围查询和最大值、最小值查询。但是由于数据库中包含了大量的记录，所以线性表的查询本身会因为记录太大而无法存储到主存之中，另外对于记录的插入和删除操作更需要移动大量的元素，这本身的效率是非常低下的。</p>
 <hr>
-<p>###<strong>二叉查找树（BST）的定义</strong><br>二叉查找树要么是一颗空树，要么满足以下的定义：</p>
+<h2 id="二叉查找树（BST）的定义"><a href="#二叉查找树（BST）的定义" class="headerlink" title="二叉查找树（BST）的定义"></a><strong>二叉查找树（BST）的定义</strong></h2><p>二叉查找树要么是一颗空树，要么满足以下的定义：</p>
 <blockquote>
 <ul>
-<li>若它的左子树不为空，那么它左子树上所有节点的值均小于等于根节点</li>
-<li>若它的右子树不为空，那么它右子树上所有节点的值均大于根节点<br>它的左右子树均是二叉查找树</li>
+<li>若它的左子树不为空，那么它左子树上所有节点的值均小于等于根节点。</li>
+<li>若它的右子树不为空，那么它右子树上所有节点的值均大于根节点。</li>
+<li>它的左右子树均是二叉查找树。</li>
 </ul>
 </blockquote>
 <p>这明显是一个递归定义，因此我们对于BST的操作大多是建立在递归之上的。</p>
 <p>二叉查找树有一个重要的特征：对一颗二叉查找树进行中序遍历，可以得到一个递增序列，那么我们只要将中序遍历的遍历顺序反过来，那么我们就会得到一个递减序列，这也正是二叉查找树得名的原因。</p>
 <hr>
-<p>###<strong>BST的数据结构</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> keyType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    keyType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; BSTNode, BSTree;</span><br></pre></td></tr></table></figure></p>
+<h2 id="BST的数据结构"><a href="#BST的数据结构" class="headerlink" title="BST的数据结构"></a><strong>BST的数据结构</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> keyType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    keyType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; BSTNode, BSTree;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>###<strong>BST的建立</strong><br>首先我们讨论一下怎么建立一颗二叉查找树，根据二叉查找树的定义，如果现在有一串序列，那么它的建立过程如下：</p>
+<h2 id="BST的建立"><a href="#BST的建立" class="headerlink" title="BST的建立"></a><strong>BST的建立</strong></h2><p>首先我们讨论一下怎么建立一颗二叉查找树，根据二叉查找树的定义，如果现在有一串序列，那么它的建立过程如下：</p>
 <blockquote>
-<ul>
-<li>首先建立一颗空树</li>
-<li>使节点插入正确的位置（BST的建立正是建立在BST的插入算法之上的）</li>
-<li>序列为空为止</li>
-</ul>
+<ol>
+<li>首先建立一颗空树；</li>
+<li>使节点插入正确的位置（BST的建立正是建立在BST的插入算法之上的）；</li>
+<li>序列为空为止。</li>
+</ol>
 </blockquote>
 <p>那么我们现在应该如何给一颗二叉查找树中插入新的节点呢？</p>
 <blockquote>
-<ul>
-<li>从树的根节点开始查找</li>
-<li>插入的关键字小于等于根节点则进入左子树，否则进入右子树</li>
-<li>由于新插入的节点必定是新的叶子节点，所以当此时的节点指针为空的时候，进行插入</li>
-</ul>
+<ol>
+<li>从树的根节点开始查找；</li>
+<li>插入的关键字小于等于根节点则进入左子树，否则进入右子树；</li>
+<li>由于新插入的节点必定是新的叶子节点，所以当此时的节点指针为空的时候，进行插入。</li>
+</ol>
 </blockquote>
-<p>插入算法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(BSTree **bstree, keyType data)</span> </span>&#123; </span><br><span class="line">    BSTNode *bstnode;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(*bstree == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        bstnode = (BSTNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BSTNode));</span><br><span class="line">        bstnode -&gt; data = data;</span><br><span class="line">        bstnode -&gt; lchild = <span class="literal">NULL</span>;</span><br><span class="line">        bstnode -&gt; rchild = <span class="literal">NULL</span>;</span><br><span class="line">        *bstree = bstnode;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(data &lt;= (*bstree) -&gt; data) &#123;</span><br><span class="line">        insert(&amp;((*bstree)-&gt;lchild), data);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        insert(&amp;((*bstree)-&gt;rchild), data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>插入算法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(BSTree **bstree, keyType data)</span> </span>&#123; </span><br><span class="line">    BSTNode *bstnode;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(*bstree == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        bstnode = (BSTNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BSTNode));</span><br><span class="line">        bstnode -&gt; data = data;</span><br><span class="line">        bstnode -&gt; lchild = <span class="literal">NULL</span>;</span><br><span class="line">        bstnode -&gt; rchild = <span class="literal">NULL</span>;</span><br><span class="line">        *bstree = bstnode;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(data &lt;= (*bstree) -&gt; data) &#123;</span><br><span class="line">        insert(&amp;((*bstree)-&gt;lchild), data);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        insert(&amp;((*bstree)-&gt;rchild), data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在进行节点插入的时候，我们并不希望指向根节点的指针随着遍历的进行也跟着移动，并且因为是对于指针的参数传递，这里必然使用二级指针，这样头结点才会被真正的初始化。然后我们在进行递归遍历节点的时候，我们也不能影响二级指针的指向，我之所以在这里着重强调，说实话，我这个bug还是小伙伴帮我改出来的，对于二级指针，一直都是感觉自己懂了，一碰到繁杂的操作，就又糊涂了。。。</p>
 <p>建立算法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create_BSTree</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[], BSTree **bstree)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//二叉查找树的创建是建立在插入上面的</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        insert(bstree, <span class="built_in">array</span>[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -576,7 +578,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_tree</span><span class="params">(BSTree *bstree, <span class="keyword">int</span> h)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(bstree == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(bstree -&gt; rchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        print_tree(bstree -&gt; rchild, h+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; h; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"   "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; bstree -&gt; data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(bstree -&gt; lchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        print_tree(bstree -&gt; lchild, h+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>仔细看上面的打印代码，没错，将中序遍历的顺序颠倒一下就行了。</p>
 <hr>
-<p>###<strong>BST的查找</strong><br>BST的查找我们可以用递归和循环分别实现。</p>
+<h2 id="BST的查找"><a href="#BST的查找" class="headerlink" title="BST的查找"></a><strong>BST的查找</strong></h2><p>BST的查找我们可以用递归和循环分别实现。</p>
 <p>非递归实现：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BSTNode *<span class="title">find</span><span class="params">(BSTree *bstree, keyType key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(bstree != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(bstree -&gt; data == key) &#123;</span><br><span class="line">            <span class="keyword">return</span> bstree;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(bstree -&gt; data &gt;= key)&#123;</span><br><span class="line">            bstree = bstree -&gt; lchild;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            bstree = bstree -&gt; rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bstree;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>非递归不再分析。</p>
@@ -586,63 +588,55 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> find(bstree -&gt; lchild, key);</span><br></pre></td></tr></table></figure>
 <p>return 语句阻止了回溯的发生。</p>
 <hr>
-<p>###<strong>BST的删除</strong><br>BST节点的删除，情况比较复杂，我在这里分三种情况说明：</p>
+<h2 id="BST的删除"><a href="#BST的删除" class="headerlink" title="BST的删除"></a><strong>BST的删除</strong></h2><p>BST节点的删除，情况比较复杂，我在这里分三种情况说明：</p>
 <p>在进行节点删除的时候，我们需要两个指针，它们指向待删节点的父节点与待删节点。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义父节点和孩子节点（待删节点）</span></span><br><span class="line">BSTree *root, *child;</span><br><span class="line">child = root = bstree;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义父节点和孩子节点（待删节点）</span></span><br><span class="line">BSTree *root, *child;</span><br><span class="line">child = root = bstree;</span><br></pre></td></tr></table></figure>
 <p>首先我们考虑特殊情况，代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先考虑特殊情况（根节点为空|只有根节点）</span></span><br><span class="line"><span class="keyword">if</span>(root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"这是棵空树"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (root -&gt; lchild == <span class="literal">NULL</span> &amp;&amp; root -&gt; rchild == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root -&gt; data == key) &#123;</span><br><span class="line">        root = <span class="literal">NULL</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"没要找到您要删除的节点"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####<strong>1.待删节点是叶子节点</strong></p>
-<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先考虑特殊情况（根节点为空|只有根节点）</span></span><br><span class="line"><span class="keyword">if</span>(root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"这是棵空树"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (root -&gt; lchild == <span class="literal">NULL</span> &amp;&amp; root -&gt; rchild == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root -&gt; data == key) &#123;</span><br><span class="line">        root = <span class="literal">NULL</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"没要找到您要删除的节点"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="待删节点是叶子节点"><a href="#待删节点是叶子节点" class="headerlink" title="待删节点是叶子节点"></a><strong>待删节点是叶子节点</strong></h3><blockquote>
 <ul>
-<li>找待删节点，并不断记录它的父节点</li>
-<li>将父节点的相应孩子域进行置空并free待删节点所占的空间</li>
+<li>找待删节点，并不断记录它的父节点。</li>
+<li>将父节点的相应孩子域进行置空并free待删节点所占的空间。</li>
 </ul>
 </blockquote>
-<p>先进行待删节点的查找：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(child != <span class="literal">NULL</span> &amp;&amp; child -&gt; data != key) &#123;</span><br><span class="line">    <span class="keyword">if</span>(key &lt;= child -&gt; data) &#123;</span><br><span class="line">        root = child;</span><br><span class="line">        hild = root -&gt; lchild;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        root = child;</span><br><span class="line">        child = root -&gt; rchild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(child == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"没有找到您要删除的节点"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>先进行待删节点的查找：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(child != <span class="literal">NULL</span> &amp;&amp; child -&gt; data != key) &#123;</span><br><span class="line">    <span class="keyword">if</span>(key &lt;= child -&gt; data) &#123;</span><br><span class="line">        root = child;</span><br><span class="line">        hild = root -&gt; lchild;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        root = child;</span><br><span class="line">        child = root -&gt; rchild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(child == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"没有找到您要删除的节点"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>进行叶子节点的删除：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//待删节点是叶子节点</span></span><br><span class="line"><span class="keyword">if</span>(child -&gt; lchild == <span class="literal">NULL</span> &amp;&amp; child -&gt; rchild == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root -&gt; lchild == child) &#123;</span><br><span class="line">         root -&gt; lchild = <span class="literal">NULL</span>;</span><br><span class="line">         <span class="built_in">free</span>(child);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         root -&gt; rchild = <span class="literal">NULL</span>;</span><br><span class="line">         <span class="built_in">free</span>(child);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>####2.<strong>待删节点只有左子树或只有右子树</strong></p>
-<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待删节点是叶子节点</span></span><br><span class="line"><span class="keyword">if</span>(child -&gt; lchild == <span class="literal">NULL</span> &amp;&amp; child -&gt; rchild == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(root -&gt; lchild == child) &#123;</span><br><span class="line">         root -&gt; lchild = <span class="literal">NULL</span>;</span><br><span class="line">         <span class="built_in">free</span>(child);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         root -&gt; rchild = <span class="literal">NULL</span>;</span><br><span class="line">         <span class="built_in">free</span>(child);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="待删节点只有左子树或只有右子树"><a href="#待删节点只有左子树或只有右子树" class="headerlink" title="待删节点只有左子树或只有右子树"></a><strong>待删节点只有左子树或只有右子树</strong></h3><blockquote>
 <ul>
-<li>找到待删节点并判断此节点是否只有左子树或右子树</li>
-<li>将待删节点父节点的相应孩子域设置为该待删节点对应的左子树或右子树</li>
-<li>将待删节点置空</li>
+<li>找到待删节点并判断此节点是否只有左子树或右子树。</li>
+<li>将待删节点父节点的相应孩子域设置为该待删节点对应的左子树或右子树。</li>
+<li>将待删节点置空。</li>
 </ul>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//待删节点只有左子树或者右子树</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(child -&gt; lchild == <span class="literal">NULL</span> || child -&gt; rchild == <span class="literal">NULL</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span>(root -&gt; lchild == child &amp;&amp; child -&gt; lchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root -&gt; lchild = child -&gt; lchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(root -&gt; lchild == child &amp;&amp; child -&gt; rchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root -&gt; lchild = child -&gt; rchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(root -&gt; rchild == child &amp;&amp; child -&gt; lchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root -&gt; rchild = child -&gt; lchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		root -&gt; rchild = child -&gt; rchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>####<strong>3.待删节点既有左子树也有右子树</strong><br>当碰到这种情况的时候，我们需要额外引入两个指针，一个用来记录找到的替换节点，一个用来记录替换节点的父节点（替换节点就是用来替换被删除的节点）。</p>
-<p>那么我们应该如何找到替换节点呢？来看一张图：<br><img src="http://img.blog.csdn.net/20170802111105789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待删节点只有左子树或者右子树</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(child -&gt; lchild == <span class="literal">NULL</span> || child -&gt; rchild == <span class="literal">NULL</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span>(root -&gt; lchild == child &amp;&amp; child -&gt; lchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root -&gt; lchild = child -&gt; lchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(root -&gt; lchild == child &amp;&amp; child -&gt; rchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root -&gt; lchild = child -&gt; rchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(root -&gt; rchild == child &amp;&amp; child -&gt; lchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		root -&gt; rchild = child -&gt; lchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		root -&gt; rchild = child -&gt; rchild;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="待删节点既有左子树也有右子树"><a href="#待删节点既有左子树也有右子树" class="headerlink" title="待删节点既有左子树也有右子树"></a><strong>待删节点既有左子树也有右子树</strong></h3><p>当碰到这种情况的时候，我们需要额外引入两个指针，一个用来记录找到的替换节点，一个用来记录替换节点的父节点（替换节点就是用来替换被删除的节点）。</p>
+<p>那么我们应该如何找到替换节点呢？来看一张图：</p>
+<p><img src="待删节点既有左子树也有右子树.jpg" alt="这里写图片描述"></p>
 <p>我们知道对二叉查找树进行中序遍历所得到的是递增序列。</p>
 <p>假设我们现在要删除节点5，这棵BST的中序遍历结果为：1，2，3，4，5，6，7，根据中序遍历的性质可知，5之左是它的左子树，5之右是它的右子树，现在我们要删除5，那么我们就要找可以替换5的4或6，也就是和5相邻的两个数，我们再来看一下这两个节点在树中的位置，4的位置在左子树中最右下角，6的位置在右子树的最左下角，我们选择查找任一节点进行待删节点的替换就行。仔细观察会发现这一规律对任意节点适用。</p>
-<p>理解了上面寻找替换节点的两种方式之后，来看一下实现代码，我寻找的是左子树中最右下角的替换节点并同时记录替换节点的父节点：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BSTree *alter;</span><br><span class="line">BSTNode *alterParent = child;</span><br><span class="line">alter = alterParent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(alter -&gt; rchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">	alterParent = alter;</span><br><span class="line">	alter = alterParent -&gt; rchild;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>理解了上面寻找替换节点的两种方式之后，来看一下实现代码，我寻找的是左子树中最右下角的替换节点并同时记录替换节点的父节点：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BSTree *alter;</span><br><span class="line">BSTNode *alterParent = child;</span><br><span class="line">alter = alterParent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(alter -&gt; rchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">	alterParent = alter;</span><br><span class="line">	alter = alterParent -&gt; rchild;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>先重申一点，我们现在拥有四个指针，root-&gt;用来指向待删节点的父节点，child-&gt;用来指向待删节点，alter-&gt;用来指向我们找到的替换节点，alterParent-&gt;用来指向我们找到的替换节点的父节点。下面我们具体讨论四种情况：</p>
 <p>对这四种情况，我希望大家可以认真考虑，画出一棵二叉查找树，然后去一个个进行实现。</p>
-<blockquote>
-<p>1.替换节点的父节点等于待删节点且删除节点是根节点的时候</p>
-</blockquote>
+<p><strong>1. 替换节点的父节点等于待删节点且删除节点是根节点的时候</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(alterParent == child &amp;&amp; child == bstree) &#123;</span><br><span class="line"><span class="comment">/**由于我查找替换节点的方式是左子树的最右边，所以当满足上面的if语句之后，我的替换节点必定在</span></span><br><span class="line"><span class="comment">待删除节点的左边*/</span></span><br><span class="line">	alter -&gt; lchild = child -&gt; lchild -&gt; lchild;</span><br><span class="line">	alter -&gt; rchild = child -&gt; rchild;</span><br><span class="line">	<span class="comment">//更新根节点</span></span><br><span class="line">	bstree = alter;</span><br><span class="line">	<span class="built_in">free</span>(child);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.替换节点的父节点等于待删节点但删除节点不是根节点的时候</p>
-</blockquote>
+<p><strong>2. 替换节点的父节点等于待删节点但删除节点不是根节点的时候</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(alterParent == child &amp;&amp; child != bstree) &#123;</span><br><span class="line">	alter -&gt; lchild = child -&gt; lchild -&gt; lchild;</span><br><span class="line">	alter -&gt; rchild = child -&gt; rchild;</span><br><span class="line">	<span class="comment">//我们要判断待删节点是在待删节点父节点的哪颗子树上</span></span><br><span class="line">	<span class="keyword">if</span>(child == root -&gt; lchild) &#123;</span><br><span class="line">		root -&gt; lchild = alter;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		root -&gt; rchild = alter;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>3.替换节点的父节点不等于待删节点但删除节点是根节点的时候</p>
-</blockquote>
+<p><strong>3. 替换节点的父节点不等于待删节点但删除节点是根节点的时候</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(alterParent != child &amp;&amp; child == bstree) &#123;</span><br><span class="line">	<span class="comment">//如果是这种情况，那么替换节点就在替换父节点的右子树上</span></span><br><span class="line">	alter -&gt; lchild = child -&gt; lchild;</span><br><span class="line">	alter -&gt; rchild = child -&gt; rchild;</span><br><span class="line">	<span class="built_in">free</span>(child);</span><br><span class="line">	<span class="comment">//更新根节点</span></span><br><span class="line">	bstree = alter;</span><br><span class="line">	alterParent -&gt; rchild = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>4.替换节点的父节点不等于待删节点并且删除节点不是根节点的时候</p>
-</blockquote>
+<p><strong>4. 替换节点的父节点不等于待删节点并且删除节点不是根节点的时候</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">	alter -&gt; lchild = child -&gt; lchild;</span><br><span class="line">	alter -&gt; rchild = child -&gt; rchild;</span><br><span class="line">	<span class="keyword">if</span>(child == root -&gt; lchild)&#123;</span><br><span class="line">		root -&gt; lchild = alter;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		root -&gt; rchild = alter;</span><br><span class="line">		<span class="built_in">free</span>(child);</span><br><span class="line">	&#125;</span><br><span class="line">	alterParent -&gt; rchild = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如上，可以看到每种情况的处理过程并不复杂，只要将每种情况都处理到，二叉查找树的删除问题也就迎刃而解了。</p>
 <p>我把每种删除情况都测试了一下，都删除成功，具体的源码链接我放在下面，有兴趣的小伙伴可以研究研究。</p>
 <hr>
-<p>###<strong>BST性能分析</strong><br>二叉查找树查找的最差情况为ASL（平均查找长度）=((1+n)*n/2)/n = (n+1)/2，和顺序查找相同，如图：<br><img src="http://img.blog.csdn.net/20170803100818132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hhbXBpb25oZW5neWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="BST性能分析"><a href="#BST性能分析" class="headerlink" title="BST性能分析"></a><strong>BST性能分析</strong></h2><p>二叉查找树查找的最差情况为ASL（平均查找长度）=((1+n)*n/2)/n = (n+1)/2，和顺序查找相同，如图：</p>
+<p><img src="BST性能分析.jpg" alt="这里写图片描述"></p>
 <p>最好的情况与折半查找相同，ASL为log2N（图片不再贴出）。</p>
 <p>对于BST的插入和删除来说，只需修改某些节点的指针域，不需要大量移动其它记录，动态查找的效率很高。</p>
 <hr>
-<p>###<strong>源码链接</strong><br><a href="https://github.com/championheng/Datastruct-Algorithm/blob/master/%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/BST.cpp" target="_blank" rel="noopener">戳我得到源码哦～～</a></p>
+<h2 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a><strong>源码链接</strong></h2><p><a href="https://github.com/championheng/Datastruct-Algorithm/blob/master/%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/BST.cpp" target="_blank" rel="noopener">戳我得到源码哦～～</a></p>
 
       
     </div>
@@ -793,8 +787,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1078,6 +1081,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么我们需要掌握这些“高端”的树型结构"><span class="nav-number">1.</span> <span class="nav-text">为什么我们需要掌握这些“高端”的树型结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉查找树（BST）的定义"><span class="nav-number">2.</span> <span class="nav-text">二叉查找树（BST）的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST的数据结构"><span class="nav-number">3.</span> <span class="nav-text">BST的数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST的建立"><span class="nav-number">4.</span> <span class="nav-text">BST的建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST的查找"><span class="nav-number">5.</span> <span class="nav-text">BST的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST的删除"><span class="nav-number">6.</span> <span class="nav-text">BST的删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#待删节点是叶子节点"><span class="nav-number">6.1.</span> <span class="nav-text">待删节点是叶子节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待删节点只有左子树或只有右子树"><span class="nav-number">6.2.</span> <span class="nav-text">待删节点只有左子树或只有右子树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待删节点既有左子树也有右子树"><span class="nav-number">6.3.</span> <span class="nav-text">待删节点既有左子树也有右子树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST性能分析"><span class="nav-number">7.</span> <span class="nav-text">BST性能分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码链接"><span class="nav-number">8.</span> <span class="nav-text">源码链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
