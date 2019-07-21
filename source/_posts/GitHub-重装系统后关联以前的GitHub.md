@@ -1,0 +1,46 @@
+---
+title: GitHub--重装系统后关联以前的GitHub
+date: 2017-12-07 00:01:23
+tags:
+    - GitHub
+    - SSH
+categories: GitHub
+---
+
+由于系统重装了，当然本地的仓储和SSH生成的密钥就都没有了，这时如何在本地pull自己在GitHub上的仓储呢？
+
+由于系统重装，~/.ssh文件肯定就没有了，这时候就需要重新生成公钥和密钥。
+
+ssh-keygen -t rsa -C "your_email@example.com"
+
+Enter file in which to save the key (/home/XXX/.ssh/id_rsa): 
+Created directory '/home/XXX/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/XXX/.ssh/id_rsa.
+Your public key has been saved in /home/XXX/.ssh/id_rsa.pub.
+The key fingerprint is:
+79:3c:8c:e7:3e:57:8a:59:36:4d:4c:09:59:d3:8b:df your_email@example.com
+The key's randomart image is:
+
+```
++--[ RSA 2048]----+
+|            .+oo |
+|            . o..|
+|            o. .|
+|        =  .o. |
+|        S *  o. .|
+|        + .+ o.E|
+|          .= +  |
+|        .+ o    |
+|          .o    |
++-----------------+
+```
+
+需要输入时直接Enter，命令行中的邮箱是你在GitHub上留的邮箱，这样就生成类型为rsa的密钥对。然后把id_rsa.pub里的公开密钥拷贝到GitHub上即可。
+
+Account Setting—>SSH Keys—>Add SSH Key即可。最后在目前目录下用ssh -T git@github.com验证。
+
+输出Hi XXX! You've successfully authenticated, but GitHub does not provide shell access.即说明设置成功。
+
+当我们需要GitHub上的仓储时，我们新建一个文件夹，首先git init初始化git，然后git pull https://github.com/XXX/Snake.git/，这样就会把仓储拷贝下来，这样就可以操作了。
