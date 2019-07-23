@@ -238,9 +238,9 @@
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>虚拟机</tag>
         <tag>静态链接</tag>
         <tag>动态链接</tag>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
