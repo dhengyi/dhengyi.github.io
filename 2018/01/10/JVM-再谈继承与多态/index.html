@@ -144,19 +144,19 @@
 <meta name="keywords" content="多态性,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--再谈继承与多态">
-<meta property="og:url" content="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="此文试图从JVM层面深刻剖析Java中的继承与多态，知识面覆盖class字节码文件，对象的内存布局，JVM的内存区域、分派，方法表等相关知识，内容整合于大量博客，知乎，书籍，并加上博主自己的理解，相信看完会对你大有裨益！ 即使博主在JVM专栏已经有两篇博客对多态的实现机制进行了分析，但是今天在分析了一波继承的原理之后，发觉之前对于多态的讲述还不完整，在查阅的相关资料之后，决定在这一篇博客真正的将继">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/JVM方法区中的方法表.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/实例对象的内存布局.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/JVM堆区实例对象包含的内容.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/两个类的方法表.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/JVM方法区中的方法表.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/实例对象的内存布局.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/JVM堆区实例对象包含的内容.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/两个类的方法表.png">
 <meta property="og:updated_time" content="2019-07-17T09:29:40.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--再谈继承与多态">
 <meta name="twitter:description" content="此文试图从JVM层面深刻剖析Java中的继承与多态，知识面覆盖class字节码文件，对象的内存布局，JVM的内存区域、分派，方法表等相关知识，内容整合于大量博客，知乎，书籍，并加上博主自己的理解，相信看完会对你大有裨益！ 即使博主在JVM专栏已经有两篇博客对多态的实现机制进行了分析，但是今天在分析了一波继承的原理之后，发觉之前对于多态的讲述还不完整，在查阅的相关资料之后，决定在这一篇博客真正的将继">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/JVM方法区中的方法表.png">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/JVM方法区中的方法表.png">
 
 
 
@@ -165,7 +165,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/"/>
 
 
 
@@ -399,7 +399,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -696,7 +696,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/" title="JVM--再谈继承与多态">http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/</a>
+    <a href="https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/" title="JVM--再谈继承与多态">https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1700,6 +1700,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

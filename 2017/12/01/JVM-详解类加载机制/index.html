@@ -144,18 +144,18 @@
 <meta name="keywords" content="虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--详解类加载机制">
-<meta property="og:url" content="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="这篇博客—干货很多！！！  Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果你还没有学习，将不利于这部分知识的吸收与掌握，所以请移步：JVM–Class类文件结构（一） 学习一个东西之前，我们务必要知道，这东西大概是干什么的，有什么作用。 为了更清楚的阐释类加载机制到底是干什么的，我先将JVM的结构图贴给大家：  如上图，我们要学的类加载机制就是要搞清楚类加载器是如何找到指定的Cl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/JVM结构图.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/类的生命周期.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/双亲委派模型.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/JVM结构图.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/类的生命周期.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/双亲委派模型.jpg">
 <meta property="og:updated_time" content="2019-07-17T15:51:37.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--详解类加载机制">
 <meta name="twitter:description" content="这篇博客—干货很多！！！  Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果你还没有学习，将不利于这部分知识的吸收与掌握，所以请移步：JVM–Class类文件结构（一） 学习一个东西之前，我们务必要知道，这东西大概是干什么的，有什么作用。 为了更清楚的阐释类加载机制到底是干什么的，我先将JVM的结构图贴给大家：  如上图，我们要学的类加载机制就是要搞清楚类加载器是如何找到指定的Cl">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/JVM结构图.jpg">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/JVM结构图.jpg">
 
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/"/>
 
 
 
@@ -398,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -759,7 +759,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/" title="JVM--详解类加载机制">http://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/</a>
+    <a href="https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/" title="JVM--详解类加载机制">https://blog.dhengyi.name/2017/12/01/JVM-详解类加载机制/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1761,6 +1761,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

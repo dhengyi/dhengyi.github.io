@@ -144,18 +144,18 @@
 <meta name="keywords" content="一致性哈希">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查找--深入理解一致性哈希算法">
-<meta property="og:url" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本篇博客只是讲述了一致性哈希的思想，我们会在之后讲述分布式哈希表以及一致性哈希的一种实现（Chord算法）。 什么是一致性哈希算法？引用自维基百科：  一致性哈希是一种特殊的哈希算法。在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n个关键字重新映射，其中K是关键字的数量，n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位几乎需要对所有关键字进行重新映射。  总结：一致性">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希环结构.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希数据的分布.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希虚拟节点.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希环结构.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希数据的分布.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希虚拟节点.png">
 <meta property="og:updated_time" content="2019-07-14T10:12:51.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查找--深入理解一致性哈希算法">
 <meta name="twitter:description" content="注：本篇博客只是讲述了一致性哈希的思想，我们会在之后讲述分布式哈希表以及一致性哈希的一种实现（Chord算法）。 什么是一致性哈希算法？引用自维基百科：  一致性哈希是一种特殊的哈希算法。在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n个关键字重新映射，其中K是关键字的数量，n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位几乎需要对所有关键字进行重新映射。  总结：一致性">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希环结构.png">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/一致性哈希环结构.png">
 
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/"/>
 
 
 
@@ -398,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -653,7 +653,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/" title="查找--深入理解一致性哈希算法">http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/</a>
+    <a href="https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/" title="查找--深入理解一致性哈希算法">https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1655,6 +1655,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

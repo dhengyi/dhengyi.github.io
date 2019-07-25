@@ -144,18 +144,18 @@
 <meta name="keywords" content="虚拟机,栈帧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--详解虚拟机字节码执行引擎之栈帧结构">
-<meta property="og:url" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="本篇博客信息量依旧庞大！  前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及其组成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/栈帧结构.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/局部变量区.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/操作数栈.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/栈帧结构.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/局部变量区.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/操作数栈.png">
 <meta property="og:updated_time" content="2019-07-17T14:39:13.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--详解虚拟机字节码执行引擎之栈帧结构">
 <meta name="twitter:description" content="本篇博客信息量依旧庞大！  前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？ 在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。 当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及其组成">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/栈帧结构.png">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/栈帧结构.png">
 
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/"/>
 
 
 
@@ -398,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -679,7 +679,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/" title="JVM--详解虚拟机字节码执行引擎之栈帧结构">http://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/</a>
+    <a href="https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/" title="JVM--详解虚拟机字节码执行引擎之栈帧结构">https://blog.dhengyi.name/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1683,6 +1683,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

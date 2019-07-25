@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.dhengyi.name/"/>
+  <link href="https://blog.dhengyi.name/"/>
   <updated>2019-07-23T13:05:05.909Z</updated>
-  <id>http://blog.dhengyi.name/</id>
+  <id>https://blog.dhengyi.name/</id>
   
   <author>
     <name>dhengyi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>感悟--只是遇见你就已经很幸运了！</title>
-    <link href="http://blog.dhengyi.name/2018/11/26/%E6%84%9F%E6%82%9F-%E5%8F%AA%E6%98%AF%E9%81%87%E8%A7%81%E4%BD%A0%E5%B0%B1%E5%B7%B2%E7%BB%8F%E5%BE%88%E5%B9%B8%E8%BF%90%E4%BA%86%EF%BC%81/"/>
-    <id>http://blog.dhengyi.name/2018/11/26/感悟-只是遇见你就已经很幸运了！/</id>
+    <link href="https://blog.dhengyi.name/2018/11/26/%E6%84%9F%E6%82%9F-%E5%8F%AA%E6%98%AF%E9%81%87%E8%A7%81%E4%BD%A0%E5%B0%B1%E5%B7%B2%E7%BB%8F%E5%BE%88%E5%B9%B8%E8%BF%90%E4%BA%86%EF%BC%81/"/>
+    <id>https://blog.dhengyi.name/2018/11/26/感悟-只是遇见你就已经很幸运了！/</id>
     <published>2018-11-26T15:44:48.000Z</published>
     <updated>2019-07-23T13:05:05.909Z</updated>
     
@@ -34,17 +34,17 @@
     
     </summary>
     
-      <category term="感悟" scheme="http://blog.dhengyi.name/categories/%E6%84%9F%E6%82%9F/"/>
+      <category term="感悟" scheme="https://blog.dhengyi.name/categories/%E6%84%9F%E6%82%9F/"/>
     
     
-      <category term="爱情" scheme="http://blog.dhengyi.name/tags/%E7%88%B1%E6%83%85/"/>
+      <category term="爱情" scheme="https://blog.dhengyi.name/tags/%E7%88%B1%E6%83%85/"/>
     
   </entry>
   
   <entry>
     <title>Java并发--原子变量类的使用</title>
-    <link href="http://blog.dhengyi.name/2018/10/03/Java%E5%B9%B6%E5%8F%91-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://blog.dhengyi.name/2018/10/03/Java并发-原子变量类的使用/</id>
+    <link href="https://blog.dhengyi.name/2018/10/03/Java%E5%B9%B6%E5%8F%91-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://blog.dhengyi.name/2018/10/03/Java并发-原子变量类的使用/</id>
     <published>2018-10-03T05:51:16.000Z</published>
     <updated>2019-07-13T15:02:03.827Z</updated>
     
@@ -59,19 +59,19 @@
     
     </summary>
     
-      <category term="Java并发" scheme="http://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
+      <category term="Java并发" scheme="https://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
     
     
-      <category term="并发" scheme="http://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
+      <category term="并发" scheme="https://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
     
-      <category term="原子变量类" scheme="http://blog.dhengyi.name/tags/%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB/"/>
+      <category term="原子变量类" scheme="https://blog.dhengyi.name/tags/%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB/"/>
     
   </entry>
   
   <entry>
     <title>Java并发--深入理解显式锁</title>
-    <link href="http://blog.dhengyi.name/2018/09/27/Java%E5%B9%B6%E5%8F%91-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%98%BE%E5%BC%8F%E9%94%81/"/>
-    <id>http://blog.dhengyi.name/2018/09/27/Java并发-深入理解显式锁/</id>
+    <link href="https://blog.dhengyi.name/2018/09/27/Java%E5%B9%B6%E5%8F%91-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%98%BE%E5%BC%8F%E9%94%81/"/>
+    <id>https://blog.dhengyi.name/2018/09/27/Java并发-深入理解显式锁/</id>
     <published>2018-09-27T07:46:50.000Z</published>
     <updated>2019-07-13T15:39:15.312Z</updated>
     
@@ -86,19 +86,19 @@
     
     </summary>
     
-      <category term="Java并发" scheme="http://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
+      <category term="Java并发" scheme="https://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
     
     
-      <category term="并发" scheme="http://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
+      <category term="并发" scheme="https://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
     
-      <category term="显式锁" scheme="http://blog.dhengyi.name/tags/%E6%98%BE%E5%BC%8F%E9%94%81/"/>
+      <category term="显式锁" scheme="https://blog.dhengyi.name/tags/%E6%98%BE%E5%BC%8F%E9%94%81/"/>
     
   </entry>
   
   <entry>
     <title>Java并发--深入理解线程池</title>
-    <link href="http://blog.dhengyi.name/2018/09/13/Java%E5%B9%B6%E5%8F%91-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    <id>http://blog.dhengyi.name/2018/09/13/Java并发-深入理解线程池/</id>
+    <link href="https://blog.dhengyi.name/2018/09/13/Java%E5%B9%B6%E5%8F%91-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <id>https://blog.dhengyi.name/2018/09/13/Java并发-深入理解线程池/</id>
     <published>2018-09-13T13:38:05.000Z</published>
     <updated>2019-07-13T15:38:58.986Z</updated>
     
@@ -113,19 +113,19 @@
     
     </summary>
     
-      <category term="Java并发" scheme="http://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
+      <category term="Java并发" scheme="https://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
     
     
-      <category term="并发" scheme="http://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
+      <category term="并发" scheme="https://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
     
-      <category term="线程池" scheme="http://blog.dhengyi.name/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+      <category term="线程池" scheme="https://blog.dhengyi.name/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络--详解P2P对等网络（二）—Chord算法研究与分析</title>
-    <link href="http://blog.dhengyi.name/2018/06/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3P2P%E5%AF%B9%E7%AD%89%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94Chord%E7%AE%97%E6%B3%95%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%86%E6%9E%90/"/>
-    <id>http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/</id>
+    <link href="https://blog.dhengyi.name/2018/06/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3P2P%E5%AF%B9%E7%AD%89%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94Chord%E7%AE%97%E6%B3%95%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%86%E6%9E%90/"/>
+    <id>https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/</id>
     <published>2018-06-28T13:24:59.000Z</published>
     <updated>2019-07-13T16:11:20.669Z</updated>
     
@@ -140,17 +140,17 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="P2P" scheme="http://blog.dhengyi.name/tags/P2P/"/>
+      <category term="P2P" scheme="https://blog.dhengyi.name/tags/P2P/"/>
     
   </entry>
   
   <entry>
     <title>查找--深入理解一致性哈希算法</title>
-    <link href="http://blog.dhengyi.name/2018/06/26/%E6%9F%A5%E6%89%BE-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/"/>
-    <id>http://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/</id>
+    <link href="https://blog.dhengyi.name/2018/06/26/%E6%9F%A5%E6%89%BE-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/"/>
+    <id>https://blog.dhengyi.name/2018/06/26/查找-深入理解一致性哈希算法/</id>
     <published>2018-06-26T13:06:58.000Z</published>
     <updated>2019-07-14T10:12:51.164Z</updated>
     
@@ -165,17 +165,17 @@
     
     </summary>
     
-      <category term="数据结构与算法" scheme="http://blog.dhengyi.name/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构与算法" scheme="https://blog.dhengyi.name/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="一致性哈希" scheme="http://blog.dhengyi.name/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/"/>
+      <category term="一致性哈希" scheme="https://blog.dhengyi.name/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络--详解P2P对等网络（一）—BitTorrent协议</title>
-    <link href="http://blog.dhengyi.name/2018/06/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3P2P%E5%AF%B9%E7%AD%89%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94BitTorrent%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://blog.dhengyi.name/2018/06/21/计算机网络-详解P2P对等网络（一）—BitTorrent协议/</id>
+    <link href="https://blog.dhengyi.name/2018/06/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3P2P%E5%AF%B9%E7%AD%89%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94BitTorrent%E5%8D%8F%E8%AE%AE/"/>
+    <id>https://blog.dhengyi.name/2018/06/21/计算机网络-详解P2P对等网络（一）—BitTorrent协议/</id>
     <published>2018-06-21T03:15:10.000Z</published>
     <updated>2019-07-14T10:18:21.097Z</updated>
     
@@ -190,19 +190,19 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="P2P" scheme="http://blog.dhengyi.name/tags/P2P/"/>
+      <category term="P2P" scheme="https://blog.dhengyi.name/tags/P2P/"/>
     
-      <category term="BitTorrent协议" scheme="http://blog.dhengyi.name/tags/BitTorrent%E5%8D%8F%E8%AE%AE/"/>
+      <category term="BitTorrent协议" scheme="https://blog.dhengyi.name/tags/BitTorrent%E5%8D%8F%E8%AE%AE/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络--详解CDN</title>
-    <link href="http://blog.dhengyi.name/2018/06/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3CDN/"/>
-    <id>http://blog.dhengyi.name/2018/06/18/计算机网络-详解CDN/</id>
+    <link href="https://blog.dhengyi.name/2018/06/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3CDN/"/>
+    <id>https://blog.dhengyi.name/2018/06/18/计算机网络-详解CDN/</id>
     <published>2018-06-18T12:35:04.000Z</published>
     <updated>2019-07-14T10:20:25.457Z</updated>
     
@@ -217,17 +217,17 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="CDN" scheme="http://blog.dhengyi.name/tags/CDN/"/>
+      <category term="CDN" scheme="https://blog.dhengyi.name/tags/CDN/"/>
     
   </entry>
   
   <entry>
     <title>计算机组成原理--64位CPU装载32位操作系统，它的寻址能力还是4GB吗？</title>
-    <link href="http://blog.dhengyi.name/2018/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-64%E4%BD%8DCPU%E8%A3%85%E8%BD%BD32%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%8C%E5%AE%83%E7%9A%84%E5%AF%BB%E5%9D%80%E8%83%BD%E5%8A%9B%E8%BF%98%E6%98%AF4GB%E5%90%97%EF%BC%9F/"/>
-    <id>http://blog.dhengyi.name/2018/05/25/计算机组成原理-64位CPU装载32位操作系统，它的寻址能力还是4GB吗？/</id>
+    <link href="https://blog.dhengyi.name/2018/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-64%E4%BD%8DCPU%E8%A3%85%E8%BD%BD32%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%8C%E5%AE%83%E7%9A%84%E5%AF%BB%E5%9D%80%E8%83%BD%E5%8A%9B%E8%BF%98%E6%98%AF4GB%E5%90%97%EF%BC%9F/"/>
+    <id>https://blog.dhengyi.name/2018/05/25/计算机组成原理-64位CPU装载32位操作系统，它的寻址能力还是4GB吗？/</id>
     <published>2018-05-25T15:20:56.000Z</published>
     <updated>2019-07-14T10:24:49.550Z</updated>
     
@@ -242,17 +242,17 @@
     
     </summary>
     
-      <category term="计算机组成原理" scheme="http://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+      <category term="计算机组成原理" scheme="https://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="体系结构" scheme="http://blog.dhengyi.name/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
+      <category term="体系结构" scheme="https://blog.dhengyi.name/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>Java并发--synchronized实现原理及锁优化</title>
-    <link href="http://blog.dhengyi.name/2018/04/27/Java%E5%B9%B6%E5%8F%91-synchronized%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E9%94%81%E4%BC%98%E5%8C%96/"/>
-    <id>http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/</id>
+    <link href="https://blog.dhengyi.name/2018/04/27/Java%E5%B9%B6%E5%8F%91-synchronized%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E9%94%81%E4%BC%98%E5%8C%96/"/>
+    <id>https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/</id>
     <published>2018-04-27T03:38:27.000Z</published>
     <updated>2019-07-14T10:42:13.476Z</updated>
     
@@ -267,19 +267,19 @@
     
     </summary>
     
-      <category term="Java并发" scheme="http://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
+      <category term="Java并发" scheme="https://blog.dhengyi.name/categories/Java%E5%B9%B6%E5%8F%91/"/>
     
     
-      <category term="并发" scheme="http://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
+      <category term="并发" scheme="https://blog.dhengyi.name/tags/%E5%B9%B6%E5%8F%91/"/>
     
-      <category term="synchronized" scheme="http://blog.dhengyi.name/tags/synchronized/"/>
+      <category term="synchronized" scheme="https://blog.dhengyi.name/tags/synchronized/"/>
     
   </entry>
   
   <entry>
     <title>Java源码--JDK 1.8 HashMap重点源码部分剖析</title>
-    <link href="http://blog.dhengyi.name/2018/04/20/Java%E6%BA%90%E7%A0%81-JDK-1-8-HashMap%E9%87%8D%E7%82%B9%E6%BA%90%E7%A0%81%E9%83%A8%E5%88%86%E5%89%96%E6%9E%90/"/>
-    <id>http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/</id>
+    <link href="https://blog.dhengyi.name/2018/04/20/Java%E6%BA%90%E7%A0%81-JDK-1-8-HashMap%E9%87%8D%E7%82%B9%E6%BA%90%E7%A0%81%E9%83%A8%E5%88%86%E5%89%96%E6%9E%90/"/>
+    <id>https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/</id>
     <published>2018-04-20T13:55:40.000Z</published>
     <updated>2019-07-16T12:18:09.425Z</updated>
     
@@ -294,19 +294,19 @@
     
     </summary>
     
-      <category term="Java源码" scheme="http://blog.dhengyi.name/categories/Java%E6%BA%90%E7%A0%81/"/>
+      <category term="Java源码" scheme="https://blog.dhengyi.name/categories/Java%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="源码剖析" scheme="http://blog.dhengyi.name/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/"/>
+      <category term="源码剖析" scheme="https://blog.dhengyi.name/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/"/>
     
-      <category term="HashMap" scheme="http://blog.dhengyi.name/tags/HashMap/"/>
+      <category term="HashMap" scheme="https://blog.dhengyi.name/tags/HashMap/"/>
     
   </entry>
   
   <entry>
     <title>Java Web--XiyouLinux Group图书借阅平台的实现</title>
-    <link href="http://blog.dhengyi.name/2018/03/13/Java-Web-XiyouLinux-Group%E5%9B%BE%E4%B9%A6%E5%80%9F%E9%98%85%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://blog.dhengyi.name/2018/03/13/Java-Web-XiyouLinux-Group图书借阅平台的实现/</id>
+    <link href="https://blog.dhengyi.name/2018/03/13/Java-Web-XiyouLinux-Group%E5%9B%BE%E4%B9%A6%E5%80%9F%E9%98%85%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://blog.dhengyi.name/2018/03/13/Java-Web-XiyouLinux-Group图书借阅平台的实现/</id>
     <published>2018-03-12T16:22:30.000Z</published>
     <updated>2019-07-16T17:10:25.020Z</updated>
     
@@ -321,17 +321,17 @@
     
     </summary>
     
-      <category term="后端开发" scheme="http://blog.dhengyi.name/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="后端开发" scheme="https://blog.dhengyi.name/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="项目" scheme="http://blog.dhengyi.name/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="https://blog.dhengyi.name/tags/%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络--详解DNS域名系统</title>
-    <link href="http://blog.dhengyi.name/2018/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3DNS%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/</id>
+    <link href="https://blog.dhengyi.name/2018/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%A6%E8%A7%A3DNS%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://blog.dhengyi.name/2018/03/05/计算机网络-详解DNS域名系统/</id>
     <published>2018-03-05T10:01:22.000Z</published>
     <updated>2019-07-16T18:13:27.735Z</updated>
     
@@ -346,17 +346,17 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://blog.dhengyi.name/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="DNS" scheme="http://blog.dhengyi.name/tags/DNS/"/>
+      <category term="DNS" scheme="https://blog.dhengyi.name/tags/DNS/"/>
     
   </entry>
   
   <entry>
     <title>Java网络爬虫--多线程爬虫（抓取淘宝商品详情页URL）</title>
-    <link href="http://blog.dhengyi.name/2018/03/02/Java%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB%EF%BC%88%E6%8A%93%E5%8F%96%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5URL%EF%BC%89/"/>
-    <id>http://blog.dhengyi.name/2018/03/02/Java网络爬虫-多线程爬虫（抓取淘宝商品详情页URL）/</id>
+    <link href="https://blog.dhengyi.name/2018/03/02/Java%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB%EF%BC%88%E6%8A%93%E5%8F%96%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5URL%EF%BC%89/"/>
+    <id>https://blog.dhengyi.name/2018/03/02/Java网络爬虫-多线程爬虫（抓取淘宝商品详情页URL）/</id>
     <published>2018-03-02T14:35:30.000Z</published>
     <updated>2019-07-17T09:09:42.815Z</updated>
     
@@ -371,19 +371,19 @@
     
     </summary>
     
-      <category term="Java网络爬虫" scheme="http://blog.dhengyi.name/categories/Java%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
+      <category term="Java网络爬虫" scheme="https://blog.dhengyi.name/categories/Java%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://blog.dhengyi.name/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="https://blog.dhengyi.name/tags/%E7%88%AC%E8%99%AB/"/>
     
-      <category term="项目" scheme="http://blog.dhengyi.name/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="https://blog.dhengyi.name/tags/%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
   <entry>
     <title>JVM--深入剖析继承与多态实现原理（合集篇）</title>
-    <link href="http://blog.dhengyi.name/2018/01/12/JVM-%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%A4%9A%E6%80%81%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%88%E5%90%88%E9%9B%86%E7%AF%87%EF%BC%89/"/>
-    <id>http://blog.dhengyi.name/2018/01/12/JVM-深入剖析继承与多态实现原理（合集篇）/</id>
+    <link href="https://blog.dhengyi.name/2018/01/12/JVM-%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%A4%9A%E6%80%81%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%88%E5%90%88%E9%9B%86%E7%AF%87%EF%BC%89/"/>
+    <id>https://blog.dhengyi.name/2018/01/12/JVM-深入剖析继承与多态实现原理（合集篇）/</id>
     <published>2018-01-12T06:53:43.000Z</published>
     <updated>2019-07-17T10:42:55.800Z</updated>
     
@@ -398,19 +398,19 @@
     
     </summary>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/categories/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/categories/JVM/"/>
     
     
-      <category term="多态性" scheme="http://blog.dhengyi.name/tags/%E5%A4%9A%E6%80%81%E6%80%A7/"/>
+      <category term="多态性" scheme="https://blog.dhengyi.name/tags/%E5%A4%9A%E6%80%81%E6%80%A7/"/>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/tags/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/tags/JVM/"/>
     
   </entry>
   
   <entry>
     <title>JVM--再谈继承与多态</title>
-    <link href="http://blog.dhengyi.name/2018/01/10/JVM-%E5%86%8D%E8%B0%88%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%A4%9A%E6%80%81/"/>
-    <id>http://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/</id>
+    <link href="https://blog.dhengyi.name/2018/01/10/JVM-%E5%86%8D%E8%B0%88%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%A4%9A%E6%80%81/"/>
+    <id>https://blog.dhengyi.name/2018/01/10/JVM-再谈继承与多态/</id>
     <published>2018-01-10T08:14:59.000Z</published>
     <updated>2019-07-17T09:29:40.221Z</updated>
     
@@ -425,19 +425,19 @@
     
     </summary>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/categories/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/categories/JVM/"/>
     
     
-      <category term="多态性" scheme="http://blog.dhengyi.name/tags/%E5%A4%9A%E6%80%81%E6%80%A7/"/>
+      <category term="多态性" scheme="https://blog.dhengyi.name/tags/%E5%A4%9A%E6%80%81%E6%80%A7/"/>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/tags/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/tags/JVM/"/>
     
   </entry>
   
   <entry>
     <title>JVM--从JVM层面深入解析对象实例化、多态性实现机制</title>
-    <link href="http://blog.dhengyi.name/2018/01/08/JVM-%E4%BB%8EJVM%E5%B1%82%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96%E3%80%81%E5%A4%9A%E6%80%81%E6%80%A7%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6/"/>
-    <id>http://blog.dhengyi.name/2018/01/08/JVM-从JVM层面深入解析对象实例化、多态性实现机制/</id>
+    <link href="https://blog.dhengyi.name/2018/01/08/JVM-%E4%BB%8EJVM%E5%B1%82%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96%E3%80%81%E5%A4%9A%E6%80%81%E6%80%A7%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6/"/>
+    <id>https://blog.dhengyi.name/2018/01/08/JVM-从JVM层面深入解析对象实例化、多态性实现机制/</id>
     <published>2018-01-08T10:24:57.000Z</published>
     <updated>2019-07-17T09:42:01.790Z</updated>
     
@@ -452,19 +452,19 @@
     
     </summary>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/categories/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/categories/JVM/"/>
     
     
-      <category term="多态性" scheme="http://blog.dhengyi.name/tags/%E5%A4%9A%E6%80%81%E6%80%A7/"/>
+      <category term="多态性" scheme="https://blog.dhengyi.name/tags/%E5%A4%9A%E6%80%81%E6%80%A7/"/>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/tags/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/tags/JVM/"/>
     
   </entry>
   
   <entry>
     <title>JVM--浅谈垃圾收集机制</title>
-    <link href="http://blog.dhengyi.name/2017/12/20/JVM-%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/"/>
-    <id>http://blog.dhengyi.name/2017/12/20/JVM-浅谈垃圾收集机制/</id>
+    <link href="https://blog.dhengyi.name/2017/12/20/JVM-%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/"/>
+    <id>https://blog.dhengyi.name/2017/12/20/JVM-浅谈垃圾收集机制/</id>
     <published>2017-12-20T12:26:28.000Z</published>
     <updated>2019-07-17T10:22:18.901Z</updated>
     
@@ -479,17 +479,17 @@
     
     </summary>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/categories/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/categories/JVM/"/>
     
     
-      <category term="垃圾收集机制" scheme="http://blog.dhengyi.name/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/"/>
+      <category term="垃圾收集机制" scheme="https://blog.dhengyi.name/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/"/>
     
   </entry>
   
   <entry>
     <title>JVM--剖析类与对象在JVM中从生存至死亡</title>
-    <link href="http://blog.dhengyi.name/2017/12/17/JVM-%E5%89%96%E6%9E%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E5%9C%A8JVM%E4%B8%AD%E4%BB%8E%E7%94%9F%E5%AD%98%E8%87%B3%E6%AD%BB%E4%BA%A1/"/>
-    <id>http://blog.dhengyi.name/2017/12/17/JVM-剖析类与对象在JVM中从生存至死亡/</id>
+    <link href="https://blog.dhengyi.name/2017/12/17/JVM-%E5%89%96%E6%9E%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E5%9C%A8JVM%E4%B8%AD%E4%BB%8E%E7%94%9F%E5%AD%98%E8%87%B3%E6%AD%BB%E4%BA%A1/"/>
+    <id>https://blog.dhengyi.name/2017/12/17/JVM-剖析类与对象在JVM中从生存至死亡/</id>
     <published>2017-12-17T04:52:20.000Z</published>
     <updated>2019-07-17T10:26:33.536Z</updated>
     
@@ -504,17 +504,17 @@
     
     </summary>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/categories/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/categories/JVM/"/>
     
     
-      <category term="生命周期" scheme="http://blog.dhengyi.name/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+      <category term="生命周期" scheme="https://blog.dhengyi.name/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     
   </entry>
   
   <entry>
     <title>JVM--详解创建对象与类加载的区别与联系</title>
-    <link href="http://blog.dhengyi.name/2017/12/12/JVM-%E8%AF%A6%E8%A7%A3%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB/"/>
-    <id>http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/</id>
+    <link href="https://blog.dhengyi.name/2017/12/12/JVM-%E8%AF%A6%E8%A7%A3%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB/"/>
+    <id>https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/</id>
     <published>2017-12-12T03:40:51.000Z</published>
     <updated>2019-07-17T10:32:49.799Z</updated>
     
@@ -529,10 +529,10 @@
     
     </summary>
     
-      <category term="JVM" scheme="http://blog.dhengyi.name/categories/JVM/"/>
+      <category term="JVM" scheme="https://blog.dhengyi.name/categories/JVM/"/>
     
     
-      <category term="虚拟机" scheme="http://blog.dhengyi.name/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="虚拟机" scheme="https://blog.dhengyi.name/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   

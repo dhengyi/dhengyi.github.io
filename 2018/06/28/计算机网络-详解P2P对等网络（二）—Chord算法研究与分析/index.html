@@ -144,17 +144,17 @@
 <meta name="keywords" content="P2P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络--详解P2P对等网络（二）—Chord算法研究与分析">
-<meta property="og:url" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="结构化与非结构化网络非结构化的P2P网络是指网络节点之间不存在组织关系，节点之间完全是对等的，比如第一代P2P网络Napster。 结构化的P2P网络与非结构化恰好相反，我们认为网络在逻辑上存在一个人为设计的结构，比如Chord假定网络是一个环，Kadelima则假定为一颗二叉树。有了这些逻辑结构，就给我们资源查找引入了更多的算法和思路。  引言我们在 计算机网络–详解P2P对等网络（一）—Bit">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord环.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord节点的加入.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord环.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord节点的加入.png">
 <meta property="og:updated_time" content="2019-07-13T16:11:20.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络--详解P2P对等网络（二）—Chord算法研究与分析">
 <meta name="twitter:description" content="结构化与非结构化网络非结构化的P2P网络是指网络节点之间不存在组织关系，节点之间完全是对等的，比如第一代P2P网络Napster。 结构化的P2P网络与非结构化恰好相反，我们认为网络在逻辑上存在一个人为设计的结构，比如Chord假定网络是一个环，Kadelima则假定为一颗二叉树。有了这些逻辑结构，就给我们资源查找引入了更多的算法和思路。  引言我们在 计算机网络–详解P2P对等网络（一）—Bit">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord环.png">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/Chord环.png">
 
 
 
@@ -163,7 +163,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/"/>
 
 
 
@@ -397,7 +397,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -742,7 +742,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/" title="计算机网络--详解P2P对等网络（二）—Chord算法研究与分析">http://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/</a>
+    <a href="https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/" title="计算机网络--详解P2P对等网络（二）—Chord算法研究与分析">https://blog.dhengyi.name/2018/06/28/计算机网络-详解P2P对等网络（二）—Chord算法研究与分析/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1744,6 +1744,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

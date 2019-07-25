@@ -144,16 +144,16 @@
 <meta name="keywords" content="虚拟机,内存区域,线程安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--解析Java内存区域及数据的内存分配与线程安全之间的一些联系">
-<meta property="og:url" content="http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="最近一直在看《Java多线程编程核心技术》的第二章，主要讲的是线程共享变量与线程私有变量以及如何写出线程安全的代码。看这部分一开始没太注意，只是记住了一条规则，“类中的成员变量，也叫实例变量，也叫全局变量，它是非线程安全，是所有线程共享的变量，定义在方法中的私有变量是线程安全的，是每个线程私有的”。很好理解不是吗，然后一帆风顺的看到了关于volatile这部分的知识，看过之后我陷入了凌乱。。。关于">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/Java虚拟机运行时的数据区.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/Java虚拟机运行时的数据区.jpg">
 <meta property="og:updated_time" content="2019-07-19T05:56:45.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--解析Java内存区域及数据的内存分配与线程安全之间的一些联系">
 <meta name="twitter:description" content="最近一直在看《Java多线程编程核心技术》的第二章，主要讲的是线程共享变量与线程私有变量以及如何写出线程安全的代码。看这部分一开始没太注意，只是记住了一条规则，“类中的成员变量，也叫实例变量，也叫全局变量，它是非线程安全，是所有线程共享的变量，定义在方法中的私有变量是线程安全的，是每个线程私有的”。很好理解不是吗，然后一帆风顺的看到了关于volatile这部分的知识，看过之后我陷入了凌乱。。。关于">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/Java虚拟机运行时的数据区.jpg">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/Java虚拟机运行时的数据区.jpg">
 
 
 
@@ -162,7 +162,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/"/>
 
 
 
@@ -396,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -661,7 +661,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/" title="JVM--解析Java内存区域及数据的内存分配与线程安全之间的一些联系">http://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/</a>
+    <a href="https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/" title="JVM--解析Java内存区域及数据的内存分配与线程安全之间的一些联系">https://blog.dhengyi.name/2017/08/08/JVM-解析Java内存区域及数据的内存分配与线程安全之间的一些联系/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1667,6 +1667,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

@@ -144,25 +144,25 @@
 <meta name="keywords" content="源码剖析,HashMap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java源码--JDK 1.8 HashMap重点源码部分剖析">
-<meta property="og:url" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：感谢 美团点评技术团队 的分享~~，博客部分内容摘抄自其中。侵删！ 今天我们来探究一下 HashMap 的内部实现机制。  明确 JDK 1.8 中的 HashMap 使用数组 + 链表 + 红黑树的结构进行实现。  HashMap 的底层思想主要是哈希表，我们来看看 Java 的设计者们是怎么使用数组 + 链表 + 红黑树设计出 HashMap 的。  HashMap的基本属性既然是用哈希表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-table数组.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-hash值的异或.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-put方法过程.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-JDK1.7-rehash.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-扩容对索引位置的影响.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-扩容后确定index的值.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全1.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全2.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全3.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全4.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-table数组.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-hash值的异或.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-put方法过程.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-JDK1.7-rehash.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-扩容对索引位置的影响.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-扩容后确定index的值.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全1.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全2.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全3.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-线程安全4.png">
 <meta property="og:updated_time" content="2019-07-16T12:18:09.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java源码--JDK 1.8 HashMap重点源码部分剖析">
 <meta name="twitter:description" content="注：感谢 美团点评技术团队 的分享~~，博客部分内容摘抄自其中。侵删！ 今天我们来探究一下 HashMap 的内部实现机制。  明确 JDK 1.8 中的 HashMap 使用数组 + 链表 + 红黑树的结构进行实现。  HashMap 的底层思想主要是哈希表，我们来看看 Java 的设计者们是怎么使用数组 + 链表 + 红黑树设计出 HashMap 的。  HashMap的基本属性既然是用哈希表">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-table数组.jpg">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/HashMap-table数组.jpg">
 
 
 
@@ -171,7 +171,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/"/>
 
 
 
@@ -405,7 +405,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -764,7 +764,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/" title="Java源码--JDK 1.8 HashMap重点源码部分剖析">http://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/</a>
+    <a href="https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/" title="Java源码--JDK 1.8 HashMap重点源码部分剖析">https://blog.dhengyi.name/2018/04/20/Java源码-JDK-1-8-HashMap重点源码部分剖析/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1768,6 +1768,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

@@ -144,19 +144,19 @@
 <meta name="keywords" content="虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--详解创建对象与类加载的区别与联系">
-<meta property="og:url" content="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="在前几篇博客中，我们探究了.class文件的本质，类的加载机制，JVM运行时的栈帧结构以及字节码执行时对应操作数栈以及局部变量表的变化。 如果你已经掌握了这些东西，你现在应该会有一种感觉，给你一个Java代码，你可以从JVM的层面上将这个类从javac编译成.class文件开始，到使用java命令运行这个Class文件，然后这个类的运行过程是怎么样的，你可以解释清楚。 但是等等，好像少了点什么？我">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象创建的过程.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象头.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/实例化类的递归过程.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象的引用方式.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象创建的过程.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象头.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/实例化类的递归过程.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象的引用方式.jpg">
 <meta property="og:updated_time" content="2019-07-17T10:32:49.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--详解创建对象与类加载的区别与联系">
 <meta name="twitter:description" content="在前几篇博客中，我们探究了.class文件的本质，类的加载机制，JVM运行时的栈帧结构以及字节码执行时对应操作数栈以及局部变量表的变化。 如果你已经掌握了这些东西，你现在应该会有一种感觉，给你一个Java代码，你可以从JVM的层面上将这个类从javac编译成.class文件开始，到使用java命令运行这个Class文件，然后这个类的运行过程是怎么样的，你可以解释清楚。 但是等等，好像少了点什么？我">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象创建的过程.png">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/对象创建的过程.png">
 
 
 
@@ -165,7 +165,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/"/>
 
 
 
@@ -399,7 +399,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -649,7 +649,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/" title="JVM--详解创建对象与类加载的区别与联系">http://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/</a>
+    <a href="https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/" title="JVM--详解创建对象与类加载的区别与联系">https://blog.dhengyi.name/2017/12/12/JVM-详解创建对象与类加载的区别与联系/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1651,6 +1651,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

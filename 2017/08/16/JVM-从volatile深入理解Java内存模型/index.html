@@ -144,19 +144,19 @@
 <meta name="keywords" content="JVM,Java内存模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM--从volatile深入理解Java内存模型">
-<meta property="og:url" content="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="在上一篇博客JVM–解析Java内存区域及数据的内存分配与线程安全之间的一些联系中也说到了，想要理解volatile关键字，我们需要掌握Java虚拟机运行时数据区的相关知识，但是这还不够，只有理解了Java的内存模型，我们才能开始讲述volatile，而Java虚拟机运行时数据区是掌握Java内存模型的基础，所以如果你还没有看上一篇博客，请点击上方链接～～～  引言既然本节讲述volatile关键">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/处理器，高速缓存，主内存之间的交互关系.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/线程，工作内存，主内存之间的交互关系.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/工作内存和主内存之间的交互.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/volatile轻量级同步机制.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/处理器，高速缓存，主内存之间的交互关系.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/线程，工作内存，主内存之间的交互关系.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/工作内存和主内存之间的交互.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/volatile轻量级同步机制.png">
 <meta property="og:updated_time" content="2019-07-17T17:02:26.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM--从volatile深入理解Java内存模型">
 <meta name="twitter:description" content="在上一篇博客JVM–解析Java内存区域及数据的内存分配与线程安全之间的一些联系中也说到了，想要理解volatile关键字，我们需要掌握Java虚拟机运行时数据区的相关知识，但是这还不够，只有理解了Java的内存模型，我们才能开始讲述volatile，而Java虚拟机运行时数据区是掌握Java内存模型的基础，所以如果你还没有看上一篇博客，请点击上方链接～～～  引言既然本节讲述volatile关键">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/处理器，高速缓存，主内存之间的交互关系.jpg">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/处理器，高速缓存，主内存之间的交互关系.jpg">
 
 
 
@@ -165,7 +165,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/"/>
 
 
 
@@ -399,7 +399,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -700,7 +700,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/" title="JVM--从volatile深入理解Java内存模型">http://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/</a>
+    <a href="https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/" title="JVM--从volatile深入理解Java内存模型">https://blog.dhengyi.name/2017/08/16/JVM-从volatile深入理解Java内存模型/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1704,6 +1704,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   

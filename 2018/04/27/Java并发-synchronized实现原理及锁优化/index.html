@@ -144,18 +144,18 @@
 <meta name="keywords" content="并发,synchronized">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发--synchronized实现原理及锁优化">
-<meta property="og:url" content="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/index.html">
+<meta property="og:url" content="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/index.html">
 <meta property="og:site_name" content="H.Y&#39;s BLOG">
 <meta property="og:description" content="注：本文中的部分内容摘抄自他人博客，如有侵权，请联系我，侵删~ 本篇博客主要讲述 synchronized 关键字的实现原理以及 JDK 1.6 后对 synchronized 的种种优化。synchronized 的使用不再赘述。  博主目前依旧存在的疑惑请在阅读完此篇博客之后，帮助博主回答这三个问题：  多线程争夺 Monitor 的具体过程是怎样的？是根据 ObjectMonitor 中的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/Java对象头.jpg">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/偏向锁的获得与撤销.png">
-<meta property="og:image" content="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/轻量级锁及膨胀流程.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/Java对象头.jpg">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/偏向锁的获得与撤销.png">
+<meta property="og:image" content="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/轻量级锁及膨胀流程.png">
 <meta property="og:updated_time" content="2019-07-14T10:42:13.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发--synchronized实现原理及锁优化">
 <meta name="twitter:description" content="注：本文中的部分内容摘抄自他人博客，如有侵权，请联系我，侵删~ 本篇博客主要讲述 synchronized 关键字的实现原理以及 JDK 1.6 后对 synchronized 的种种优化。synchronized 的使用不再赘述。  博主目前依旧存在的疑惑请在阅读完此篇博客之后，帮助博主回答这三个问题：  多线程争夺 Monitor 的具体过程是怎样的？是根据 ObjectMonitor 中的">
-<meta name="twitter:image" content="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/Java对象头.jpg">
+<meta name="twitter:image" content="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/Java对象头.jpg">
 
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/"/>
+  <link rel="canonical" href="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/"/>
 
 
 
@@ -398,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/">
+    <link itemprop="mainEntityOfPage" href="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
@@ -787,7 +787,7 @@
     <strong>本文作者： </strong>dhengyi</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/" title="Java并发--synchronized实现原理及锁优化">http://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/</a>
+    <a href="https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/" title="Java并发--synchronized实现原理及锁优化">https://blog.dhengyi.name/2018/04/27/Java并发-synchronized实现原理及锁优化/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -1791,6 +1791,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
