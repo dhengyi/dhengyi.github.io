@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,6 +25,13 @@
 
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -53,38 +60,6 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Kalam:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
@@ -93,16 +68,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
 
 
 
@@ -116,9 +91,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -174,6 +149,15 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '[object Object]');
+</script>
 
 
 
@@ -262,68 +246,12 @@
         
         
           
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-heat">
-    <a href="/heat/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-fire"></i> <br />热文</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-caprice">
-    <a href="/caprice/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-align-left"></i> <br />碎语</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-music">
-    <a href="/music/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-music"></i> <br />音乐</a>
-  </li>
 
       
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
-        </li>
       
     </ul>
   
@@ -333,29 +261,6 @@
 
   
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
   
 </nav>
 
@@ -369,6 +274,17 @@
     </header>
 
     
+  
+  
+  
+    
+      
+    
+    <a href="undefined" class="github-corner" target="_blank" title="" aria-label=""><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
 
 
     <main id="main" class="main">
@@ -399,7 +315,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -444,22 +360,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 22:26:06" itemprop="dateModified" datetime="2019-07-17T22:26:06+08:00">2019-07-17</time>
-              
-            
           </span>
 
           
@@ -487,17 +387,6 @@
           
 
           
-          
-             <span id="/2017/12/09/JVM-详解虚拟机字节码执行引擎之静态链接、动态链接与分派/" class="leancloud_visitors" data-flag-title="JVM--详解虚拟机字节码执行引擎之静态链接、动态链接与分派">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -527,7 +416,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">6 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -549,18 +438,62 @@
       
         
           
-          这篇博客主要带你认识何谓静态链接、动态链接。并且会讲述JVM中分派的知识，让你对Java中的多态实现机制有一个浅显的认识。
+            <p>这篇博客主要带你认识何谓静态链接、动态链接。并且会讲述JVM中分派的知识，让你对Java中的多态实现机制有一个浅显的认识。</p>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>从接触Java语言的第一天起，往后，我相信你一定听过什么动态链接啊，动态扩展啊，静态链接啊，它和C++相比有哪些优缺点啊… …如果你只是听说而没有探究过他们，也许你现在仍没办法说出Java语言到底有什么优缺点。</p>
+<p>我们知道class文件是源代码经过编译后得到的字节码，如果学过编译原理会知道，这个仅仅完成了一半的工作（词法分析、语法分析、语义分析、中间代码生成），接下来就是实际的运行了。而Java选择的是<strong>动态链接的方式，即用到某个类再加载进内存</strong>，而不是像C++那样使用<strong>静态链接：将所有类加载，不论是否使用到</strong>。当然了，孰优孰劣不好判断。<strong>静态链接优点在速度，动态链接优点在灵活</strong>。</p>
+<hr>
+<h2 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a><strong>静态链接</strong></h2><p>那么，首先，咱们先来聊聊静态链接。</p>
+<p>如上面的概念所述，在C/C++中静态链接就是在编译期将所有类加载并找到他们的直接引用，不论是否使用到。而在Java中我们知道，编译Java程序之后，会得到程序中每一个类或者接口的独立的class文件。虽然独立看上去毫无关联，但是<strong>他们之间通过接口(harbor)符号互相联系，或者与Java API的class文件相联系</strong>。</p>
+<p>我们之前也讲述了类加载机制中的一个过程—解析，并在其中提到了解析就是将class文件中的一部分符号引用直接解析为直接引用的过程，但是当时我们并没有详细说明这种解析所发生的条件，现在我给大家进行补充：</p>
+<blockquote>
+<p>方法在程序真正运行之前就有一个可确定的调用版本，并且这个方法的调用版本在运行期是不可改变的。可以概括为：编译期可知、运行期不可变。</p>
+</blockquote>
+<p>符合上述条件的方法主要包括静态方法和私有方法两大类。前者与类型直接关联，后者在外部不可被访问，这两种方法的特点决定了它们都不可能通过继承或别的方式重写其他版本，因此它们适合在类加载阶段进行解析。</p>
+<p>额外补充一点：</p>
+<p>在Java虚拟机中提供了5条方法调用字节码指令，其中invokestatic和invokespecial指令调用的方法，都可以在解析阶段中确定唯一的调用版本，符合这个条件的有静态方法、私有方法、实例构造器、父类方法（不知道这是个什么玩意、不重要，先放下）4类。它们在类加载的时候就会把符号引用解析为该方法的直接引用，因此这些方法也被称为<strong>非虚方法（包括final方法）</strong>，与之相反的称为<strong>虚方法</strong>。</p>
+<p><strong>解析调用一定是个静态过程，在编译期间就完全确定，在类加载的解析阶段就会把涉及的符号引用转化为可确定的直接引用，不会延迟到运行期再去完成</strong>，这也就是Java中的静态链接。</p>
+<hr>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a><strong>动态链接</strong></h2><p>上面大概说完了静态链接，那么什么是动态链接、它有什么用？</p>
+<p>如上所述，在Class文件中的常量持中存有大量的符号引用。字节码中的方法调用指令就以常量池中指向方法的符号引用作为参数。这些符号引用一部分在类的加载阶段（解析）或第一次使用的时候就转化为了直接引用（指向数据所存地址的指针或句柄等），这种转化称为<strong>静态链接</strong>。而相反的，另一部分<strong>在运行期间转化为直接引用，就称为动态链接</strong>。</p>
+<p>与那些在编译时进行链接的语言不同，Java类型的加载和链接过程都是在运行的时候进行的，这样虽然在类加载的时候稍微增加一些性能开销，但是却能为Java应用程序提供高度的灵活性，Java中<strong>天生可以动态扩展的语言特性</strong>就是依赖动态加载和动态链接这个特点实现的。</p>
+<p>动态扩展就是在运行期可以动态修改字节码，也就是反射机制与cglib，有兴趣的朋友可以查一下。</p>
+<hr>
+<h2 id="分派"><a href="#分派" class="headerlink" title="分派"></a><strong>分派</strong></h2><p>我们先不谈分派是什么，先来说说学习分派对你有什么用。</p>
+<p><strong>分派会解释多态性特征的一些最基本的体现，如“重载”、“重写”在Java虚拟机中是如何实现的</strong>，当然这里的实现不是语法上该怎么写，我们关心的是虚拟机如何确定正确的目标方法。</p>
+<h3 id="静态分派"><a href="#静态分派" class="headerlink" title="静态分派"></a><strong>静态分派</strong></h3><p>这就是刚才不谈分派的原因，分派的概念比较泛，分为静态分派、动态分派、单分派、多分派。我们先来说说静态分派。</p>
+<p>来看一下静态分派的概念：<strong>所有依赖静态类型来定位方法执行版本的分派动作称为静态分派。静态分派的典型应用是方法重载</strong>。</p>
+<p>你应该会对<strong>静态类型</strong>这个名词感到疑惑。</p>
+<p>再来解释一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Human man = <span class="keyword">new</span> Man();</span><br></pre></td></tr></table></figure>
+<p>如上代码，Human被称为静态类型，Man被称为实际类型。</p>
+<p>再来看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实际类型变化</span></span><br><span class="line">Human man = <span class="keyword">new</span> Man();</span><br><span class="line">man = <span class="keyword">new</span> Woman();</span><br><span class="line"></span><br><span class="line"><span class="comment">//静态类型变化</span></span><br><span class="line">StaticDispatch sr = <span class="keyword">new</span> StaticDispatch();</span><br><span class="line">sr.sayHello((Human) man);</span><br><span class="line">sr.sayHello((Woman) man);</span><br></pre></td></tr></table></figure>
+<p>可以看到的静态类型和实际类型都会发生变化，但是有区别：静态类型的变化仅仅在使用时发生，变量本身的静态类型不会被改变，并且最终的静态类型是在<strong>编译期可知</strong>的，而实际类型变化的结果在<strong>运行期才可确定</strong>。</p>
+<p>知道这些东西之后，我给大家贴上完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span> </span>&#123;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Human</span> </span>&#123;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Woman</span> <span class="keyword">extends</span> <span class="title">Human</span> </span>&#123;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticDispatch</span> </span>&#123;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">(Human guy)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"hello, guy!"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">(Man guy)</span></span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"hello, gentleman!"</span>);  </span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">(Woman guy)</span></span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"hello, lady!"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;  </span><br><span class="line">        Human man = <span class="keyword">new</span> Man();  </span><br><span class="line">        Human woman = <span class="keyword">new</span> Woman();  </span><br><span class="line">        StaticDisPatch sr = <span class="keyword">new</span> StaticDisPatch();  </span><br><span class="line">        sr.sayHello(man);  </span><br><span class="line">        sr.sayHello(woman);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello, guy!</span><br><span class="line">hello, guy!</span><br></pre></td></tr></table></figure>
+<p>如上代码与运行结果，在调用 sayHello()方法时，方法的调用者都为sr的前提下，使用哪个重载版本，完全取决于传入参数的数量和数据类型。代码中刻意定义了两个静态类型相同、实际类型不同的变量，可见<strong>编译器</strong>（不是虚拟机，因为<strong>如果是根据静态类型做出的判断，那么在编译期就确定了</strong>）在重载时是<strong>通过参数的静态类型而不是实际类型作为判定依据的</strong>。并且静态类型是编译期可知的，所以在编译阶段，javac 编译器就根据参数的静态类型决定使用哪个重载版本。这就是静态分派最典型的应用。</p>
+<p>在静态分派中还有一个<strong>重载方法匹配优先级</strong>的问题，因为觉得并不是我要分享的重点，所以在这里我就不贴了，有兴趣的同学可以查阅《深入理解Java虚拟机》第249页或自行百度。</p>
+<h3 id="动态分派"><a href="#动态分派" class="headerlink" title="动态分派"></a><strong>动态分派</strong></h3><p>动态分派与多态性的另一个重要体现——方法重写有着很紧密的关系。向上转型后调用子类覆写的方法便是一个很好地说明动态分派的例子。这种情况很常见，因此这里不再用示例程序进行分析。很显然，在判断执行父类中的方法还是子类中覆盖的方法时，如果用<strong>静态类型</strong>来判断，那么无论怎么进行向上转型，都只会调用父类中的方法，但实际情况是，根据对父类实例化的子类的不同，调用的是不同子类中覆写的方法，很明显，这里是要根据变量的实际类型来分派方法的执行版本。而实际类型的确定需要在程序运行时才能确定下来，这种在运行期根据实际类型确定方法执行版本的分派过程称为动态分派。</p>
+<p>关于动态分派与多态实现机制更详细的内容，建议参考博主的另一篇博客：<a href="http://blog.csdn.net/championhengyi/article/details/78998821" target="_blank" rel="noopener">JVM–从JVM层面深入解析对象实例化、多态性实现机制</a></p>
+<p>总结一下静态分派：注意静态类型，编译阶段。动态分派注意局部变量表、操作数栈、invokevirtual指令的解析过程。</p>
+<h3 id="单分派与多分派"><a href="#单分派与多分派" class="headerlink" title="单分派与多分派"></a><strong>单分派与多分派</strong></h3><p>先给出<strong>宗量</strong>的定义：方法的接受者（亦即方法的调用者）与方法的参数统称为方法的宗量。单分派是根据一个宗量对目标方法进行选择，多分派是根据多于一个宗量对目标方法进行选择。</p>
+<p>为了方便理解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Eat</span> </span>&#123;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drink</span> </span>&#123;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Eat arg)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"爸爸在吃饭"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Drink arg)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"爸爸在喝水"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Eat arg)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"儿子在吃饭"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Drink arg)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"儿子在喝水"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleDoublePai</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        Father father = <span class="keyword">new</span> Father();  </span><br><span class="line">        Father child = <span class="keyword">new</span> Child();  </span><br><span class="line">        father.doSomething(<span class="keyword">new</span> Eat());  </span><br><span class="line">        child.doSomething(<span class="keyword">new</span> Drink());  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果应该非常容易判断：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">爸爸在吃饭</span><br><span class="line">儿子在喝水</span><br></pre></td></tr></table></figure>
+<p>我们首先来看编译阶段编译器的选择过程，即静态分派过程。这时候选择目标方法的依据有两点：一是方法的接受者（即调用者）的静态类型是 Father 还是 Child，二是方法参数类型是 Eat 还是 Drink。因为是根据两个宗量进行选择，所以 <strong>Java 语言的静态分派属于多分派类型</strong>。</p>
+<p>再来看运行阶段虚拟机的选择，即动态分派过程。由于编译期已经了确定了目标方法的参数类型（<strong>编译期根据参数的静态类型进行静态分派</strong>），因此唯一可以影响到虚拟机选择的因素只有此方法的接受者的实际类型是 Father 还是 Child。因为只有一个宗量作为选择依据，所以 <strong>Java 语言的动态分派属于单分派类型</strong>。</p>
+<p>根据以上论证，我们可以总结如下：<strong>目前的 Java 语言（JDK1.6）是一门静态多分派（方法重载）、动态单分派（方法重写）的语言</strong>。</p>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>《深入理解Java虚拟机》—周志明</p>
+<p><a href="http://ningg.top/understanding-jvm-chapter-7/" target="_blank" rel="noopener">Understanding the JVM：虚拟机类加载机制</a></p>
+<p><a href="http://www.360doc.com/content/17/0702/18/43088713_668245796.shtml" target="_blank" rel="noopener">JVM-动态链接(Dynamic Linking and Resolution)</a></p>
+<p><a href="http://wiki.jikexueyuan.com/project/java-vm/polymorphism.html" target="_blank" rel="noopener">多态性实现机制——静态分派与动态分派</a></p>
 
-前言从接触Java语言的第一天起，往后，我相信你一定听过什么动态链接啊，动态扩展啊，静态链接啊，它和C++相比有哪些优缺点啊… …如果你只是听说而没有探究过他们，也许你现在仍没办法说出Java语言到底有什么优缺点。
-我们知道class文件是源代码经过编译后得到的字节码，如果
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/09/JVM-详解虚拟机字节码执行引擎之静态链接、动态链接与分派/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -617,7 +550,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -662,22 +595,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 22:39:13" itemprop="dateModified" datetime="2019-07-17T22:39:13+08:00">2019-07-17</time>
-              
-            
           </span>
 
           
@@ -705,17 +622,6 @@
           
 
           
-          
-             <span id="/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/" class="leancloud_visitors" data-flag-title="JVM--详解虚拟机字节码执行引擎之栈帧结构">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -745,7 +651,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -767,19 +673,90 @@
       
         
           
-          本篇博客信息量依旧庞大！
+            <p>本篇博客信息量依旧庞大！</p>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？</p>
+<p>在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。</p>
+<p>当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在<a href="http://blog.csdn.net/championhengyi/article/details/78300611" target="_blank" rel="noopener">JVM–解析Class类文件结构</a>一文中详细分析了class文件中字节码的存储格式及其组成。然后我们紧接着说明了<a href="http://blog.csdn.net/championhengyi/article/details/78300611" target="_blank" rel="noopener">JVM–详解类加载机制</a>，你应该了解到—类加载机制就是将class文件中的字节码加载进JVM的方法区并生成这个类的class对象的过程（再次强调不是生成这个类的实例化对象的过程）。</p>
+<hr>
+<h2 id="虚拟机字节码执行引擎"><a href="#虚拟机字节码执行引擎" class="headerlink" title="虚拟机字节码执行引擎"></a><strong>虚拟机字节码执行引擎</strong></h2><p>那么，现在我们言归正传，解决上面的两个问题：</p>
+<p>假设我们现在有这样一个类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"hello world"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个Java类写好之后并在虚拟机运行它之前，首先要将它加载进JVM中，而加载的就是class文件中的字节码，具体的加载过程我不在强调。</p>
+<p>那么现在万事具备，JVM以main方法作为入口，而这些方法在运行之前首先要进行调用，那么<strong>虚拟机字节码执行引擎就是负责对方法进行调用并运行方法的JVM组成部分之一</strong>。</p>
+<p>其实我现在觉得吧，<strong>class文件结构那一章对class文件进行了详细的分析；类加载机制那一章告诉了你类生命周期中的各个阶段并额外讲述了一点类加载器的相关知识；而这一章就是告诉你虚拟机是如何使用（执行）这些加载进来的字节码</strong>。</p>
+<p>至于这个东西有什么作用？我上面概括的那些话就是作用—学完这三部分知识，你应该对一个Java程序从源码至运行时JVM层面发生的一系列过程有了一个挺详细的认知。</p>
+<p>这一部分难点、重点比较多，但是也不要怕～我将这部分知识分解为三部分，绝对让你们轻松吸收～</p>
+<p>这篇博客我们主要探究何为<strong>栈帧</strong>～～～</p>
+<hr>
+<h2 id="运行时栈帧结构"><a href="#运行时栈帧结构" class="headerlink" title="运行时栈帧结构"></a><strong>运行时栈帧结构</strong></h2><p>要了解JVM对方法进行调用的过程，我们首先要掌握一个概念：<strong>栈帧</strong>。</p>
+<p>它的概念很好理解，只是名字比较高大上而已。栈帧是一种数据结构，栈帧中包括了<strong>局部变量表、操作数栈、动态连接、返回地址</strong>等信息。</p>
+<p>关于栈帧中所包括的信息，我等下再进行详细的说明。</p>
+<p>我们先来看一下栈帧的概念结构图：</p>
+<p><img src="栈帧结构.png" alt="这里写图片描述"></p>
+<p>这个图已经描述的很清晰了，我将其中的重点再罗列出来：</p>
+<blockquote>
+<ul>
+<li>栈帧存在于虚拟机栈中，并且是虚拟机栈中的单位元素。</li>
+<li>每个线程中的不同栈帧对应这个线程调用的不同方法，可以看到栈帧很多，也就是调用的方法链会很多。</li>
+<li>在活动线程中，只有当前栈帧有效，与之对应的也就是当前正在执行的方法，此方法被成为当前方法。</li>
+<li>每调用一个新的方法，此方法对应的栈帧就会被放到栈顶（入栈），也就是成为新的当前栈帧；当一个方法退出的时候，此方法对应的栈帧也相应销毁（出栈）。</li>
+</ul>
+</blockquote>
+<p>这就是栈帧。概念不多，而且栈帧中的出栈入栈对应数据结构中的栈操作（先入后出）。</p>
+<p>额外需要补充的是，栈帧中需要多大的局部变量表，多深的操作数栈在 <strong>编译成class文件</strong> 的时候都是已经确定好的，这些信息都存储在 <strong>方法表中的code属性</strong> 中，因此每个栈帧需要分配多少内存，不会受到程序运行期变量数据的影响。</p>
+<p>好吧，有可能你们对方法表中的code属性有点懵逼，那么我们先来回顾一下方法表是什么东西（知识本身就是一个不断回顾的过程，不要着急～）：</p>
+<p><strong>方法表的定义</strong>：</p>
+<blockquote>
+<p>class文件中的方法表包含了此方法的一些信息：访问标志（public、private等）、名称索引（指向常量池）、描述符索引（指向常量池，描述符用来描述方法的参数列表以及返回值）、属性表集合。</p>
+</blockquote>
+<p><strong>code属性的定义</strong>：</p>
+<blockquote>
+<p>code属性存储在属性表中，而属性表是多种属性的集合。我们这里只谈code属性，code属性存放的就是经过编译器编译成字节码指令的Java方法里面的代码（里面记录了局部变量表的大小与操作数栈的深度）。</p>
+</blockquote>
+<p>所以我们之前说方法表中不一定需要属性表，是因为如果这是一个抽象方法，那么这个方法生成的方法表中就不需要存在属性表（这个Java方法没有被定义，属性表中的其他属性也无法被生成）。</p>
+<hr>
+<h2 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a><strong>局部变量表</strong></h2><p>既然每个栈帧对应了每个调用过的方法，那么栈帧中存储的理应是我们平常方法体中所写的Java代码。</p>
+<p>那么局部变量表作为组成栈帧的一份子：</p>
+<blockquote>
+<p>用于存储方法参数和方法内部定义的局部变量，在Java程序编译成class文件的时候，就在code属性中的max_locals数据项中确定了该方法所要分配的局部变量表的最大容量。</p>
+</blockquote>
+<p>局部变量区被组织为以一个slot（变量槽）为单位、从0开始计数的数组。虚拟机规范中并没有明确规定slot的大小，只是说明每个slot都应该能存放一个boolean、byte、char、short、int、float、reference、或returnAddress类型的数据。</p>
+<p>类型为short、byte和char的值在存入数组前要被转换成int值，而long和 double在数组中占据连续的两项，在访问局部变量中的long或double时，只需取出连续两项的第一项的索引值即可，如某个long值在局部变量区中占据的索引是3、4项，取值时，指令只需取索引为3的long值即可。</p>
+<p>再补充一些东西～～～</p>
+<p>先来上两份代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">runClassMethod</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">long</span> l,<span class="keyword">float</span> f,<span class="keyword">double</span> d,Object o,<span class="keyword">byte</span> b &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">	return <span class="number">0</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">runInstanceMethod</span><span class="params">(<span class="keyword">char</span> c,<span class="keyword">double</span> d,<span class="keyword">short</span> s,<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们再来看一个图（可以对应上面我所说的）：</p>
+<p><img src="局部变量区.jpg" alt="这里写图片描述"></p>
+<p>首先，可以看到虚拟机是使用局部变量表完成参数值到参数变量列表的传递过程的。并且runInstanceMethod（实例方法）的局部变量区第一项是个reference（引用），它指定的就是对象本身的引用，也就是我们常用的this，但是在RunClassMethod方法中，没这个引用，那是因为runClassMethod是个静态方法。</p>
+<p>关于reference类型，代表的是一个对象实例的引用，这个引用应当可以做到两点：</p>
+<blockquote>
+<ol>
+<li>从此引用中直接（直接引用）或间接（句柄池）地查找到对象在Java堆中的数据存放的起始地址索引。</li>
+<li>从此引用中直接（对象头）或间接（句柄池）的查找到对象所属类型在方法区中存储的类型信息。</li>
+</ol>
+</blockquote>
+<p>关于局部变量表的知识还有一个“<strong>slot的复用</strong>”，但是我在这里并不打算再进行讲解，原因就是它只能算是对GC收集的一种奇淫技巧，如果大家有兴趣的话可以参考《深入理解Java虚拟机》–周志明一书中的239页。</p>
+<hr>
+<h2 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a><strong>操作数栈</strong></h2><p>同样，操作数栈也是一个先入后出的栈结构。同局部变量表一样，操作数栈的最大深度也在编译的时候写入到了code属性的max_stacks数据项中，运行期并不会改变。</p>
+<p>操作数栈和局部变量区一样，也被组织成一个数组，操作数栈中的每个元素可以是任意的Java数据类型，32位数据类型所占栈容量为1，64位数据类型所占栈容量为2。但和前者不同的是，它不是通过索引来访问的，而是通过入栈和出栈来访问的。可把操作数栈理解为存储计算时，临时数据的存储区域。</p>
+<p>下面我们通过一幅图片来了解下操作数栈的作用：</p>
+<p><img src="操作数栈.png" alt="这里写图片描述"></p>
+<p>从图中可以得出：操作数栈其实就是个临时数据存储区域，它是通过入栈和出栈来进行操作的。</p>
+<p>如果上图中的指令你们无法理解的话，也不要着急，更详细的内容会在之后的第三部分讲解～～</p>
+<hr>
+<h2 id="动态连接"><a href="#动态连接" class="headerlink" title="动态连接"></a><strong>动态连接</strong></h2><p>这部分的内容会在之后的第二部分专门介绍，现在先不讲。</p>
+<hr>
+<h2 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a><strong>方法返回地址</strong></h2><p>在一个方法开始执行之后，将来这个方法肯定是会退出的。方法的退出分为正常结束和异常终止。如果是通过return正常结束，则当前栈帧从Java栈中弹出，恢复发起调用的方法的栈。如果方法有返回值，JVM会 <strong>把返回值压入到发起调用方法的操作数栈</strong>。</p>
+<p>为了处理Java方法中的异常情况，栈帧中还必须保存一个对此方法异常引用表的引用。当异常抛出时，JVM给catch块中的代码。如果没发现，方法立即终止，然后JVM用帧区数据的信息恢复发起调用的方法的帧，然后再发起调用方法的上下文重新抛出同样的异常。</p>
+<hr>
+<h2 id="虚拟机栈的整个结构"><a href="#虚拟机栈的整个结构" class="headerlink" title="虚拟机栈的整个结构"></a><strong>虚拟机栈的整个结构</strong></h2><p><strong>来做个总结吧</strong>：栈是由栈帧组成，每当线程调用一个Java方法时，JVM就会在该线程对应的栈中压入一个帧，而帧是由局部变量区、操作数栈和 <strong>栈帧信息</strong>（一般会把动态链接、方法返回地址和其它附加信息归为一类，称为栈帧信息）组成。</p>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p>《深入理解Java虚拟机》—周志明</p>
+<p><a href="http://xtu-tja-163-com.iteye.com/blog/775987" target="_blank" rel="noopener">深入JVM——栈和局部变量</a></p>
 
-前言在讨论本文的主题之前，我们先来思考一下：什么是虚拟机字节码执行引擎？它有什么作用？
-在说明这个问题之前，我们先来想想之前我们已经学习过的class文件结构与类加载机制。
-当一个Java程序写好之后，我们使用javac命令对其进行编译，产生的虚拟机字节码存储在class文件中，我在JVM–解析Class类文件结构一文中详细分析了class文件中字节码的存储格式及其组成
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/08/JVM-详解虚拟机字节码执行引擎之栈帧结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -836,7 +813,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -881,22 +858,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 23:02:27" itemprop="dateModified" datetime="2019-07-17T23:02:27+08:00">2019-07-17</time>
-              
-            
           </span>
 
           
@@ -924,17 +885,6 @@
           
 
           
-          
-             <span id="/2017/12/07/GitHub-重装系统后关联以前的GitHub/" class="leancloud_visitors" data-flag-title="GitHub--重装系统后关联以前的GitHub">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -986,18 +936,17 @@
       
         
           
-          由于系统重装了，当然本地的仓储和SSH生成的密钥就都没有了，这时如何在本地pull自己在GitHub上的仓储呢？
-由于系统重装，~/.ssh文件肯定就没有了，这时候就需要重新生成公钥和密钥。
-ssh-keygen -t rsa -C “your_email@example.com“
-Enter file in which to save the key (/home/XXX/.ssh/id_rsa
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/07/GitHub-重装系统后关联以前的GitHub/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>由于系统重装了，当然本地的仓储和SSH生成的密钥就都没有了，这时如何在本地pull自己在GitHub上的仓储呢？</p>
+<p>由于系统重装，~/.ssh文件肯定就没有了，这时候就需要重新生成公钥和密钥。</p>
+<p>ssh-keygen -t rsa -C “<a href="mailto:your_email@example.com" target="_blank" rel="noopener">your_email@example.com</a>“</p>
+<p>Enter file in which to save the key (/home/XXX/.ssh/id_rsa):<br>Created directory ‘/home/XXX/.ssh’.<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/XXX/.ssh/id_rsa.<br>Your public key has been saved in /home/XXX/.ssh/id_rsa.pub.<br>The key fingerprint is:<br>79:3c:8c:e7:3e:57:8a:59:36:4d:4c:09:59:d3:8b:df <a href="mailto:your_email@example.com" target="_blank" rel="noopener">your_email@example.com</a><br>The key’s randomart image is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+--[ RSA 2048]----+</span><br><span class="line">|            .+oo |</span><br><span class="line">|            . o..|</span><br><span class="line">|            o. .|</span><br><span class="line">|        =  .o. |</span><br><span class="line">|        S *  o. .|</span><br><span class="line">|        + .+ o.E|</span><br><span class="line">|          .= +  |</span><br><span class="line">|        .+ o    |</span><br><span class="line">|          .o    |</span><br><span class="line">+-----------------+</span><br></pre></td></tr></table></figure>
+<p>需要输入时直接Enter，命令行中的邮箱是你在GitHub上留的邮箱，这样就生成类型为rsa的密钥对。然后把id_rsa.pub里的公开密钥拷贝到GitHub上即可。</p>
+<p>Account Setting—&gt;SSH Keys—&gt;Add SSH Key即可。最后在目前目录下用ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>验证。</p>
+<p>输出Hi XXX! You’ve successfully authenticated, but GitHub does not provide shell access.即说明设置成功。</p>
+<p>当我们需要GitHub上的仓储时，我们新建一个文件夹，首先git init初始化git，然后git pull <a href="https://github.com/XXX/Snake.git/，这样就会把仓储拷贝下来，这样就可以操作了。" target="_blank" rel="noopener">https://github.com/XXX/Snake.git/，这样就会把仓储拷贝下来，这样就可以操作了。</a></p>
+
+          
         
       
     </div>
@@ -1054,7 +1003,7 @@ Enter file in which to save the key (/home/XXX/.ssh/id_rsa
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1099,22 +1048,6 @@ Enter file in which to save the key (/home/XXX/.ssh/id_rsa
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 23:51:37" itemprop="dateModified" datetime="2019-07-17T23:51:37+08:00">2019-07-17</time>
-              
-            
           </span>
 
           
@@ -1142,17 +1075,6 @@ Enter file in which to save the key (/home/XXX/.ssh/id_rsa
           
 
           
-          
-             <span id="/2017/12/01/JVM-详解类加载机制/" class="leancloud_visitors" data-flag-title="JVM--详解类加载机制">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1182,7 +1104,7 @@ Enter file in which to save the key (/home/XXX/.ssh/id_rsa
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">8 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -1204,21 +1126,170 @@ Enter file in which to save the key (/home/XXX/.ssh/id_rsa
       
         
           
-          这篇博客—干货很多！！！
+            <p>这篇博客—干货很多！！！</p>
+<hr>
+<h2 id="Java虚拟机的体系结构"><a href="#Java虚拟机的体系结构" class="headerlink" title="Java虚拟机的体系结构"></a><strong>Java虚拟机的体系结构</strong></h2><p>前面我们探讨了Class文件的结构，如果你还没有学习，将不利于这部分知识的吸收与掌握，所以请移步：<a href="http://blog.csdn.net/championhengyi/article/details/78300611" target="_blank" rel="noopener">JVM–Class类文件结构（一）</a></p>
+<p>学习一个东西之前，我们务必要知道，这东西大概是干什么的，有什么作用。</p>
+<p>为了更清楚的阐释类加载机制到底是干什么的，我先将JVM的结构图贴给大家：</p>
+<p><img src="JVM结构图.jpg" alt="这里写图片描述"></p>
+<p>如上图，我们要学的类加载机制就是要搞清楚<strong>类加载器是如何找到指定的Class文件以及怎样将Class文件装载进内存</strong>，以便执行引擎执行Class文件中存在的数据和指令，从而使你的Java程序跑起来。</p>
+<p>上面的黑体字就是这玩意大概是干啥的，至于学习它有什么作用，有助于你了解Java源代码是怎么从一个普通的文件变成一个可以正在运行的程序这其中的过程。而且，学习了这部分知识，你再回过头看反射机制，会有一种醍醐灌顶的感觉。</p>
+<hr>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a><strong>类的生命周期</strong></h2><p>先来看一下类的生命周期吧：</p>
+<p><img src="类的生命周期.jpg" alt="这里写图片描述"></p>
+<p>结合上图，类加载机制主要学习加载、验证、准备、解析、初识化这些过程，然后就是需要了解真正可以将类加载进内存的一个玩意（还是代码实现）—类加载器！</p>
+<p>其实，有了前面Class文件结构的基础，这些东西都很简单，不要怕～</p>
+<p><strong>额外补充</strong>：</p>
+<p>上图中解析和初始化的位置是可以互换的，如果解析一旦在初始化之后开始，这就是我们经常所说的“动态绑定”～～</p>
+<p>除此之外，这些阶段通常都是互相交叉的混合式进行，各个阶段只保证按部就班的开始，并不保证按部就班的进行或完成。</p>
+<hr>
+<h2 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a><strong>类加载的过程</strong></h2><p>我们根据上面所说的类的生命周期来一点点剖析类的加载过程。</p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a><strong>加载</strong></h3><p>我们首先要明白一件事情：什么开始进行类加载过程的第一阶段：加载？Java虚拟机没有进行强制约束，交由虚拟机的具体实现自由把握。</p>
+<p>看完上面的话，我们来看在加载阶段，虚拟机需要完成哪些事情：</p>
+<blockquote>
+<ul>
+<li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
+<li>将获取到的二进制字节流转化成一种数据结构并放进方法区</li>
+<li>在内存中生成一个代表此类的java.lang.Class对象，作为访问方法区中各种数据的接口</li>
+</ul>
+</blockquote>
+<p>我们需要注意一些事情：</p>
+<p>对于方法区的认识：被加载的类的信息存储在方法区中，可以被线程所共享，也就是说，加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在了方法区之中。然后你能想起来那个二进制流中都存储了哪些信息吗？</p>
+<p>对于Class对象认识：Class对象虽然是在内存中，但并未明确规定是在Java堆中，对于HotSpot来说，Class对象存储在方法区中。它作为程序访问方法区中二进制字节流中所存储各种数据的接口。你能大概想到反射机制中的Class对象是怎么一回事了吗？为什么可以在运行期通过反射机制得到那么多的类信息你能猜测到吗？</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a><strong>验证</strong></h3><p>从上面类的生命周期一图中我们可以看出，验证是连接的第一步，这一阶段的目的主要是为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，从而不会危害虚拟机自身安全。也就是说，当加载阶段将字节流加载进方法区之后，JVM需要做的第一件事就是对字节流进行安全校验，以保证格式正确，使自己之后能正确的解析到数据并保证这些数据不会对自身造成危害。</p>
+<p>验证阶段主要分成四个子阶段：</p>
+<blockquote>
+<ul>
+<li>文件格式验证</li>
+<li>元数据验证</li>
+<li>字节码验证</li>
+<li>符号引用验证</li>
+</ul>
+</blockquote>
+<p>我不在这里详细的说明每一阶段的校验主要干了什么事情，有兴趣的同学可以自行百度。</p>
+<p>挑点重点来说吧，对字节流进行校验是由一个叫做Class文件检验器的东西所完成，其实还是代码实现。</p>
+<p><strong>而什么叫做元数据呢？</strong></p>
+<p>所谓的元数据是指用来描述<strong>数据的数据</strong>，更通俗一点就是描述代码间关系，或者代码与其它资源（例如数据库表）之间内在联系的数据，你也可以更简单的认为成框架中的各种@注解，因为这些@注解很简介的描述了大量有关各个类、方法、字段额外的信息或之间的联系。</p>
+<p>元数据验证也就是验证这些额外的信息或它们之间的联系是否正确。</p>
+<p>我们还得注意字节码验证，在字节码验证中涉及到了一个概念：<strong>字节码流。</strong></p>
+<p><strong>字节码流 = 操作码 + 操作数。</strong></p>
+<p>操作码就是伪指令，操作数就是普通的Java数据，如int，float等等。</p>
+<p>所以对字节码验证的过程就是对字节码流验证的过程，也就是验证操作码是否合法，操作数是否合法。</p>
+<p>而符号引用验证涉及到<strong>常量池解析</strong>的知识，在下文中我们顺带着将符号引用验证带过就行，现在先不说。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a><strong>准备</strong></h3><p>准备阶段你只要掌握两个知识点：</p>
+<ol>
+<li>准备阶段的目的：正式为<strong>类变量</strong>分配内存并设置<strong>类变量初始值</strong>的阶段，这些变量所使用的内存将在方法区中分配。</li>
+</ol>
+<p>注意我的重点：是类变量（static）不是实例变量，还有，我们又知道了在JVM的方法区中不仅存储着Class字节流（按照运行时方法区的数据结构进行存储，上述的二进制字节流是不严谨的说法，只是为了大家好理解），还有我们的类变量。</p>
+<ol start="2">
+<li>这里的类变量初始值通常是指数据类型的零值。比如int的零值为0，long为0L，boolean为false… …真正的初始化赋值是在初始化阶段进行的。</li>
+</ol>
+<p>额外一点，如果你设置的类变量还具有final字段，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> value = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+<p>那么在准备阶段变量的初始值就会被直接初始化为123，具体原因是由于拥有final字段的变量在它的字段属性表中会出现ConstantValue属性。</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h3><p>这一阶段我个人觉得不太好理解并且非常重要，但我还是会一点点剖析难点，保证你能听懂，所以开始吧～～</p>
+<p>先来看一下解析阶段的目的：虚拟机将常量池内的符号引用替换为直接引用。</p>
+<p>然后说一下解析阶段最大的特点：发生时间不可预料，有可能和初始化阶段互相交换位置。至于原因，我们等下再说。</p>
+<p>先来说看完解析阶段的目的吧，你有可能有三个疑问。哪个常量池？什么符号引用？什么直接引用？Ok，搞清这三个问题，解析这部分你也就学会了。</p>
+<p>首先来说<strong>常量池</strong>：在Class的文件结构中我们就花了大量的篇幅去介绍了常量池，我们再来总结一下：<strong>常量池(constant pool)指的是在编译期被确定，并被保存在已编译的.class文件中的一些数据。它包括了关于类、方法、接口等中的常量，也包括字符串常量。</strong> </p>
+<p>然后这段话中的常量池指的就是存在于.class文件中的常量池，结果在运行期被JVM装载，并且可以扩充的存在于方法区中的<strong>运行时常量池</strong>。</p>
+<p>然后来看<strong>符号引用</strong>：在Class文件中我们也讲述了什么是符号引用。总的来说就是常量池中存储的那些描述类、方法、接口的字面量，你可以简单的理解为就是那些所需要信息的全限定名，目的就是为了虚拟机在使用的时候可以定位到所需要的目标。</p>
+<p>最后来看<strong>直接引用</strong>：直接指向目标的指针、相对偏移量或能间接定位到目标的句柄。</p>
+<p>现在我们对上面那句话进行重新解读：虚拟机将运行时常量池中那些仅代表其他信息的符号引用解析为直接指向所需信息所在地址的指针。</p>
+<p>大概就是这样，我觉得你应该已经完全明白了。</p>
+<p>解决一个遗留的问题：还记得刚才没有说到的符号引用吗？</p>
+<p>这一阶段就是发生在JVM将符号引用转换为直接引用的时候，它的作用就是对类自身以外（常量池中的各种符号引用）的信息进行匹配性校验，以确保解析动作能够正常执行！</p>
+<p>在解析阶段主要有以下不同的动作，我只给大家罗列出来，不细讲，有兴趣的同学可以自行百度：</p>
+<blockquote>
+<ul>
+<li>类或接口的解析（注意数组类和非数组类）</li>
+<li>字段（简单名称+字段描述符）解析（注意递归搜索）</li>
+<li>类方法解析（注意递归搜索）</li>
+<li>接口方法解析（注意递归搜索）</li>
+</ul>
+</blockquote>
+<p>在解析阶段还有一个很有意思的东西：<strong>动态连接</strong>！</p>
+<p>它也是上面解析阶段发生时间不确定的直接原因：大部分JVM的实现都是延迟加载或者叫做动态连接。它的意思就是JVM装载某个类A时，如果类A中有引用其他类B，虚拟机并不会将这个类B也同时装载进JVM内存，而是等到执行的时候才去装载。</p>
+<p>而这个被引用的B类在引用它的类A中的表现形式主要被登记在了符号表中，而解析的过程就是当需要用到被引用类B的时候，将引用类B在引用类A的符号引用名改为内存里的直接引用。这就是解析发生时间不可预料的原因，而且这个阶段是发生在方法区中的。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><strong>初始化</strong></h3><p>虚拟机规范定义了5种情况，会触发类的初始化阶段，也正是这个阶段，JVM才真正开始执行类中定义的Java程序代码：</p>
+<blockquote>
+<ul>
+<li>new一个对象、读取一个类静态字段、调用一个类的静态方法的时候</li>
+<li>对类进行反射调用的时候</li>
+<li>初始化一个类，发现父类还没有初始化，则先初始化父类</li>
+<li>main方法开始执行时所在的类</li>
+<li>最后一种情况我也不懂，就不贴了</li>
+</ul>
+</blockquote>
+<p>额外补充：</p>
+<p>有三种引用类的方式不会触发初始化（也就是类的加载），为以下三种：</p>
+<blockquote>
+<ul>
+<li>通过子类引用父类的静态字段，不会导致子类初始化</li>
+<li>通过数组定义来引用类，不会触发此类的初始化</li>
+<li>引用另一个类中的常量不会触发另一个类的初始化，原因在于“<strong>常量传播优化</strong>”</li>
+</ul>
+</blockquote>
+<p>来说一说常量传播优化吧（先看一份代码）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConstClass</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"ConstClass init!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String HELLOWORLD = <span class="string">"hello world"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NotInitialization</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(ConstClass.HELLOWORLD);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种调用方式不会触发ConstClass的初始化，因为常量传播优化，常量“hello world”已经被存储到了NotInitialization类的常量池中，以后NotInitialization对常量ConstClass.HELLOWORLD的引用实际上都被转化为NotInitialization对自身常量池的引用。</p>
+<p>然后在初识化阶段我们重点掌握的知识就是类构造器&lt;clinit&gt;()了。</p>
+<p>这个东西我也只是提几点重要的：</p>
+<ol>
+<li>&lt;clinit&gt;()是编译器自动收集类中的所有类变量的赋值动作和静态语句块合并产生的。</li>
+<li>父类中定义的静态语句块要优先于子类的变量赋值操作。</li>
+<li>虚拟机保证一个类的&lt;clinit&gt;()方法在多线程环境中被正确的加锁、同步。</li>
+</ol>
+<hr>
+<h2 id="方法区使用实例"><a href="#方法区使用实例" class="headerlink" title="方法区使用实例"></a><strong>方法区使用实例</strong></h2><p>上面讲了那么多，不知道大家吸收了没有，学习的过程中一定要学会总结和抓中重点哦～</p>
+<p>咱们来看一个例子将上面类加载的过程来串一下吧，加深一下自己的印象：（其中还涉及了一点执行引擎的知识，没关系，很容易理解）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lava</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> speed = <span class="number">5</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">flow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Volcano</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Lava lava = <span class="keyword">new</span> Lava();</span><br><span class="line">        lava.flow();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不同的虚拟机实现可能会用完全不同的方法来操作，下面描述的只是其中一种可能——但并不是仅有的一种。</p>
+<p><strong>加载</strong>：读取一个类的class文件并将其中的二进制字节流组织成正确的数据结构放进运行时方法区中：</p>
+<blockquote>
+<p>要运行Volcano程序，首先得以某种“依赖于实现的”方式告诉虚拟机“Volcano”这个名字。之后，虚拟机将找到并读入相应的class文件“Volcano.class”，然后它会从导入的class文件里的二进制数据中提取类型信息并放到方法区中。通过执行保存在方法区中的字节码，虚拟机开始执行main()方法，在执行时，它会一直持有指向当前类（Volcano类）的常量池（方法区中的一个数据结构）的指针。</p>
+</blockquote>
+<blockquote>
+<p>注意：虚拟机开始执行Volcano类中main()方法的字节码的时候，尽管Lava类还没被装载，但是和大多数（也许所有）虚拟机实现一样，它不会等到把程序中用到的所有类都装载后才开始运行。恰好相反，它只会需要时才装载相应的类。（<strong>延迟加载、动态连接</strong>）</p>
+</blockquote>
+<p>main()的第一条指令告知虚拟机为列在常量池第一项的类分配足够的内存。所以虚拟机使用指向Volcano常量池的指针找到第一项，发现它是一个对Lava类的符号引用，然后它就检查方法区，看Lava类是否已经被加载了。</p>
+<p>这个符号引用仅仅是一个给出了类Lava的全限定名“Lava”的字符串。为了能让虚拟机尽可能快地从一个名称找到类，虚拟机的设计者应当选择最佳的数据结构和算法。</p>
+<p>当虚拟机发现还没有装载过名为“Lava”的类时，它就开始查找并装载文件“Lava.class”，并把从读入的二进制数据中提取的类型信息放在方法区中。</p>
+<p><strong>解析</strong>：</p>
+<blockquote>
+<p>紧接着，虚拟机以一个直接指向方法区Lava类数据的指针来替换常量池第一项（就是那个字符串“Lava”），以后就可以用这个指针来快速地访问Lava类了。这个替换过程称为<strong>常量池解析，即把常量池中的符号引用替换为直接引用。</strong></p>
+</blockquote>
+<p>终于，虚拟机准备为一个新的Lava对象分配内存。此时它又需要方法区中的信息。还记得刚刚放到Volcano类常量池第一项的指针吗？现在虚拟机用它来访问Lava类型信息，找出其中记录的这样一条信息：一个Lava对象需要分配多少堆空间。</p>
+<p>JAVA虚拟机总能够通过存储在方法区的类型信息来确定一个对象需要多少内存，当JAVA虚拟机确定了一个Lava对象的大小后，它就在堆上分配这么大的空间，并把这个对象实例的变量speed初始化为默认初始值0。</p>
+<p>当把新生成的Lava对象的引用压到栈中，main()方法的第一条指令也完成了。接下来的指令通过这个引用调用Java代码（该代码把speed变量初始化为正确初始值5）。另一条指令将用这个引用调用Lava对象引用的flow()方法。</p>
+<hr>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a><strong>类加载器</strong></h2><p>其实这一部分的知识并不多，你需要了解、掌握的知识只有两点：</p>
+<blockquote>
+<ol>
+<li>类加载器的命名空间</li>
+<li>双亲委派模型</li>
+</ol>
+</blockquote>
+<p>说一点啊，看到这些高大上的名词你们不要怕，又不让你拿代码去实现，其实其中的原理都是很简单的。</p>
+<p>上面说了那么多，类加载器就是用于实现类加载动作的一段代码实现。好了，明白了它的作用，我们来看看什么是它命名空间。</p>
+<p><strong>类加载器的命名空间</strong>：对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性，每一个类加载器，都拥有一个独立的类命名空间。也就是说，你现在要比较两个类是否相等，只有在这两个类是同一个类加载器加载的前提下才有意义。</p>
+<p>这就是类加载器的命名空间，不难吧～但是读完上面这段话我们可以提取出另一个重要的信息：你上面所说的话中好像包含这样一种意思：类加载器在JVM中不止一个？你很聪明！好了，接下来说明何谓双亲委派模型。</p>
+<p><strong>双亲委派模型</strong>：首先你得知道在JVM中有三种系统提供的类加载器：启动类加载器，扩展类加载器、应用程序类加载器。关于这三种加载器的描述大家自行百度，这也不是重点。</p>
+<p>贴一张图：</p>
+<p><img src="双亲委派模型.jpg" alt="这里写图片描述"></p>
+<p>如图，这种层次结构就是双亲委派模型。</p>
+<p>好了，为了让大家印象深刻，我在给大家描述一下双亲委派模型的工作过程吧：</p>
+<blockquote>
+<p>它是一个递归调用类加载器的模型，也就是说如果一个类加载器收到了类加载的请求，它首先不会自己去加载这个类，而是不断请求父加载器，如果父加载器可以完成这个加载请求，那么就由父加载器进行加载，如果父加载器不能完成加载请求（它的搜索范围中没有找到所需的类），子加载器才会尝试自己去加载。</p>
+</blockquote>
+<p>那么使用这种模型有什么好处？</p>
+<p>Java类随着类加载器一起具备了带有优先级的层级关系。例如java.lang.Object，在程序的各种类加载器环境中都是同一个类。</p>
+<p>关于双亲委派模型的实现代码非常简单，我就不再贴出，有兴趣的同学可以研读《深入理解Java虚拟机》第二版中232页的内容。</p>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="http://www.cnblogs.com/java-my-life/archive/2012/08/01/2615221.html" target="_blank" rel="noopener">JAVA虚拟机体系结构</a></p>
+<p>《深入理解Java虚拟机》—周至明</p>
 
-Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果你还没有学习，将不利于这部分知识的吸收与掌握，所以请移步：JVM–Class类文件结构（一）
-学习一个东西之前，我们务必要知道，这东西大概是干什么的，有什么作用。
-为了更清楚的阐释类加载机制到底是干什么的，我先将JVM的结构图贴给大家：
-
-如上图，我们要学的类加载机制就是要搞清楚类加载器是如何找到指定的Cl
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/01/JVM-详解类加载机制/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1275,7 +1346,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1320,22 +1391,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-17 23:50:03" itemprop="dateModified" datetime="2019-07-17T23:50:03+08:00">2019-07-17</time>
-              
-            
           </span>
 
           
@@ -1363,17 +1418,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-          
-             <span id="/2017/11/18/MySQL数据库-外键约束及外键使用/" class="leancloud_visitors" data-flag-title="MySQL数据库--外键约束及外键使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1403,7 +1447,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">6 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -1425,24 +1469,131 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       
         
           
-          什么是主键、外键关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。
-比如：
+            <h2 id="什么是主键、外键"><a href="#什么是主键、外键" class="headerlink" title="什么是主键、外键"></a><strong>什么是主键、外键</strong></h2><p>关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键。</p>
+<p>比如：</p>
+<blockquote>
+<p>学生表(学号，姓名，性别，班级)<br>其中每个学生的学号是唯一的，学号就是一个主键</p>
+</blockquote>
+<blockquote>
+<p>课程表(课程编号,课程名,学分)<br>其中课程编号是唯一的,课程编号就是一个主键 </p>
+</blockquote>
+<blockquote>
+<p>成绩表(学号,课程号,成绩)<br>成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的组合才可以唯一标识一条记录，所以学号和课程号的属性组是一个主键</p>
+</blockquote>
+<p>成绩表中的学号不是成绩表的主键，但它和学生表中的学号相对应，并且学生表中的学号是学生表的主键，则称成绩表中的学号是学生表的外键。</p>
+<p>同理：成绩表中的课程号是课程表的外键。</p>
+<p>定义主键和外键主要是为了维护关系数据库的完整性，总结一下：</p>
+<blockquote>
+<ol>
+<li>主键是能确定一条记录的唯一标识，比如，一条记录包括身份正号，姓名，年龄。身份证号是唯一能确定你这个人的，其他都可能有重复，所以，身份证号是主键。 </li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>外键用于与另一张表的关联。是能确定另一张表记录的字段，用于保持数据的一致性。比如，A表中的一个字段，是B表的主键，那他就可以是A表的外键。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="主键、外键和索引的区别"><a href="#主键、外键和索引的区别" class="headerlink" title="主键、外键和索引的区别"></a><strong>主键、外键和索引的区别</strong></h2><table>
+<thead>
+<tr>
+<th></th>
+<th>主键</th>
+<th>外键</th>
+<th>索引</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定义</td>
+<td>唯一标识一条记录，不能有重复的，不允许为NULL</td>
+<td>表的外键是另一表的主键, 外键可以有重复的, 可以是NULL</td>
+<td>没有重复值，可以为NULL(会使索引无效)</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>用来保证数据完整性</td>
+<td>用来和其他表建立联系用的</td>
+<td>提高查询排序的速度</td>
+</tr>
+<tr>
+<td>个数</td>
+<td>主键只能有一个</td>
+<td>一个表可以有多个外键</td>
+<td>一个表可以有多个惟一索引</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a><strong>外键约束</strong></h2><p>在上面“什么是主键、外键” 一小节中，我给大家灌输的思维是，学生表使用学号作为主键，课程表使用课程ID作为主键，成绩表使用学号、课程ID作为联合主键（联合主键（使用组合索引进行替代）以后压根就别用，主键的设计原则就是字段数目越少越好），这样就产成了一个问题，<strong>外键的参考键必须是另一个表的主键吗？</strong></p>
+<p>答案当然不是，但是<strong>参考键必须是唯一性索引</strong>。主键约束和唯一性约束都是唯一性索引。</p>
+<hr>
+<h2 id="错误的设计方式—-1215-Cannot-add-foreign-key-constraint"><a href="#错误的设计方式—-1215-Cannot-add-foreign-key-constraint" class="headerlink" title="错误的设计方式—[1215] Cannot add foreign key constraint"></a><strong>错误的设计方式—[1215] Cannot add foreign key constraint</strong></h2><p>出现这种问题的原因一般有两个：</p>
+<ol>
+<li>两张表里要设主键和外键的字段的数据类型或者数据长度不一样。</li>
+<li>某个表里已经有记录了。</li>
+</ol>
+<p>我当时属于第一个。</p>
+<hr>
+<h2 id="如何设计良好的数据库主键"><a href="#如何设计良好的数据库主键" class="headerlink" title="如何设计良好的数据库主键"></a><strong>如何设计良好的数据库主键</strong></h2><p>摘抄一位知乎用户的回答：<a href="https://www.zhihu.com/question/30888980/answer/49826242" target="_blank" rel="noopener">知乎链接—纪路</a></p>
+<p><strong>主键的话我的建议是自增整形，不要使用与业务相关的名字，仅用id即可，而效率问题都可以用索引来解决。</strong>因为主键的<strong>不可变的特性</strong>，如果选择不慎，会在未来产生难以预期的问题。比如你用int型做文章的id，但是如果在未来某一天文章数超过了无符号整形的最大值，你将没法将主键修改成bigint。或者为了给用户起一个唯一id用了自增主键，但是如果未来有其他的项目用户要合并进来，他也是这么做的。这时候为了区分不同的项目可能要在这个用户id前加一个前缀，这时候也没法修改主键的值。主键之所以叫做<strong>主键就是到什么时候都不能改</strong>，所以最好的方案就是使用自增数字id做主键，并且不要给这个主键赋予一个业务相关的意义。</p>
+<p><strong>总结</strong>上面前辈的一句话就是，不要将表中与业务相关的字段设置为主键，即使它可以唯一标识这一行，比如身份证号，学号等等，<strong>主键越没有意义，说明主键设置的越好</strong>。</p>
+<hr>
+<h2 id="主键、外键的使用"><a href="#主键、外键的使用" class="headerlink" title="主键、外键的使用"></a><strong>主键、外键的使用</strong></h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a><strong>创建表</strong></h3><p>就按照我们上面的例子来建立三张表吧：student、course、score表。</p>
+<p>创建student表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	uk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">60</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	sex <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">class</span> <span class="built_in">char</span>(<span class="number">60</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> uk_sno <span class="keyword">unique</span> (sno)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span> = utf8;</span><br></pre></td></tr></table></figure>
+<p>创建course表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	uk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	course_name <span class="built_in">char</span>(<span class="number">30</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	credit <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> uk_course_id <span class="keyword">unique</span> (course_id)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
+<p>创建score表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	fk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	fk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">result</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_sno foreign <span class="keyword">key</span> (fk_sno) <span class="keyword">references</span> &lt;databasename&gt;.student (sno),</span><br><span class="line">	<span class="keyword">constraint</span> fk_course_id foreign <span class="keyword">key</span> (fk_course_id) <span class="keyword">references</span> &lt;databasename&gt;.course (course_id)</span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
+<p>值得一说的是，创建外键的时候也会自动创建普通索引，所以fk_sno、fk_course_id其实是两个普通索引的名称。</p>
+<p>对于使用IDEA的同学，我们会发现在设置外键的时候还有Update rule 和 Delete rule规则，对于这两个选项的解释，我们下面再说。</p>
+<p><img src="IDEA创建外键.png" alt="这里写图片描述"></p>
+<h3 id="外键的使用–更新与删除"><a href="#外键的使用–更新与删除" class="headerlink" title="外键的使用–更新与删除"></a><strong>外键的使用–更新与删除</strong></h3><p>表已经建立成功，现在我们插入数据：</p>
+<p>student表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> student(uk_sno, <span class="keyword">name</span>, sex, <span class="keyword">class</span>) <span class="keyword">VALUES</span>(<span class="number">123456</span>, <span class="string">"spider_hgyi"</span>, <span class="string">"male"</span>, <span class="string">"cs"</span>);</span><br></pre></td></tr></table></figure>
+<p>crouse表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> course(uk_course_id, course_name, credit) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"csapp"</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>score表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> score(fk_sno, fk_course_id, <span class="keyword">result</span>) <span class="keyword">VALUES</span>(<span class="number">123456</span>, <span class="number">1</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<p>好了，现在三个表里都已经有了数据，现在我们尝试更新学生表中学号的信息：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> student <span class="keyword">SET</span> uk_sno=<span class="number">12345678</span> <span class="keyword">WHERE</span> uk_sno=<span class="number">123456</span>;</span><br></pre></td></tr></table></figure>
+<p>MySQL报错：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1451, 'Cannot <span class="keyword">delete</span> <span class="keyword">or</span> <span class="keyword">update</span> a <span class="keyword">parent</span> <span class="keyword">row</span>: a foreign <span class="keyword">key</span> <span class="keyword">constraint</span> fails (<span class="string">`bookmanager`</span>.<span class="string">`score`</span>, <span class="keyword">CONSTRAINT</span> <span class="string">`fk_sno`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`fk_sno`</span>) <span class="keyword">REFERENCES</span> <span class="string">`student`</span> (<span class="string">`uk_sno`</span>))<span class="string">')</span></span><br></pre></td></tr></table></figure>
+<p>看看错误告诉我们什么：不能删除或更新这一行，存在外键约束，score表中的fk_sno列是当前要更新的uk_sno的外键，也就是说，你要更新学生表中的学号，但是成绩表中的学号是你的外键，你不能不管它呀，删除也是同理。</p>
+<p>要怎么解决？</p>
+<p>还记得刚才我贴的那张IDEA的图片吗？那两个规则就可以帮助我们解决这个问题。</p>
+<h3 id="级联删除与更新"><a href="#级联删除与更新" class="headerlink" title="级联删除与更新"></a><strong>级联删除与更新</strong></h3><p>我们在更新与删除时遇到的外键约束解决方案分别对应设置Update rule与Delete rule。有如下四个选项：</p>
+<blockquote>
+<ol>
+<li>CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行。</li>
+<li>SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL。</li>
+<li>RESTRICT：拒绝对父表的删除或更新操作。</li>
+<li>NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</li>
+</ol>
+</blockquote>
+<p>可以看到我在创建外键的时候选择的是<code>NO ACTION</code>，也就是第四个选项。我们只需要选择CASCADE就可以啦。具体效果就不进行演示了。</p>
+<p>如果你不用IDEA也没关系，接下来我给出SQL语句的实现（重新创建score表）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score</span><br><span class="line">(</span><br><span class="line">	pk_id <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">	fk_sno <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	fk_course_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">result</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_sno foreign <span class="keyword">key</span> (fk_sno) <span class="keyword">references</span> &lt;databasename&gt;.student (sno) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span>,</span><br><span class="line">	<span class="keyword">constraint</span> fk_course_id foreign <span class="keyword">key</span> (fk_course_id) <span class="keyword">references</span> &lt;databasename&gt;.course (course_id) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span></span><br><span class="line">)enige = <span class="keyword">InnoDB</span>, <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h2><p>博主在学习阿里的Java开发手册时，他们对于外键与级联是这样描述的：</p>
+<blockquote>
+<p>【强制】不得使用外键与级联,一切外键概念必须在应用层解决。</p>
+</blockquote>
+<blockquote>
+<p>说明：以学生和成绩的关系为例,学生表中的 student _ id 是主键,那么成绩表中的 student _ id则为外键。如果更新学生表中的 student _ id ,同时触发成绩表中的 student _ id 更新,即为级联更新。外键与级联更新适用于单机低并发,不适合分布式、高并发集群 ; 级联更新是强阻塞,存在数据库更新风暴的风险;外键影响数据库的插入速度。</p>
+</blockquote>
+<p>本来我是打算以后在脑海中抛弃外键与级联这部分知识的，但经过学长的敲打，不得不说我对阿里的盲目崇拜。</p>
+<p>外键约束、级联更新与删除对于开发者是非常有用的，它确保了数据删除与更新的完整性。至于阿里所说的影响性能，学长反问我：“<strong>你的应用有多少人在用？阿里的应用有多少人在用？</strong>”。</p>
+<p>说这这些话的原因也是这次提醒我在软件开发的过程中应想好受众的大小，灵活运用所学的知识，不能盲目追求课本以及参考资料。</p>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="http://blog.csdn.net/haiross/article/details/50435374" target="_blank" rel="noopener">外键必须是另一个表的主键吗</a></p>
+<p><a href="http://blog.csdn.net/bingqingsuimeng/article/details/51595560" target="_blank" rel="noopener">关于数据库主键和外键（终于弄懂啦）</a></p>
+<p><a href="http://www.jb51.net/article/75085.htm" target="_blank" rel="noopener">快速理解MySQL中主键与外键的实例教程</a></p>
+<p><a href="http://www.jb51.net/article/88148.htm" target="_blank" rel="noopener">MySQL使用外键实现级联删除与更新的方法</a></p>
+<p>阿里巴巴Java开发手册–MySQL数据库</p>
 
-学生表(学号，姓名，性别，班级)其中每个学生的学号是唯一的，学号就是一个主键
-
-
-课程表(课程编号,课程名,学分)其中课程编号是唯一的,课程编号就是一个主键 
-
-
-成绩表(学号,课程号,成绩)成绩表中单一一个属性无法唯一标识一条记录，学号和课程号的组合才
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/18/MySQL数据库-外键约束及外键使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1499,7 +1650,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1544,22 +1695,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 00:00:28" itemprop="dateModified" datetime="2019-07-18T00:00:28+08:00">2019-07-18</time>
-              
-            
           </span>
 
           
@@ -1587,17 +1722,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-          
-             <span id="/2017/11/16/MySQL数据库-索引的说明、使用、及其注意事项/" class="leancloud_visitors" data-flag-title="MySQL数据库--索引的说明、使用、及其注意事项">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1627,7 +1751,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -1649,15 +1773,64 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       
         
           
-          什么是索引索引用来快速地寻找那些具有特定值的记录，所有MySQL索引都以B-树的形式保存。如果没有索引，执行查询时MySQL必须从第一个记录开始扫描整个表的所有记录，直至找到符合要求的记录。表里面的记录数量越多，这个操作的代价就越高。如果作为搜索条件的列上已经创建了索引，MySQL无需扫描任何记录即可迅速得到目标记录所在的位置。如果表有1000个记录，通过索引查找记录至少要比顺序扫描记录快100倍
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/16/MySQL数据库-索引的说明、使用、及其注意事项/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="什么是索引"><a href="#什么是索引" class="headerlink" title="什么是索引"></a><strong>什么是索引</strong></h2><p>索引用来快速地寻找那些具有特定值的记录，所有MySQL索引都以B-树的形式保存。如果没有索引，执行查询时MySQL必须从第一个记录开始扫描整个表的所有记录，直至找到符合要求的记录。表里面的记录数量越多，这个操作的代价就越高。如果作为搜索条件的列上已经创建了索引，MySQL无需扫描任何记录即可迅速得到目标记录所在的位置。如果表有1000个记录，通过索引查找记录至少要比顺序扫描记录快100倍。</p>
+<p>假设我们创建了一个名为people的表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> people (peopleid <span class="built_in">SMALLINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, <span class="keyword">name</span> <span class="built_in">CHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+<p>然后，我们完全随机把1000个不同name值插入到people表。</p>
+<p>如果我们创建了name列的索引，MySQL将在索引中排序name列。</p>
+<p>对于索引中的每一项，MySQL在内部为它保存一个数据文件中实际记录所在位置的“指针”。因此，如果我们要查找name等于“Mike”记录的peopleid（SQL命令为“SELECT peopleid FROM people WHERE name=’Mike’;”），MySQL能够在name的索引中查找“Mike”值，然后通过指针直接转到数据文件中相应的行，准确地返回该行的peopleid（999）。在这个过程中，MySQL只需处理一个行就可以返回结果。如果没有“name”列的索引，MySQL要扫描数据文件中的所有记录，即1000个记录！显然，需要MySQL处理的记录数量越少，则它完成任务的速度就越快。</p>
+<hr>
+<h2 id="索引的类型及使用"><a href="#索引的类型及使用" class="headerlink" title="索引的类型及使用"></a><strong>索引的类型及使用</strong></h2><h3 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a><strong>普通索引</strong></h3><p>普通索引可以通过以下几种方式创建：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">创建索引：<span class="keyword">CREATE</span> <span class="keyword">INDEX</span> &lt;indexname&gt; <span class="keyword">ON</span> &lt;tablename&gt;(列);</span><br><span class="line"></span><br><span class="line">修改表：<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;tablename&gt; <span class="keyword">ADD</span> <span class="keyword">INDEX</span> &lt;indexname&gt;(列);</span><br><span class="line"></span><br><span class="line">创建表的时候指定索引：<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;tablename&gt;([...], <span class="keyword">INDEX</span> &lt;indexname&gt;(列));</span><br></pre></td></tr></table></figure>
+<h3 id="唯一性索引"><a href="#唯一性索引" class="headerlink" title="唯一性索引"></a><strong>唯一性索引</strong></h3><p>这种索引和前面的“普通索引”基本相同，但有一个区别：索引列的所有值都只能出现一次，即必须唯一。唯一性索引可以用以下几种方式创建：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">创建索引：<span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> &lt;indexname&gt; <span class="keyword">ON</span> tablename(列);</span><br><span class="line"></span><br><span class="line">修改表：例如<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;tablename&gt; <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> &lt;indexname&gt;(列);</span><br><span class="line"></span><br><span class="line">创建表的时候指定索引：<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;tablename&gt; ([...], <span class="keyword">UNIQUE</span> &lt;indexname&gt;(列));</span><br></pre></td></tr></table></figure>
+<h3 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a><strong>主键索引</strong></h3><p>它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">创建表的时候指定索引：<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;tablename&gt;([...], PRIMARY <span class="keyword">KEY</span>(列)); </span><br><span class="line"></span><br><span class="line">修改表：<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;tablename&gt; <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span>(列);</span><br></pre></td></tr></table></figure>
+<h3 id="组合索引"><a href="#组合索引" class="headerlink" title="组合索引"></a><strong>组合索引</strong></h3><p>为了形象地对比单列索引和组合索引，建立一个拥有多个字段的表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;tablename&gt;(<span class="keyword">id</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, username <span class="built_in">VARCHAR</span>(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, city <span class="built_in">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, age <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+<p>为了进一步榨取MySQL的效率，就要考虑建立组合索引。就是将 name, city, age建到一个索引里：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;tablename&gt; <span class="keyword">ADD</span> <span class="keyword">INDEX</span> &lt;indexname&gt;(username(<span class="number">10</span>), city, age);</span><br></pre></td></tr></table></figure>
+<p>那么，如果在username、city、age这三个列上分别创建单列索引，效果是否和创建一个username、city、age的多列索引一样呢？答案是否定的，两者完全不同。当我们执行查询的时候，MySQL只能使用一个索引。如果你有三个单列的索引，MySQL会试图选择一个限制最严格的索引。但是，即使是限制最严格的单列索引，它的限制能力也肯定远远低于firstname、lastname、age这三个列上的多列索引。</p>
+<p>建立这样的组合索引，其实是相当于分别建立了下面三组组合索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usernname, city, age</span><br><span class="line">usernname, city</span><br><span class="line">usernname</span><br></pre></td></tr></table></figure>
+<p>为什么没有city，age这样的组合索引呢？这是因为MySQL组合索引“最左前缀”的结果。下面我们来了解一下最左前缀。</p>
+<h3 id="最左前缀"><a href="#最左前缀" class="headerlink" title="最左前缀"></a><strong>最左前缀</strong></h3><p>多列索引还有另外一个优点，它通过称为最左前缀（Leftmost Prefixing）的概念体现出来。继续考虑前面的例子，现在我们有一个username、city、age列上的多列索引，我们称这个索引为uname_city_age。当搜索条件是以下各种列的组合时，MySQL将使用uname_city_age索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username，city，age</span><br><span class="line">username，city</span><br><span class="line">username</span><br></pre></td></tr></table></figure>
+<p>从另一方面理解，它相当于我们创建了(username，city，age)、(username，city)以及(username)这些列组合上的索引。下面这些查询都能够使用这个uname_city_age索引：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> &lt;tablename&gt; <span class="keyword">WHERE</span> username=<span class="string">'Mike'</span> <span class="keyword">AND</span> city=<span class="string">'xian'</span> <span class="keyword">AND</span> age=<span class="string">'17'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> &lt;tablename&gt; <span class="keyword">WHERE</span> username=<span class="string">'Mike'</span> <span class="keyword">AND</span> city=<span class="string">'xian'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> &lt;tablename&gt; <span class="keyword">WHERE</span> username=<span class="string">'Mike'</span>;</span><br></pre></td></tr></table></figure>
+<p>相反的，其他的查询则不能使用索引。</p>
+<hr>
+<h2 id="什么时候不应建立索引"><a href="#什么时候不应建立索引" class="headerlink" title="什么时候不应建立索引"></a><strong>什么时候不应建立索引</strong></h2><p>虽然使用索引可以提高查询速度，但它使用了额外的空间换取了查询的时间，并且如果滥用索引的话，不仅不会提高数据库的性能，反而会增大插入、更新数据的难度，从而拖累数据库的性能。因此使用索引时，以下情况可以不用建立索引：</p>
+<blockquote>
+<ol>
+<li>表记录太少。</li>
+<li>经常插入、删除、修改的表，对一些经常处理的业务表应在查询允许的情况下尽量减少索引。</li>
+<li>数据重复且分布平均的表字段，假如一个表有10万行记录，有一个字段A只有T和F两种值，且每个值的分布概率大约为50%，那么对这种表A字段建索引一般不会提高数据库的查询速度。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="创建索引时应注意的问题"><a href="#创建索引时应注意的问题" class="headerlink" title="创建索引时应注意的问题"></a><strong>创建索引时应注意的问题</strong></h2><blockquote>
+<ol>
+<li>索引不会包含有NULL值的列，只要列中包含有NULL值都将不会被包含在索引中，复合索引中只要有一列含有NULL值，那么这一列对于此复合索引就是无效的。所以我们在数据库设计时不要让字段的默认值为NULL。</li>
+<li>不要过度索引，不是什么情况都非得建索引不可，比如性别可能就只有两个值，建索引不仅没什么优势，还会影响到更新速度，这被称为过度索引。</li>
+<li>使用短索引，对串列进行索引，如果可能应该指定一个前缀长度。例如，如果有一个CHAR(255)的 列，如果在前10 个或20 个字符内，多数值是惟一的，那么就不要对整个列进行索引。短索引不仅可以提高查询速度而且可以节省磁盘空间和I/O操作。</li>
+<li>排序的索引问题，MySQL查询只使用一个索引，因此如果WHERE子句中已经使用了索引的话，那么ORDER BY中的列是不会使用索引的。因此数据库默认排序可以符合要求的情况下不要使用排序操作；尽量不要包含多个列的排序，如果需要最好给这些列创建复合索引。</li>
+<li>LIKE语句操作，一般情况下不鼓励使用LIKE操作，如果非使用不可，如何使用也是一个问题。like “%aaa%” 不会使用索引而like “aaa%”可以使用索引。</li>
+<li>不要在列上进行运算，SELECT * FROM users WHERE YEAR(adddate)。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="附阿里巴巴Java开发手册MySQL数据库规范"><a href="#附阿里巴巴Java开发手册MySQL数据库规范" class="headerlink" title="附阿里巴巴Java开发手册MySQL数据库规范"></a><strong>附阿里巴巴Java开发手册MySQL数据库规范</strong></h2><h3 id="索引规约"><a href="#索引规约" class="headerlink" title="索引规约"></a><strong>索引规约</strong></h3><p>【强制】使用 ISNULL() 来判断是否为NULL值。</p>
+<p>说明: NULL 与任何值的直接比较都为 NULL。</p>
+<p>【推荐】建组合索引的时候,区分度最高的在最左边。</p>
+<p>说明:存在非等号和等号混合判断条件时,在建索引时,请把等号条件的列前置。如: where a &gt; ? and b = ? 那么即使 a 的区分度更高,也必须把 b 放在索引的最前列。</p>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="http://www.jb51.net/article/49346.htm" target="_blank" rel="noopener">MySQL索引类型总结和使用技巧以及注意事项</a></p>
+<p><a href="http://www.jb51.net/article/5052.htm" target="_blank" rel="noopener">MySQL 索引分析和优化</a></p>
+<p><a href="http://blog.csdn.net/xyh94233/article/details/6935669" target="_blank" rel="noopener">如何创建索引、什么时候该创建、什么时候不应该创建</a></p>
+<p>阿里巴巴Java开发手册–MySQL数据库</p>
+
+          
         
       
     </div>
@@ -1714,7 +1887,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1759,22 +1932,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 11:24:42" itemprop="dateModified" datetime="2019-07-18T11:24:42+08:00">2019-07-18</time>
-              
-            
           </span>
 
           
@@ -1802,17 +1959,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-          
-             <span id="/2017/11/01/计算机网络-Web缓存机制/" class="leancloud_visitors" data-flag-title="计算机网络--Web缓存机制">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1842,7 +1988,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">5 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -1864,16 +2010,104 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       
         
           
-          注：文中的客户端指浏览器（浏览器缓存）与缓存服务器，实际上缓存服务器是代理服务器的一种，在本文中将缓存服务器归结至客户端，服务端则指源服务器。
-什么是缓存Cache? 为什么人们要使用它?一个使用缓存Cache的站点会监听客户端向服务端发出的请求，并保存服务端的回应——比如HTML页面、图片等文件。接着，如果再次使用相同URL发送请求，他能够使用之前已经保存下来的反馈文件，而不是再次向服务端发出请
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/01/计算机网络-Web缓存机制/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><strong>注</strong>：文中的<strong>客户端</strong>指浏览器（浏览器缓存）与缓存服务器，实际上缓存服务器是代理服务器的一种，在本文中将缓存服务器归结至客户端，<strong>服务端</strong>则指源服务器。</p>
+<h2 id="什么是缓存Cache-为什么人们要使用它"><a href="#什么是缓存Cache-为什么人们要使用它" class="headerlink" title="什么是缓存Cache? 为什么人们要使用它?"></a><strong>什么是缓存Cache? 为什么人们要使用它?</strong></h2><p>一个使用缓存Cache的站点会监听客户端向服务端发出的请求，并保存服务端的回应——比如HTML页面、图片等文件。接着，如果再次使用相同URL发送请求，他能够使用之前已经保存下来的反馈文件，而不是再次向服务端发出请求。</p>
+<p>有两个主要的理由让人们使用缓存:</p>
+<blockquote>
+<ul>
+<li>减少延迟 — 因为所发出的网页请求是指向更接近客户端的缓存而不再是服务端，因此请求所花费时间更短，这让网站看上去反应更快。</li>
+<li>降低网络负荷 — 因为缓存文件可以重复使用,节省了不少的带宽（单位时间内能传输的数据量）。这也给用户省了不少流量。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="缓存Caches种类"><a href="#缓存Caches种类" class="headerlink" title="缓存Caches种类"></a><strong>缓存Caches种类</strong></h2><p>缓存分为浏览器缓存（浏览器前进与后退功能的实现）和代理缓存。</p>
+<h3 id="浏览器缓存-Caches"><a href="#浏览器缓存-Caches" class="headerlink" title="浏览器缓存 Caches"></a><strong>浏览器缓存 Caches</strong></h3><p>浏览器缓存机制，其实主要就是<strong>HTTP协议定义的缓存机制</strong>。</p>
+<p>浏览器缓存机制主要有两种策略：Expires策略与Cache-Control策略。这两种策略可以用来判断缓存的资源是否已经过期。</p>
+<h4 id="Expires策略（忽略）"><a href="#Expires策略（忽略）" class="headerlink" title="Expires策略（忽略）"></a><strong>Expires策略（忽略）</strong></h4><p><strong>Expires是Web服务器响应消息中的头字段</strong>，在响应HTTP请求时告诉浏览器在过期时间前可以直接从浏览器缓存或服务器缓存取数据，而无需再次请求。</p>
+<p>Expires响应头包含日期/时间，即在此日期之后，响应过期。</p>
+<p>示例：<code>Expires: Wed, 21 Oct 2015 07:28:00 GMT</code></p>
+<p>通过比较Expires和请求头中Date属性的值，来判断缓存是否失效。</p>
+<p>不过Expires是HTTP 1.0的东西，现在默认浏览器均默认使用HTTP 1.1，所以它的作用基本忽略。</p>
+<h4 id="Cache-Control策略（重点关注）"><a href="#Cache-Control策略（重点关注）" class="headerlink" title="Cache-Control策略（重点关注）"></a><strong>Cache-Control策略（重点关注）</strong></h4><p>Cache-Control与Expires的作用一致，都是指明当前资源的有效期，控制浏览器是否直接从客户端取数据或是重新发请求到服务端。只不过Cache-Control的选择更多，设置更细致，如果同时设置的话，其<strong>优先级高于Expires</strong>。</p>
+<p>首先我们来看一下HTTP协议头Cache-Control中容易混淆的几个部分：</p>
+<p><strong>缓存请求（Request header）指令</strong>：</p>
+<blockquote>
+<ul>
+<li>no-cache：告诉客户端，不管副本是否过期，使用资源副本前，一定要到服务端进行副本有效性校验（ETag）。</li>
+<li>no-store：告诉客户端不应该缓存这个请求的Response。</li>
+<li>max-age：指定资源的缓存时长，覆盖响应头中首次指定的缓存时长。使用请求头中的缓存时长与已缓存时长进行比较从而判断资源是否过期。</li>
+<li>min-fresh：在指定时间内，客户端缓存不会过期。</li>
+<li>max-stale：接收已过期响应，在max-stale过期时间内仍然有效。</li>
+<li>only-if-cached：只请求客户端已缓存的数据，若客户端无缓存数据则返回504。</li>
+</ul>
+</blockquote>
+<p><strong>缓存响应（Response header）指令</strong>：</p>
+<blockquote>
+<ul>
+<li>public：该响应可以被任何中间人（比如中间代理、CDN等）缓存。</li>
+<li>private：该响应只能应用于浏览器私有缓存中。</li>
+<li>no-cache：提示客户端在重新验证这个缓存之前不应该使用。</li>
+<li>no-store：指示客户端应该删除这个缓存。</li>
+<li>max-age：资源在客户端上缓存的最长时间（相对时间）。</li>
+</ul>
+</blockquote>
+<p>下面我们对上述所牵扯的一些字段再做一些补充。关于有效性校验（ETag）在下文会进行说明。</p>
+<h4 id="Cache-Control-no-cache"><a href="#Cache-Control-no-cache" class="headerlink" title="Cache-Control: no-cache"></a><strong>Cache-Control: no-cache</strong></h4><p>客户端发送请求中如果包含no cache指令，表示浏览器不会接受缓存内容。客户端的请求必须转发给服务端。</p>
+<p>服务端的响应中如果包含no cache指令，表示客户端不能对资源进行缓存。服务端也将不再对客户端请求中提出的资源有效性进行确认。</p>
+<h4 id="Cache-Control-max-age-604800"><a href="#Cache-Control-max-age-604800" class="headerlink" title="Cache-Control: max-age=604800"></a><strong>Cache-Control: max-age=604800</strong></h4><p>客户端发送请求中包含max-age指令时，如果判定资源的缓存时间比指定时间的数值小，那么客户端可以接受缓存的资源。另外，如果指定max-age=0，那么客户端必须将请求转发给服务端。</p>
+<p>服务端的响应中包含max-age指令时，客户端在指定的时间内将不对资源有效性再做确认，而max-age数值代表资源保存为缓存的最长时间。</p>
+<p>重要的一点就是max-age代表的是相对时长而不是绝对时长，如下图（图片截选自：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">HTTP 缓存</a>）：</p>
+<p><img src="使用max-age判断资源是否过期.png" alt="此处输入图片的描述"></p>
+<p>上图也展示了如何使用max-age进行资源是否过期的判断。</p>
+<h4 id="Cache-Control-min-fresh-60"><a href="#Cache-Control-min-fresh-60" class="headerlink" title="Cache-Control: min-fresh=60"></a><strong>Cache-Control: min-fresh=60</strong></h4><p>要求服务端返回还未过指定时间的缓存资源。比如，当指定min-fresh=60后，过了60s的资源都无法作为响应返回。</p>
+<h4 id="Cache-Control-max-stale-3600"><a href="#Cache-Control-max-stale-3600" class="headerlink" title="Cache-Control: max-stale=3600"></a><strong>Cache-Control: max-stale=3600</strong></h4><p>可指示缓存资源，即使过期也照常接受。如果指令未指定任何参数，那么无论经过多久，客户端都会接受响应。如果指令中指定了具体数值，那么即使资源过期，但只要处于max-stale指定时间内，仍然可以被客户端接受。</p>
+<h4 id="Cache-Control-only-if-cached"><a href="#Cache-Control-only-if-cached" class="headerlink" title="Cache-Control: only-if-cached"></a><strong>Cache-Control: only-if-cached</strong></h4><p>使用only-if-cached指令表示客户端仅在缓存了目标资源的情况下才会返回响应。该指令要求客户端不重新加载响应，也不会再次确认资源有效性。若发生请求客户端的缓存无响应，则返回状态码<strong>504</strong>（网关超时）。</p>
+<h4 id="Last-Modified与If-Modified-Since"><a href="#Last-Modified与If-Modified-Since" class="headerlink" title="Last-Modified与If-Modified-Since"></a><strong>Last-Modified与If-Modified-Since</strong></h4><p>Last-Modified：标示这个响应资源的最后修改时间。服务端在响应请求时，告诉客户端资源的最后修改时间。</p>
+<p>If-Modified-Since：使用If-Modified-Since头将Last-Modified所标识的时间发送至服务端。服务端收到请求后与被请求资源的最后修改时间进行比对。若最后修改时间较新，说明资源又被改动过，则响应整片资源内容，返回200；若最后修改时间较旧，说明资源没有修改，则响应HTTP <strong>304</strong> (无需包体，节省浏览，缓存的页面仍然有效)，告知浏览器继续使用所保存的缓存。</p>
+<h4 id="ETag与If-None-Match"><a href="#ETag与If-None-Match" class="headerlink" title="ETag与If-None-Match"></a><strong>ETag与If-None-Match</strong></h4><p>ETag：服务端响应请求时，告诉客户端当前资源在服务端的唯一标识（生成规则由服务端决定）。Apache中ETag的值默认是对文件的索引节（INode），大小（Size）和最后修改时间（MTime）进行Hash后得到的。</p>
+<p>If-None-Match：当资源过期时（使用Cache-Control标识的max-age），发现资源具有ETag声明，则再次向服务端请求时带上头If-None-Match（存储了ETag的值）。服务端收到请求后发现有头If-None-Match 则与被请求资源的相应校验串进行比对，决定返回200或304。</p>
+<h4 id="既生Last-Modified何生ETag？"><a href="#既生Last-Modified何生ETag？" class="headerlink" title="既生Last-Modified何生ETag？"></a><strong>既生Last-Modified何生ETag？</strong></h4><p>你可能会觉得使用Last-Modified已经足以让浏览器知道本地缓存的副本是否足够新，为什么还需要ETag（实体标识）呢？HTTP1.1中ETag的出现主要是为了解决几个Last-Modified比较难解决的问题：</p>
+<blockquote>
+<ul>
+<li>Last-Modified标注的最后修改只能精确到秒级。</li>
+<li>如果某些文件会被定期生成，然而内容并没有任何变化，此时Last-Modified却改变了，导致文件没法使用缓存而一直向服务端请求最新的资源。</li>
+<li>服务端没有准确获取文件修改时间。</li>
+</ul>
+</blockquote>
+<h3 id="代理缓存"><a href="#代理缓存" class="headerlink" title="代理缓存"></a><strong>代理缓存</strong></h3><p>代理缓存就是我们所说的缓存服务器，它使用相同的原理，但却有大得多的规模，代理可以用相同的方法为几百甚至几千的使用者服务。</p>
+<p>代理缓存是共享缓存的一种，不是只有一个人正在使用它们，而是同时有大量的用户，因此它们非常好的节约了带宽和网页延迟。</p>
+<p>关于代理缓存的内容，可以参考Web代理与CDN缓存，更详细的内容我就不在这里细说了。</p>
+<hr>
+<h2 id="网站缓存的工作原理"><a href="#网站缓存的工作原理" class="headerlink" title="网站缓存的工作原理"></a><strong>网站缓存的工作原理</strong></h2><p>所有的缓存都有一整套工作机制，其中一些规则来自于HTTP协议,另一些则来自管理员。</p>
+<p>通常来说，它们有一些共有的规则：</p>
+<blockquote>
+<ol>
+<li>header响应头部分可以设置是否进行缓存。</li>
+<li>如果请求是经过HTTP认证或是SSL安全链接, 缓存无法工作。</li>
+<li>如果符合以下条件，缓存机制的启用是通过页面的刷新引起：</li>
+</ol>
+<ul>
+<li>时间没有超过已设置的缓存页面过期时间。</li>
+<li>缓存是最近请求时保存的，或是缓存修改的时间也是新的。</li>
+<li>当资源过期时（使用Cache-Control标识的max-age），发现资源具有Last-Modified声明，则再次向服务端请求时带上头If-Modified-Since，表示客户端请求时间。服务端收到请求后发现有头If-Modified-Since则与被请求资源的最后修改时间进行比对。若最后修改时间较新，说明资源又被改动过，则响应整片资源内容；若最后修改时间较旧，说明资源无新修改，则响应HTTP 304，告知客户端继续使用所保存的cache。</li>
+<li>特定情况——比如与服务端断开连接缓存会直接作为请求的响应。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="如何设置网站的缓存-Caches"><a href="#如何设置网站的缓存-Caches" class="headerlink" title="如何设置网站的缓存 Caches"></a><strong>如何设置网站的缓存 Caches</strong></h2><h3 id="HTML-Meta标签Tags-VS-HTTP报头Headers"><a href="#HTML-Meta标签Tags-VS-HTTP报头Headers" class="headerlink" title="HTML Meta标签Tags VS HTTP报头Headers"></a><strong>HTML Meta标签Tags VS HTTP报头Headers</strong></h3><p>我们可以在HTML文件中的<head>部分写入tag标签来描述该文件的属性。meta tags常常可以用来标签文件是否启用缓存和设置缓存的过期时间。Meta tags很容易使用，但是却很没效率。那是因为它们只对浏览器缓存有用，而对缓存服务器无用（代理从来不会读取HTML文件）。</head></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ol>
+<li>熟悉Cache-Control策略；</li>
+<li>熟悉HTTP协议头Cache-Control中常用字段的意义；</li>
+<li>熟悉Last-Modified和ETag的区别（这两个也是进行缓存验证的方法）；</li>
+<li>掌握常用的HTTP状态码含义。</li>
+</ol>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="http://www.cnblogs.com/futan/archive/2013/04/21/cachehuancun.html" target="_blank" rel="noopener">缓存Cache详解</a>—付潭</p>
+<p><a href="https://zhuanlan.zhihu.com/p/22222550" target="_blank" rel="noopener">HTTP 通用首部字段</a>—Unitless</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ#%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%BC%93%E5%AD%98" target="_blank" rel="noopener">HTTP 缓存</a>—mozilla MDN web docs</p>
+
+          
         
       
     </div>
@@ -1930,7 +2164,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1975,22 +2209,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 00:49:42" itemprop="dateModified" datetime="2019-07-18T00:49:42+08:00">2019-07-18</time>
-              
-            
           </span>
 
           
@@ -2018,17 +2236,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-          
-             <span id="/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/" class="leancloud_visitors" data-flag-title="Java网络爬虫--PhantomJs的使用及性能优化">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -2058,7 +2265,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">6 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -2080,16 +2287,55 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       
         
           
-          先说点题外话吧，在我刚开始学习爬虫的时候，有一次一个学长给了我一个需求，让我把京东图书的相关信息抓取下来。恩，因为真的是刚开始学习爬虫，并且是用豆瓣练得手，抓取了大概500篇左右的影评吧，然后存放到了mysql中，当时觉得自己厉害的不行，于是轻松的接下了这个需求。。。
-然后信心满满的开始干活。。首先查看网页源代码。。。？？？我需要的东西源代码里面没有！！！然后去问了学长。学长给我说，这是AJAX产
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/10/Java网络爬虫-PhantomJs的使用及性能优化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>先说点题外话吧，在我刚开始学习爬虫的时候，有一次一个学长给了我一个需求，让我把京东图书的相关信息抓取下来。恩，因为真的是刚开始学习爬虫，并且是用豆瓣练得手，抓取了大概500篇左右的影评吧，然后存放到了mysql中，当时觉得自己厉害的不行，于是轻松的接下了这个需求。。。</p>
+<p>然后信心满满的开始干活。。首先查看网页源代码。。。？？？我需要的东西源代码里面没有！！！然后去问了学长。学长给我说，这是AJAX产生的数据，大概听完之后我就去查了资料。发现网上大片的资料都在阐述一个道理，对于动态页面，使用PhantomJs进行抓取，但是这样效率很低。作为一个优秀的程序员，当时看见效率很低这四个字，那在我心里是绝对不能被允许的，所以我就采用了抓包的方式，查看AJAX数据所在的URL，对于这个模拟浏览器的方法也就一直搁置到现在。</p>
+<p>但是既然知道了这个东西，哪有不去学习的道理。所以我抽出了一点时间看了一下关于Java方面使用PhantomJs的资料，现在分享给大家。</p>
+<p>对了，其实做网络爬虫，页面上90%的数据都可以使用抓包进行获取。所以我还是鼓励大家直接请求自己所需数据所在的URL。毕竟这种方式虽然方便，但是效率低下。</p>
+<hr>
+<h2 id="JS渲染与AJAX"><a href="#JS渲染与AJAX" class="headerlink" title="JS渲染与AJAX"></a><strong>JS渲染与AJAX</strong></h2><p>在学习这个东西之前我们首先得了解什么是JS渲染、什么是AJAX以及为何这两种数据我们在网页源码里面获取不到。</p>
+<p><strong>依照我的理解</strong>，JS渲染与AJAX是一种相辅相成的关系，AJAX负责异步从服务器端获取数据，拿到数据后再使用JS进行渲染，最后呈现给用户。由于在Java中，HttpClient只能请求简单的静态页面，并不能请求到页面完全加载好后由JS调用相关代码产生的异步数据，所以我们不能直接通过HttpClient获取AJAX与JS渲染产生的数据。此时按上面所说的推荐大家直接进行网络抓包拿到AJAX数据所在的URL，或者使用本文所说的PhantomJs渲染引擎。</p>
+<hr>
+<h2 id="三大JS渲染引擎的比较"><a href="#三大JS渲染引擎的比较" class="headerlink" title="三大JS渲染引擎的比较"></a><strong>三大JS渲染引擎的比较</strong></h2><p>在网上进行资料查阅的时候，我们经常会因为五花八门的答案而不知所措，这时候一是要保持一颗平静的心情，二就要考虑搜索问题的相关姿势，必要的时候还需要科学上网。</p>
+<p>先不说本文所说的JS渲染引擎，单说在Java爬虫中HTTP请求的库简直就可以用五花八门来形容，Java的原生HttpURLConnection类，HttpClient第三方库等等… …当然网络上提供了这么多方法，我们必须要进行选择，那么我们肯定想选择功能强大的，使用简单的类库。此时我们就应该在网上搜索对两个类库做相关比较的问题，来进行更好的选择，而不是随便挑一个学习就完事了，这样很有可能投入的学习成本与回报不成正比。</p>
+<p>那么相信大家在准备使用JS引擎模拟浏览器的时候，在网上看过不仅有PhantomJs，还听说过Selenium，HtmlUnit这两个具有相同功能的东西。那么我们该如何选择呢？下图截选自其他网友的博客：</p>
+<table>
+<thead>
+<tr>
+<th>HtmlUnit</th>
+<th>Selenium</th>
+<th>PhantomJs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内置Rhinojs浏览器引擎，没有哪一款浏览器使用该内核，解析速度一般，解析JS/CSS差，无浏览器界面。</td>
+<td>Seleninum + WebDriver = Selenium基于本地安装的浏览器，需打开浏览器，需要引用相应的WebDriver，正确配置webdriver的路径参数，在爬取大量js渲染页面时明显不合适。</td>
+<td>神器，短小精悍，可本地化运行，也可作为服务端运行，基于webkit内核，性能及表现良好，完美解析绝大部分页面。</td>
+</tr>
+</tbody>
+</table>
+<p>这也是我选择讲述PhantomJs的原因。</p>
+<p>网上PhantomJs和Selenium还经常成对出现，原因是Selenium封装了PhantomJs的一部分功能，Selenium又提供了Python的接口模块，在Python语言中可以很好地去使用Selenium，间接地就可以使用PhantomJs。然而，是时候抛弃Selenium+PhantomJs了，原因之一此封装的接口很久没有更新了（没人维护了），原因之二Selenium只实现了一部分PhantomJs功能，且很不完善。</p>
+<hr>
+<h2 id="PhantomJs的使用"><a href="#PhantomJs的使用" class="headerlink" title="PhantomJs的使用"></a><strong>PhantomJs的使用</strong></h2><p>我使用的Ubuntu16.04的开发环境，至于PhantomJs + Selenium的环境部署，网络上有大篇资料，我就在这里给大家引入一个链接，也不详细说明了：<a href="http://blog.csdn.net/u010843612/article/details/54702518" target="_blank" rel="noopener">ubuntu安装phantomjs</a></p>
+<p>关于PhantomJs和Selenium的介绍我也就不再详说，大家直接百度就可以了。我们直接来看一下在Java中应该怎么使用PhantomJs～</p>
+<p>如果你没有使用Maven的话，就在网上下载第三方jar包。我们所需要的Maven依赖如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.seleniumhq.selenium<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>selenium-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.53.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.github.detro.ghostdriver/phantomjsdriver --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.detro.ghostdriver<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>phantomjsdriver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接下来我们来看一下程序到底应该怎么写：</p>
+<h3 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a><strong>设置请求头</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置必要参数</span></span><br><span class="line">DesiredCapabilities dcaps = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line"><span class="comment">//ssl证书支持</span></span><br><span class="line">dcaps.setCapability(<span class="string">"acceptSslCerts"</span>, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//截屏支持</span></span><br><span class="line">dcaps.setCapability(<span class="string">"takesScreenshot"</span>, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//css搜索支持</span></span><br><span class="line">dcaps.setCapability(<span class="string">"cssSelectorsEnabled"</span>, <span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//js支持</span></span><br><span class="line">dcaps.setJavascriptEnabled(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//驱动支持（第二参数表明的是你的phantomjs引擎所在的路径，使用whereis phantomjs可以查看）</span></span><br><span class="line">dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, <span class="string">"/usr/local/bin/phantomjs"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="创建phantomjs浏览器对象"><a href="#创建phantomjs浏览器对象" class="headerlink" title="创建phantomjs浏览器对象"></a><strong>创建phantomjs浏览器对象</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建无界面浏览器对象</span></span><br><span class="line">PhantomJSDriver driver = <span class="keyword">new</span> PhantomJSDriver(dcaps);</span><br></pre></td></tr></table></figure>
+<h3 id="设置隐性等待"><a href="#设置隐性等待" class="headerlink" title="设置隐性等待"></a><strong>设置隐性等待</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置隐性等待</span></span><br><span class="line">driver.manage().timeouts().implicitlyWait(<span class="number">1</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
+<p>因为Load页面需要一段时间，如果页面还没加载完就查找元素，必然是查找不到的。最好的方式，就是设置一个默认等待时间，在查找页面元素的时候如果找不到就等待一段时间再找，直到超时。</p>
+<p>以上三点是使用PhantomJs时需要注意的地方，大家可以看一下大致的整体程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.openqa.selenium.By;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.WebDriver;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.WebElement;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.phantomjs.PhantomJSDriver;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.phantomjs.PhantomJSDriverService;</span><br><span class="line"><span class="keyword">import</span> org.openqa.selenium.remote.DesiredCapabilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by hg_yi on 17-10-11.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">phantomjs</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//设置必要参数</span></span><br><span class="line">        DesiredCapabilities dcaps = <span class="keyword">new</span> DesiredCapabilities();</span><br><span class="line">        <span class="comment">//ssl证书支持</span></span><br><span class="line">        dcaps.setCapability(<span class="string">"acceptSslCerts"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//截屏支持</span></span><br><span class="line">        dcaps.setCapability(<span class="string">"takesScreenshot"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//css搜索支持</span></span><br><span class="line">        dcaps.setCapability(<span class="string">"cssSelectorsEnabled"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//js支持</span></span><br><span class="line">        dcaps.setJavascriptEnabled(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//驱动支持（第二参数表明的是你的phantomjs引擎所在的路径）</span></span><br><span class="line">        dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,</span><br><span class="line">                <span class="string">"/usr/bin/phantomjs-2.1.1-linux-x86_64/bin/phantomjs"</span>);</span><br><span class="line">        <span class="comment">//创建无界面浏览器对象</span></span><br><span class="line">        PhantomJSDriver driver = <span class="keyword">new</span> PhantomJSDriver(dcaps);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置隐性等待（作用于全局）</span></span><br><span class="line">        driver.manage().timeouts().implicitlyWait(<span class="number">1</span>, TimeUnit.SECONDS);</span><br><span class="line">        <span class="comment">//打开页面</span></span><br><span class="line">        driver.get(<span class="string">"--------------------------------"</span>);</span><br><span class="line">        <span class="comment">//查找元素</span></span><br><span class="line">        WebElement element = driver.findElement(By.id(<span class="string">"img_valiCode"</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(element.getAttribute(<span class="string">"src"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我成功的抓取到了网页源码里面没有的数据～</p>
+<p>关于上面使用到的PhantomJSDriver类的相关API，大家直接看这篇资料即可，应该可以满足你的日常需求了：<a href="http://www.360doc.com/content/17/1011/17/48302374_694109515.shtml" target="_blank" rel="noopener">webdriver API中文版</a>（WebDriver的API同样适用于PhantomJSDriver）。</p>
+<hr>
+<h2 id="PhantomJs的性能优化"><a href="#PhantomJs的性能优化" class="headerlink" title="PhantomJs的性能优化"></a><strong>PhantomJs的性能优化</strong></h2><p>我们都知道使用PhantomJs这种无头浏览器进行网页源码的抓取是非常费时的，所以当我们决定使用这个工具并且对抓取速度还有一定要求的时候，就需要掌握对PhantomJs进行性能优化的能力。</p>
+<h3 id="设置参数"><a href="#设置参数" class="headerlink" title="设置参数"></a><strong>设置参数</strong></h3><p>Google，Baidu半天，还看了一点官方文档，还是找不到PhantomJs相关的Java调用API文档，好吧，先扔一篇Python的，以后找到这方面的内容再进行补充吧～～～</p>
+<p><a href="https://thief.one/2017/03/01/Phantomjs%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">【phantomjs系列】Selenium+Phantomjs性能优化</a></p>
+
+          
         
       
     </div>
@@ -2146,7 +2392,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2191,22 +2437,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 00:53:23" itemprop="dateModified" datetime="2019-07-18T00:53:23+08:00">2019-07-18</time>
-              
-            
           </span>
 
           
@@ -2234,17 +2464,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-          
-             <span id="/2017/08/29/Java并发-DCL双检查锁机制中的volatile/" class="leancloud_visitors" data-flag-title="Java并发--DCL双检查锁机制中的volatile">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -2296,26 +2515,40 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       
         
           
-          作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。
-注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。
+            <p>作为被面试官最喜欢问到的23种设计模式之一，我们不得不熟练掌握单例模式以及洞悉多线程环境下，单例模式所存在的非线程安全问题以及它的解决方式。</p>
+<p>注：这篇文章主要讲述多线程环境下单例模式存在的非线程安全问题，并不详细讲述单例模式。</p>
+<hr>
+<h2 id="何为单例模式"><a href="#何为单例模式" class="headerlink" title="何为单例模式"></a><strong>何为单例模式</strong></h2><p>首先我们先大概了解一下单例模式的定义：</p>
+<blockquote>
+<ul>
+<li>单例类只能有一个实例。</li>
+<li>单例类必须自己创建自己的唯一实例。</li>
+<li>单例类必须给所有其他对象提供这一实例。</li>
+</ul>
+</blockquote>
+<p>单例模式的应用非常广泛，例如在计算机系统中，线程池、缓存、日志对象、对话框、打印机、显卡的驱动程序对象常被设计成单例。这些应用都或多或少具有资源管理器的功能。每台计算机可以有若干个打印机，但只能有一个Printer Spooler，以避免两个打印作业同时输出到打印机中。选择单例模式就是为了避免不一致状态。</p>
+<p>单例模式的实现有三种方式：饿汉式（天生线程安全），懒汉式，登记式（可忽略）。</p>
+<p>对于上面单例模式的实现方式我在这里不做过多介绍，我们着重来看一下懒汉式在多线程环境下出现的问题以及它的解决策略。</p>
+<hr>
+<h2 id="设计线程安全的单例模式"><a href="#设计线程安全的单例模式" class="headerlink" title="设计线程安全的单例模式"></a><strong>设计线程安全的单例模式</strong></h2><h3 id="DCL双检查锁机制"><a href="#DCL双检查锁机制" class="headerlink" title="DCL双检查锁机制"></a><strong>DCL双检查锁机制</strong></h3><p>其实我觉得能看这篇文章的伙伴们对设计线程安全的单例模式都是有一定的了解，所以对于解决非线程安全的单例模式的3种方式也应该有些了解。我们再来总结一下这三种方式：声明synchronized关键字（同步代码块），DCL双检查锁机制，静态内置类的实现。</p>
+<p>关于第一种方式，我觉得大家应该没有什么疑惑，所以我在这里也就不再讲述了，咱们来看一下我在学习双检查锁机制过程中遇到的问题，是否和你一样。</p>
+<p>这是单例类，注意<code>private volatile static MyObject myObject</code>这句话。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> MyObject myObject;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyObject</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MyObject <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (myObject != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 模拟在创建对象之前做的一些准备工作</span></span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (MyObject.class) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (myObject == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        myObject = <span class="keyword">new</span> MyObject();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> myObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>线程类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        out.println(MyObject.getInstance().hashCode());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Run</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread thread1 = <span class="keyword">new</span> MyThread();</span><br><span class="line">        MyThread thread2 = <span class="keyword">new</span> MyThread();</span><br><span class="line">        MyThread thread3 = <span class="keyword">new</span> MyThread();</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">        thread3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">773715418</span><br><span class="line">773715418</span><br><span class="line">773715418</span><br></pre></td></tr></table></figure>
+<p>我们可以看到，使用了Double-Check，使得在多线程环境下，也只能取得类的唯一实例。但是不知道你有没有和我一样的疑惑，看我上面着重提出来的那句话，我们为什么在声明MyObject对象的时候还要给它加上volatile关键字？我们在Double-Check下已经加入了synchronized关键字，既然synchronized已经起到了多线程下原子性、有序性、可见性的作用，为什么还要加volatile呢？要解决这个问题，我们需要深入了解volatile关键字的特性，它不仅可以使变量在多个线程之间可见，而且它还具有禁止JVM进行指令重排序的功能，具体请参见<a href="http://blog.csdn.net/championhengyi/article/details/77151002" target="_blank" rel="noopener">JVM–从volatile深入理解Java内存模型</a>这篇文章。</p>
+<p>首先，我们需要明白的是：创建一个对象可以分解为如下的3行伪代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">memory=allocate();      <span class="comment">// 1.分配对象的内存空间</span></span><br><span class="line">ctorInstance(memory);   <span class="comment">// 2.初始化对象</span></span><br><span class="line">instance=memory;        <span class="comment">// 3.设置instance指向刚分配的内存地址。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面3行代码中的2和3之间，可能会被重排序导致先3后2</span></span><br></pre></td></tr></table></figure>
+<p>也就是说，<code>myObject = new MyObject()</code>这句话并不是一个原子性操作，在多线程环境下有可能出现非线程安全的情况。</p>
+<p>现在我们先假设一下，如果此时不设置volatile关键字会发生什么。</p>
+<p>假设两个线程A、B，都是第一次调用该单例方法，线程A先执行<code>myObject = new MyObject()</code>，该构造方法是一个非原子操作，编译后生成多条字节码指令，由于JAVA的指令重排序，可能会先执行myObject的赋值操作，该操作实际只是在内存中开辟一片存储对象的区域后直接返回内存的引用，之后myObject便不为空了，但是实际的初始化操作却还没有执行，如果就在此时线程B进入，就会看到一个不为空的但是不完整（没有完成初始化）的MyObject对象，所以需要加入volatile关键字，禁止指令重排序优化，从而安全的实现单例。</p>
+<p>因此我们以后应该记得，在使用Double-Check的时候，那个volatile至关重要。并不是可要可不要的。</p>
 
-何为单例模式首先我们先大概了解一下单例模式的定义：
-
-
-单例类只能有一个实例。
-单例类必须自己创建自己的唯一实例。
-单例类必须给所有其他对象提供这一实例。
-
-
-单例模式的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/29/Java并发-DCL双检查锁机制中的volatile/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -2372,7 +2605,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhengyi">
       <meta itemprop="description" content="忍耐力较诸脑力，尤胜一筹。">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2417,22 +2650,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 01:02:26" itemprop="dateModified" datetime="2019-07-18T01:02:26+08:00">2019-07-18</time>
-              
-            
           </span>
 
           
@@ -2460,17 +2677,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-          
-             <span id="/2017/08/16/JVM-从volatile深入理解Java内存模型/" class="leancloud_visitors" data-flag-title="JVM--从volatile深入理解Java内存模型">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -2500,7 +2706,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">8 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -2522,17 +2728,110 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       
         
           
-          在上一篇博客JVM–解析Java内存区域及数据的内存分配与线程安全之间的一些联系中也说到了，想要理解volatile关键字，我们需要掌握Java虚拟机运行时数据区的相关知识，但是这还不够，只有理解了Java的内存模型，我们才能开始讲述volatile，而Java虚拟机运行时数据区是掌握Java内存模型的基础，所以如果你还没有看上一篇博客，请点击上方链接～～～
+            <p>在上一篇博客<a href="http://blog.csdn.net/championhengyi/article/details/76857401" target="_blank" rel="noopener">JVM–解析Java内存区域及数据的内存分配与线程安全之间的一些联系</a>中也说到了，想要理解volatile关键字，我们需要掌握Java虚拟机运行时数据区的相关知识，但是这还不够，只有理解了Java的内存模型，我们才能开始讲述volatile，而Java虚拟机运行时数据区是掌握Java内存模型的基础，所以如果你还没有看上一篇博客，请点击上方链接～～～</p>
+<hr>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>既然本节讲述volatile关键字，那么就先抛个砖引个玉（以下代码在64位jdk1.8下进行测试，不同jdk版本运行结果有可能不一样）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isRunning = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRunning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isRunning;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRunning</span><span class="params">(<span class="keyword">boolean</span> isRunning)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.isRunning = isRunning;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        out.println(<span class="string">"进入run了"</span>);</span><br><span class="line">        <span class="keyword">while</span> (isRunning) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out.println(<span class="string">"线程被停止~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Run</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunThread Runthread = <span class="keyword">new</span> RunThread();</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(Runthread);</span><br><span class="line"></span><br><span class="line">        thread.start();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            Runthread.setRunning(<span class="keyword">false</span>);</span><br><span class="line">            out.println(<span class="string">"已经赋值为false"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大家认为上面的代码能够停下来吗？答案是不行。</p>
+<p>我先给大家说明几点原因吧，具体的细节我接下来会慢慢讲述。首先来解释一下为什么我会说在64位jdk1.8下面测试有效，而其他版本运行结果会有所不同。</p>
+<p>这里涉及到一点JVM的知识，但是并不难懂，你只要记住就行了。出现这样结果的直接原因，并不是根本原因，是在于我们使用64位jdk1.8的时候只能运行在Server模式下。你说什么是Server模式？别急，看下面：</p>
+<blockquote>
+<p>JVM Server模式与client模式启动，最主要的差别在于：-Server模式启动时，速度较慢，但是一旦运行起来后，性能将会有很大的提升。原因是：当虚拟机运行在-client模式的时候，使用的是一个代号为C1的轻量级编译器，而-server模式启动的虚拟机采用相对重量级，代号为C2的编译器。 C2比C1编译器编译的相对彻底，服务起来之后，性能更高。<br><strong>然后如果是64位的jdk 1.8，只能运行在Server模式下。</strong></p>
+</blockquote>
+<p>这种模式为什么会造成程序没办法停止呢？一个线程明明对共享变量作出了修改，其它线程却没办法看到，这不是有悖于上一节所说的吗。</p>
+<p>在这里先浅显的说明一下Server模式到底会对线程造成什么样的影响。当程序被启动时，变量<code>private boolean isRunning</code>存在于<strong>共享堆与线程的私有栈</strong>之中。并且当JVM被设置为-server模式时，为了线程的运行效率，线程会一直在私有堆栈中取得isRunning的值是true。而代码<code>Runthread.setRunning(false)</code>虽然被执行，更新的却是共享变量也就是公共堆里面的isRunning，因此一直都是死循环状态，线程无法停止。</p>
+<p>看完上面这句话，也许你已经大概知道了为什么线程没有停止，但是等等，好像有什么不对，为什么在程序启动时，共享变量<code>private boolean isRunning</code>会同时存在于共享堆与线程的私有栈之中呢？好了，要明白这个问题，就是这篇博客将要讲述的重点，我们也会在搞清楚这个知识点之后，再回头看volatile。</p>
+<hr>
+<h2 id="什么是Java内存模型"><a href="#什么是Java内存模型" class="headerlink" title="什么是Java内存模型"></a><strong>什么是Java内存模型</strong></h2><p>既然我们要讲Java的内存模型，那么首先肯定要知道它是什么。</p>
+<p>首先来说一说“内存模型”这个抽象的概念。</p>
+<p>我们知道如今计算机处理的任务都不可能是单靠处理器就能完成的，它至少要完成与内存的交互，如读取数据，存储运算结果等。但是存储设备与处理器的运算速度都是几个数量级的差距，所以当计算机在进行I/O操作的时候，处理器势必会等待这样缓慢的内存读写。于是聪明的人们就在计算机中加入了一层读写速度尽可能接近处理器的高速缓存。它的运行机制以及功能我就不进行描述了，直接说它所带来的问题，虽然它很好的解决了处理器与存储的速度矛盾，但是它也为计算机系统带来更高的复杂度以及一个新问题：<strong>缓存一致性</strong>。</p>
+<p><strong>缓存一致性</strong>：</p>
+<blockquote>
+<p>在多处理器系统中，每个处理器都有自己的高速缓存，而它们又共享同一主内存，当多个处理器的运算任务都涉及同一块主内存区域时，而它们各自的缓存数据又不一致，那么同步回主内存时以谁的缓存数据为主呢？</p>
+</blockquote>
+<p>为了解决这个问题，需要各个处理器访问缓存时都遵循一些协议，在读写时要根据协议来进行操作，这些协议的种类很多，我就不举例子了。而内存模型就可以理解为在特定的操作协议下，对特定的内存或高速缓存进行读写访问的过程抽象。</p>
+<p><img src="处理器，高速缓存，主内存之间的交互关系.jpg" alt="这里写图片描述"></p>
+<p>上图说明了处理器，高速缓存，主内存之间的交互关系。</p>
+<p>Java虚拟机规范中试图定义一种<strong>Java内存模型</strong>（JMM）可以用来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存存储效果。</p>
+<hr>
+<h2 id="主内存与工作内存"><a href="#主内存与工作内存" class="headerlink" title="主内存与工作内存"></a><strong>主内存与工作内存</strong></h2><p>我们已经了解了Java的内存模型是什么以及它有什么用，现在就来谈一谈主内存与工作内存，这也是理解volatile关键字的关键所在。</p>
+<p>Java内存模型规定了所有变量都存储在主内存中，注意，这里说的变量与平常Java编程中说的变量有所区别，它包括了实例字段，静态字段和构成数组对象的元素，它不包括局部变量与方法参数，因为后者是线程私有的。也就是说，我们可以这样理解，除过线程私有的局部变量和方法参数之外，所有的变量都存在于主内存中。（本篇博客中的所有变量都特指这种共享变量）</p>
+<p>忘了说一点，我们现在讨论的主内存，只是虚拟机内存的一部分，而虚拟机内存也只是物理内存的一部分。</p>
+<p>上面说了主内存，那么再来谈一谈工作内存，上面讲的主内存可以和计算机中的物理内存进行类比，而工作内存可与高速缓存类比。工作内存是 JMM 的一个抽象概念，并不真实存在。它涵盖了缓存，写缓冲区，寄存器以及其它的硬件和编译器优化。</p>
+<p> 关于上面说到的缓存和缓冲区的区别，我特地百度了一下，发现了一名知乎用户的回答<a href="https://www.zhihu.com/question/26190832/answer/146393920" target="_blank" rel="noopener">Cache 和 Buffer 都是缓存，主要区别是什么？</a></p>
+<p>每个线程都有一个自己的工作内存，该内存空间保存了被该线程使用到的变量的主内存副本，线程对变量的所有操作（读取，赋值等）都必须在工作内存中进行，而不直接读写主内存中的变量。看了这段话也许你会问，那假如线程访问一个10MB的对象，难道也会把这10MB的内存复制一份拷贝出来？这当然是不可能的，它有可能会将对象的引用，对象中某个线程访问到的字段拷贝出来，但绝不会将整个对象拷贝一次。</p>
+<p><img src="线程，工作内存，主内存之间的交互关系.jpg" alt="这里写图片描述"></p>
+<p>上图是线程，工作内存，主内存三者之间的交互关系。</p>
+<p>我觉得你现在一定有一个疑惑，那就是JMM和Java虚拟机运行时的数据区到底有什么区别。</p>
+<p>引用一段《深入理解Java虚拟机》上的解释：</p>
+<blockquote>
+<p>这里所讲的主内存，工作内存与Java内存区域中的Java堆，栈，方法区等并不是同一个层次的划分，这两者基本上是没有关系的。如果两者一定要勉强对应起来，那么变量，主内存，工作内存依次对应Java堆中对象实例数据部分，工作内存对应虚拟机栈中的部分区域。从更低层次上来说，主内存直接对应于物理硬件的内存，工作内存优先存储于寄存器以及高速缓存。</p>
+</blockquote>
+<p>结合上面的这些官方定义，我们大致总结起来其实就一句话，对于Java内存模型来说，只不过就是它在每个线程访问共享变量的时候，为了提高处理器处理数据的效率，增加了一个并不真实存在的，概念上的工作内存，每个线程对共享变量的访问相当于都是先将主内存中的变量拷贝到自己的工作内存中，然后对自己工作内存中存在的变量进行读写，操作完之后将它同步回主内存罢了。</p>
+<hr>
+<h2 id="内存交互操作"><a href="#内存交互操作" class="headerlink" title="内存交互操作"></a><strong>内存交互操作</strong></h2><p>既然上面讲到了主内存和工作内存，现在我们再来详细讨论一下一个变量是怎么从主内存拷贝到工作内存的，而工作内存的变量又是怎么同步回主内存的呢？</p>
+<p>我们先来了解一下JMM定义的8种原子性操作，看一下图解：</p>
+<p><img src="工作内存和主内存之间的交互.jpg" alt="这里写图片描述"></p>
+<p>上图说明了工作内存和主内存之间交互的步骤，还有图上缺少的两种原子性操作分别是<code>lock</code>锁定，<code>unlock</code>解锁。由于这两个操作和内存之间的交互并没有关系，所以分开来说。</p>
+<p>我们先来说一下图中的每个操作都是干嘛的：</p>
+<blockquote>
+<ul>
+<li>read（读取）：作用于主内存变量，把变量的值从主内存传输到线程的工作内存</li>
+<li>load（载入）：作用于主内存变量，把read操作从主内存中得到的变量值放入工作内存的变量副本中</li>
+<li>use（使用）：作用于工作内存变量</li>
+<li>assign（赋值）：作用于工作内存变量</li>
+<li>store（存储）：作用于工作内存变量，将工作内存中一个变量的值传送回主内存</li>
+<li>write（写入）：作用于主内存变量，将工作内存中得到的变量值放入主内存的变量中</li>
+</ul>
+</blockquote>
+<p>在《深入理解Java虚拟机》一书中，对于use和assign的描述涉及到了执行引擎，所以我在上面并没有详细的说明。另外我发现《Java多线程编程核心技术》这本书也对上面的原子性操作做了一个简明的说明，所以再来看看它是怎么说的：</p>
+<blockquote>
+<ul>
+<li>read与load：从主存复制变量到当前线程工作内存</li>
+<li>use与assign：执行代码，改变共享变量值</li>
+<li>store与write：用工作内存数据刷新主存对应变量的值</li>
+</ul>
+</blockquote>
+<p>另外关于上面所说的lock与unlock，它实际就是我们平常在代码中写的同步块<code>synchronized</code>，说点题外话，同步块既保证多线程安全时所需要的原子性，而且也保证了可见性与有序性，所以我们经常可以看到程序员在滥用<code>synchronized</code>，虽然它的确比较“万能”，但是越“万能”的并发控制，通常也会伴随越大的性能影响。扯远了。。。</p>
+<hr>
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a><strong>volatile</strong></h2><p>现在我们对Java内存模型已经有了一定的认识，这个时候我们再来谈谈volatile这个轻量级同步机制。</p>
+<p>首先来看volatile的作用：</p>
+<p><strong>强制从公共堆中取得变量的值，而不是从线程的私有堆栈中取得变量的值。</strong>如果我们需要用一张图来描述这个过程的话，就是这样：</p>
+<p><img src="volatile轻量级同步机制.png" alt="这里写图片描述"></p>
+<p>从图中可以看到，volatile保证了变量的新值能立即同步到主内存，以及每次使用之前立即从主内存刷新。因此可以说volatile保证了多线程操作时变量的可见性，而普通变量不能保证这一点。</p>
+<p>说了这么多，现在的你应该可以明白引言中的代码为何不会停止，并且就算以后碰到上面那种格式的代码也应该知道错误出在哪然后加以改正。</p>
+<hr>
+<h2 id="指令重排序与内存屏障"><a href="#指令重排序与内存屏障" class="headerlink" title="指令重排序与内存屏障"></a><strong>指令重排序与内存屏障</strong></h2><p>解决了上面的问题，我们并不能结束，因为Java的内存模型还有很多东西都没有提到，当然，博主在学习的过程中看到有人说过光是JMM的知识就可以写一本书，所以在这里也只是给大家提一下，并不能完全剖析JMM，其中有错误的地方还是欢迎大家指出。而且，volatile也并没有讲述完毕，现在只是将上面那个代码的问题解决了而已。</p>
+<p>如果你还想要探究volatile的其它特性，这些东西你不得不去掌握。</p>
+<p>初看这两个词语，完全不知道它说的是什么意思。这算是Java比较底层的相关知识了，没听过也很正常，但也不用怕，让我们来一点点攻克这两个看起来很不友好的东西。</p>
+<h3 id="指令重排序"><a href="#指令重排序" class="headerlink" title="指令重排序"></a><strong>指令重排序</strong></h3><blockquote>
+<p>指CPU采用了允许将多条指令不按程序规定的顺序分开发送给各相应电路单元处理。但并不是说指令任意重排，CPU需要能正确处理指令依赖情况以保证程序能得出正确的执行结果。</p>
+</blockquote>
+<p>什么叫指令依赖，举个例子：</p>
+<blockquote>
+<p>假设指令1将地址A中的值加10，指令2将地址A中的值乘以2,指令3将地址B中的值减去3，这时指令1和指令2是有依赖的，它们之间不能重排，明显(A+10)<em>2与A</em>2+10不等，但是指令3可以重排到指令1，2之前或中间。</p>
+</blockquote>
+<p>这就是指令重排序，设计它的目的就是为了提高程序并发能力，具体参见<a href="http://blog.csdn.net/pzxwhc/article/details/48984209" target="_blank" rel="noopener">指令重排序。</a>这篇博客详细但很浅显的讲述了指令重排序，我也就不过多叙述了。</p>
+<h3 id="内存屏障"><a href="#内存屏障" class="headerlink" title="内存屏障"></a><strong>内存屏障</strong></h3><p>这个东西还是给大家放一个比较可靠的链接吧，由于博主水平有限，对于自己不太清楚的东西也不敢给大家胡乱总结，所以还是将我学习内存屏障中读起来不错的博客链接分享给大家：<a href="http://ifeve.com/memory-barriers-or-fences/" target="_blank" rel="noopener">内存屏障</a></p>
+<p>看完这篇博客我的感觉就是内存屏障其实还是一种用于保证变量可见性的技术手段，它通过store屏障和load屏障保证更改后的数据能及时的刷进缓冲区，保证各个线程可以从缓冲区中读到最新的数据。</p>
+<p>通过对volatile进行反汇编，我们可以看到volatile实际上就使用到了内存屏障技术来保证其变量的修改对其他CPU立即可见。</p>
+<hr>
+<h2 id="happends-before（先行发生）原则"><a href="#happends-before（先行发生）原则" class="headerlink" title="happends-before（先行发生）原则"></a><strong>happends-before（先行发生）原则</strong></h2><p>按照上面的惯例，这些东西只要分开来写都可以单独写成一篇文章，加上我自觉目前不会比别人写的更通俗易懂并且保证博客中不出现错误，所以我还是扔一篇我学习之后觉得还不错的博文：<a href="http://ifeve.com/easy-happens-before/" target="_blank" rel="noopener">俗解happends-before</a></p>
+<p>在《深入理解Java虚拟机》这本书中，感觉也没太说清楚这个原则到底是怎么一回事，它还列举了JMM中存在的8条“天然的”先行发生关系，并且说如果两个操作之间的关系无法从这8条规则推导出来，那么它们就没有顺序性保障，虚拟机可以对它们随意进行重排序。说实话对于那八条规则目前来说我懒得去记，因为我觉得就算我死记下来那些也不是我的东西，如果大家有兴趣的话，可以下去找找看那八条规则，他说可以通过这8条规则一揽子解决并发环境下两个操作之间是否可能存在冲突的所有问题，我看了一道例题，觉得过于抽象并且死板，我觉得是我目前还没有领会到精髓吧。</p>
+<hr>
+<h2 id="再谈volatile"><a href="#再谈volatile" class="headerlink" title="再谈volatile"></a><strong>再谈volatile</strong></h2><p>关于volatile，还有一些细节值得我们去考虑，比如volatile只能保证数据的可见性，不能保证原子性；而synchronized可以保证原子性，也可以间接保证可见性，因为它会将工作内存和主内存中的数据做同步。</p>
+<p>关于volatile不保证原子性，最明显的例子就是i++这样的表达式了。我们在来说一下i++的操作步骤：</p>
+<blockquote>
+<ol>
+<li>从内存中读取i的值；</li>
+<li>计算i的值；</li>
+<li>将i的值写到内存中。</li>
+</ol>
+</blockquote>
+<p>我们可以看到，在多线程环境下，对于i++这种操作，即使对i使用volatile，也只是表示在read与load之后加载内存中的最新值，但如果主内存中的i还在发生修改，然而线程工作内存中的值已经加载，不会产生对应的变化，也就是说线程的工作内存和主内存中的变量不同步，所以计算出来的结果还是会和预期不一样，因此volatile无法保证操作的原子性。</p>
 
-引言既然本节讲述volatile关键
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/16/JVM-从volatile深入理解Java内存模型/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -2595,8 +2894,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
 
   <aside id="sidebar" class="sidebar">
     
-      <div id="sidebar-dimmer"></div>
-    
     <div class="sidebar-inner">
 
       
@@ -2606,10 +2903,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="dhengyi" />
             
               <p class="site-author-name" itemprop="name">dhengyi</p>
               <p class="site-description motion-element" itemprop="description">忍耐力较诸脑力，尤胜一筹。</p>
@@ -2792,79 +3085,11 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/dhengyi" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:spider_hgyi@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.instagram.com/dhengyi" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weixin.sogou.com/weixin?query=%E8%A5%BF%E9%82%AElinux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84" target="_blank" title="WeChat"><i class="fa fa-fw fa-wechat"></i>WeChat</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.zhihu.com/people/spider_hgyi" target="_blank" title="Zhihu"><i class="fa fa-fw fa-star"></i>Zhihu</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weibo.com/5256701201/profile" target="_blank" title="weibo"><i class="fa fa-fw fa-weibo"></i>weibo</a>
-                  
-                </span>
-              
-            </div>
-          
 
           
           
 
           
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                推荐阅读
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://blog.csdn.net/championhengyi/" title="H.Y's CSDN" target="_blank">H.Y's CSDN</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.moerats.com/" title="Rat's Blog" target="_blank">Rat's Blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://duxm.xyz/" title="Duxm's Blog" target="_blank">Duxm's Blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://lvzj.xyz/" title="LZJ's BLOG" target="_blank">LZJ's BLOG</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://evil-crow.github.io/" title="Crow" target="_blank">Crow</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://saili.science/" title="Alex LEE's Blog" target="_blank">Alex LEE's Blog</a>
-                  </li>
-                
-              </ul>
-            </div>
           
 
           
@@ -2901,8 +3126,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">站点总字数：</span>
-    
     <span title="站点总字数">273k</span>
   
 
@@ -2912,9 +3135,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
       <i class="fa fa-coffee"></i>
     </span>
     
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    
-    <span title="站点阅读时长">5:31</span>
+    <span title="站点阅读时长">4:08</span>
   
 </div>
 
@@ -2929,7 +3150,7 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
 
 
 
@@ -2950,8 +3171,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -2981,6 +3200,8 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
 
 
 
+  
+
 
 
 
@@ -3006,6 +3227,11 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -3059,326 +3285,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
 
   
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
 
 
 
@@ -3386,150 +3292,10 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("giWkGbpgSz0DYMKr9TH9AF8f-gzGzoHsz", "GAHXyne6hz0YvbAhrBMklxNQ");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            
-            counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
-            
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-  
-  
-
-  
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-
-  
-
 
   
   
@@ -3543,75 +3309,6 @@ Java虚拟机的体系结构前面我们探讨了Class文件的结构，如果�
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
 
 </body>
 </html>
