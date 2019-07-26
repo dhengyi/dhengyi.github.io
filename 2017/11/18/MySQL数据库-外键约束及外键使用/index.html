@@ -791,6 +791,11 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+    </div>
+
+  
 
 
 
@@ -1298,6 +1303,25 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '6032b1eb2233fcdf0a08',
+          clientSecret: '94874670f0ccf8998fc8765b1a4491240ff3218a',
+          repo: 'dhengyi.github.io',
+          owner: 'dhengyi',
+          admin: ['dhengyi'],
+          id:'_20171118202439',
+          labels: '',
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 
