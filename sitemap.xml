@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.dhengyi.name/music/index.html</loc>
+    
+    <lastmod>2019-08-01T15:24:12.634Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.dhengyi.name/2019/07/31/Geek-%E4%BD%BF%E7%94%A8Hexo%E4%B8%8B%E7%9A%84NexT-Mist%E4%B8%BB%E9%A2%98%E8%BF%9B%E8%A1%8C%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2019-07-31T08:19:43.815Z</lastmod>
@@ -327,13 +334,6 @@
     <loc>https://blog.dhengyi.name/2018/10/03/Java%E5%B9%B6%E5%8F%91-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2019-07-13T15:02:03.827Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.dhengyi.name/music/index.html</loc>
-    
-    <lastmod>2018-12-14T11:36:51.117Z</lastmod>
     
   </url>
   
