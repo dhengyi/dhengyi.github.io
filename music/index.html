@@ -440,7 +440,7 @@
           <blockquote class="blockquote-center">快乐的时候，你听的是音乐。难过的时候，你开始懂得了歌词。<br><br><strong>网易云主页：</strong><a href="https://music.163.com/#/user/home?id=98967136" target="_blank" rel="noopener"><strong>dhengyi</strong></a></blockquote>
 
 
-    <div id="aplayer-KtqSHVSv" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="117523093" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
+    <div id="aplayer-HzaGpExr" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="117523093" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
         
       </div>
       
@@ -1276,7 +1276,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("giWkGbpgSz0DYMKr9TH9AF8f-gzGzoHsz", "GAHXyne6hz0YvbAhrBMklxNQ");</script>
+  <script>AV.initialize("4Oj0MO1UaJlfFd75HxFw3RAY-gzGzoHsz", "6bqLi1sVe4EavuCEci0hkQV3");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -1333,11 +1333,11 @@
             counter.fetchWhenSave(true);
             counter.increment("time");
             
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.get('time'));
+            
             counter.save(null, {
               success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
                 
               },
               error: function(counter, error) {
