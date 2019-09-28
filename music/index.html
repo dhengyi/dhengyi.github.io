@@ -440,7 +440,7 @@
           <blockquote class="blockquote-center">快乐的时候，你听的是音乐。难过的时候，你开始懂得了歌词。<br><br><strong>网易云主页：</strong><a href="https://music.163.com/#/user/home?id=98967136" target="_blank" rel="noopener"><strong>dhengyi</strong></a></blockquote>
 
 
-    <div id="aplayer-FfbnuMta" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="117523093" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
+    <div id="aplayer-eYCjwDSF" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="117523093" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
         
       </div>
       
@@ -1346,9 +1346,25 @@
             });
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
             
           }
         },
