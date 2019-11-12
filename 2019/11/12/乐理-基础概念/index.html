@@ -578,7 +578,7 @@
 <hr>
 <h2 id="音乐分享"><a href="#音乐分享" class="headerlink" title="音乐分享"></a><strong>音乐分享</strong></h2><p>最后，每篇与音乐相关的博客，都在这里贴一首歌曲分享给大家：</p>
 
-    <div id="aplayer-AeZZjPoa" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="004NXwuk36ixAW" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
+    <div id="aplayer-gioaoVLm" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="004NXwuk36ixAW" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#000000" data-order="random"></div>
 <hr>
 <h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a><strong>参考阅读</strong></h2><p><a href="https://www.cnblogs.com/devymex/p/3385179.html" target="_blank" rel="noopener">写给理工科人看的乐理（一）声学基础</a></p>
 
@@ -683,12 +683,6 @@
 
 
     <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b1b84e5da5a0290" async = "async" ></script>
-</div>
-
       
     </div>
   </div>
@@ -1640,9 +1634,25 @@
             });
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
             
           }
         },
